@@ -25,13 +25,13 @@ To view the website locally, follow these steps:
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/suparious/resume-website.git
+   git clone https://github.com/suparious/suparious.github.io.git
    ```
 
 2. Navigate to the project folder:
 
    ```
-   cd resume-website
+   cd suparious.github.io.git
    ```
 
 3. Open the `index.html` file in your preferred web browser.
