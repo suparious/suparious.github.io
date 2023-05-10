@@ -1,0 +1,134 @@
+/* Reset and basic styles */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #333;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+header {
+  background-color: #3a3a3a;
+  padding: 1rem 0;
+  text-align: center;
+}
+.header-title {
+  margin: 0;
+  color: #f7f7f7;
+}
+.header-subtitle {
+  margin: 0;
+  color: #d1d1d1;
+  font-weight: 300;
+}
+
+/* Navigation */
+nav {
+  margin-top: 1rem;
+}
+.nav-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.nav-list li {
+  margin: 0 0.5rem;
+}
+.nav-list a {
+  color: #d1d1d1;
+  text-decoration: none;
+}
+.nav-list a:hover {
+  color: #f7f7f7;
+}
+
+/* Main sections */
+section {
+  margin: 2rem 0;
+}
+h2 {
+  border-bottom: 2px solid #3a3a3a;
+  padding-bottom: 0.5rem;
+}
+
+/* About section */
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Skills section */
+.skill-list {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+.skill-list li {
+  background-color: #3a3a3a;
+  color: #f7f7f7;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  border-radius: 3px;
+}
+
+/* Featured projects */
+.project-list {
+  list-style-type: none;
+  padding: 0;
+}
+.project-list li {
+  margin-bottom: 1rem;
+}
+.project-list a {
+  color: #3a3a3a;
+  text-decoration: none;
+}
+.project-list a:hover {
+  color: #1e90ff;
+}
+
+/* Contact section */
+.social-media-list {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.social-media-list li {
+  margin: 0 0.5rem;
+}
+.social-media-list a {
+  color: #3a3a3a;
+  text-decoration: none;
+}
+.social-media-list a:hover {
+  color: #1e90ff;
+}
+
+/* Footer */
+footer {
+  background-color: #f7f7f7;
+  text-align: center;
+  padding: 1rem;
+}
