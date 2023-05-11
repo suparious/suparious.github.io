@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Starred Repositories</title>
+    </head>
+    <body>
+        <h1>My Starred Repositories</h1>
+        <ul id="repo-list"></ul>
+
+        <script>
+            const GITHUB_USERNAME = 'suparious'; // replace 'suparious' with your GitHub username
+
+            // Fetch starred repositories
+            async function fetchStarredRepos() {
+                const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/starred?per_page=100`);
+                const data = await response.json();
+
+                // Sort repositories by the number of stargazers
+                data.sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+                return data;
+            }
+
+            // Display repositories
+            async function displayRepos() {
+                const repos = await fetchStarredRepos();
+
+                const repoList = document.getElementById('repo-list');
+
+                for (const repo of repos) {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+
+                    a.href = repo.html_url;
+                    a.textContent = `${repo.full_name} - Stars: ${repo.stargazers_count}`;
+
+                    li.appendChild(a);
+                    repoList.appendChild(li);
+                }
+            }
+
+            displayRepos();
+        </script>
+    </body>
+</html>
