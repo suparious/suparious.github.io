@@ -9,14 +9,16 @@ body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
   margin: 0;
+  padding: 20px; /* Adds padding around the entire content of the body */
   color: #333;
+  background: #f4f4f4; /* Optional: Adds a background color to the body */
 }
 
 /* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 2rem; /* Ensure there is padding on the sides */
 }
 
 /* Header */
@@ -59,6 +61,7 @@ nav {
 /* Main sections */
 section {
   margin: 2rem 0;
+  padding: 20px; /* Adds padding to each section */
 }
 h2 {
   border-bottom: 2px solid #3a3a3a;
@@ -131,4 +134,5 @@ footer {
   background-color: #f7f7f7;
   text-align: center;
   padding: 1rem;
+  margin-top: 20px; /* Adds space between the main content and footer */
 }
