@@ -1,138 +1,360 @@
-/* Reset and basic styles */
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 20px; /* Adds padding around the entire content of the body */
-  color: #333;
-  background: #f4f4f4; /* Optional: Adds a background color to the body */
+/* Global Styles */
+:root {
+  --primary-color: #1e90ff;
+  --secondary-color: #3a3a3a;
+  --background-color: #f7f7f7;
+  --text-color: #333;
 }
 
-/* Container */
-.container {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* Header and Navigation */
+header {
+  background-color: var(--secondary-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+}
+
+/* Main Content */
+main {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem; /* Ensure there is padding on the sides */
+  padding: 2rem;
 }
 
-/* Header */
-header {
-  background-color: #3a3a3a;
-  padding: 1rem 0;
-  text-align: center;
-}
-.header-title {
-  margin: 0;
-  color: #f7f7f7;
-}
-.header-subtitle {
-  margin: 0;
-  color: #d1d1d1;
-  font-weight: 300;
-}
-
-/* Navigation */
-nav {
-  margin-top: 1rem;
-}
-.nav-list {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-.nav-list li {
-  margin: 0 0.5rem;
-}
-.nav-list a {
-  color: #d1d1d1;
-  text-decoration: none;
-}
-.nav-list a:hover {
-  color: #f7f7f7;
-}
-
-/* Main sections */
 section {
-  margin: 2rem 0;
-  padding: 20px; /* Adds padding to each section */
-}
-h2 {
-  border-bottom: 2px solid #3a3a3a;
-  padding-bottom: 0.5rem;
+  margin-bottom: 4rem;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* About section */
-.profile-image {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 1rem auto;
-}
-
-/* Skills section */
-.skill-list {
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
-.skill-list li {
-  background-color: #3a3a3a;
-  color: #f7f7f7;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border-radius: 3px;
-}
-
-/* Featured projects */
-.project-list {
-  list-style-type: none;
-  padding: 0;
-}
-.project-list li {
+h1, h2, h3 {
   margin-bottom: 1rem;
 }
-.project-list a {
-  color: #3a3a3a;
-  text-decoration: none;
-}
-.project-list a:hover {
-  color: #1e90ff;
+
+/* About Section */
+#about {
+  text-align: center;
 }
 
-/* Contact section */
-.social-media-list {
-  list-style-type: none;
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 2rem auto;
+}
+
+/* Skills Section */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.skill-item {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.skill-item i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.skill-bar {
+  height: 10px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+
+/* Experience Section */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: var(--secondary-color);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: var(--background-color);
+  border: 4px solid var(--primary-color);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+}
+
+.timeline-date {
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+/* Projects Section */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-item {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-item a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Contact Section */
+.contact-grid {
   display: flex;
   justify-content: center;
-  padding: 0;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
-.social-media-list li {
-  margin: 0 0.5rem;
-}
-.social-media-list a {
-  color: #3a3a3a;
+
+.contact-grid a {
+  display: flex;
+  align-items: center;
+  color: var(--secondary-color);
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 }
-.social-media-list a:hover {
-  color: #1e90ff;
+
+.contact-grid a:hover {
+  color: var(--primary-color);
+}
+
+.contact-grid i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
 }
 
 /* Footer */
 footer {
-  background-color: #f7f7f7;
+  background-color: var(--secondary-color);
+  color: #fff;
   text-align: center;
-  padding: 1rem;
-  margin-top: 20px; /* Adds space between the main content and footer */
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-item::after {
+    left: 15px;
+  }
+
+  .timeline-item:nth-child(even) {
+    left: 0%;
+  }
+}
+
+/* Publications Section */
+.publications-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.publications-list li {
+    margin-bottom: 2rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.publications-list h3 {
+    margin-bottom: 0.5rem;
+}
+
+.publications-list a {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Contact Form */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+#contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+}
+
+#contact-form button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+    background-color: #1a7ae0;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+/* Hover effects for project items and publication items */
+.project-item, .publications-list li {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover, .publications-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Hover effect for navigation links */
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
 }
