@@ -4,7 +4,7 @@ A static website exploring how science fiction films accurately predicted modern
 
 ## Overview
 
-This project showcases 10 sci-fi films that remarkably predicted technologies we use today:
+This project showcases 10 sci-fi films that remarkably predicted technologies we use today, complete with citations to academic sources, news reports, and industry analyses:
 
 1. **Her (2013)** - Predicted ChatGPT and conversational AI
 2. **The Running Man (1987)** - Foresaw deepfake technology
@@ -25,6 +25,9 @@ This project showcases 10 sci-fi films that remarkably predicted technologies we
 - **Accessible**: Semantic HTML and proper contrast ratios
 - **Fast Loading**: Pure HTML/CSS with minimal JavaScript
 - **GitHub Pages Ready**: No build process required
+- **Full Citations**: 30+ reference links to authoritative sources
+- **Rich Details**: Timeline views, statistics, and technology comparisons
+- **Interactive Elements**: Hover effects, animated statistics, and visual highlights
 
 ## Deployment
 

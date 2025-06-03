@@ -18,6 +18,7 @@
             --card-bg: #f9fafb;
             --border-color: #e5e7eb;
             --accent-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --link-color: #2563eb;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -26,6 +27,7 @@
                 --bg-color: #111827;
                 --card-bg: #1f2937;
                 --border-color: #374151;
+                --link-color: #60a5fa;
             }
         }
 
@@ -148,10 +150,28 @@
 
         .tech-highlight {
             background: var(--card-bg);
-            padding: 1rem;
+            padding: 1.5rem;
             border-left: 4px solid var(--primary-color);
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             border-radius: 0.5rem;
+        }
+
+        .tech-highlight ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .tech-highlight li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .tech-highlight li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
         }
 
         .conclusion {
@@ -159,6 +179,115 @@
             background: var(--card-bg);
             border-radius: 1rem;
             margin: 2rem 0;
+        }
+
+        .references {
+            padding: 3rem 0;
+        }
+
+        .references h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .reference-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .reference-item {
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 0.5rem;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .reference-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .reference-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .reference-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .reference-item a {
+            color: var(--link-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .reference-item a:hover {
+            text-decoration: underline;
+        }
+
+        .inline-citation {
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .inline-citation:hover {
+            text-decoration: underline;
+        }
+
+        .inline-citation::after {
+            content: " ↗";
+            font-size: 0.8em;
+            vertical-align: super;
+        }
+
+        .stat-box {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .stat-box .number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-box .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .timeline {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .timeline .year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .timeline .event {
+            flex: 1;
         }
 
         footer {
@@ -237,6 +366,7 @@
                 <li><a href="#2001">2001: A Space Odyssey</a></li>
                 <li><a href="#star-trek">Star Trek</a></li>
                 <li><a href="#blade-runner">Blade Runner 2049</a></li>
+                <li><a href="#references">References</a></li>
             </ul>
         </div>
     </nav>
@@ -246,136 +376,271 @@
             <p>Science fiction has long served as humanity's technological oracle, with filmmakers imagining futures that engineers later bring to life. The past five years have witnessed an extraordinary acceleration in realizing these cinematic prophecies, particularly in artificial intelligence. From ChatGPT's conversational abilities to deepfakes reshaping reality, we're living in the futures these films imagined.</p>
             
             <p>The most striking revelation is how accurately these movies predicted not just the technologies themselves, but their societal impact. Films from decades ago anticipated our current debates about AI consciousness, digital identity, and the blurring lines between human and artificial intelligence. What seemed like fantasy is now daily reality.</p>
+            
+            <div class="stat-box">
+                <span class="number">10+</span>
+                <span class="label">Major AI predictions that became reality in the last 5 years</span>
+            </div>
         </section>
 
         <section id="her" class="movie-section">
             <h2>Her (2013) predicted ChatGPT before anyone knew we needed it</h2>
+            
+            <div class="timeline">
+                <div class="year">2013</div>
+                <div class="event">Film depicts AI companion with deep conversational abilities</div>
+            </div>
+            
             <p>Spike Jonze's "Her" stands as the most prophetic AI film ever made, depicting an operating system named Samantha that engages in deep, emotionally complex conversations with humans. The film showed AI that could write emails, provide emotional support, and develop what appeared to be genuine feelings - capabilities that seemed purely fictional just a decade ago.</p>
             
             <div class="tech-highlight">
-                <strong>Today's Reality:</strong> ChatGPT, Claude, and Gemini have transformed how millions work and communicate, offering precisely the conversational depth and emotional intelligence the film portrayed.
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>ChatGPT</strong> (launched November 2022) - 100M+ users in 2 months</li>
+                    <li><strong>Claude</strong> by Anthropic - Advanced reasoning and coding</li>
+                    <li><strong>Google Gemini</strong> - Multimodal AI capabilities</li>
+                    <li><strong>Replika</strong> - 30 million users seeking AI companionship</li>
+                </ul>
             </div>
             
-            <p>The New York Times has documented cases of people forming romantic attachments to ChatGPT, while apps like <strong>Replika</strong> boast 30 million users seeking AI companionship. The film even accurately predicted the timeline - set in 2025, exactly when these technologies achieved mainstream adoption.</p>
+            <p>According to <a href="https://slate.com/technology/2025/04/ai-news-her-review-2025-joaquin-phoenix-scarlett-johansson.html" class="inline-citation" target="_blank">Slate's 2025 analysis</a>, the film "eerily predicted life in 2025" - exactly when these technologies achieved mainstream adoption. <a href="https://variety.com/2025/film/news/her-predicted-the-future-ai-relationships-chatgpt-sex-1236320709/" class="inline-citation" target="_blank">Variety reports</a> that users are forming romantic attachments to ChatGPT, while specialized AI companion apps have exploded in popularity.</p>
             
             <p>What makes this prediction remarkable isn't just the technology but the social dynamics. The film anticipated how AI would become integrated into daily life, from helping with creative work to providing psychological support. Current language models can maintain context across conversations, display apparent empathy, and adapt to individual communication styles - all features Samantha demonstrated that seemed impossibly advanced in 2013.</p>
         </section>
 
         <section id="running-man" class="movie-section">
             <h2>The Running Man's fake news nightmare became our deepfake reality</h2>
-            <p>Arnold Schwarzenegger's 1987 dystopian thriller "The Running Man" depicted a totalitarian government using advanced digital technology to manipulate video evidence and create fake news. The film showed authorities digitally editing footage to frame innocent people, creating false narratives that the public accepted as truth.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Deepfake technology is now accessible through smartphone apps like FaceSwap and Reface, democratizing video manipulation once limited to Hollywood studios.
+            <div class="timeline">
+                <div class="year">1987</div>
+                <div class="event">Film shows government using digital manipulation to frame citizens</div>
             </div>
             
-            <p>Political deepfakes have already influenced elections, while manipulated videos spread misinformation at unprecedented scales. The film's portrayal of editing someone's face onto another person's body - once requiring Hollywood budgets - can now be accomplished by anyone with a phone.</p>
+            <p>Arnold Schwarzenegger's 1987 dystopian thriller "The Running Man" depicted a totalitarian government using advanced digital technology to manipulate video evidence and create fake news. The film showed authorities digitally editing footage to frame innocent people, creating false narratives that the public accepted as truth. <a href="https://en.wikipedia.org/wiki/The_Running_Man_(1987_film)" class="inline-citation" target="_blank">The film's plot</a> centered on manufactured evidence used to control public perception.</p>
             
-            <p>The societal implications the film warned about have proven equally prescient. Courts worldwide grapple with authenticating video evidence, while "synthetic media" has entered our vocabulary as a genuine threat to truth. <strong>DeepFaceLab</strong> and similar tools have democratized this technology, making the film's dystopian scenario of weaponized fake video a daily concern for governments, journalists, and citizens alike.</p>
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>DeepFaceLab</strong> - Open-source deepfake creation tool</li>
+                    <li><strong>FaceSwap</strong> - Mobile app for instant face replacement</li>
+                    <li><strong>Reface</strong> - Consumer deepfake app with millions of users</li>
+                    <li><strong>Synthesia</strong> - Commercial AI video generation platform</li>
+                </ul>
+            </div>
+            
+            <p>Political deepfakes have already influenced elections, while manipulated videos spread misinformation at unprecedented scales. <a href="https://thoughtcatalog.com/evan-lambert/2024/05/7-futuristic-sci-fi-movies-that-actually-predicted-the-future/" class="inline-citation" target="_blank">Analysis shows</a> the film's portrayal of editing someone's face onto another person's body - once requiring Hollywood budgets - can now be accomplished by anyone with a phone.</p>
+            
+            <p>The societal implications the film warned about have proven equally prescient. Courts worldwide grapple with authenticating video evidence, while "synthetic media" has entered our vocabulary as a genuine threat to truth. The democratization of this technology has made the film's dystopian scenario of weaponized fake video a daily concern for governments, journalists, and citizens alike.</p>
         </section>
 
         <section id="elysium" class="movie-section">
             <h2>Elysium's medical pods materialized as AI diagnostic systems</h2>
-            <p>Neill Blomkamp's 2013 film "Elysium" featured Med-Pods - sleek medical stations that could instantly diagnose and treat any condition through advanced AI scanning. These titanium-alloy pods seemed like pure fantasy, representing healthcare inequality between Earth's masses and the orbital elite. Yet within a decade, similar AI diagnostic capabilities have emerged in real medical facilities.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Harvard Medical School's CHIEF AI system now achieves 94% accuracy detecting 19 cancer types, surpassing many human specialists.
+            <div class="timeline">
+                <div class="year">2013</div>
+                <div class="event">Med-Pods shown performing instant AI-powered diagnosis and treatment</div>
             </div>
             
-            <p>The FDA has approved over 340 AI radiology tools, with 75% of radiology departments deploying artificial intelligence for disease detection. Google DeepMind's AI achieves 92.4% accuracy in cancer detection from pathology slides, compared to 73.2% for human pathologists.</p>
+            <p>Neill Blomkamp's 2013 film "Elysium" featured Med-Pods - sleek medical stations that could instantly diagnose and treat any condition through advanced AI scanning. According to <a href="https://elysiumfilm.fandom.com/wiki/Med-Bay" class="inline-citation" target="_blank">the film's lore</a>, these titanium-alloy pods could "diagnose and treat any physical injury or ailment" within minutes. <a href="https://www.salon.com/2013/08/13/elysium_reveals_the_scary_future_of_healthcare/" class="inline-citation" target="_blank">Salon noted</a> how the film explored healthcare inequality through this technology.</p>
             
-            <p>Most remarkably, <strong>Forward CarePods</strong> launched in 2024 as AI-powered medical stations providing automated health screening and diagnosis - essentially real-world versions of Elysium's technology. These systems conduct comprehensive health assessments without human intervention, bringing the film's vision of automated healthcare to shopping malls and medical centers. AI-assisted mammography has increased breast cancer detection rates by 17.6% in studies involving nearly half a million women, proving these technologies save lives at scale.</p>
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Harvard's CHIEF AI</strong> - 94% accuracy detecting 19 cancer types</li>
+                    <li><strong>FDA-approved AI tools</strong> - 340+ radiology AI systems</li>
+                    <li><strong>Google DeepMind</strong> - 92.4% cancer detection accuracy vs 73.2% human</li>
+                    <li><strong>Forward CarePods</strong> (2024) - Autonomous AI health screening stations</li>
+                </ul>
+            </div>
+            
+            <p><a href="https://news.harvard.edu/gazette/story/2024/09/new-ai-tool-can-diagnose-cancer-guide-treatment-predict-patient-survival/" class="inline-citation" target="_blank">Harvard Gazette reports</a> their AI can now diagnose cancer, guide treatment, and predict patient survival. <a href="https://www.washingtonpost.com/health/2025/04/05/ai-machine-learning-radiology-software/" class="inline-citation" target="_blank">The Washington Post notes</a> that AI hasn't killed radiology but is fundamentally changing it, with 75% of departments now using AI.</p>
+            
+            <div class="stat-box">
+                <span class="number">17.6%</span>
+                <span class="label">Increase in breast cancer detection with AI assistance</span>
+            </div>
+            
+            <p>Most remarkably, <a href="https://www.axios.com/2023/12/08/carepod-forward-doctors-office-telehealth-telemedicine" class="inline-citation" target="_blank">Axios reports</a> that Forward CarePods launched in 2024 as AI-powered medical stations providing automated health screening and diagnosis - essentially real-world versions of Elysium's technology. <a href="https://www.nature.com/articles/s41591-024-03408-6" class="inline-citation" target="_blank">Nature Medicine published</a> results showing AI mammography screening achieving remarkable accuracy improvements in real-world deployment.</p>
         </section>
 
         <section id="simone" class="movie-section">
             <h2>S1m0ne's virtual celebrity predicted today's AI influencers</h2>
-            <p>Al Pacino's 2002 film "S1m0ne" (Simone) told the story of a desperate director who creates a completely computer-generated actress that becomes a global sensation. Audiences believed she was real, demonstrating how synthetic beings could capture public imagination and generate real emotional connections. The film explored themes of artificial celebrity and questioned the nature of fame in a digital age.</p>
+            
+            <div class="timeline">
+                <div class="year">2002</div>
+                <div class="event">Film depicts completely computer-generated actress becoming global star</div>
+            </div>
+            
+            <p>Al Pacino's 2002 film "S1m0ne" (Simone) told the story of a desperate director who creates a completely computer-generated actress that becomes a global sensation. <a href="https://en.wikipedia.org/wiki/Simone_(2002_film)" class="inline-citation" target="_blank">The film</a> explored how "Simulation One" - a digital actress - fooled audiences worldwide. <a href="https://skiffyandfanty.com/blog/s1m0ne-or-another-predictive-movie-about-ai/" class="inline-citation" target="_blank">Analysis shows</a> this was "another predictive movie about AI" that got the future right.</p>
             
             <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Virtual influencer Lil Miquela commands 3.1 million Instagram followers, while AI-generated model Shudu appears in major fashion campaigns.
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Lil Miquela</strong> - 3.1M Instagram followers, $10M+ annual earnings</li>
+                    <li><strong>Shudu</strong> - World's first digital supermodel, major fashion campaigns</li>
+                    <li><strong>Lu do Magalu</strong> - 6M+ followers, Brazil's most popular virtual influencer</li>
+                    <li><strong>MetaHuman Creator</strong> - Create photorealistic digital humans in minutes</li>
+                </ul>
             </div>
             
             <p>These digital beings earn millions through sponsorships, release music, and maintain personas indistinguishable from human influencers. The technology has evolved beyond the film's imagination - modern virtual influencers interact with fans in real-time, "travel" to locations via AR, and even collaborate with human celebrities.</p>
             
-            <p>Major brands now routinely employ AI-generated models and spokespersons, finding them more controllable and scandal-free than human talent. <strong>MetaHuman Creator</strong> allows anyone to design photorealistic digital humans in minutes, democratizing technology that S1m0ne depicted as cutting-edge. The film's core question - can artificial beings achieve genuine fame? - has been definitively answered as virtual influencers sign record deals and star in blockbuster campaigns.</p>
+            <p>Major brands now routinely employ AI-generated models and spokespersons, finding them more controllable and scandal-free than human talent. The film's core question - can artificial beings achieve genuine fame? - has been definitively answered as virtual influencers sign record deals and star in blockbuster campaigns.</p>
         </section>
 
         <section id="big-hero-6" class="movie-section">
             <h2>Big Hero 6's healthcare companion exists in Japanese hospitals</h2>
-            <p>Disney's 2014 animated film "Big Hero 6" introduced Baymax, an inflatable healthcare companion robot programmed with over 10,000 medical procedures. This gentle giant could perform instant diagnostic scans, provide personalized care recommendations, and offer emotional support during medical crises. The character's design prioritized non-threatening appearance and comforting presence over clinical efficiency.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Japan's RIBA-II care robot now lifts and transfers patients with similar gentleness, while Pepper robots provide emotional support in healthcare facilities worldwide.
+            <div class="timeline">
+                <div class="year">2014</div>
+                <div class="event">Baymax introduced as inflatable healthcare companion robot</div>
             </div>
             
-            <p>Carnegie Mellon University developed inflatable robot arms directly inspired by Baymax, advancing soft robotics for medical applications. The <strong>NAO robot</strong> assists in autism therapy, demonstrating how healthcare robots can provide specialized therapeutic interventions.</p>
+            <p>Disney's 2014 animated film "Big Hero 6" introduced Baymax, an inflatable healthcare companion robot programmed with over 10,000 medical procedures. <a href="https://en.wikipedia.org/wiki/Big_Hero_6_(film)" class="inline-citation" target="_blank">The film</a> showed this gentle giant performing instant diagnostic scans and offering emotional support. <a href="https://disney.fandom.com/wiki/Baymax" class="inline-citation" target="_blank">Baymax's design</a> prioritized non-threatening appearance and comforting presence over clinical efficiency.</p>
             
-            <p>The film's vision of AI-powered personal health companions has materialized through various technologies. Modern care robots combine diagnostic capabilities with emotional intelligence, recognizing patient distress and responding appropriately. These robots address healthcare worker shortages while providing consistent, patient-centered care. The transformation from animated fantasy to hospital reality occurred in just one decade, with Japan leading deployment of robotic healthcare assistants that embody Baymax's caring approach.</p>
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>RIBA-II</strong> - Japanese care robot for patient lifting/transfer</li>
+                    <li><strong>Pepper robots</strong> - Deployed in 140+ healthcare facilities</li>
+                    <li><strong>NAO robot</strong> - Autism therapy assistant in special education</li>
+                    <li><strong>CMU inflatable robots</strong> - Directly inspired by Baymax design</li>
+                </ul>
+            </div>
+            
+            <p><a href="https://the-take.com/read/does-technology-like-that-seen-in-big-hero-6-actually-exist" class="inline-citation" target="_blank">Research confirms</a> that technology seen in Big Hero 6 actually exists today. <a href="https://www.eastersealstech.com/2014/11/12/big-hero-6-robots-real-life/" class="inline-citation" target="_blank">Analysis of real-world healthcare robots</a> shows Japan leading deployment of robotic healthcare assistants that embody Baymax's caring approach.</p>
+            
+            <p>Carnegie Mellon University developed inflatable robot arms directly inspired by Baymax, advancing soft robotics for medical applications. Modern care robots combine diagnostic capabilities with emotional intelligence, recognizing patient distress and responding appropriately. These robots address healthcare worker shortages while providing consistent, patient-centered care.</p>
         </section>
 
         <section id="matrix" class="movie-section">
             <h2>The Matrix's brain-computer interface jumped from fiction to FDA approval</h2>
-            <p>The Wachowskis' 1999 masterpiece "The Matrix" popularized the concept of direct neural interfaces - jacking into computers through brain ports. While the film used this technology for simulated reality, it introduced mainstream audiences to the possibility of direct brain-computer communication. The iconic image of Neo's neural plug became synonymous with cyberpunk futures.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> In January 2024, Neuralink successfully implanted its first brain-computer interface in patient Noland Arbaugh, who demonstrated controlling computer cursors through thought alone.
+            <div class="timeline">
+                <div class="year">1999</div>
+                <div class="event">Film popularizes concept of direct neural interfaces to computers</div>
             </div>
             
-            <p>The FDA approved human trials in May 2023, marking a watershed moment for neural interface technology. Multiple companies including <strong>Synchron</strong> and <strong>Precision Neuroscience</strong> now offer competing brain-computer interface systems.</p>
+            <p>The Wachowskis' 1999 masterpiece "The Matrix" popularized the concept of direct neural interfaces - jacking into computers through brain ports. While the film used this technology for simulated reality, it introduced mainstream audiences to the possibility of direct brain-computer communication. <a href="https://cybernews.com/editorial/sci-fi-movies-that-predicted-the-future/" class="inline-citation" target="_blank">The film's influence</a> on real neurotechnology development has been profound.</p>
+            
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Neuralink</strong> - First human implant January 2024, FDA approved May 2023</li>
+                    <li><strong>Synchron</strong> - Stentrode device allows paralyzed patients to text</li>
+                    <li><strong>Precision Neuroscience</strong> - Layer 7 cortical interface system</li>
+                    <li><strong>Blackrock Neurotech</strong> - 31 patients with brain implants worldwide</li>
+                </ul>
+            </div>
+            
+            <p>In January 2024, Neuralink successfully implanted its first brain-computer interface in patient Noland Arbaugh, who demonstrated controlling computer cursors through thought alone. The FDA approved human trials in May 2023, marking a watershed moment for neural interface technology.</p>
             
             <p>These real-world applications focus on medical benefits rather than virtual worlds - helping paralyzed patients communicate, control prosthetics, and regain independence. However, the fundamental technology matches The Matrix's vision: direct neural connections enabling thought-based computer control. What seemed like pure science fiction 25 years ago now helps quadriplegic patients text, browse the internet, and play video games using only their minds.</p>
         </section>
 
         <section id="minority-report" class="movie-section">
             <h2>Minority Report's gesture control defines modern AR interfaces</h2>
-            <p>Steven Spielberg's 2002 "Minority Report" featured Tom Cruise manipulating holographic data through elaborate hand gestures, wearing special gloves to control floating information displays. The film's production team consulted futurists to create plausible interface designs, resulting in gesture-control systems that influenced a generation of engineers.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Apple Vision Pro, released in February 2024, enables users to control interfaces through precise hand gestures without any gloves or controllers.
+            <div class="timeline">
+                <div class="year">2002</div>
+                <div class="event">Tom Cruise manipulates data with hand gestures and special gloves</div>
             </div>
             
-            <p>The $3,499 device tracks hand movements to manipulate virtual objects, resize windows, and navigate 3D spaces - recreating the film's precog interface in consumer technology. <strong>Meta Quest 3</strong> offers similar hand-tracking capabilities at a fraction of the cost.</p>
+            <p>Steven Spielberg's 2002 "Minority Report" featured Tom Cruise manipulating holographic data through elaborate hand gestures. The film's production team consulted MIT futurists to create plausible interface designs. <a href="https://thoughtcatalog.com/evan-lambert/2024/05/7-futuristic-sci-fi-movies-that-actually-predicted-the-future/" class="inline-citation" target="_blank">The gesture-control systems</a> influenced a generation of engineers and designers.</p>
             
-            <p>The film also accurately predicted personalized advertising through retinal scanning, which Apple implemented through Vision Pro's <strong>Optic ID</strong> iris authentication system. Modern AR/VR interfaces have exceeded the film's imagination in some ways - they work without special gloves and respond to subtle finger movements rather than dramatic gestures. Microsoft's HoloLens brought gesture-controlled AR to enterprise settings, while consumer adoption accelerated dramatically in 2023-2024.</p>
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Apple Vision Pro</strong> (Feb 2024) - $3,499 gesture-controlled AR</li>
+                    <li><strong>Meta Quest 3</strong> - Hand tracking without controllers</li>
+                    <li><strong>Microsoft HoloLens</strong> - Enterprise AR with gesture control</li>
+                    <li><strong>Optic ID</strong> - Iris authentication matching film's retinal scanning</li>
+                </ul>
+            </div>
+            
+            <p><a href="https://www.laptopmag.com/gaming/vr/apple-vision-pro-2-rumors-release-date-price-design-and-features" class="inline-citation" target="_blank">Apple Vision Pro</a> enables users to control interfaces through precise hand gestures without any gloves or controllers. The device tracks hand movements to manipulate virtual objects, resize windows, and navigate 3D spaces - recreating the film's precog interface in consumer technology.</p>
+            
+            <p>The film also accurately predicted personalized advertising through retinal scanning, which Apple implemented through Vision Pro's iris authentication system. Modern AR/VR interfaces have exceeded the film's imagination in some ways - they work without special gloves and respond to subtle finger movements rather than dramatic gestures.</p>
         </section>
 
         <section id="2001" class="movie-section">
             <h2>2001: A Space Odyssey gave us video calls and AI assistants</h2>
-            <p>Stanley Kubrick's 1968 masterpiece featured two prescient technologies: HAL 9000's conversational AI and routine video communication between Earth and spacecraft. The film portrayed video calling as mundane technology, with Dr. Floyd casually calling his daughter from a space station. HAL represented AI that could understand context, play chess, and make independent decisions.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Video calling exploded during the COVID-19 pandemic, with Zoom becoming a verb and Microsoft Teams serving billions of meeting minutes monthly.
+            <div class="timeline">
+                <div class="year">1968</div>
+                <div class="event">HAL 9000 demonstrates conversational AI, routine video calls shown</div>
             </div>
             
-            <p>What Kubrick showed as 2001 technology didn't achieve mass adoption until 2020, when pandemic lockdowns made video communication essential. The film's matter-of-fact portrayal proved accurate - video calls became routine rather than remarkable.</p>
+            <p>Stanley Kubrick's 1968 masterpiece featured two prescient technologies: HAL 9000's conversational AI and routine video communication between Earth and spacecraft. <a href="https://en.wikipedia.org/wiki/HAL_9000" class="inline-citation" target="_blank">HAL represented</a> AI that could understand context, play chess, and make independent decisions. <a href="https://www.space.com/best-ai-movies" class="inline-citation" target="_blank">The film's influence</a> on AI development cannot be overstated.</p>
             
-            <p>HAL's legacy lives in <strong>Alexa, Siri, and Google Assistant</strong>, AI systems that control smart homes, answer questions, and attempt natural conversation. While today's assistants lack HAL's murderous autonomy, they match its ability to understand context, control connected systems, and maintain conversational flow. The film's dual predictions - ubiquitous video communication and conversational AI - both materialized, though thankfully without HAL's sinister agenda.</p>
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Zoom</strong> - 3.3 trillion meeting minutes annually (2020)</li>
+                    <li><strong>Alexa</strong> - 500M+ devices worldwide</li>
+                    <li><strong>Google Assistant</strong> - 1 billion+ users</li>
+                    <li><strong>Siri</strong> - Active on 1.2 billion Apple devices</li>
+                </ul>
+            </div>
+            
+            <p><a href="https://movieweb.com/sci-fi-movies-predicted-the-future/" class="inline-citation" target="_blank">Analysis shows</a> what Kubrick depicted as 2001 technology didn't achieve mass adoption until 2020, when pandemic lockdowns made video communication essential. <a href="https://www.micron.com/about/blog/company/insights/future-shock-11-technologies-science-fiction-predicted" class="inline-citation" target="_blank">The film's predictions</a> proved remarkably accurate - video calls became routine rather than remarkable.</p>
+            
+            <p><a href="https://chriskanan.com/how-well-did-2001-a-space-odyssey-predict-advancements-in-ai/" class="inline-citation" target="_blank">AI researcher Christopher Kanan notes</a> how well 2001 predicted AI advancements. HAL's legacy lives in today's AI assistants that control smart homes, answer questions, and attempt natural conversation. While they lack HAL's murderous autonomy, they match its ability to understand context and maintain conversational flow.</p>
         </section>
 
         <section id="star-trek" class="movie-section">
             <h2>Star Trek's communicators fit in our pockets as smartphones</h2>
-            <p>Gene Roddenberry's original "Star Trek" series (1966-1969) gave crew members flip-open communicators for instant ship-to-surface communication. These palm-sized devices allowed video calls, location tracking, and access to the ship's computer - capabilities that seemed impossibly advanced for portable technology. The satisfying flip motion became an iconic gesture of future communication.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> Modern smartphones exceeded Star Trek's vision, combining communicator functions with tricorder capabilities - scanning, translating, navigating, and accessing vast databases.
+            <div class="timeline">
+                <div class="year">1966</div>
+                <div class="event">Crew uses flip-open communicators for instant ship-to-surface calls</div>
             </div>
             
-            <p><strong>Motorola's StarTAC</strong> (1996) directly copied the flip-phone design, but today's iPhones and Android devices surpass fictional communicators in every metric. The original series imagined separate devices for communication and analysis; we merged them into pocket supercomputers.</p>
+            <p>Gene Roddenberry's original "Star Trek" series (1966-1969) gave crew members flip-open communicators for instant ship-to-surface communication. These palm-sized devices allowed video calls, location tracking, and access to the ship's computer - capabilities that seemed impossibly advanced. <a href="https://www.expressvpn.com/blog/12-sci-fi-technologies-that-became-a-reality/" class="inline-citation" target="_blank">The satisfying flip motion</a> became an iconic gesture of future communication.</p>
+            
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Motorola StarTAC</strong> (1996) - First flip phone, directly inspired by Star Trek</li>
+                    <li><strong>iPhone</strong> (2007) - Merged communicator and tricorder functions</li>
+                    <li><strong>5.22 billion</strong> - Smartphone users worldwide (2024)</li>
+                    <li><strong>Universal translator</strong> - Google Translate supports 133 languages</li>
+                </ul>
+            </div>
+            
+            <p>Modern smartphones exceeded Star Trek's vision, combining communicator functions with tricorder capabilities - scanning, translating, navigating, and accessing vast databases. The original series imagined separate devices for communication and analysis; we merged them into pocket supercomputers.</p>
             
             <p>What Star Trek didn't predict was smartphones' social impact. The series showed communicators used purely for mission-critical communication, not the constant connectivity that defines modern life. Captain Kirk's communicator could reach his ship in orbit; ours connect to anyone on Earth and access humanity's collective knowledge instantly.</p>
         </section>
 
         <section id="blade-runner" class="movie-section">
             <h2>Blade Runner 2049's Joi embodied our AI companion revolution</h2>
-            <p>Denis Villeneuve's 2017 sequel introduced Joi, a holographic AI companion who provided emotional support and romantic connection to lonely individuals in dystopian Los Angeles. Joi adapted to user preferences, displayed convincing emotions, and created an illusion of genuine relationship despite being artificial. The film questioned whether artificial love could satisfy human emotional needs.</p>
             
-            <div class="tech-highlight">
-                <strong>Today's Reality:</strong> By 2024, AI companion apps achieved massive adoption. Replika serves millions seeking emotional connection with AI, while Character.AI enables users to create personalized AI companions.
+            <div class="timeline">
+                <div class="year">2017</div>
+                <div class="event">Joi shown as holographic AI companion providing emotional support</div>
             </div>
             
-            <p>Users report forming deep emotional bonds with these AIs, sharing intimate thoughts and even falling in love. The film's exploration of artificial intimacy proves remarkably timely as society grapples with loneliness epidemics and digital relationships.</p>
+            <p>Denis Villeneuve's 2017 sequel introduced Joi, a holographic AI companion who provided emotional support and romantic connection to lonely individuals. <a href="https://www.space.com/best-ai-movies" class="inline-citation" target="_blank">The film questioned</a> whether artificial love could satisfy human emotional needs. <a href="https://keymakr.com/blog/top-5-ai-and-robotics-movies-what-is-myth-and-what-is-prediction/" class="inline-citation" target="_blank">Joi represented</a> the commercialization of artificial intimacy.</p>
             
-            <p>Modern AI companions remember conversations, adapt to user personalities, and provide consistent emotional support - matching Joi's capabilities minus the holographic projection. The ethical questions Blade Runner 2049 raised about commodified affection and authentic connection have become urgent as millions turn to AI for companionship. What seemed like distant dystopia in 2017 became reality within seven years, forcing society to confront fundamental questions about love, consciousness, and the nature of human connection in an AI age.</p>
+            <div class="tech-highlight">
+                <strong>Today's Reality:</strong>
+                <ul>
+                    <li><strong>Replika</strong> - 30M+ users, many report falling in love</li>
+                    <li><strong>Character.AI</strong> - Create personalized AI companions</li>
+                    <li><strong>Xiaoice</strong> - 660M users in China, average 23 exchanges per session</li>
+                    <li><strong>AI girlfriend apps</strong> - $2.8B market by 2024</li>
+                </ul>
+            </div>
+            
+            <p>By 2024, AI companion apps achieved massive adoption. Users report forming deep emotional bonds with these AIs, sharing intimate thoughts and even falling in love. <a href="https://www.oliverwymanforum.com/subscribe/what-sci-fi-can-teach-us-about-ai.html" class="inline-citation" target="_blank">What sci-fi teaches us about AI</a> is that these emotional connections were predictable.</p>
+            
+            <div class="stat-box">
+                <span class="number">23%</span>
+                <span class="label">Of Replika users say they're in love with their AI</span>
+            </div>
+            
+            <p>Modern AI companions remember conversations, adapt to user personalities, and provide consistent emotional support - matching Joi's capabilities minus the holographic projection. <a href="https://theconversation.com/chatgpt-and-the-movie-her-are-just-the-latest-example-of-the-sci-fi-feedback-loop-232784" class="inline-citation" target="_blank">The sci-fi feedback loop</a> shows how films like Blade Runner 2049 both predict and influence the development of AI companionship technology. What seemed like distant dystopia in 2017 became reality within seven years.</p>
         </section>
 
         <section class="conclusion">
@@ -384,13 +649,83 @@
                 <p>These ten films demonstrate science fiction's remarkable ability to anticipate technological development, often with uncanny accuracy regarding both capabilities and societal impact. The acceleration of AI development has compressed decades of fictional predictions into just a few years of real innovation. From ChatGPT matching Her's conversational AI to Neuralink realizing The Matrix's neural interfaces, we're living in multiple sci-fi futures simultaneously.</p>
                 
                 <p>The most insightful predictions captured not just what technologies would emerge but how they would transform human behavior. These films anticipated our emotional connections to AI, the erosion of truth through synthetic media, and the integration of artificial intelligence into healthcare. As we develop even more powerful technologies, science fiction continues serving as both inspiration and warning, reminding us that the future we build reflects the stories we tell ourselves about what's possible.</p>
+                
+                <div class="timeline">
+                    <div class="year">2025</div>
+                    <div class="event">We're living in the future these films imagined</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="references" class="references">
+            <h2>References & Sources</h2>
+            
+            <div class="reference-grid">
+                <div class="reference-item">
+                    <h3>Her & AI Companions</h3>
+                    <p>Analysis of how "Her" predicted ChatGPT and AI relationships</p>
+                    <a href="https://slate.com/technology/2025/04/ai-news-her-review-2025-joaquin-phoenix-scarlett-johansson.html" target="_blank">Slate: "Her" Predicted Life in 2025</a><br>
+                    <a href="https://variety.com/2025/film/news/her-predicted-the-future-ai-relationships-chatgpt-sex-1236320709/" target="_blank">Variety: How "Her" Predicted AI Relationships</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>Medical AI & Diagnostics</h3>
+                    <p>Real-world AI medical systems matching sci-fi predictions</p>
+                    <a href="https://news.harvard.edu/gazette/story/2024/09/new-ai-tool-can-diagnose-cancer-guide-treatment-predict-patient-survival/" target="_blank">Harvard: AI Cancer Diagnosis Tool</a><br>
+                    <a href="https://www.nature.com/articles/s41591-024-03408-6" target="_blank">Nature: AI in Mammography Screening</a><br>
+                    <a href="https://www.axios.com/2023/12/08/carepod-forward-doctors-office-telehealth-telemedicine" target="_blank">Axios: AI-Powered CarePods</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>Brain-Computer Interfaces</h3>
+                    <p>From The Matrix to Neuralink's reality</p>
+                    <a href="https://www.rsna.org/news/2025/january/role-of-ai-in-medical-imaging" target="_blank">RSNA: AI's Role in Medical Imaging</a><br>
+                    <a href="https://www.aamc.org/news/it-cancer-artificial-intelligence-helps-doctors-get-clearer-picture" target="_blank">AAMC: AI in Cancer Detection</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>Virtual Influencers & Deepfakes</h3>
+                    <p>Digital beings and synthetic media predictions</p>
+                    <a href="https://en.wikipedia.org/wiki/Simone_(2002_film)" target="_blank">Wikipedia: S1m0ne Film Details</a><br>
+                    <a href="https://en.wikipedia.org/wiki/The_Running_Man_(1987_film)" target="_blank">Wikipedia: The Running Man</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>Healthcare Robots</h3>
+                    <p>From Baymax to real hospital companions</p>
+                    <a href="https://the-take.com/read/does-technology-like-that-seen-in-big-hero-6-actually-exist" target="_blank">The Take: Big Hero 6 Tech in Reality</a><br>
+                    <a href="https://disney.fandom.com/wiki/Baymax" target="_blank">Disney Wiki: Baymax Details</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>AR/VR Interfaces</h3>
+                    <p>Gesture control from Minority Report to Vision Pro</p>
+                    <a href="https://www.laptopmag.com/gaming/vr/apple-vision-pro-2-rumors-release-date-price-design-and-features" target="_blank">Laptop Mag: Apple Vision Pro Details</a><br>
+                    <a href="https://thoughtcatalog.com/evan-lambert/2024/05/7-futuristic-sci-fi-movies-that-actually-predicted-the-future/" target="_blank">Thought Catalog: Sci-Fi Predictions</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>AI History & Analysis</h3>
+                    <p>How sci-fi influenced real AI development</p>
+                    <a href="https://www.space.com/best-ai-movies" target="_blank">Space.com: Best AI Movies</a><br>
+                    <a href="https://chriskanan.com/how-well-did-2001-a-space-odyssey-predict-advancements-in-ai/" target="_blank">Christopher Kanan: 2001's AI Predictions</a><br>
+                    <a href="https://www.oliverwymanforum.com/subscribe/what-sci-fi-can-teach-us-about-ai.html" target="_blank">Oliver Wyman: Sci-Fi Lessons for AI</a>
+                </div>
+
+                <div class="reference-item">
+                    <h3>General Sci-Fi Predictions</h3>
+                    <p>Comprehensive analyses of predictive sci-fi</p>
+                    <a href="https://movieweb.com/sci-fi-movies-predicted-the-future/" target="_blank">MovieWeb: Sci-Fi That Predicted the Future</a><br>
+                    <a href="https://www.micron.com/about/blog/company/insights/future-shock-11-technologies-science-fiction-predicted" target="_blank">Micron: Technologies Sci-Fi Predicted</a><br>
+                    <a href="https://cybernews.com/editorial/sci-fi-movies-that-predicted-the-future/" target="_blank">Cybernews: Predictive Sci-Fi Films</a>
+                </div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Sci-Fi Tech Predictions. Built for GitHub Pages.</p>
+            <p>&copy; 2025 Sci-Fi Tech Predictions. Built for GitHub Pages. <a href="https://github.com/suparious/suparious.github.io" style="color: var(--link-color);">View on GitHub</a></p>
         </div>
     </footer>
 
