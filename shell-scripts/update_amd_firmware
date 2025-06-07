@@ -1,0 +1,39 @@
+#!/bin/bash
+echo "Ensure all base packages are installed"
+sudo apt update
+sudo apt install --reinstall firmware-amd-graphics linux-image-$(uname -r) linux-headers-$(uname -r)
+
+echo "Clone the linux-firmware repository"
+cd /tmp
+git clone --depth 1 git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git
+
+echo "Copy the RDNA3 (Navi31) firmware files for RX 7900 XTX"
+echo "Graphics Core (GC) 11.0.0 files"
+sudo cp linux-firmware/amdgpu/gc_11_0_0_* /lib/firmware/amdgpu/
+
+echo "Platform Security Processor (PSP) 13.0.0 files"
+sudo cp linux-firmware/amdgpu/psp_13_0_* /lib/firmware/amdgpu/
+
+echo "System Management Unit (SMU) 13.0.0"
+sudo cp linux-firmware/amdgpu/smu_13_0_* /lib/firmware/amdgpu/
+
+echo "System DMA (SDMA) 6.0.0"
+sudo cp linux-firmware/amdgpu/sdma_6_0_* /lib/firmware/amdgpu/
+
+echo "Video Core Next (VCN) 4.0.0"
+sudo cp linux-firmware/amdgpu/vcn_4_0_* /lib/firmware/amdgpu/
+
+echo "Display Core Next (DCN) 3.2.0"
+sudo cp linux-firmware/amdgpu/dcn_3_2_* /lib/firmware/amdgpu/
+
+echo "Clean up temp files"
+rm -rf /tmp/linux-firmware
+
+echo "Rebuild initramfs"
+sudo update-initramfs -u -k all
+
+echo "Check for blacklisting"
+grep -r amdgpu /etc/modprobe.d/
+
+echo "reboot you machine to enjoy the update"
+

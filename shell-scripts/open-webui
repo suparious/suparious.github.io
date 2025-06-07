@@ -1,0 +1,32 @@
+#!/bin/bash
+set -e
+
+# Build Litellm
+cd ${HOME}/repos/litellm
+source .env
+git pull
+docker compose build
+
+# Build OpenAPI-Server tools
+cd ${HOME}/repos/openapi-servers
+source .env
+docker compose build
+
+# Bring up OpenAPI-Server tools
+cd ${HOME}/repos/openapi-servers
+source .env
+docker compose up -d
+
+# Bring up Open-WebUI
+cd ${HOME}/repos/open-webui
+git pull
+source .env
+source venv/bin/activate
+pip install --upgrade pip
+pip install --upgrade open-webui
+open-webui serve
+deactivate
+
+# Bring down OpenAPI-Server tools
+cd ${HOME}/repos/openapi-servers
+docker compose down
