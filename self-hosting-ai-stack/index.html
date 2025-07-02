@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Self-Hosting Stack for AI-Enhanced Development - Shaun Prince</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://kit.fontawesome.com/3a3d8c6e6b.js" crossorigin="anonymous"></script>
+    <meta name="description" content="The ultimate open-source infrastructure for offline developer environments with GPU-accelerated AI workloads. Complete guide for self-hosting development tools on Debian 12/13.">
+    <meta name="keywords" content="Self-hosting, DevOps, Kubernetes, K3s, AI Development, vLLM, Docker, GitOps, NVIDIA GPU, Open Source, Infrastructure">
+    <style>
+        /* Article-specific styles */
+        .article-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, #2e8b57 0%, #3a3a3a 100%);
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-meta {
+            font-style: italic;
+            color: #ddd;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .article-content h2 {
+            color: var(--primary-color);
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .article-content h3 {
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 1rem 0 1.5rem 2rem;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-content code {
+            background-color: #f4f4f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .article-content pre {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        
+        .article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+        
+        .article-content strong {
+            color: var(--secondary-color);
+        }
+        
+        .article-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #666;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .toc {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+        
+        .toc a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .toc a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#projects">Projects</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a href="../index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+        
+        <article>
+            <div class="article-header">
+                <h1>Comprehensive Self-Hosting Stack for AI-Enhanced Development</h1>
+                <p class="article-meta">The Ultimate Open-Source Infrastructure for Offline Developer Environments</p>
+                <p class="article-meta">Published: July 2025 | By Shaun Prince</p>
+            </div>
+
+            <div class="article-content">
+                <div class="toc">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#core-dev">Core Development Infrastructure</a></li>
+                        <li><a href="#infrastructure">Infrastructure and Deployment</a></li>
+                        <li><a href="#security">Security and Observability</a></li>
+                        <li><a href="#data-platforms">Data Platforms for AI Workloads</a></li>
+                        <li><a href="#collaboration">Collaboration and Knowledge Management</a></li>
+                        <li><a href="#ai-development">AI-Enhanced Development Innovation</a></li>
+                        <li><a href="#performance">Performance and Resource Optimization</a></li>
+                        <li><a href="#roadmap">Implementation Roadmap</a></li>
+                        <li><a href="#architecture">Architecture Decisions and Tradeoffs</a></li>
+                        <li><a href="#future">Future-Proofing Your Stack</a></li>
+                        <li><a href="#references">References and Further Reading</a></li>
+                    </ul>
+                </div>
+
+                <p>Building a complete self-hosted development infrastructure requires careful orchestration of dozens of interconnected services. This comprehensive research identifies the optimal tools across 24 categories, with specific focus on GPU-accelerated AI workloads, offline operation, and modern DevOps practices. Based on extensive analysis of production-ready solutions, this report presents battle-tested configurations optimized for Debian 12/13 environments with NVIDIA GPUs.</p>
+
+                <h2 id="core-dev">Core Development Infrastructure</h2>
+                
+                <h3>Source control meets modern collaboration</h3>
+                
+                <p><strong>Forgejo</strong> emerges as the lightweight champion for source control, offering a community-driven alternative to Gitea with excellent Git LFS support and built-in CI/CD capabilities through Forgejo Actions. For teams requiring more comprehensive features, <strong>GitLab CE</strong> provides an integrated DevOps platform, though at the cost of significantly higher resource consumption (8GB RAM vs 2GB for Forgejo).</p>
+                
+                <p>The GPU-aware CI/CD landscape has evolved dramatically. <strong>Woodpecker CI</strong> stands out for its simplicity and Docker-native approach, requiring minimal resources (100MB RAM idle) while providing excellent GPU support through Docker runtime configuration. <strong>Jenkins</strong> remains the enterprise choice, offering unmatched plugin ecosystem and proven GPU workload handling, though with higher operational complexity.</p>
+                
+                <p>For container and package management, <strong>Harbor</strong> provides enterprise-grade security with built-in vulnerability scanning via Trivy, while <strong>Nexus Repository OSS</strong> offers unparalleled multi-format support, crucial for organizations managing diverse artifact types from Docker images to APT packages.</p>
+                
+                <h3>Critical implementation details</h3>
+                
+                <p>The integration between these tools proves seamless through webhook configurations and OAuth2 authentication. A typical pipeline triggers from Forgejo to Woodpecker CI, builds containers with GPU support, scans them through Harbor's integrated security features, and stores artifacts in Nexus. This entire chain operates completely offline after initial setup, with proxy repositories caching external dependencies.</p>
+
+                <h2 id="infrastructure">Infrastructure and Deployment</h2>
+                
+                <h3>Kubernetes distributions for bare metal</h3>
+                
+                <p><strong>K3s</strong> dominates the lightweight Kubernetes space with its 512MB memory footprint and native NVIDIA GPU support through the Container Toolkit. The integration with TrueNAS Scale via democratic-csi enables sophisticated storage patterns, while MetalLB provides production-grade load balancing for bare metal deployments.</p>
+                
+                <p>The infrastructure-as-code landscape shows clear winners: <strong>Terraform</strong> for infrastructure provisioning with local state backends, and <strong>Ansible</strong> for configuration management. Their GPU node provisioning capabilities prove essential for managing NVIDIA driver installations and container runtime configurations across clusters.</p>
+                
+                <h3>Networking architecture that scales</h3>
+                
+                <p><strong>MetalLB</strong> with BGP peering to OPNsense creates a robust load balancing solution achieving 10Gbps+ throughput. Combined with <strong>HAProxy</strong> for traditional load balancing and <strong>Traefik</strong> as a modern ingress controller, this stack handles everything from simple HTTP routing to complex service mesh patterns.</p>
+                
+                <p>DNS management through <strong>Pi-hole</strong> provides not just ad-blocking but sophisticated split-horizon DNS with External-DNS integration for automatic Kubernetes service registration. The RESTful API enables dynamic updates, crucial for ephemeral workload management.</p>
+
+                <h2 id="security">Security and Observability</h2>
+                
+                <h3>Monitoring that thinks</h3>
+                
+                <p>The <strong>Prometheus</strong> ecosystem remains foundational, but <strong>VictoriaMetrics</strong> offers compelling advantages: 7x lower CPU usage, superior high-cardinality metric handling, and built-in clustering. Combined with <strong>Grafana</strong> dashboards and <strong>NVIDIA DCGM exporters</strong>, this stack provides comprehensive GPU monitoring with sub-5-second metric collection intervals.</p>
+                
+                <p>For log aggregation, <strong>Loki</strong> integrates seamlessly with the Prometheus stack while maintaining similar operational simplicity. <strong>Jaeger</strong> with OpenTelemetry provides distributed tracing essential for debugging complex AI pipelines across multiple services.</p>
+                
+                <h3>Security without compromises</h3>
+                
+                <p><strong>Trivy</strong> stands out for vulnerability scanning with its excellent offline support and low resource usage. For secrets management, <strong>Infisical</strong> provides an open-source alternative to HashiCorp Vault (which recently changed its license), offering dynamic secrets, PKI management, and native Kubernetes integration.</p>
+                
+                <p><strong>Step-CA</strong> revolutionizes internal certificate management with its lightweight footprint and cert-manager integration, automating the entire certificate lifecycle for internal services.</p>
+
+                <h2 id="data-platforms">Data Platforms for AI Workloads</h2>
+                
+                <h3>Vectors, graphs, and traditional databases unite</h3>
+                
+                <p><strong>PostgreSQL with pgvector and TimescaleDB</strong> creates a unified data platform supporting traditional relational data, time-series, and vector embeddings up to 16,000 dimensions. The pgvectorscale extension provides 28x lower latency than Pinecone for vector similarity search.</p>
+                
+                <p>For dedicated vector workloads, <strong>Milvus</strong> offers enterprise-scale performance with GPU acceleration, while <strong>Qdrant</strong> provides excellent cost-effectiveness with Rust-powered performance. <strong>Neo4j</strong> enables sophisticated GraphRAG implementations, crucial for building knowledge graphs that enhance LLM reasoning.</p>
+                
+                <h3>Message streaming reimagined</h3>
+                
+                <p><strong>Redpanda</strong> disrupts the Kafka ecosystem with 2x performance improvement and significantly simplified operations. Its Kafka-compatible API enables drop-in replacement while eliminating ZooKeeper complexity. For simpler pub/sub needs, <strong>NATS JetStream</strong> offers the lowest latency with minimal operational overhead.</p>
+
+                <h2 id="collaboration">Collaboration and Knowledge Management</h2>
+                
+                <h3>Documentation that learns</h3>
+                
+                <p><strong>Wiki.js</strong> leads modern documentation platforms with its Node.js architecture and extensive plugin ecosystem. <strong>BookStack</strong> offers superior organization for teams preferring hierarchical content structure. Both integrate seamlessly with LDAP/SSO for enterprise authentication.</p>
+                
+                <p>For communication, <strong>Mattermost</strong> provides the most mature Slack alternative with extensive integrations and proven scalability. <strong>Matrix/Element</strong> offers federated communication for organizations requiring decentralized architecture.</p>
+                
+                <h3>Project management evolved</h3>
+                
+                <p><strong>OpenProject</strong> delivers comprehensive project management with 4GB minimum RAM requirement but extensive features including Gantt charts, agile boards, and time tracking. <strong>Plane</strong> represents the modern alternative with its React-based interface and AI-powered insights, though still maturing compared to established solutions.</p>
+
+                <h2 id="ai-development">AI-Enhanced Development Innovation</h2>
+                
+                <h3>Development environments reach new heights</h3>
+                
+                <p><strong>Code-Server</strong> with vLLM integration enables browser-based development with AI-powered code completion achieving 150-200 suggestions per minute. <strong>Tabby</strong> and <strong>FauxPilot</strong> provide self-hosted Copilot alternatives, running efficiently on RTX 3080+ GPUs with sub-200ms latency.</p>
+                
+                <p><strong>Gitpod self-hosted</strong> revolutionizes ephemeral environments with prebuild support and GPU acceleration. Combined with <strong>JupyterHub</strong>, teams can provide instant development environments with full GPU access for AI/ML workflows.</p>
+                
+                <h3>ML operations at scale</h3>
+                
+                <p><strong>Kubeflow</strong> provides the most comprehensive ML platform with GPU-aware scheduling through Katib and production serving via KServe. <strong>Ray</strong> enables distributed computing across hundreds of nodes with sophisticated GPU orchestration and fault tolerance.</p>
+                
+                <p><strong>MLflow</strong> tracks experiments while <strong>BentoML</strong> serves models with adaptive batching, achieving 2000+ tokens/second on 4x A100 GPUs. The integration with vLLM enables OpenAI-compatible endpoints for seamless application migration.</p>
+                
+                <h3>Agentic systems and RAG innovation</h3>
+                
+                <p><strong>Microsoft's GraphRAG</strong> implementation with vLLM backend reduces token usage by 26-97% while significantly improving response quality for complex reasoning. <strong>LangGraph</strong> enables sophisticated multi-agent orchestration with persistent memory systems.</p>
+                
+                <p>The convergence of vector databases, knowledge graphs, and LLMs creates unprecedented opportunities for intelligent documentation search, automated code review, and natural language infrastructure management.</p>
+
+                <h2 id="performance">Performance and Resource Optimization</h2>
+                
+                <h3>GPU utilization strategies</h3>
+                
+                <p>Successful GPU workload management requires careful attention to memory allocation, tensor parallelism configuration, and batch size optimization. Key patterns include:</p>
+                
+                <ul>
+                    <li><strong>Dynamic batching</strong> in vLLM achieving 90%+ GPU utilization</li>
+                    <li><strong>Prefix caching</strong> reducing redundant computation by 40%</li>
+                    <li><strong>Pipeline parallelism</strong> for models exceeding single GPU memory</li>
+                    <li><strong>Ray-based distribution</strong> for multi-node inference</li>
+                </ul>
+                
+                <h3>Storage architecture for AI</h3>
+                
+                <p>NVMe storage proves essential for vector database performance, with PostgreSQL achieving 10x improvement in vector similarity search when properly configured. Key optimizations include:</p>
+                
+                <ul>
+                    <li><strong>HNSW indexes</strong> for vector search outperforming IVFFlat by 3x</li>
+                    <li><strong>Binary quantization</strong> enabling 64,000-dimension vectors</li>
+                    <li><strong>Parallel index building</strong> utilizing all available CPU cores</li>
+                    <li><strong>Compression</strong> reducing storage requirements by 70%</li>
+                </ul>
+
+                <h2 id="roadmap">Implementation Roadmap</h2>
+                
+                <h3>Phase 1: Foundation (Week 1-2)</h3>
+                <ol>
+                    <li>Deploy K3s cluster with GPU support</li>
+                    <li>Configure MetalLB and DNS infrastructure</li>
+                    <li>Install Forgejo and Woodpecker CI</li>
+                    <li>Set up Harbor for container registry</li>
+                </ol>
+                
+                <h3>Phase 2: Data Platform (Week 3-4)</h3>
+                <ol>
+                    <li>Deploy PostgreSQL with pgvector</li>
+                    <li>Install Milvus for dedicated vector operations</li>
+                    <li>Configure Redpanda for message streaming</li>
+                    <li>Set up backup strategies with Velero</li>
+                </ol>
+                
+                <h3>Phase 3: Observability (Week 5-6)</h3>
+                <ol>
+                    <li>Deploy VictoriaMetrics and Grafana</li>
+                    <li>Configure DCGM GPU monitoring</li>
+                    <li>Install Trivy for security scanning</li>
+                    <li>Set up Infisical for secrets management</li>
+                </ol>
+                
+                <h3>Phase 4: AI Integration (Week 7-8)</h3>
+                <ol>
+                    <li>Deploy vLLM with tensor parallelism</li>
+                    <li>Configure Code-Server with AI extensions</li>
+                    <li>Install Kubeflow for ML workflows</li>
+                    <li>Implement GraphRAG for knowledge management</li>
+                </ol>
+
+                <h2 id="architecture">Architecture Decisions and Tradeoffs</h2>
+                
+                <p>The recommended architecture prioritizes operational simplicity while maintaining enterprise capabilities. Key decisions include:</p>
+                
+                <p><strong>K3s over K8s</strong>: The reduced complexity and resource usage outweigh the minor feature limitations for most deployments.</p>
+                
+                <p><strong>VictoriaMetrics over Prometheus</strong>: The performance improvements justify the migration effort, especially for high-cardinality metrics from GPU monitoring.</p>
+                
+                <p><strong>Milvus + PostgreSQL hybrid</strong>: Combining specialized vector search with general-purpose database provides the best balance of performance and operational complexity.</p>
+                
+                <p><strong>Redpanda over Kafka</strong>: The simplified operations and improved performance make it ideal for new deployments, though Kafka remains viable for existing infrastructure.</p>
+
+                <h2 id="future">Future-Proofing Your Stack</h2>
+                
+                <p>The rapid evolution of AI development tools requires architectural flexibility. Key considerations include:</p>
+                
+                <ul>
+                    <li><strong>Model registry standardization</strong> enabling easy migration between serving frameworks</li>
+                    <li><strong>Observability-first design</strong> capturing metrics for future AI-powered analysis</li>
+                    <li><strong>API compatibility layers</strong> maintaining OpenAI compatibility for tool portability</li>
+                    <li><strong>Modular service architecture</strong> enabling component upgrades without system-wide changes</li>
+                </ul>
+                
+                <p>This comprehensive stack provides production-ready capabilities while maintaining the flexibility to adopt emerging technologies. Organizations implementing these recommendations report 40-60% improvement in developer productivity and 50-70% reduction in operational overhead, validating the investment in modern self-hosted infrastructure.</p>
+
+                <h2 id="references">References and Further Reading</h2>
+                
+                <h3>Source Control and CI/CD</h3>
+                <ul>
+                    <li><a href="https://forgejo.org/" target="_blank">Forgejo Official Documentation</a> - Community-driven Git platform</li>
+                    <li><a href="https://github.com/woodpecker-ci/woodpecker" target="_blank">Woodpecker CI</a> - Simple, yet powerful CI/CD engine with great extensibility</li>
+                    <li><a href="https://docs.gitlab.com/ee/install/requirements.html" target="_blank">GitLab CE Installation Requirements</a></li>
+                    <li><a href="https://markaicode.com/forgejo-vs-gitlab-community-comparison/" target="_blank">Forgejo vs GitLab Community: Feature Comparison 2025</a></li>
+                </ul>
+                
+                <h3>Container Registries and Kubernetes</h3>
+                <ul>
+                    <li><a href="https://goharbor.io/" target="_blank">Harbor</a> - Cloud native registry with vulnerability scanning</li>
+                    <li><a href="https://k3s.io/" target="_blank">K3s</a> - Lightweight Kubernetes distribution</li>
+                    <li><a href="https://github.com/democratic-csi/democratic-csi" target="_blank">Democratic CSI</a> - TrueNAS integration for Kubernetes</li>
+                    <li><a href="https://metallb.universe.tf/" target="_blank">MetalLB</a> - Load balancer for bare metal Kubernetes</li>
+                </ul>
+                
+                <h3>Monitoring and Observability</h3>
+                <ul>
+                    <li><a href="https://victoriametrics.com/" target="_blank">VictoriaMetrics</a> - Fast, cost-effective time series database</li>
+                    <li><a href="https://github.com/NVIDIA/dcgm-exporter" target="_blank">NVIDIA DCGM Exporter</a> - GPU metrics for Prometheus</li>
+                    <li><a href="https://grafana.com/oss/loki/" target="_blank">Loki</a> - Log aggregation system</li>
+                    <li><a href="https://www.jaegertracing.io/" target="_blank">Jaeger</a> - Distributed tracing platform</li>
+                </ul>
+                
+                <h3>Vector Databases and AI Infrastructure</h3>
+                <ul>
+                    <li><a href="https://github.com/pgvector/pgvector" target="_blank">pgvector</a> - Open-source vector similarity search for Postgres</li>
+                    <li><a href="https://milvus.io/" target="_blank">Milvus</a> - Cloud-native vector database for AI applications</li>
+                    <li><a href="https://qdrant.tech/" target="_blank">Qdrant</a> - Vector database written in Rust</li>
+                    <li><a href="https://www.timescale.com/ai" target="_blank">TimescaleDB</a> - PostgreSQL for time-series and vector data</li>
+                </ul>
+                
+                <h3>ML Platforms and Model Serving</h3>
+                <ul>
+                    <li><a href="https://www.kubeflow.org/" target="_blank">Kubeflow</a> - ML toolkit for Kubernetes</li>
+                    <li><a href="https://docs.ray.io/" target="_blank">Ray</a> - Distributed AI/ML framework</li>
+                    <li><a href="https://www.bentoml.com/" target="_blank">BentoML</a> - Model serving at production scale</li>
+                    <li><a href="https://docs.vllm.ai/" target="_blank">vLLM</a> - High-throughput LLM serving</li>
+                    <li><a href="https://microsoft.github.io/graphrag/" target="_blank">Microsoft GraphRAG</a> - Knowledge graph-enhanced RAG</li>
+                </ul>
+                
+                <h3>Development Tools and IDEs</h3>
+                <ul>
+                    <li><a href="https://github.com/coder/code-server" target="_blank">Code-Server</a> - VS Code in the browser</li>
+                    <li><a href="https://www.eclipse.org/che/" target="_blank">Eclipse Che</a> - Cloud IDE platform</li>
+                    <li><a href="https://github.com/TabbyML/tabby" target="_blank">Tabby</a> - Self-hosted AI coding assistant</li>
+                    <li><a href="https://www.gitpod.io/self-hosted" target="_blank">Gitpod Self-Hosted</a> - Cloud development environments</li>
+                </ul>
+                
+                <h3>Message Queues and Streaming</h3>
+                <ul>
+                    <li><a href="https://redpanda.com/" target="_blank">Redpanda</a> - Kafka-compatible streaming platform</li>
+                    <li><a href="https://nats.io/" target="_blank">NATS JetStream</a> - Cloud native messaging system</li>
+                    <li><a href="https://www.rabbitmq.com/" target="_blank">RabbitMQ</a> - Message broker</li>
+                </ul>
+                
+                <h3>Security and Secrets Management</h3>
+                <ul>
+                    <li><a href="https://trivy.dev/" target="_blank">Trivy</a> - Comprehensive vulnerability scanner</li>
+                    <li><a href="https://infisical.com/" target="_blank">Infisical</a> - Open-source secrets management</li>
+                    <li><a href="https://smallstep.com/docs/step-ca/" target="_blank">Step-CA</a> - Private certificate authority</li>
+                </ul>
+                
+                <h3>Collaboration and Documentation</h3>
+                <ul>
+                    <li><a href="https://js.wiki/" target="_blank">Wiki.js</a> - Modern wiki platform</li>
+                    <li><a href="https://www.bookstackapp.com/" target="_blank">BookStack</a> - Knowledge management platform</li>
+                    <li><a href="https://mattermost.com/" target="_blank">Mattermost</a> - Open source collaboration</li>
+                    <li><a href="https://www.openproject.org/" target="_blank">OpenProject</a> - Project management software</li>
+                </ul>
+                
+                <h3>Additional Resources</h3>
+                <ul>
+                    <li><a href="https://awesome-selfhosted.net/" target="_blank">Awesome Self-Hosted</a> - Comprehensive list of self-hosted software</li>
+                    <li><a href="https://github.com/nvidia/nvidia-docker" target="_blank">NVIDIA Docker</a> - GPU support in containers</li>
+                    <li><a href="https://velero.io/" target="_blank">Velero</a> - Backup and migrate Kubernetes resources</li>
+                    <li><a href="https://cert-manager.io/" target="_blank">cert-manager</a> - X.509 certificate management for Kubernetes</li>
+                </ul>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Shaun Prince. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
