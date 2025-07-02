@@ -229,3 +229,57 @@ For users considering the transition, the benefits are clear: **lower latency**,
 The performance improvements over Debian 12 are substantial and measurable. Reduced latency, fewer dropouts, and lower CPU usage combine to create a more pleasant and productive working environment. These aren't theoretical benefits - they translate directly to smoother workflows and more reliable performance during critical sessions.
 
 Whether you're setting up a home studio or configuring a professional facility, Debian 13 provides the foundation for serious audio work. The system's flexibility allows optimization for any use case, from live performance to broadcast production. With proper configuration and quality hardware like the Studio 24c, Linux has truly become a first-class platform for audio professionals.
+
+## References
+
+1. 9to5Linux. (2025). "Debian 13 'Trixie' Installer Alpha Released with Linux 6.12 LTS, RISCV64 Support." Retrieved from https://9to5linux.com/debian-13-trixie-installer-alpha-released-with-linux-6-12-lts-riscv64-support
+
+2. Debian Project. (2025). "Debian Installer Trixie RC 1 release." Official Debian News. Retrieved from https://www.debian.org/devel/debian-installer/News/2025/20250517
+
+3. Debian Project. (2025). "What's new in Debian 13 — Release Notes Documentation." Retrieved from https://www.debian.org/releases/trixie/release-notes/whats-new.en.html
+
+4. Debian Wiki. (2025). "PipeWire." Retrieved from https://wiki.debian.org/PipeWire
+
+5. ArchWiki. (2025). "PipeWire." Retrieved from https://wiki.archlinux.org/title/PipeWire
+
+6. ArchWiki. (2025). "Professional Audio." Retrieved from https://wiki.archlinux.org/title/Professional_audio
+
+7. PipeWire Project. (2025). "PipeWire: Multimedia processing." Retrieved from https://pipewire.org/
+
+8. Yusof, K. (2025). "USB Audio Interface Basics for Linux." Retrieved from https://kaeru.my/notes/basic-audio-interface-for-linux
+
+9. LinuxMusicians Forum. (2020). "[TEST] PreSonus Studio 24c USB-C Audio Interface on Linux Mint." Retrieved from https://linuxmusicians.com/viewtopic.php?t=22693
+
+10. REAPER. (2025). "REAPER Downloads." Retrieved from https://www.reaper.fm/download.php
+
+11. Interfacing Linux. (2024). "Installing Reaper On Linux." Retrieved from https://interfacinglinux.com/2024/01/08/installing-reaper-on-linux/
+
+12. GitHub. (2025). "robbert-vdh/yabridge: A modern and transparent way to use Windows VST2, VST3 and CLAP plugins on Linux." Retrieved from https://github.com/robbert-vdh/yabridge
+
+13. Gaming on Linux. (2024). "Windows to Linux compatibility layer Wine 10.0 planned for mid-January 2025." Retrieved from https://www.gamingonlinux.com/2024/11/windows-to-linux-compatibility-layer-wine-10-0-planned-for-mid-january-2025/
+
+14. Linux Studio Plugins Project. (2025). Retrieved from https://lsp-plug.in/
+
+15. TecAdmin. (2025). "Debian 13 'Trixie': What's New in the Next Linux Powerhouse." Retrieved from https://tecadmin.net/debian-13-trixie-whats-new-in-the-next-linux-powerhouse/
+
+16. Linuxiac. (2025). "Debian 13 (Trixie) Installer Reaches First Release Candidate." Retrieved from https://linuxiac.com/debian-13-trixie-installer-reaches-first-release-candidate/
+
+17. Debian Packages. (2025). "Package: alsa-utils." Retrieved from https://packages.debian.org/trixie/alsa-utils
+
+18. Debian Packages. (2025). "Package: linux-image-rt-amd64." Retrieved from https://packages.debian.org/testing/kernel/linux-image-6.12.12-rt-amd64
+
+19. Debian Packages. (2025). "Package: ardour." Retrieved from https://packages.debian.org/testing/ardour
+
+20. GitHub. (2025). "mikeroyal/PipeWire-Guide: Learn about how PipeWire gives your Linux system a Professional Audio/Video Processing workflow." Retrieved from https://github.com/mikeroyal/PipeWire-Guide
+
+21. Hackaday. (2021). "PipeWire, The Newest Audio Kid On The Linux Block." Retrieved from https://hackaday.com/2021/06/23/pipewire-the-newest-audio-kid-on-the-linux-block/
+
+22. Ubuntu Studio. (2024). "Updates for July 2024." Retrieved from https://ubuntustudio.org/2024/07/updates-for-july-2024/
+
+23. soundcheck's audio@vise. (2014). "Linux USB Audio - Trouble Shooting." Retrieved from https://soundcheck-audio.blogspot.com/2014/04/shoot-trouble-usb-audio-interfaces.html
+
+24. Gentoo Wiki. (2025). "PipeWire." Retrieved from https://wiki.gentoo.org/wiki/PipeWire
+
+25. Hacker News. (2025). "Debian Trixie is hard frozen." Retrieved from https://news.ycombinator.com/item?id=44034528
+
+26. Interfacing Linux. (2023). "Pro Audio on Linux with Debian 12." Retrieved from https://interfacinglinux.com/2023/11/14/pro-audio-on-linux-with-debian-12/

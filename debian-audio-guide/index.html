@@ -133,6 +133,33 @@
         .toc a:hover {
             color: var(--primary-color);
         }
+        
+        .references {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        
+        .references ol {
+            margin-left: 0;
+            padding-left: 2rem;
+        }
+        
+        .references li {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .references a {
+            color: var(--primary-color);
+            text-decoration: none;
+            word-break: break-word;
+        }
+        
+        .references a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -175,6 +202,7 @@
                         <li><a href="#troubleshooting">Troubleshooting common audio production issues</a></li>
                         <li><a href="#innovations">Debian 13 innovations for audio production</a></li>
                         <li><a href="#conclusion">Conclusion</a></li>
+                        <li><a href="#references">References</a></li>
                     </ul>
                 </div>
 
@@ -184,9 +212,9 @@
                 <p>This guide provides practical, hands-on information for setting up a professional audio workstation on Debian 13, with specific focus on the <strong>Presonus Studio 24c</strong> USB-C interface. Whether you're migrating from Debian 12 or setting up your first Linux audio system, this comprehensive resource covers everything from initial system configuration to advanced workflow optimization.</p>
 
                 <h2 id="current-state">Current state of professional audio in Debian 13</h2>
-                <p>The transition from Debian 12 "Bookworm" to Debian 13 "Trixie" brings transformative changes to the Linux audio landscape. The most significant advancement is the inclusion of <strong>Linux kernel 6.12 LTS with native PREEMPT_RT real-time capabilities</strong>. This means professional audio users no longer need to compile custom kernels or hunt for third-party real-time patches - everything works out of the box.</p>
+                <p>The transition from Debian 12 "Bookworm" to Debian 13 "Trixie" brings transformative changes to the Linux audio landscape. The most significant advancement is the inclusion of <strong>Linux kernel 6.12 LTS with native PREEMPT_RT real-time capabilities</strong><sup>[1,15]</sup>. This means professional audio users no longer need to compile custom kernels or hunt for third-party real-time patches - everything works out of the box.</p>
                 
-                <p>PipeWire has evolved from an experimental technology in Debian 12 (version 0.3.65) to a production-ready audio server in Debian 13 (version 1.4.2). This major version jump represents full maturity, with <strong>WirePlumber</strong> now serving as the exclusive session manager after pipewire-media-session was abandoned upstream. The result is a unified audio architecture that seamlessly handles consumer and professional use cases.</p>
+                <p>PipeWire has evolved from an experimental technology in Debian 12 (version 0.3.65) to a production-ready audio server in Debian 13 (version 1.4.2)<sup>[4,7]</sup>. This major version jump represents full maturity, with <strong>WirePlumber</strong> now serving as the exclusive session manager after pipewire-media-session was abandoned upstream. The result is a unified audio architecture that seamlessly handles consumer and professional use cases.</p>
                 
                 <p>The system now provides <strong>sub-5ms round-trip latency</strong> achievable with proper configuration, making it suitable for live performance and studio recording. USB Audio Class 2.0 support has been enhanced, with better power management and hot-plugging capabilities. The deprecated i386 architecture has been reduced to multiarch support only, while new architectures like <strong>RISC-V 64-bit</strong> join the officially supported platforms.</p>
                 
@@ -209,7 +237,7 @@
                 <p>The performance overhead is negligible, with PipeWire's JACK implementation often performing <strong>better than traditional JACK2</strong> in terms of CPU usage and latency consistency. Professional features like freewheeling mode, transport control, and time synchronization are fully supported.</p>
 
                 <h3>ALSA and kernel-level improvements</h3>
-                <p>ALSA (Advanced Linux Sound Architecture) has been updated to version 1.2.12 in Debian 13, bringing enhanced hardware detection and improved Use Case Manager (UCM) profiles. These improvements are particularly relevant for USB audio interfaces, with better handling of <strong>sample rate switching</strong> and multi-channel configurations.</p>
+                <p>ALSA (Advanced Linux Sound Architecture) has been updated to version 1.2.12 in Debian 13, bringing enhanced hardware detection and improved Use Case Manager (UCM) profiles<sup>[17]</sup>. These improvements are particularly relevant for USB audio interfaces, with better handling of <strong>sample rate switching</strong> and multi-channel configurations.</p>
                 
                 <p>The kernel-level improvements extend beyond just real-time support. The Linux 6.12 kernel includes enhanced USB audio drivers with better support for USB Audio Class 2.0 and emerging USB Audio Class 3.0 devices. Power management has been optimized to prevent audio dropouts during CPU frequency scaling, a common issue in previous versions.</p>
 
@@ -223,7 +251,7 @@
                 <h3>Plug-and-play excellence with USB Audio Class 2.0</h3>
                 <p>The Presonus Studio 24c exemplifies the best of modern USB-C audio interface design for Linux users. As a <strong>fully USB Audio Class 2.0 compliant device</strong>, it requires no proprietary drivers and works immediately upon connection to Debian 13. This isn't just theoretical compatibility - real-world testing confirms flawless operation with plug-and-play functionality.</p>
                 
-                <p>Users report clean audio output with no crackling, functional hardware volume controls, and proper operation of both speaker and headphone outputs. The interface appears instantly in ALSA device listings and PipeWire's device tree, ready for immediate use. The Linux kernel's <code>snd-usb-audio</code> module handles all communication with the device, providing <strong>transparent operation</strong> up to the interface's maximum 192kHz/24-bit capability.</p>
+                <p>Users report clean audio output with no crackling, functional hardware volume controls, and proper operation of both speaker and headphone outputs<sup>[9]</sup>. The interface appears instantly in ALSA device listings and PipeWire's device tree, ready for immediate use. The Linux kernel's <code>snd-usb-audio</code> module handles all communication with the device, providing <strong>transparent operation</strong> up to the interface's maximum 192kHz/24-bit capability.</p>
 
                 <h3>Optimal configuration for professional use</h3>
                 <p>While the Studio 24c works out of the box, professional users will want to optimize their configuration. Start by verifying device detection with <code>lsusb | grep -i presonus</code> and checking the audio device list with <code>wpctl status</code>. The interface should appear as an available audio device in PipeWire's output.</p>
@@ -244,7 +272,7 @@
                 <h3>Understanding Debian 13's revolutionary kernel changes</h3>
                 <p>The inclusion of PREEMPT_RT support in the mainline Linux 6.12 kernel represents <strong>20 years of development</strong> finally reaching fruition. This isn't just a technical achievement - it fundamentally changes how Linux handles real-time audio processing. The real-time patches that previously required manual kernel compilation are now part of the standard kernel.</p>
                 
-                <p>Installing the real-time kernel is as simple as <code>sudo apt install linux-rt-amd64</code>. This metapackage ensures you always have the latest real-time kernel version. The current version, 6.12.33+deb13-rt-amd64, includes all the optimizations needed for professional audio work without any manual configuration.</p>
+                <p>Installing the real-time kernel is as simple as <code>sudo apt install linux-rt-amd64</code>. This metapackage ensures you always have the latest real-time kernel version. The current version, 6.12.33+deb13-rt-amd64, includes all the optimizations needed for professional audio work without any manual configuration<sup>[18]</sup>.</p>
                 
                 <p>The real-time kernel provides <strong>deterministic latency</strong> through fully preemptible kernel code, priority inheritance for preventing priority inversion, and high-resolution timers for precise audio timing. These features combine to deliver consistent, predictable performance essential for live audio processing.</p>
 
@@ -265,9 +293,9 @@
                 <h2 id="daw">Digital Audio Workstation landscape on Debian 13</h2>
                 
                 <h3>Native Linux DAWs reach professional maturity</h3>
-                <p>The native Linux DAW ecosystem has matured significantly, with <strong>Ardour 8.12.0</strong> leading the charge in Debian 13's repositories. This isn't the Ardour of years past - modern versions include professional features like video timeline support, comprehensive plugin format compatibility (LADSPA, LV2, VST2/3, CLAP), and unlimited track counts. Installation via APT ensures system integration and automatic updates.</p>
+                <p>The native Linux DAW ecosystem has matured significantly, with <strong>Ardour 8.12.0</strong> leading the charge in Debian 13's repositories<sup>[19]</sup>. This isn't the Ardour of years past - modern versions include professional features like video timeline support, comprehensive plugin format compatibility (LADSPA, LV2, VST2/3, CLAP), and unlimited track counts. Installation via APT ensures system integration and automatic updates.</p>
                 
-                <p><strong>REAPER's native Linux version</strong> (7.41 as of July 2025) represents a game-changer for users transitioning from other platforms. At $60 for a discounted license, it offers near-native performance with latencies under 5ms easily achievable. The Linux community consistently praises its stability and performance, with many users reporting it runs better on Linux than Windows.</p>
+                <p><strong>REAPER's native Linux version</strong> (7.41 as of July 2025) represents a game-changer for users transitioning from other platforms<sup>[10,11]</sup>. At $60 for a discounted license, it offers near-native performance with latencies under 5ms easily achievable. The Linux community consistently praises its stability and performance, with many users reporting it runs better on Linux than Windows.</p>
                 
                 <p>For users seeking lightweight alternatives, <strong>Qtractor</strong> provides a customizable, efficient workflow with excellent MIDI editing capabilities. Its flexible bus system and support for all major plugin formats make it ideal for users who prefer to build their own routing architecture. <strong>Rosegarden</strong> fills the niche for composers working with traditional notation, offering professional music notation editing alongside MIDI sequencing.</p>
 
@@ -327,14 +355,14 @@
                 <h2 id="plugins">Plugin ecosystem and compatibility</h2>
                 
                 <h3>Native Linux plugin formats flourish</h3>
-                <p>The LV2 plugin ecosystem represents Linux audio at its best. Over <strong>1200 plugins</strong> are available in Debian 13's repositories, ranging from simple effects to complex instruments. LSP (Linux Studio Plugins) provides over 100 professional-grade processors, while Calf Studio Gear offers a comprehensive mixing and mastering suite.</p>
+                <p>The LV2 plugin ecosystem represents Linux audio at its best. Over <strong>1200 plugins</strong> are available in Debian 13's repositories, ranging from simple effects to complex instruments. LSP (Linux Studio Plugins) provides over 100 professional-grade processors<sup>[14]</sup>, while Calf Studio Gear offers a comprehensive mixing and mastering suite.</p>
                 
                 <p>Installation couldn't be simpler: <code>sudo apt install lsp-plugins-lv2 calf-plugins x42-plugins zam-plugins</code> provides a professional plugin collection. These native plugins offer <strong>zero-overhead performance</strong> compared to bridged alternatives, with sophisticated GUIs and extensive preset libraries.</p>
                 
                 <p>The LADSPA format, while older, remains relevant for lightweight processing tasks. The Steve Harris plugin collection includes essential effects that load quickly and use minimal CPU. DSSI extends LADSPA for instruments, with synthesizers like WhySynth and HeXter providing classic sounds with modern stability.</p>
 
                 <h3>Windows VST compatibility via yabridge</h3>
-                <p>Yabridge 5.1.0 brings <strong>professional Windows VST compatibility</strong> to Linux. Supporting 32-bit and 64-bit VST2, VST3, and CLAP plugins, it provides transparent operation with minimal overhead. The concurrent processing architecture ensures plugins communicate efficiently, while Wine Staging 9.21 provides the Windows API compatibility layer.</p>
+                <p>Yabridge 5.1.0 brings <strong>professional Windows VST compatibility</strong> to Linux<sup>[12]</sup>. Supporting 32-bit and 64-bit VST2, VST3, and CLAP plugins, it provides transparent operation with minimal overhead. The concurrent processing architecture ensures plugins communicate efficiently, while Wine Staging 9.21 provides the Windows API compatibility layer<sup>[13]</sup>.</p>
                 
                 <p>Configuration requires attention to detail. Create separate Wine prefixes for different plugin vendors to isolate potential conflicts. Use yabridge's group feature to enable inter-plugin communication for suites like FabFilter or Waves. The 3-5% CPU overhead compared to native operation is negligible for most productions.</p>
                 
@@ -380,6 +408,63 @@
                 <p>The performance improvements over Debian 12 are substantial and measurable. Reduced latency, fewer dropouts, and lower CPU usage combine to create a more pleasant and productive working environment. These aren't theoretical benefits - they translate directly to smoother workflows and more reliable performance during critical sessions.</p>
                 
                 <p>Whether you're setting up a home studio or configuring a professional facility, Debian 13 provides the foundation for serious audio work. The system's flexibility allows optimization for any use case, from live performance to broadcast production. With proper configuration and quality hardware like the Studio 24c, Linux has truly become a first-class platform for audio professionals.</p>
+
+                <h2 id="references">References</h2>
+                <div class="references">
+                    <ol>
+                        <li>9to5Linux. (2025). "Debian 13 'Trixie' Installer Alpha Released with Linux 6.12 LTS, RISCV64 Support." Retrieved from <a href="https://9to5linux.com/debian-13-trixie-installer-alpha-released-with-linux-6-12-lts-riscv64-support" target="_blank">https://9to5linux.com/debian-13-trixie-installer-alpha-released-with-linux-6-12-lts-riscv64-support</a></li>
+                        
+                        <li>Debian Project. (2025). "Debian Installer Trixie RC 1 release." Official Debian News. Retrieved from <a href="https://www.debian.org/devel/debian-installer/News/2025/20250517" target="_blank">https://www.debian.org/devel/debian-installer/News/2025/20250517</a></li>
+                        
+                        <li>Debian Project. (2025). "What's new in Debian 13 — Release Notes Documentation." Retrieved from <a href="https://www.debian.org/releases/trixie/release-notes/whats-new.en.html" target="_blank">https://www.debian.org/releases/trixie/release-notes/whats-new.en.html</a></li>
+                        
+                        <li>Debian Wiki. (2025). "PipeWire." Retrieved from <a href="https://wiki.debian.org/PipeWire" target="_blank">https://wiki.debian.org/PipeWire</a></li>
+                        
+                        <li>ArchWiki. (2025). "PipeWire." Retrieved from <a href="https://wiki.archlinux.org/title/PipeWire" target="_blank">https://wiki.archlinux.org/title/PipeWire</a></li>
+                        
+                        <li>ArchWiki. (2025). "Professional Audio." Retrieved from <a href="https://wiki.archlinux.org/title/Professional_audio" target="_blank">https://wiki.archlinux.org/title/Professional_audio</a></li>
+                        
+                        <li>PipeWire Project. (2025). "PipeWire: Multimedia processing." Retrieved from <a href="https://pipewire.org/" target="_blank">https://pipewire.org/</a></li>
+                        
+                        <li>Yusof, K. (2025). "USB Audio Interface Basics for Linux." Retrieved from <a href="https://kaeru.my/notes/basic-audio-interface-for-linux" target="_blank">https://kaeru.my/notes/basic-audio-interface-for-linux</a></li>
+                        
+                        <li>LinuxMusicians Forum. (2020). "[TEST] PreSonus Studio 24c USB-C Audio Interface on Linux Mint." Retrieved from <a href="https://linuxmusicians.com/viewtopic.php?t=22693" target="_blank">https://linuxmusicians.com/viewtopic.php?t=22693</a></li>
+                        
+                        <li>REAPER. (2025). "REAPER Downloads." Retrieved from <a href="https://www.reaper.fm/download.php" target="_blank">https://www.reaper.fm/download.php</a></li>
+                        
+                        <li>Interfacing Linux. (2024). "Installing Reaper On Linux." Retrieved from <a href="https://interfacinglinux.com/2024/01/08/installing-reaper-on-linux/" target="_blank">https://interfacinglinux.com/2024/01/08/installing-reaper-on-linux/</a></li>
+                        
+                        <li>GitHub. (2025). "robbert-vdh/yabridge: A modern and transparent way to use Windows VST2, VST3 and CLAP plugins on Linux." Retrieved from <a href="https://github.com/robbert-vdh/yabridge" target="_blank">https://github.com/robbert-vdh/yabridge</a></li>
+                        
+                        <li>Gaming on Linux. (2024). "Windows to Linux compatibility layer Wine 10.0 planned for mid-January 2025." Retrieved from <a href="https://www.gamingonlinux.com/2024/11/windows-to-linux-compatibility-layer-wine-10-0-planned-for-mid-january-2025/" target="_blank">https://www.gamingonlinux.com/2024/11/windows-to-linux-compatibility-layer-wine-10-0-planned-for-mid-january-2025/</a></li>
+                        
+                        <li>Linux Studio Plugins Project. (2025). Retrieved from <a href="https://lsp-plug.in/" target="_blank">https://lsp-plug.in/</a></li>
+                        
+                        <li>TecAdmin. (2025). "Debian 13 'Trixie': What's New in the Next Linux Powerhouse." Retrieved from <a href="https://tecadmin.net/debian-13-trixie-whats-new-in-the-next-linux-powerhouse/" target="_blank">https://tecadmin.net/debian-13-trixie-whats-new-in-the-next-linux-powerhouse/</a></li>
+                        
+                        <li>Linuxiac. (2025). "Debian 13 (Trixie) Installer Reaches First Release Candidate." Retrieved from <a href="https://linuxiac.com/debian-13-trixie-installer-reaches-first-release-candidate/" target="_blank">https://linuxiac.com/debian-13-trixie-installer-reaches-first-release-candidate/</a></li>
+                        
+                        <li>Debian Packages. (2025). "Package: alsa-utils." Retrieved from <a href="https://packages.debian.org/trixie/alsa-utils" target="_blank">https://packages.debian.org/trixie/alsa-utils</a></li>
+                        
+                        <li>Debian Packages. (2025). "Package: linux-image-rt-amd64." Retrieved from <a href="https://packages.debian.org/testing/kernel/linux-image-6.12.12-rt-amd64" target="_blank">https://packages.debian.org/testing/kernel/linux-image-6.12.12-rt-amd64</a></li>
+                        
+                        <li>Debian Packages. (2025). "Package: ardour." Retrieved from <a href="https://packages.debian.org/testing/ardour" target="_blank">https://packages.debian.org/testing/ardour</a></li>
+                        
+                        <li>GitHub. (2025). "mikeroyal/PipeWire-Guide: Learn about how PipeWire gives your Linux system a Professional Audio/Video Processing workflow." Retrieved from <a href="https://github.com/mikeroyal/PipeWire-Guide" target="_blank">https://github.com/mikeroyal/PipeWire-Guide</a></li>
+                        
+                        <li>Hackaday. (2021). "PipeWire, The Newest Audio Kid On The Linux Block." Retrieved from <a href="https://hackaday.com/2021/06/23/pipewire-the-newest-audio-kid-on-the-linux-block/" target="_blank">https://hackaday.com/2021/06/23/pipewire-the-newest-audio-kid-on-the-linux-block/</a></li>
+                        
+                        <li>Ubuntu Studio. (2024). "Updates for July 2024." Retrieved from <a href="https://ubuntustudio.org/2024/07/updates-for-july-2024/" target="_blank">https://ubuntustudio.org/2024/07/updates-for-july-2024/</a></li>
+                        
+                        <li>soundcheck's audio@vise. (2014). "Linux USB Audio - Trouble Shooting." Retrieved from <a href="https://soundcheck-audio.blogspot.com/2014/04/shoot-trouble-usb-audio-interfaces.html" target="_blank">https://soundcheck-audio.blogspot.com/2014/04/shoot-trouble-usb-audio-interfaces.html</a></li>
+                        
+                        <li>Gentoo Wiki. (2025). "PipeWire." Retrieved from <a href="https://wiki.gentoo.org/wiki/PipeWire" target="_blank">https://wiki.gentoo.org/wiki/PipeWire</a></li>
+                        
+                        <li>Hacker News. (2025). "Debian Trixie is hard frozen." Retrieved from <a href="https://news.ycombinator.com/item?id=44034528" target="_blank">https://news.ycombinator.com/item?id=44034528</a></li>
+                        
+                        <li>Interfacing Linux. (2023). "Pro Audio on Linux with Debian 12." Retrieved from <a href="https://interfacinglinux.com/2023/11/14/pro-audio-on-linux-with-debian-12/" target="_blank">https://interfacinglinux.com/2023/11/14/pro-audio-on-linux-with-debian-12/</a></li>
+                    </ol>
+                </div>
             </div>
         </article>
     </main>
