@@ -198,11 +198,12 @@ if (typeof particlesJS !== 'undefined') {
 if (typeof Typed !== 'undefined') {
     new Typed('#typed', {
         strings: [
-            'Cloud Solutions Architect',
-            'AI Engineer',
-            'DevOps Expert',
-            'Infrastructure Automation Specialist',
-            'Machine Learning Enthusiast'
+            'Principal Solutions Architect',
+            'AI Infrastructure Expert',
+            'Open Source Leader',
+            'Rust Systems Developer',
+            'Gaming Automation Pioneer',
+            'MLOps Platform Builder'
         ],
         typeSpeed: 50,
         backSpeed: 30,
