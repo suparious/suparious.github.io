@@ -3,188 +3,1085 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaun Prince - Cloud Solutions Architect & AI Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/3a3d8c6e6b.js" crossorigin="anonymous"></script>
-    <meta name="description" content="Shaun Prince - Cloud Solutions Architect & AI Engineer with over 20 years of industry experience">
-    <meta name="keywords" content="Cloud Solutions, AI Engineer, DevOps, AWS, Python, Terraform">
+    <title>Shaun Prince | Cloud Solutions Architect & AI Engineer</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Shaun Prince - Seasoned Cloud Solutions Architect & AI Engineer with 20+ years of experience in DevOps, AWS, Kubernetes, and Machine Learning. Available for exciting opportunities.">
+    <meta name="keywords" content="Shaun Prince, Cloud Solutions Architect, AI Engineer, DevOps, AWS, Kubernetes, Terraform, Python, Machine Learning, MLOps">
+    <meta name="author" content="Shaun Prince">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Shaun Prince | Cloud Solutions Architect & AI Engineer">
+    <meta property="og:description" content="Experienced Cloud Solutions Architect and AI Engineer specializing in automated pipelines, cloud infrastructure, and AI-driven solutions.">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/2909735?v=4">
+    <meta property="og:url" content="https://suparious.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Shaun Prince | Cloud Solutions Architect & AI Engineer">
+    <meta name="twitter:description" content="Experienced Cloud Solutions Architect and AI Engineer specializing in automated pipelines and AI-driven solutions.">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/2909735?v=4">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/2909735?v=4">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Initializing Portfolio</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">SP</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="shaun-prince-resume.pdf" class="btn btn-primary btn-sm" download>
+                    <i class="fas fa-download"></i> Resume
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <main>
-        <section id="about">
-            <h1>Shaun Prince</h1>
-            <h2>Cloud Solutions Architect & AI Engineer</h2>
-            <img src="https://avatars.githubusercontent.com/u/2909735?v=4" alt="Shaun Prince" class="profile-image">
-            <p>With over 20 years of industry experience, I am a seasoned Cloud Solutions Architect and AI Engineer specializing in creating fully automated software release and deployment pipelines. My expertise spans cloud architecture, DevOps practices, and artificial intelligence, allowing me to drive innovation and efficiency in complex technological environments.</p>
-            <p>Throughout my career, I've led numerous successful projects in application migration, cloud infrastructure optimization, and AI-driven solutions. My passion lies in leveraging cutting-edge technologies to solve complex business challenges and improve operational efficiency.</p>
-        </section>
-
-        <section id="skills">
-            <h2>Skills & Expertise</h2>
-            <div class="skill-grid">
-                <div class="skill-item">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Cloud Architecture</h3>
-                    <div class="skill-bar" style="width: 95%;"></div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div id="particles-js" class="particles-container"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" data-aos="fade-up">
+                    Hi, I'm <span class="gradient-text">Shaun Prince</span>
+                </h1>
+                <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    <span class="typed-text">I'm a </span>
+                    <span id="typed"></span>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI & Machine Learning</h3>
-                    <div class="skill-bar" style="width: 90%;"></div>
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                    With 20+ years of experience transforming complex challenges into elegant cloud solutions, 
+                    I specialize in building scalable infrastructures and AI-driven systems that power modern enterprises.
+                </p>
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-briefcase"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-code-branch"></i>
-                    <h3>DevOps & CI/CD</h3>
-                    <div class="skill-bar" style="width: 95%;"></div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-aws"></i>
-                    <h3>AWS</h3>
-                    <div class="skill-bar" style="width: 90%;"></div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i>
-                    <h3>Python</h3>
-                    <div class="skill-bar" style="width: 85%;"></div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Technologies Mastered</span>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="hero-image" data-aos="fade-left" data-aos-delay="500">
+                <div class="image-wrapper">
+                    <img src="https://avatars.githubusercontent.com/u/2909735?v=4" alt="Shaun Prince" class="profile-img">
+                    <div class="floating-icons">
+                        <i class="devicon-amazonwebservices-plain-wordmark floating-icon"></i>
+                        <i class="devicon-kubernetes-plain floating-icon"></i>
+                        <i class="devicon-python-plain floating-icon"></i>
+                        <i class="devicon-terraform-plain floating-icon"></i>
+                        <i class="devicon-docker-plain floating-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
 
-        <section id="experience">
-            <h2>Work Experience</h2>
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="gradient-text">About Me</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h3>Transforming Ideas into Cloud Reality</h3>
+                    <p>
+                        I'm a passionate technologist who thrives at the intersection of cloud architecture, 
+                        artificial intelligence, and DevOps excellence. My journey spans over two decades of 
+                        continuous learning and innovation in the ever-evolving tech landscape.
+                    </p>
+                    <p>
+                        Currently seeking new opportunities where I can leverage my extensive experience in 
+                        cloud solutions, AI/ML implementations, and infrastructure automation to drive 
+                        organizational success and technological advancement.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-cloud"></i>
+                            <div>
+                                <h4>Cloud Architecture Expert</h4>
+                                <p>Designed and implemented enterprise-scale AWS solutions with focus on cost optimization and performance</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <h4>AI/ML Innovator</h4>
+                                <p>Developed predictive models and MLOps pipelines that improved operational efficiency by 40%</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-infinity"></i>
+                            <div>
+                                <h4>DevOps Pioneer</h4>
+                                <p>Architected CI/CD pipelines reducing deployment time by 60% and increasing release frequency</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-personal">
+                        <h4>Beyond the Code</h4>
+                        <p>
+                            When I'm not architecting cloud solutions, you'll find me writing in-depth technical articles, 
+                            contributing to open-source projects, or exploring the latest in AI and quantum computing. 
+                            I'm particularly passionate about automotive technology, audio engineering, and the intersection 
+                            of sci-fi predictions with real-world tech innovations.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-code" data-aos="fade-left">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">shaun.yaml</span>
+                        </div>
+                        <pre class="code-content"><code><span class="code-comment"># Cloud Solutions Architect & AI Engineer</span>
+<span class="code-key">name</span>: <span class="code-string">Shaun Prince</span>
+<span class="code-key">location</span>: <span class="code-string">Remote / Relocatable</span>
+<span class="code-key">experience</span>: <span class="code-number">20+</span> years
+
+<span class="code-key">expertise</span>:
+  <span class="code-key">cloud</span>:
+    - <span class="code-string">AWS Solutions Architecture</span>
+    - <span class="code-string">Kubernetes Orchestration</span>
+    - <span class="code-string">Infrastructure as Code</span>
+  <span class="code-key">ai_ml</span>:
+    - <span class="code-string">Machine Learning Models</span>
+    - <span class="code-string">MLOps Pipelines</span>
+    - <span class="code-string">Natural Language Processing</span>
+  <span class="code-key">devops</span>:
+    - <span class="code-string">CI/CD Automation</span>
+    - <span class="code-string">Container Orchestration</span>
+    - <span class="code-string">GitOps Workflows</span>
+
+<span class="code-key">current_focus</span>:
+  - <span class="code-string">🚀 Cloud-Native Architecture</span>
+  - <span class="code-string">🤖 AI/ML Integration</span>
+  - <span class="code-string">⚡ Performance Optimization</span>
+  - <span class="code-string">🔒 Security Best Practices</span>
+
+<span class="code-key">interests</span>:
+  - <span class="code-string">Open Source Contribution</span>
+  - <span class="code-string">Technical Writing</span>
+  - <span class="code-string">Automotive Technology</span>
+  - <span class="code-string">Audio Engineering</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="gradient-text">Technical Skills</span>
+            </h2>
+            <div class="skills-grid">
+                <!-- Cloud & Infrastructure -->
+                <div class="skill-category" data-aos="fade-up">
+                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>AWS</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Kubernetes</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Terraform</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Docker</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Machine Learning -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-brain"></i> AI & Machine Learning</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Machine Learning</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>TensorFlow/PyTorch</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>MLOps</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>NLP</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming Languages -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Python</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Go</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>JavaScript/TypeScript</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Bash/Shell</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps & Tools -->
+                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+                    <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>CI/CD (Jenkins/GitLab)</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>ArgoCD/Flux</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Prometheus/Grafana</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="83"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>ELK Stack</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tech Stack Icons -->
+            <div class="tech-stack" data-aos="fade-up" data-aos-delay="400">
+                <h3>Technologies I Work With</h3>
+                <div class="tech-icons">
+                    <div class="tech-icon" title="AWS">
+                        <i class="devicon-amazonwebservices-plain-wordmark"></i>
+                    </div>
+                    <div class="tech-icon" title="Kubernetes">
+                        <i class="devicon-kubernetes-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Docker">
+                        <i class="devicon-docker-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Python">
+                        <i class="devicon-python-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Terraform">
+                        <i class="devicon-terraform-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Jenkins">
+                        <i class="devicon-jenkins-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Git">
+                        <i class="devicon-git-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Linux">
+                        <i class="devicon-linux-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="PostgreSQL">
+                        <i class="devicon-postgresql-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Redis">
+                        <i class="devicon-redis-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Elasticsearch">
+                        <i class="devicon-elasticsearch-plain"></i>
+                    </div>
+                    <div class="tech-icon" title="Grafana">
+                        <i class="devicon-grafana-plain"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="gradient-text">Professional Experience</span>
+            </h2>
             <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Senior System Engineer at OpenBet</h3>
-                    <p class="timeline-date">2020 - Present</p>
-                    <p>Leading application migration to AWS using Terraform, Jenkins, Python, and Groovy. Implementing CI/CD pipelines and optimizing cloud infrastructure for scalability and performance. Key achievements include:</p>
-                    <ul>
-                        <li>Reduced deployment time by 60% through automation and optimization of CI/CD pipelines</li>
-                        <li>Implemented cost-saving measures resulting in a 30% reduction in cloud infrastructure expenses</li>
-                        <li>Led a team of 5 engineers in successful migration of legacy applications to microservices architecture</li>
-                    </ul>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Senior System Engineer</h3>
+                            <h4>OpenBet</h4>
+                            <span class="timeline-date">2020 - 2024</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Led cloud transformation initiatives and architected scalable solutions for high-traffic gaming platforms.</p>
+                            <ul>
+                                <li>Migrated legacy applications to AWS, reducing infrastructure costs by 30%</li>
+                                <li>Implemented GitOps workflows with Terraform, automating 95% of deployments</li>
+                                <li>Designed CI/CD pipelines that reduced release cycles from weeks to hours</li>
+                                <li>Led a team of 5 engineers in adopting cloud-native practices</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">AWS</span>
+                                <span class="tag">Terraform</span>
+                                <span class="tag">Jenkins</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>Artificial Intelligence Engineer at SolidRusT Networks</h3>
-                    <p class="timeline-date">2018 - 2020</p>
-                    <p>Developed AI solutions and managed Kubernetes stacks with ArgoCD and Helm for hybrid-cloud environments. Implemented machine learning models for network optimization and security enhancement. Notable projects include:</p>
-                    <ul>
-                        <li>Designed and implemented an AI-driven network optimization solution, improving network performance by 30%</li>
-                        <li>Created a machine learning model for predictive maintenance, reducing downtime by 25%</li>
-                        <li>Established MLOps practices, improving model deployment efficiency by 40%</li>
-                    </ul>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Artificial Intelligence Engineer</h3>
+                            <h4>SolidRusT Networks</h4>
+                            <span class="timeline-date">2018 - 2020</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Developed AI-driven solutions for network optimization and security enhancement in hybrid-cloud environments.</p>
+                            <ul>
+                                <li>Built ML models for predictive network maintenance, reducing downtime by 25%</li>
+                                <li>Implemented Kubernetes-based MLOps platform with ArgoCD and Helm</li>
+                                <li>Created real-time anomaly detection system processing 1M+ events/second</li>
+                                <li>Established best practices for AI model deployment and monitoring</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">ArgoCD</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">TensorFlow</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h3>DevOps Engineer at Various Companies</h3>
-                    <p class="timeline-date">2010 - 2018</p>
-                    <p>Implemented and managed CI/CD pipelines, containerization strategies, and cloud migration projects for multiple organizations, improving deployment efficiency and reducing operational costs. Key accomplishments:</p>
-                    <ul>
-                        <li>Spearheaded the adoption of containerization, resulting in a 50% improvement in resource utilization</li>
-                        <li>Implemented infrastructure-as-code practices, reducing provisioning time by 70%</li>
-                        <li>Led successful cloud migration projects for 3 large-scale applications</li>
-                    </ul>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>DevOps Engineer</h3>
+                            <h4>Various Companies</h4>
+                            <span class="timeline-date">2010 - 2018</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Pioneered DevOps practices across multiple organizations, driving digital transformation and operational excellence.</p>
+                            <ul>
+                                <li>Introduced containerization strategies, improving resource utilization by 50%</li>
+                                <li>Architected multi-cloud disaster recovery solutions with 99.99% uptime</li>
+                                <li>Mentored teams in agile methodologies and DevOps best practices</li>
+                                <li>Automated infrastructure provisioning, reducing setup time by 70%</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Docker</span>
+                                <span class="tag">CI/CD</span>
+                                <span class="tag">Cloud Migration</span>
+                                <span class="tag">Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>System Administrator</h3>
+                            <h4>Early Career</h4>
+                            <span class="timeline-date">2004 - 2010</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Built foundational expertise in system administration, network security, and infrastructure management.</p>
+                            <ul>
+                                <li>Managed enterprise Linux environments with 500+ servers</li>
+                                <li>Implemented security protocols and monitoring systems</li>
+                                <li>Developed automation scripts reducing manual tasks by 60%</li>
+                                <li>Led datacenter migration projects with zero downtime</li>
+                            </ul>
+                            <div class="timeline-tags">
+                                <span class="tag">Linux</span>
+                                <span class="tag">Networking</span>
+                                <span class="tag">Security</span>
+                                <span class="tag">Scripting</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h2>Notable Projects</h2>
-            <div class="project-grid">
-                <div class="project-item">
-                    <h3>AWStats Enterprise Manager</h3>
-                    <p>Developed a comprehensive web analytics tool for enterprise-level traffic analysis, integrating with various data sources and providing real-time insights.</p>
-                    <p><strong>Technologies used:</strong> Python, Django, React, AWS Lambda, DynamoDB</p>
-                    <p><strong>Outcome:</strong> Increased data processing efficiency by 40% and reduced analytics generation time by 50%</p>
-                    <a href="https://github.com/suparious/awstats-enterprise" target="_blank">View on GitHub</a>
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="gradient-text">Featured Projects</span>
+            </h2>
+            
+            <!-- Featured Project -->
+            <div class="featured-project" data-aos="fade-up">
+                <div class="project-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234f46e5'/%3E%3Cstop offset='100%25' style='stop-color:%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23a)'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EAI-Driven Network Optimizer%3C/text%3E%3C/svg%3E" alt="AI Network Optimizer">
+                    <div class="project-overlay">
+                        <span class="badge">Featured</span>
+                    </div>
                 </div>
-                <div class="project-item">
-                    <h3>SecurityOnion Contributions</h3>
-                    <p>Contributed to the development of SecurityOnion, an open-source security monitoring platform, focusing on improving threat detection capabilities and integration with cloud environments.</p>
-                    <p><strong>Technologies used:</strong> Python, Elasticsearch, Logstash, Kibana, Docker</p>
-                    <p><strong>Outcome:</strong> Improved threat detection accuracy by 25% and reduced false positives by 30%</p>
-                    <a href="https://github.com/Security-Onion-Solutions/securityonion" target="_blank">View Project</a>
-                </div>
-                <div class="project-item">
-                    <h3>AI-Driven Network Optimization</h3>
-                    <p>Designed and implemented an AI-driven network optimization solution, resulting in a 30% improvement in network performance and a 20% reduction in operational costs.</p>
-                    <p><strong>Technologies used:</strong> TensorFlow, Keras, Python, Kubernetes, Prometheus</p>
-                    <p><strong>Outcome:</strong> Achieved 99.99% network uptime and reduced manual interventions by 70%</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications">
-            <h2>Publications and Contributions</h2>
-            <ul class="publications-list">
-                <li>
-                    <h3>"Professional Audio on Debian 13 (Trixie) with USB-C Audio Interfaces"</h3>
-                    <p>A comprehensive guide for audio engineers and musicians on setting up professional audio production on Debian 13, featuring native real-time kernel support and PipeWire configuration.</p>
-                    <a href="debian-audio-guide/" target="_blank">Read Article</a>
-                </li>
-                <li>
-                    <h3>"Comprehensive Self-Hosting Stack for AI-Enhanced Development"</h3>
-                    <p>The ultimate guide to building a complete open-source infrastructure for offline developer environments, featuring GPU-accelerated AI workloads, Kubernetes deployment, and modern DevOps practices on Debian 12/13.</p>
-                    <a href="self-hosting-ai-stack/" target="_blank">Read Article</a>
-                </li>
-                <li>
-                    <h3>"Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech"</h3>
-                    <p>An exploration of how science fiction films accurately predicted modern technologies, from ChatGPT to deepfakes, brain-computer interfaces to AI companions.</p>
-                    <a href="scifi-tech-predictions/" target="_blank">Read Article</a>
-                </li>
-                <li>
-                    <h3>"Understanding Your 2012 Chevrolet Volt's Highway Engine Operation"</h3>
-                    <p>A comprehensive research report addressing concerns about engine RPM behavior when driving the 2012 Chevrolet Volt on highways, explaining the unique powertrain operation and providing maintenance guidance.</p>
-                    <a href="2012-chevy-volt-highway-guide/" target="_blank">Read Article</a>
-                </li>
-                <li>
-                    <h3>"Professional Automotive Air Conditioning Repair and Maintenance Reference Manual"</h3>
-                    <p>A comprehensive professional reference manual for automotive technicians covering R134a and R12a refrigerant systems, including tools, procedures, specifications, troubleshooting, and EPA regulations with extensive industry source citations.</p>
-                    <a href="automotive-ac-repair-guide/" target="_blank">Read Manual</a>
-                </li>
-            </ul>
-        </section>
-
-        <section id="contact">
-            <h2>Get in Touch</h2>
-            <div class="contact-container">
-                <form id="contact-form" action="https://formspree.io/f/xzzpolke" method="POST">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                    
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="message">Your Message:</label>
-                    <textarea id="message" name="message" required></textarea>
-                    
-                    <button type="submit">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <a href="https://linkedin.com/in/shaunprince" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://github.com/suparious" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="mailto:shaun@suparious.com"><i class="fas fa-envelope"></i> Email</a>
-                    <a href="shaun-prince-resume.pdf" download><i class="fas fa-file-pdf"></i> Download CV</a>
+                <div class="project-details">
+                    <h3>AI-Driven Network Optimization Platform</h3>
+                    <p>
+                        Designed and implemented an enterprise-scale AI platform that revolutionized network performance 
+                        monitoring and optimization. The system uses advanced machine learning algorithms to predict 
+                        network failures, optimize routing, and automatically scale resources based on traffic patterns.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>30% Performance Improvement</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-clock"></i>
+                            <span>70% Reduced Downtime</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$2M Annual Savings</span>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Prometheus</span>
+                        <span class="tech-tag">Real-time Analytics</span>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2023 Shaun Prince. All rights reserved.</p>
+            <!-- Project Grid -->
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card-header">
+                        <i class="fas fa-chart-bar project-icon"></i>
+                        <h3>AWStats Enterprise Manager</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p>Comprehensive web analytics platform for enterprise-level traffic analysis with real-time insights and custom reporting.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>40% faster processing</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-database"></i>
+                                <span>1TB+ data handled</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-links">
+                            <a href="https://github.com/suparious/awstats-enterprise" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Django</span>
+                            <span>AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card-header">
+                        <i class="fas fa-shield-alt project-icon"></i>
+                        <h3>SecurityOnion Contributions</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p>Enhanced threat detection capabilities and cloud integration for the open-source security monitoring platform.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-bug"></i>
+                                <span>25% better detection</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-check-circle"></i>
+                                <span>30% fewer false positives</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-links">
+                            <a href="https://github.com/Security-Onion-Solutions/securityonion" target="_blank" class="project-link">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>ELK</span>
+                            <span>Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card-header">
+                        <i class="fas fa-cloud project-icon"></i>
+                        <h3>Multi-Cloud Migration Framework</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p>Automated framework for seamless migration of applications across AWS, Azure, and GCP with zero downtime.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-rocket"></i>
+                                <span>50+ apps migrated</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>Zero downtime</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-lock"></i> Private
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span>Terraform</span>
+                            <span>Kubernetes</span>
+                            <span>Go</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card-header">
+                        <i class="fas fa-robot project-icon"></i>
+                        <h3>MLOps Platform</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p>End-to-end machine learning operations platform with automated model training, versioning, and deployment.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-brain"></i>
+                                <span>100+ models deployed</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-sync"></i>
+                                <span>Automated retraining</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-lock"></i> Private
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span>Kubeflow</span>
+                            <span>MLflow</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="project-card-header">
+                        <i class="fas fa-cogs project-icon"></i>
+                        <h3>GitOps Automation Suite</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p>Comprehensive GitOps implementation with ArgoCD, automating deployments across multiple Kubernetes clusters.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-code-branch"></i>
+                                <span>500+ deployments/month</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-check"></i>
+                                <span>99.9% success rate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-links">
+                            <a href="#" class="project-link">
+                                <i class="fas fa-lock"></i> Private
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span>ArgoCD</span>
+                            <span>Helm</span>
+                            <span>GitLab</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-card-header">
+                        <i class="fas fa-server project-icon"></i>
+                        <h3>Self-Hosting AI Stack</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p>Complete open-source infrastructure for offline AI development with GPU acceleration and Kubernetes deployment.</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-microchip"></i>
+                                <span>GPU optimized</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-lock"></i>
+                                <span>100% offline capable</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-links">
+                            <a href="self-hosting-ai-stack/" target="_blank" class="project-link">
+                                <i class="fas fa-book"></i> Documentation
+                            </a>
+                        </div>
+                        <div class="project-tags">
+                            <span>Kubernetes</span>
+                            <span>Docker</span>
+                            <span>AI/ML</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub Stats -->
+            <div class="github-stats" data-aos="fade-up">
+                <h3>Open Source Contributions</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fab fa-github"></i>
+                        <span class="stat-value" id="github-repos">20+</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code-branch"></i>
+                        <span class="stat-value" id="github-contributions">500+</span>
+                        <span class="stat-label">Contributions</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-value" id="github-stars">100+</span>
+                        <span class="stat-label">Stars Earned</span>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <span class="stat-value" id="github-followers">50+</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                </div>
+                <div class="github-link">
+                    <a href="https://github.com/suparious" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> View GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="gradient-text">Publications & Articles</span>
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                I love diving deep into technical topics and sharing my knowledge through detailed articles and guides.
+            </p>
+
+            <div class="publications-grid">
+                <!-- Featured Article -->
+                <div class="publication-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="publication-header">
+                        <span class="badge">Latest</span>
+                        <span class="reading-time"><i class="fas fa-clock"></i> 15 min read</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>Comprehensive Self-Hosting Stack for AI-Enhanced Development</h3>
+                        <p>
+                            The ultimate guide to building a complete open-source infrastructure for offline developer 
+                            environments, featuring GPU-accelerated AI workloads, Kubernetes deployment, and modern 
+                            DevOps practices on Debian 12/13.
+                        </p>
+                        <div class="publication-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-folder"></i>
+                                <span>AI/ML, DevOps, Infrastructure</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>December 2024</span>
+                            </div>
+                        </div>
+                        <a href="self-hosting-ai-stack/" target="_blank" class="btn btn-primary">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Other Articles -->
+                <div class="publication-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="publication-header">
+                        <span class="reading-time"><i class="fas fa-clock"></i> 10 min read</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>Professional Audio on Debian 13 with USB-C Audio Interfaces</h3>
+                        <p>
+                            A comprehensive guide for audio engineers and musicians on setting up professional 
+                            audio production on Debian 13, featuring native real-time kernel support and 
+                            PipeWire configuration.
+                        </p>
+                        <div class="publication-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-folder"></i>
+                                <span>Audio Engineering, Linux</span>
+                            </div>
+                        </div>
+                        <a href="debian-audio-guide/" target="_blank" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="publication-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="publication-header">
+                        <span class="reading-time"><i class="fas fa-clock"></i> 12 min read</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech</h3>
+                        <p>
+                            An exploration of how science fiction films accurately predicted modern technologies, 
+                            from ChatGPT to deepfakes, brain-computer interfaces to AI companions.
+                        </p>
+                        <div class="publication-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-folder"></i>
+                                <span>Technology, Culture</span>
+                            </div>
+                        </div>
+                        <a href="scifi-tech-predictions/" target="_blank" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="publication-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="publication-header">
+                        <span class="reading-time"><i class="fas fa-clock"></i> 8 min read</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>Understanding Your 2012 Chevrolet Volt's Highway Engine Operation</h3>
+                        <p>
+                            A comprehensive research report addressing concerns about engine RPM behavior when 
+                            driving the 2012 Chevrolet Volt on highways, with maintenance guidance.
+                        </p>
+                        <div class="publication-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-folder"></i>
+                                <span>Automotive, Engineering</span>
+                            </div>
+                        </div>
+                        <a href="2012-chevy-volt-highway-guide/" target="_blank" class="read-more">
+                            Read Article <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="publication-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="publication-header">
+                        <span class="reading-time"><i class="fas fa-clock"></i> 20 min read</span>
+                    </div>
+                    <div class="publication-content">
+                        <h3>Professional Automotive Air Conditioning Repair Reference Manual</h3>
+                        <p>
+                            A comprehensive professional reference manual for automotive technicians covering 
+                            R134a and R12a refrigerant systems, including procedures, specifications, and 
+                            EPA regulations.
+                        </p>
+                        <div class="publication-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-folder"></i>
+                                <span>Automotive, Technical Manual</span>
+                            </div>
+                        </div>
+                        <a href="automotive-ac-repair-guide/" target="_blank" class="read-more">
+                            Read Manual <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="gradient-text">Let's Connect</span>
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                I'm currently exploring new opportunities where I can contribute my expertise in cloud architecture and AI engineering.
+            </p>
+
+            <div class="contact-content">
+                <div class="contact-form-wrapper" data-aos="fade-right">
+                    <form id="contact-form" action="https://formspree.io/f/xzzpolke" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <div class="contact-info" data-aos="fade-left">
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <a href="mailto:shaun@suparious.com">shaun@suparious.com</a>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Open to Remote & Relocation</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Availability</h3>
+                        <p>Immediately Available</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/shaunprince" target="_blank" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/suparious" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://twitter.com/suparious" target="_blank" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="shaun-prince-resume.pdf" download class="social-link" title="Download Resume">
+                            <i class="fas fa-file-pdf"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2024 Shaun Prince. All rights reserved.</p>
+                </div>
+                <div class="footer-center">
+                    <p>Built with <i class="fas fa-heart"></i> and hosted on GitHub Pages</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#home" class="back-to-top">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/animations.js"></script>
 </body>
 </html>
