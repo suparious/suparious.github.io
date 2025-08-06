@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Automotive A/C Repair Manual - R134a & R12a Systems</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Custom styles for this manual */
+        .manual-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .table-of-contents {
+            background-color: #f0f8ff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc-list li {
+            margin: 0.5rem 0;
+        }
+        
+        .toc-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .toc-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .manual-section {
+            margin-bottom: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .manual-section:first-of-type {
+            border-top: none;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .data-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .data-table tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box::before {
+            content: "⚠️ ";
+            font-size: 1.2rem;
+        }
+        
+        .info-box {
+            background-color: #d1ecf1;
+            border: 2px solid #0c5460;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .subsection {
+            margin-left: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .equipment-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .equipment-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-ref {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .references-section {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+        }
+        
+        .reference-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .reference-list li {
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            background-color: white;
+            border-radius: 4px;
+        }
+        
+        .reference-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .reference-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            background-color: #1a7ae0;
+        }
+        
+        @media print {
+            .back-to-top, header, footer {
+                display: none !important;
+            }
+            
+            .manual-container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#tools">Tools & Equipment</a></li>
+                <li><a href="#procedures">Procedures</a></li>
+                <li><a href="#specs">Specifications</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+                <li><a href="#references">References</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="manual-container">
+        <h1 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">
+            Professional Automotive Air Conditioning<br>
+            Repair and Maintenance Reference Manual
+        </h1>
+        <h2 style="text-align: center; margin-bottom: 3rem;">R134a and R12a Refrigerant Systems</h2>
+
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <ol class="toc-list">
+                <li><a href="#tools">1. Tools and Equipment Guide</a></li>
+                <li><a href="#procedures">2. Service and Repair Procedures</a></li>
+                <li><a href="#specs">3. Technical Specifications and Regulatory Data</a></li>
+                <li><a href="#troubleshooting">4. Troubleshooting and Diagnostics</a></li>
+                <li><a href="#best-practices">5. Professional Best Practices</a></li>
+                <li><a href="#quick-reference">6. Quick Reference Tables</a></li>
+                <li><a href="#references">7. Sources and References</a></li>
+            </ol>
+        </div>
+
+        <!-- Section 1: Tools and Equipment -->
+        <section id="tools" class="manual-section">
+            <h2>Section 1: Tools and Equipment Guide</h2>
+            
+            <h3>Essential Equipment Categories</h3>
+            
+            <div class="subsection">
+                <h4>1.1 Manifold Gauge Sets</h4>
+                
+                <div class="equipment-card">
+                    <h4>Budget Professional Options ($50-$80)</h4>
+                    <p><strong>Orion Motor Tech 3-Way AC Manifold Gauge Set</strong></p>
+                    <ul>
+                        <li>Pressure range: 0-550 PSI (low), 0-800 PSI (high)</li>
+                        <li>Compatible with R134a, R12, R22, R502</li>
+                        <li>Includes 5FT color-coded hoses, quick couplers, carrying case</li>
+                        <li>Working pressure: 600 PSI, Burst pressure: 3000 PSI</li>
+                    </ul>
+                </div>
+                
+                <div class="equipment-card">
+                    <h4>Premium Options ($150-$250)</h4>
+                    <p><strong>Mastercool 89660-PRO5 R134a Professional Set</strong></p>
+                    <ul>
+                        <li>2.5" recalibrateable silicone-dampened gauges</li>
+                        <li>60" SAE-approved nylon barrier hoses</li>
+                        <li>Free-floating piston valves for smooth operation</li>
+                        <li>U.S. designed, assembled, and tested</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>1.2 Vacuum Pumps</h4>
+                
+                <div class="equipment-card">
+                    <h4>Standard Professional (3.5-5 CFM)</h4>
+                    <p><strong>Lichamp 1/4 HP 3.5 CFM Vacuum Pump</strong></p>
+                    <ul>
+                        <li>Ultimate vacuum: 37.5 microns (5 Pa)</li>
+                        <li>Oil capacity: 300ml with sight glass</li>
+                        <li>Anti-backflow design prevents oil contamination</li>
+                        <li>Price range: $60-$80</li>
+                    </ul>
+                    
+                    <p><strong>VIVOHOME 1/2 HP 5CFM 2-Stage Pump</strong></p>
+                    <ul>
+                        <li>Two-stage design for deeper vacuum</li>
+                        <li>Flow rate: 5 CFM for faster evacuation</li>
+                        <li>Heavy-duty construction for professional use</li>
+                        <li>Price range: $120-$150</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>1.3 Recovery/Recycling Machines</h4>
+                
+                <div class="equipment-card">
+                    <p><strong>Robinair RG3 Portable Recovery Machine</strong></p>
+                    <ul>
+                        <li>EPA-certified for CFC, HFC, HCFC refrigerants</li>
+                        <li>1/3 HP oil-less compressor</li>
+                        <li>High-pressure safety shut-off at 550 PSI</li>
+                        <li>Price range: $400-$500</li>
+                    </ul>
+                    
+                    <p><strong>Mastercool 69110 Automotive Recovery System</strong></p>
+                    <ul>
+                        <li>SAE J2810 certified for professional compliance</li>
+                        <li>Includes 30 lb DOT-approved recovery tank</li>
+                        <li>Simultaneous high/low side recovery</li>
+                        <li>Price range: $300-$400</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>1.4 Leak Detection Equipment</h4>
+                
+                <div class="equipment-card">
+                    <p><strong>UV Detection Systems</strong></p>
+                    <ul>
+                        <li>REALHUNLEE 68 LED UV Flashlight Kit: 385-395nm professional-grade LEDs</li>
+                        <li>A/C Pro Certified UV Dye: Compatible with R-12 and R-134A systems</li>
+                        <li>UV protective glasses included</li>
+                    </ul>
+                    
+                    <p><strong>Electronic Leak Detectors</strong></p>
+                    <ul>
+                        <li>Halogenated refrigerant sensors</li>
+                        <li>Adjustable sensitivity for micro-leak detection</li>
+                        <li>Audio/visual alerts for positive identification</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>1.5 Essential Hand Tools</h4>
+                
+                <div class="equipment-card">
+                    <p><strong>Valve Core Tools</strong></p>
+                    <ul>
+                        <li>Orion Motor Tech AC Valve Core Removal Kit</li>
+                        <li>No gas loss design with built-in ball valve</li>
+                        <li>R1234yf and R134a compatibility</li>
+                        <li>Price range: $25-$35</li>
+                    </ul>
+                    
+                    <p><strong>O-Ring and Valve Core Kits</strong></p>
+                    <ul>
+                        <li>270-piece universal assortment</li>
+                        <li>R12 and R134a valve cores included</li>
+                        <li>Organized storage containers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h4>1.6 Safety Equipment</h4>
+                
+                <div class="warning-box">
+                    <strong>Personal Protective Equipment Required:</strong>
+                    <ul>
+                        <li>Chemical-resistant nitrile gloves</li>
+                        <li>UV-resistant safety glasses</li>
+                        <li>Chemical splash goggles for refrigerant work</li>
+                        <li>Electrical safety gloves (Class 0) for hybrid vehicles</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Procedures -->
+        <section id="procedures" class="manual-section">
+            <h2>Section 2: Service and Repair Procedures</h2>
+            
+            <h3>2.1 System Diagnosis and Initial Inspection</h3>
+            
+            <div class="subsection">
+                <h4>Pre-Service Checklist</h4>
+                <ol>
+                    <li><strong>Visual Inspection</strong>
+                        <ul>
+                            <li>Check for oil residue indicating leaks</li>
+                            <li>Inspect belt condition and tension</li>
+                            <li>Examine condenser for damage or blockage</li>
+                            <li>Verify cabin air filter condition</li>
+                        </ul>
+                    </li>
+                    <li><strong>Static Pressure Test</strong> (Engine OFF)
+                        <ul>
+                            <li>Connect manifold gauges to service ports</li>
+                            <li>Record pressures - should match ambient temperature</li>
+                            <li>Example: 80°F ambient = ~80 PSI static pressure</li>
+                        </ul>
+                    </li>
+                    <li><strong>Operating Pressure Test</strong> (Engine ON)
+                        <ul>
+                            <li>Set engine to 1500 RPM</li>
+                            <li>AC on MAX, recirculate mode</li>
+                            <li>Allow 5-10 minutes for stabilization</li>
+                            <li>Record high and low side pressures</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h3>2.2 Pressure Testing and Analysis</h3>
+            
+            <h4>Normal Operating Pressures (R134a)</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ambient Temp</th>
+                        <th>Low Side (psi)</th>
+                        <th>High Side (psi)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>70°F</td>
+                        <td>25-35</td>
+                        <td>140-175</td>
+                    </tr>
+                    <tr>
+                        <td>80°F</td>
+                        <td>28-40</td>
+                        <td>175-225</td>
+                    </tr>
+                    <tr>
+                        <td>90°F</td>
+                        <td>32-45</td>
+                        <td>225-275</td>
+                    </tr>
+                    <tr>
+                        <td>100°F</td>
+                        <td>35-50</td>
+                        <td>275-325</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box">
+                <strong>Pressure Diagnosis Guide:</strong>
+                <ul>
+                    <li><strong>Both gauges low:</strong> System undercharged or major leak</li>
+                    <li><strong>Both gauges high:</strong> Overcharge or air contamination</li>
+                    <li><strong>High side high, low side low:</strong> Restricted expansion device</li>
+                    <li><strong>High side low, low side high:</strong> Compressor failure</li>
+                </ul>
+            </div>
+
+            <h3>2.3 Leak Detection Methods</h3>
+            
+            <div class="subsection">
+                <h4>UV Dye Method</h4>
+                <ol>
+                    <li>Inject UV dye via low side port (follow manufacturer amount)</li>
+                    <li>Run system 10-15 minutes to circulate</li>
+                    <li>Allow 24-48 hours for small leaks to accumulate dye</li>
+                    <li>Use UV light (385-395nm) with protective glasses</li>
+                    <li>Look for bright green/yellow fluorescent traces</li>
+                </ol>
+
+                <h4>Electronic Detection</h4>
+                <ol>
+                    <li>Calibrate detector per manufacturer instructions</li>
+                    <li>Move probe slowly (1-2 inches per second)</li>
+                    <li>Hold within 1/4 inch of suspected areas</li>
+                    <li>Work bottom to top (refrigerant heavier than air)</li>
+                </ol>
+
+                <h4>Nitrogen Pressure Testing</h4>
+                <ol>
+                    <li>Recover all refrigerant completely</li>
+                    <li>Pressurize to 150 PSI with dry nitrogen</li>
+                    <li>Monitor for 30-60 minutes</li>
+                    <li>Acceptable: Less than 2 PSI drop in 15 minutes</li>
+                </ol>
+                
+                <div class="warning-box">
+                    <strong>CAUTION:</strong> Never exceed 150 PSI on evaporator circuits
+                </div>
+            </div>
+
+            <h3>2.4 Evacuation Procedures</h3>
+            
+            <div class="subsection">
+                <h4>Equipment Setup</h4>
+                <ul>
+                    <li>Two-stage vacuum pump (minimum 4 CFM)</li>
+                    <li>Micron gauge for accuracy</li>
+                    <li>Vacuum-rated hoses</li>
+                </ul>
+
+                <h4>Evacuation Process</h4>
+                <ol>
+                    <li>Connect vacuum pump to center port</li>
+                    <li>Open both manifold valves</li>
+                    <li>Start vacuum pump</li>
+                    <li><strong>Target:</strong> 28-30 inches Hg (500 microns ideal)</li>
+                    <li><strong>Minimum time:</strong> 30-45 minutes continuous</li>
+                    <li><strong>Deep vacuum:</strong> 1+ hour for contaminated systems</li>
+                </ol>
+
+                <h4>Vacuum Hold Test</h4>
+                <ol>
+                    <li>Achieve target vacuum level</li>
+                    <li>Close valves and shut off pump</li>
+                    <li>Wait 10-15 minutes</li>
+                    <li>Vacuum loss >2 inches Hg indicates leak</li>
+                </ol>
+            </div>
+
+            <h3>2.5 Recharge Procedures</h3>
+            
+            <div class="subsection">
+                <h4>Weight Method (Preferred)</h4>
+                <ol>
+                    <li>Verify system capacity from underhood label</li>
+                    <li>Use scale accurate to 0.1 oz</li>
+                    <li>Allow liquid refrigerant through high side (system under vacuum)</li>
+                    <li>Start engine when pressure reaches ~30 PSI</li>
+                    <li>Continue charging through low side with vapor</li>
+                    <li>Stop at specified amount</li>
+                </ol>
+
+                <h4>Oil Addition Guidelines</h4>
+                <ul>
+                    <li><strong>R134a systems:</strong> PAG oil (check viscosity specification)</li>
+                    <li><strong>R12a systems:</strong> Mineral oil or POE oil</li>
+                    <li><strong>Hybrid vehicles:</strong> POE oil only (PAG is conductive)</li>
+                    <li><strong>Total system oil:</strong> Typically 4-8 oz</li>
+                </ul>
+            </div>
+
+            <h3>2.6 Component Testing</h3>
+            
+            <div class="subsection">
+                <h4>Compressor Testing</h4>
+                
+                <p><strong>Clutch Engagement</strong></p>
+                <ol>
+                    <li>Check voltage at clutch coil (12V expected)</li>
+                    <li>Test coil resistance: 3-5 ohms typical</li>
+                    <li>Verify clutch air gap: 0.012-0.024 inches</li>
+                </ol>
+                
+                <p><strong>Performance Test</strong></p>
+                <ul>
+                    <li>Monitor pressure differential</li>
+                    <li>Proper compression shows 70-80% difference</li>
+                </ul>
+
+                <h4>Expansion Device Testing</h4>
+                
+                <p><strong>Thermostatic Expansion Valve</strong></p>
+                <ul>
+                    <li>Inlet should be warm, outlet cold</li>
+                    <li>Frost formation indicates proper operation</li>
+                    <li>Superheat should be 5-15°F</li>
+                </ul>
+                
+                <p><strong>Orifice Tube</strong></p>
+                <ul>
+                    <li>Remove and inspect for debris</li>
+                    <li>Check mesh screen for contamination</li>
+                    <li>Replace if any debris present</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 3: Technical Specifications -->
+        <section id="specs" class="manual-section">
+            <h2>Section 3: Technical Specifications and Regulatory Data</h2>
+            
+            <h3>3.1 R134a Pressure/Temperature Chart</h3>
+            
+            <h4>Complete Saturation Data</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Temp (°F)</th>
+                        <th>Pressure (psig)</th>
+                        <th>Temp (°F)</th>
+                        <th>Pressure (psig)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>32</td>
+                        <td>27.8</td>
+                        <td>80</td>
+                        <td>86.7</td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>35.0</td>
+                        <td>90</td>
+                        <td>104.3</td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>45.4</td>
+                        <td>100</td>
+                        <td>124.2</td>
+                    </tr>
+                    <tr>
+                        <td>60</td>
+                        <td>57.4</td>
+                        <td>110</td>
+                        <td>146.4</td>
+                    </tr>
+                    <tr>
+                        <td>70</td>
+                        <td>71.1</td>
+                        <td>120</td>
+                        <td>171.2</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>3.2 R12a Specifications</h3>
+            
+            <div class="warning-box">
+                <strong>Critical Safety Information - FLAMMABLE REFRIGERANT</strong>
+                <ul>
+                    <li>Hydrocarbon blend (propane/isobutane)</li>
+                    <li>Charge quantity: 35-40% less than R134a</li>
+                    <li>Lower operating pressures</li>
+                    <li>Requires explosion-proof equipment</li>
+                    <li>Special handling procedures required</li>
+                </ul>
+            </div>
+
+            <h3>3.3 Compressor Oil Specifications</h3>
+            
+            <h4>PAG Oil Requirements by Manufacturer</h4>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Manufacturer</th>
+                        <th>Model</th>
+                        <th>Oil Type</th>
+                        <th>Capacity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Denso</td>
+                        <td>6SEU12C/14C</td>
+                        <td>PAG 46</td>
+                        <td>4.5-6.0 oz</td>
+                    </tr>
+                    <tr>
+                        <td>10PA15C/17C</td>
+                        <td>PAG 46</td>
+                        <td>6.0-7.5 oz</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Sanden</td>
+                        <td>SD5H09/SD7H15</td>
+                        <td>PAG 100 (SP-15)</td>
+                        <td>6.0-8.0 oz</td>
+                    </tr>
+                    <tr>
+                        <td>PXE13/16</td>
+                        <td>PAG 100 (SP-15)</td>
+                        <td>5.5-6.5 oz</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Delphi/Harrison</td>
+                        <td>H-6, R-4, V-5, V-7</td>
+                        <td>PAG 150</td>
+                        <td>7.0-9.0 oz</td>
+                    </tr>
+                    <tr>
+                        <td>CVC-6/7</td>
+                        <td>PAG 46</td>
+                        <td>5.5-7.0 oz</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="info-box">
+                <strong>Critical Note:</strong> PAG oils are electrically conductive - use POE oil for hybrid/electric vehicles
+            </div>
+
+            <h3>3.4 EPA 609 Certification Requirements</h3>
+            
+            <div class="subsection">
+                <h4>Current Regulations (2024-2025)</h4>
+                <ul>
+                    <li><strong>Who needs certification:</strong> Anyone servicing MVAC for compensation</li>
+                    <li><strong>Certification process:</strong> Complete approved training, pass exam (75% minimum)</li>
+                    <li><strong>No expiration:</strong> Valid for life unless revoked</li>
+                    <li><strong>Approved providers:</strong> ASE, MACS, SkillCat, technical schools</li>
+                </ul>
+
+                <h4>Record Keeping Requirements</h4>
+                <ul>
+                    <li>Maintain certification at workplace</li>
+                    <li>Keep records for 3 years minimum</li>
+                    <li>Document refrigerant quantities for systems ≥50 lbs</li>
+                    <li>Record leak inspections and repairs</li>
+                </ul>
+
+                <h4>Leak Repair Mandates</h4>
+                <ul>
+                    <li><strong>Comfort cooling:</strong> 10% annual leak rate threshold</li>
+                    <li><strong>Repair timeline:</strong> 30 days from detection</li>
+                    <li><strong>Verification:</strong> Required within 30 days of repair</li>
+                    <li><strong>Reporting:</strong> Systems ≥50 lbs leaking >125% annually</li>
+                </ul>
+            </div>
+
+            <h3>3.5 Refrigerant Capacity Reference</h3>
+            
+            <h4>Common Vehicle Examples</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>R134a Capacity</th>
+                        <th>Oil Type</th>
+                        <th>Oil Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chevrolet Aveo 2012-18</td>
+                        <td>17.60 oz</td>
+                        <td>PAG 46</td>
+                        <td>3.70 oz</td>
+                    </tr>
+                    <tr>
+                        <td>Ford F-150 2015-20</td>
+                        <td>28-32 oz</td>
+                        <td>PAG 46</td>
+                        <td>7-8 oz</td>
+                    </tr>
+                    <tr>
+                        <td>Toyota Camry 2012-17</td>
+                        <td>17-19 oz</td>
+                        <td>PAG 46</td>
+                        <td>4.5-5.5 oz</td>
+                    </tr>
+                    <tr>
+                        <td>Honda Civic 2016-21</td>
+                        <td>14-16 oz</td>
+                        <td>PAG 46</td>
+                        <td>4-5 oz</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Charging Tolerances</h4>
+            <ul>
+                <li>Small systems (<20 oz): ±1-2 oz</li>
+                <li>Medium systems (20-30 oz): ±2-3 oz</li>
+                <li>Large systems (>30 oz): ±3-4 oz</li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Troubleshooting -->
+        <section id="troubleshooting" class="manual-section">
+            <h2>Section 4: Troubleshooting and Diagnostics</h2>
+            
+            <h3>4.1 Symptom-Based Diagnostic Flowcharts</h3>
+            
+            <div class="subsection">
+                <h4>No Cooling</h4>
+                <ol>
+                    <li><strong>Check compressor clutch engagement</strong>
+                        <ul>
+                            <li>No click/engagement → Check fuse, relay, pressure switch</li>
+                            <li>Clutch engages → Check system pressures</li>
+                        </ul>
+                    </li>
+                    <li><strong>Analyze pressure readings</strong>
+                        <ul>
+                            <li>Both gauges same pressure → Compressor not pumping</li>
+                            <li>Both low → Insufficient refrigerant</li>
+                            <li>Both high → Air in system or overcharge</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4>Insufficient Cooling</h4>
+                <p><strong>Temperature Analysis</strong></p>
+                <ul>
+                    <li>Vent temperature >50°F = System problem</li>
+                    <li>Check for:
+                        <ul>
+                            <li>Low refrigerant (gradual cooling loss)</li>
+                            <li>Restricted expansion device</li>
+                            <li>Poor condenser airflow</li>
+                            <li>Blend door issues</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4>Intermittent Operation</h4>
+                <p><strong>Common Causes</strong></p>
+                <ul>
+                    <li>Rapid cycling (<10 seconds) → Low refrigerant</li>
+                    <li>Electrical issues → Check relays, switches</li>
+                    <li>Temperature sensor problems → Test resistance values</li>
+                </ul>
+            </div>
+
+            <h3>4.2 Pressure Diagnostic Quick Reference</h3>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Low Side</th>
+                        <th>High Side</th>
+                        <th>Diagnosis</th>
+                        <th>Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Low</td>
+                        <td>Low</td>
+                        <td>Low refrigerant</td>
+                        <td>Find leak, repair, recharge</td>
+                    </tr>
+                    <tr>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>Overcharge/air</td>
+                        <td>Recover, evacuate, recharge</td>
+                    </tr>
+                    <tr>
+                        <td>Low</td>
+                        <td>High</td>
+                        <td>Restriction</td>
+                        <td>Replace expansion device</td>
+                    </tr>
+                    <tr>
+                        <td>High</td>
+                        <td>Low</td>
+                        <td>Compressor failure</td>
+                        <td>Replace compressor</td>
+                    </tr>
+                    <tr>
+                        <td>Equal</td>
+                        <td>Equal</td>
+                        <td>No compression</td>
+                        <td>Check compressor operation</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>4.3 Component Failure Patterns</h3>
+            
+            <div class="subsection">
+                <h4>Compressor Failures</h4>
+                <p><strong>Symptoms</strong></p>
+                <ul>
+                    <li>Metal debris in orifice tube screen</li>
+                    <li>Black contaminated oil</li>
+                    <li>Grinding/knocking noises</li>
+                    <li>Clutch won't engage</li>
+                </ul>
+                
+                <p><strong>Common Causes</strong></p>
+                <ul>
+                    <li>Oil starvation from low refrigerant</li>
+                    <li>Moisture contamination creating acids</li>
+                    <li>Overheating from poor cooling</li>
+                    <li>Electrical overload</li>
+                </ul>
+
+                <h4>System Contamination</h4>
+                
+                <div class="warning-box">
+                    <strong>Black Death</strong>
+                    <ul>
+                        <li>Dark metallic sludge from compressor failure</li>
+                        <li>Spreads throughout entire system</li>
+                        <li>Requires complete component replacement</li>
+                        <li>Multiple system flushes required</li>
+                    </ul>
+                </div>
+                
+                <p><strong>Moisture Contamination</strong></p>
+                <ul>
+                    <li>Ice formation in expansion valve</li>
+                    <li>Corrosion of aluminum components</li>
+                    <li>System acids formation</li>
+                    <li>Requires deep evacuation</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Best Practices -->
+        <section id="best-practices" class="manual-section">
+            <h2>Section 5: Professional Best Practices</h2>
+            
+            <h3>5.1 Service Quality Assurance</h3>
+            
+            <div class="subsection">
+                <h4>Pre-Service Inspection</h4>
+                <p>Always perform complete visual inspection before connecting equipment:</p>
+                <ul>
+                    <li>Check service port condition</li>
+                    <li>Verify refrigerant type</li>
+                    <li>Review service history</li>
+                    <li>Test system operation</li>
+                </ul>
+
+                <h4>Common Mistakes to Avoid</h4>
+                <ol>
+                    <li><strong>Inadequate flushing</strong> after compressor failure</li>
+                    <li><strong>Wrong oil type</strong> for system</li>
+                    <li><strong>Improper charge amount</strong> (over/undercharge)</li>
+                    <li><strong>Contaminated parts</strong> not replaced</li>
+                    <li><strong>Moisture introduction</strong> from improper procedures</li>
+                </ol>
+            </div>
+
+            <h3>5.2 Customer Communication Guidelines</h3>
+            
+            <div class="subsection">
+                <h4>Explaining Problems Simply</h4>
+                <ul>
+                    <li><strong>Refrigerant leak:</strong> "Like a garden hose with a hole"</li>
+                    <li><strong>Compressor failure:</strong> "The heart of your A/C system"</li>
+                    <li><strong>Clogged system:</strong> "Like a blocked artery"</li>
+                    <li><strong>Contamination:</strong> "Metal shavings damage other parts"</li>
+                </ul>
+
+                <h4>Setting Expectations</h4>
+                <ul>
+                    <li>Explain service time requirements</li>
+                    <li>Describe normal temperature performance</li>
+                    <li>Discuss humidity effects on cooling</li>
+                    <li>Recommend preventive maintenance</li>
+                </ul>
+            </div>
+
+            <h3>5.3 Professional Efficiency</h3>
+            
+            <div class="subsection">
+                <h4>Time-Saving Techniques</h4>
+                <ul>
+                    <li>Use digital inspection forms</li>
+                    <li>Group similar services together</li>
+                    <li>Maintain organized tool setup</li>
+                    <li>Implement automated customer updates</li>
+                </ul>
+
+                <h4>Seasonal Preparation</h4>
+                <ul>
+                    <li><strong>Spring:</strong> Service equipment, stock supplies, promote A/C checks</li>
+                    <li><strong>Winter:</strong> Training, equipment maintenance, procedure updates</li>
+                </ul>
+
+                <h4>Continuing Education</h4>
+                <ul>
+                    <li><strong>MACS</strong> (Mobile Air Climate Systems Association)</li>
+                    <li><strong>ASE</strong> certification programs</li>
+                    <li>Manufacturer-specific training</li>
+                    <li>Industry publications and forums</li>
+                </ul>
+            </div>
+
+            <h3>5.4 Documentation Standards</h3>
+            
+            <div class="subsection">
+                <h4>Required Records</h4>
+                <ul>
+                    <li>EPA 609 certification</li>
+                    <li>Refrigerant recovery amounts</li>
+                    <li>Service procedures performed</li>
+                    <li>Before/after pressure readings</li>
+                    <li>Parts replaced with numbers</li>
+                    <li>Customer authorization</li>
+                </ul>
+
+                <h4>Quality Metrics</h4>
+                <ul>
+                    <li>Target <2% comeback rate</li>
+                    <li>90%+ customer satisfaction</li>
+                    <li><2 hour average service time</li>
+                    <li>95%+ first-time fix rate</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 6: Quick Reference -->
+        <section id="quick-reference" class="manual-section">
+            <h2>Section 6: Quick Reference Tables</h2>
+            
+            <div class="quick-ref">
+                <h3>Torque Specifications</h3>
+                <ul>
+                    <li>Compressor mounting: 30-45 ft-lbs</li>
+                    <li>Hose connections: 15-25 ft-lbs</li>
+                    <li>Pressure switches: 15-20 ft-lbs</li>
+                    <li>Service ports: 10-15 ft-lbs</li>
+                </ul>
+            </div>
+
+            <div class="quick-ref">
+                <h3>Vacuum Requirements</h3>
+                <ul>
+                    <li>Standard systems: 28-30 inches Hg</li>
+                    <li>High-precision: 500 microns or better</li>
+                    <li>Hold time: Minimum 10 minutes</li>
+                </ul>
+            </div>
+
+            <div class="quick-ref">
+                <h3>Safety Reminders</h3>
+                <ul>
+                    <li>Always wear safety glasses</li>
+                    <li>Use insulated gloves for refrigerant</li>
+                    <li>Work in ventilated areas</li>
+                    <li>Never exceed system pressure ratings</li>
+                    <li>Maintain EPA compliance</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section id="references" class="references-section">
+            <h2>Sources and References</h2>
+            <p>This manual was compiled from extensive research of professional automotive A/C repair resources. The following sources were consulted:</p>
+            
+            <h3>Equipment and Tools</h3>
+            <ul class="reference-list">
+                <li><a href="https://www.amazon.com/Orion-Motor-Tech-Refrigerant-Puncturing/dp/B07CZB3P4X" target="_blank">Orion Motor Tech AC Manifold Gauge Set - Amazon</a></li>
+                <li><a href="https://www.amazon.com/Mastercool-89660-PRO5-R134a-Manifold-Gauge/dp/B00D2HTIIS" target="_blank">Mastercool 89660-PRO5 Professional Gauge Set - Amazon</a></li>
+                <li><a href="https://www.amazon.com/Lichamp-Automotive-Conditioner-Refrigerant-Included/dp/B0D1VVS9NR" target="_blank">Lichamp HVAC Vacuum Pump - Amazon</a></li>
+                <li><a href="https://www.amazon.com/Robinair-RG3-Twin-Cylinder-Portable-Refrigerant/dp/B00NMOYPVG" target="_blank">Robinair RG3 Recovery Machine - Amazon</a></li>
+                <li><a href="https://www.amazon.com/MASTERCOOL-69110-Automotive-Recovery-System/dp/B005UZ2B2A" target="_blank">Mastercool 69110 Recovery System - Amazon</a></li>
+                <li><a href="https://www.amazon.com/REALHUNLEE-Conditioner-Flashlight-Detection-Protective/dp/B08DVBM9ZF" target="_blank">UV Leak Detection Kit - Amazon</a></li>
+                <li><a href="https://www.amazon.com/Orion-Motor-Tech-Automotive-Conditioning/dp/B0CGS1MZ8M" target="_blank">AC Valve Core Removal Tool - Amazon</a></li>
+            </ul>
+
+            <h3>Technical Procedures and Specifications</h3>
+            <ul class="reference-list">
+                <li><a href="https://smartacfix.com/how-to-use-ac-manifold-gauge-set-r134a/" target="_blank">How to Use AC Manifold Gauge Set R134a - Smart AC Fix</a></li>
+                <li><a href="https://www.wiseautotools.com/blog/how-to-find-refrigerant-leaks-in-automotive-ac-systems-tips-for-techs/" target="_blank">Finding Refrigerant Leaks in Automotive AC Systems - Wise Auto Tools</a></li>
+                <li><a href="https://aa1car.com/library/ac98.htm" target="_blank">Troubleshoot Automotive Air Conditioning Problems - AA1Car</a></li>
+                <li><a href="https://ricksfreeautorepairadvice.com/normal-ac-pressures-r-134a-pressure-gauge-readings/" target="_blank">Normal AC Pressures R-134a - Rick's Free Auto Repair Advice</a></li>
+                <li><a href="https://www.autozone.com/test-scan-and-specialty-tools/a-c-leak-detector" target="_blank">A/C Leak Detector Guide - AutoZone</a></li>
+                <li><a href="https://www.coolcarairconditioning.com.au/leak-detection/" target="_blank">Expert Leak Detection for Car A/C - Cool Car Air Conditioning</a></li>
+                <li><a href="https://www.autoacforum.com/viewtopic.php?t=14848" target="_blank">Nitrogen Leak Testing - Automotive AC Forum</a></li>
+                <li><a href="https://www.2carpros.com/articles/re-charge-an-air-conditioner-system" target="_blank">How to Vacuum and Recharge AC System - 2CarPros</a></li>
+                <li><a href="https://www.classicautoair.com/auto-air-conditioning-evacuation-not-just-testing-for-leaks/" target="_blank">Air Conditioning Evacuation - Classic Auto Air</a></li>
+                <li><a href="https://orionmotortech.com/blogs/auto-blog/how-to-evacuate-a-car-ac-system" target="_blank">How to Evacuate a Car AC System - OrionMotorTech</a></li>
+                <li><a href="https://autoacrepair1.com/how-long-to-evacuate-the-auto-a-c-system/" target="_blank">How Long to Evacuate Auto A/C System - Auto AC Repair LLC</a></li>
+            </ul>
+
+            <h3>Refrigerant Data and Oil Specifications</h3>
+            <ul class="reference-list">
+                <li><a href="https://www.arkema.com/files/live/sites/shared_arkema/files/downloads/products/fluorochemicals/forane-134a-pressure-temperature-chart.pdf" target="_blank">R134a Pressure/Temperature Chart - Arkema (PDF)</a></li>
+                <li><a href="https://www.autoacforum.com/viewtopic.php?t=13459" target="_blank">R12, R12a, R134a Discussion - AutoAC Forum</a></li>
+                <li><a href="https://appliancesfirst.com/what-is-12a-refrigerant/" target="_blank">Understanding R12A Refrigerant - AppliancesFirst</a></li>
+                <li><a href="https://www.aa1car.com/library/pagoil.htm" target="_blank">A/C Compressor PAG Oil Application Chart - AA1Car</a></li>
+                <li><a href="https://carfromjapan.com/article/how-much-pag-oil-to-add-to-ac-system/" target="_blank">How Much PAG Oil to Add to AC System - Car From Japan</a></li>
+                <li><a href="https://www.acparts.com/product/sanden-sp-15-pag-oil-8-45-oz/" target="_blank">Sanden Compressor Oil Specifications - AC Parts</a></li>
+                <li><a href="https://www.trifive.com/threads/correct-pag-oil-for-vintage-air-system.257637/" target="_blank">PAG Oil Discussion - Chevy Tri Five Forum</a></li>
+                <li><a href="https://refrigerants.com/wp-content/uploads/2019/12/SDS-R134a.pdf" target="_blank">R134a Safety Data Sheet - Refrigerants.com (PDF)</a></li>
+            </ul>
+
+            <h3>EPA Regulations and Certification</h3>
+            <ul class="reference-list">
+                <li><a href="https://www.epa.gov/mvac/section-609-technician-training-and-certification-programs" target="_blank">Section 609 Technician Training - US EPA</a></li>
+                <li><a href="https://www.epa.gov/mvac/technician-and-shop-owner-resources" target="_blank">Technician and Shop Owner Resources - US EPA</a></li>
+                <li><a href="https://www.ase.com/refrigerant-recovery-and-recycling-program" target="_blank">Refrigerant Recovery and Recycling Program - ASE</a></li>
+                <li><a href="https://maritimeinstitute.com/course/epa-609-mvac-certification/" target="_blank">EPA 609 MVAC Certification - Maritime Institute</a></li>
+                <li><a href="https://www.skillcatapp.com/epa-608-certification-online" target="_blank">EPA 608 Certification Online - SkillCat</a></li>
+                <li><a href="https://www.epa.gov/section608/epas-refrigerant-management-program-questions-and-answers-section-608-certified" target="_blank">EPA Refrigerant Management Q&A - US EPA</a></li>
+                <li><a href="https://www.epa.gov/section608/recordkeeping-and-reporting-requirements-stationary-refrigeration" target="_blank">Recordkeeping Requirements - US EPA</a></li>
+                <li><a href="https://www.skillcatapp.com/post/leak-repair-regulations-epa-certification-2" target="_blank">Leak Repair Regulations - SkillCat</a></li>
+                <li><a href="https://www.hagerty.com/media/maintenance-and-tech/air-conditioning-dos-and-donts-refrigerants-and-the-law/" target="_blank">Refrigerants and the Law - Hagerty Media</a></li>
+            </ul>
+
+            <h3>Troubleshooting and Component Testing</h3>
+            <ul class="reference-list">
+                <li><a href="https://electrouniversity.com/how-to-test-car-ac-compressor-with-multimeter/" target="_blank">How to Test AC Compressor with Multimeter - Electro University</a></li>
+                <li><a href="https://www.doityourself.com/forum/passenger-cars-mini-vans-suv-service-repairs-no-trucks/451433-how-do-i-test-ac-pressure-switch.html" target="_blank">Testing AC Pressure Switch - DoItYourself Forum</a></li>
+                <li><a href="https://www.freeasestudyguides.com/a7-ac-heat-test.html" target="_blank">ASE A7 Practice Test - Free ASE Study Guides</a></li>
+                <li><a href="https://www.vehicleairconservices.com/page/gauge_readings" target="_blank">R134a Pressure Gauge Readings - Vehicle Aircon Services</a></li>
+                <li><a href="https://www.apairltd.com/news/understanding-the-working-pressures-of-r134a-ac-systems" target="_blank">Working Pressures of R134a AC Systems - AP Air Ltd</a></li>
+                <li><a href="https://refrigeratorsreviewed.com/refrigerant-capacity-chart-a-guide/" target="_blank">Refrigerant Capacity Chart Guide - Refrigerators Reviewed</a></li>
+                <li><a href="https://www.perrinmfg.com/resources/gauge-diagnostics" target="_blank">Gauge Diagnostics Tool - Perrin Manufacturing</a></li>
+            </ul>
+
+            <h3>System Contamination and Black Death</h3>
+            <ul class="reference-list">
+                <li><a href="https://www.expeditersonline.com/forums/threads/a-c-metal-contamination-aka-black-death.22050/" target="_blank">A/C Metal Contamination Discussion - Expedite Trucking Forums</a></li>
+                <li><a href="https://www.brakeandfrontend.com/are-your-customers-a-c-systems-facing-black-death/" target="_blank">A/C Systems Facing Black Death - Brake and Frontend</a></li>
+                <li><a href="https://bobistheoilguy.com/forums/threads/a-c-black-death.332892/" target="_blank">A/C Black Death Discussion - BobIsTheOilGuy</a></li>
+                <li><a href="https://hoganandsonsinc.com/warning-signs-your-car-ac-compressor-is-going-bad/" target="_blank">Warning Signs of AC Compressor Failure - Hogan & Sons</a></li>
+                <li><a href="https://natrad.com.au/info-advice/5-symptoms-of-a-bad-ac-compressor/" target="_blank">Symptoms of Bad AC Compressor - Natrad</a></li>
+                <li><a href="https://www.toyotaofannarbor.com/signs-your-cars-ac-compressor-is-faulty/" target="_blank">Signs of Faulty AC Compressor - Toyota of Ann Arbor</a></li>
+                <li><a href="https://kingairmagazine.com/article/2607/" target="_blank">Beware of Black Death - King Air Magazine</a></li>
+                <li><a href="https://aircondition.com/knowledge_base/TheBasics/Components/Accumulator/Desiccant.html" target="_blank">Desiccant Information - Aircondition.com</a></li>
+                <li><a href="https://www.underhoodservice.com/a-c-update-keeping-the-black-death-at-bay/" target="_blank">Keeping Black Death at Bay - UnderhoodService</a></li>
+                <li><a href="https://kevinscarrepair.com/auto-repair/black-death-infects-auto-ac-system/" target="_blank">When Black Death Infects Auto AC System - Kevin's Car Repair</a></li>
+                <li><a href="https://aircondition.com/tech/questions/what-is-black-death" target="_blank">What is Black Death? - Aircondition.com</a></li>
+                <li><a href="https://www.firestonecompleteautocare.com/blog/maintenance/car-air-conditioning-repair-troubleshooting/" target="_blank">Car AC Repair Troubleshooting - Firestone Complete Auto Care</a></li>
+                <li><a href="https://www.sae.org/publications/technical-papers/content/2000-01-0983/" target="_blank">Effect of Desiccant on AC System Stability - SAE International</a></li>
+            </ul>
+
+            <h3>Refrigerant Capacity Charts</h3>
+            <ul class="reference-list">
+                <li><a href="https://ricksfreeautorepairadvice.com/chevrolet-refrigerant-capacity/" target="_blank">Chevrolet Refrigerant Capacity Chart - Rick's Free Auto Repair</a></li>
+            </ul>
+
+            <h3>Safety and PPE</h3>
+            <ul class="reference-list">
+                <li><a href="https://blog.ecmdi.com/the-essential-safety-gear-for-hvac-technicians-a-comprehensive-guide/" target="_blank">Essential Safety Gear for HVAC Technicians - ECMDI</a></li>
+                <li><a href="https://www.amazon.com/SAS-Safety-6417-Electric-Medium-8/dp/B008FK8TEG" target="_blank">SAS Safety Electric Service Gloves - Amazon</a></li>
+                <li><a href="https://www.amazon.com/OTC-3991-12-Hybrid-Electric-Safety/dp/B004GDSPLS" target="_blank">OTC Hybrid Electric Safety Gloves - Amazon</a></li>
+            </ul>
+
+            <h3>Professional Organizations</h3>
+            <ul class="reference-list">
+                <li><a href="https://www.vehicleservicepros.com/home/company/10095035/mobile-air-climate-systems-association-macs" target="_blank">Mobile Air Climate Systems Association (MACS) - Vehicle Service Pros</a></li>
+                <li><a href="https://www.ase.com/test-series" target="_blank">ASE Test Series - Automotive Service Excellence</a></li>
+                <li><a href="https://careeremployer.com/test-prep/practice-tests/ase-a7-practice-test/" target="_blank">ASE A7 Practice Test - Career Employer</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Automotive A/C Repair Manual. Professional Reference Guide.</p>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">↑</a>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Print-friendly version
+        function printManual() {
+            window.print();
+        }
+
+        // Add fade-in animation to sections as they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.manual-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
