@@ -3,358 +3,458 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech</title>
+    <title>Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech - Shaun Prince</title>
+    
+    <!-- SEO Meta Tags -->
     <meta name="description" content="Explore how science fiction films accurately predicted modern technologies, from ChatGPT to deepfakes, brain-computer interfaces to AI companions.">
+    <meta name="keywords" content="Science Fiction, AI Predictions, ChatGPT, Deepfakes, Brain-Computer Interface, Virtual Reality, The Matrix, Her Movie, Minority Report, Technology Predictions">
+    <meta name="author" content="Shaun Prince">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech">
+    <meta property="og:description" content="How science fiction films accurately predicted modern AI, VR, and brain-computer interfaces.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://suparious.com/scifi-tech-predictions/">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <!-- Article-specific styles -->
     <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #7c3aed;
-            --text-color: #1f2937;
-            --bg-color: #ffffff;
-            --card-bg: #f9fafb;
-            --border-color: #e5e7eb;
-            --accent-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            --link-color: #2563eb;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-color: #f9fafb;
-                --bg-color: #111827;
-                --card-bg: #1f2937;
-                --border-color: #374151;
-                --link-color: #60a5fa;
-            }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            transition: background-color 0.3s ease;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: var(--accent-gradient);
-            color: white;
-            padding: 60px 0;
+        /* Article Layout */
+        .article-hero {
+            background: var(--gradient-mesh), var(--background);
+            padding: 120px 0 60px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        
+        .article-hero h1 {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 1;
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
         }
-
-        nav {
-            background-color: var(--card-bg);
-            border-bottom: 1px solid var(--border-color);
+        
+        .article-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+        }
+        
+        /* Quick Navigation */
+        .quick-nav {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-3xl);
             position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background-color: rgba(255, 255, 255, 0.8);
+            top: 80px;
+            z-index: 10;
         }
-
-        @media (prefers-color-scheme: dark) {
-            nav {
-                background-color: rgba(31, 41, 55, 0.8);
-            }
+        
+        .quick-nav h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+            font-size: 1.2rem;
         }
-
-        nav ul {
+        
+        .quick-nav ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            padding: 1rem 0;
-            gap: 1rem;
+            gap: var(--spacing-sm);
+            padding: 0;
         }
-
-        nav a {
-            color: var(--text-color);
+        
+        .quick-nav a {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: var(--background);
+            color: var(--text-primary);
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            transition: all var(--transition-fast);
         }
-
-        nav a:hover {
-            background-color: var(--primary-color);
+        
+        .quick-nav a:hover {
+            background: var(--gradient-secondary);
             color: white;
             transform: translateY(-2px);
         }
-
-        .intro {
-            padding: 3rem 0;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            border-bottom: 1px solid var(--border-color);
-        }
-
+        
+        /* Movie Sections */
         .movie-section {
-            padding: 3rem 0;
+            padding: var(--spacing-3xl) 0;
             border-bottom: 1px solid var(--border-color);
-            scroll-margin-top: 60px;
+            scroll-margin-top: 180px;
         }
-
+        
+        .movie-section:last-of-type {
+            border-bottom: none;
+        }
+        
         .movie-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xl);
+            font-size: 2rem;
         }
-
-        .movie-section p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .tech-highlight {
-            background: var(--card-bg);
-            padding: 1.5rem;
+        
+        /* Timeline Box */
+        .timeline {
+            background: var(--surface);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-lg) 0;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
             border-left: 4px solid var(--primary-color);
-            margin: 1.5rem 0;
-            border-radius: 0.5rem;
         }
-
+        
+        .timeline .year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            min-width: 80px;
+        }
+        
+        .timeline .event {
+            flex: 1;
+            color: var(--text-secondary);
+        }
+        
+        /* Tech Highlight Box */
+        .tech-highlight {
+            background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.1));
+            padding: var(--spacing-xl);
+            border-left: 4px solid var(--primary-color);
+            margin: var(--spacing-xl) 0;
+            border-radius: var(--radius-md);
+        }
+        
+        .tech-highlight strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: var(--spacing-md);
+        }
+        
         .tech-highlight ul {
             list-style: none;
-            margin-top: 0.5rem;
+            padding: 0;
         }
-
+        
         .tech-highlight li {
-            padding: 0.25rem 0;
-            padding-left: 1.5rem;
+            padding: var(--spacing-xs) 0;
+            padding-left: var(--spacing-xl);
             position: relative;
         }
-
+        
         .tech-highlight li:before {
             content: "→";
             position: absolute;
             left: 0;
             color: var(--primary-color);
+            font-weight: bold;
         }
-
-        .conclusion {
-            padding: 3rem 0;
-            background: var(--card-bg);
-            border-radius: 1rem;
-            margin: 2rem 0;
+        
+        /* Stat Box */
+        .stat-box {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--spacing-xl) 0;
         }
-
-        .references {
-            padding: 3rem 0;
+        
+        .stat-box .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: var(--spacing-xs);
         }
-
-        .references h2 {
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-
-        .reference-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .reference-item {
-            padding: 1rem;
-            background: var(--card-bg);
-            border-radius: 0.5rem;
-            border: 1px solid var(--border-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .reference-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .reference-item h3 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .reference-item p {
+        
+        .stat-box .label {
             font-size: 0.9rem;
             opacity: 0.9;
-            margin-bottom: 0.5rem;
         }
-
-        .reference-item a {
-            color: var(--link-color);
-            text-decoration: none;
-            font-size: 0.85rem;
-            word-break: break-all;
-        }
-
-        .reference-item a:hover {
-            text-decoration: underline;
-        }
-
+        
+        /* Inline Citations */
         .inline-citation {
-            color: var(--link-color);
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 500;
-            cursor: pointer;
             position: relative;
         }
-
+        
         .inline-citation:hover {
             text-decoration: underline;
         }
-
+        
         .inline-citation::after {
             content: " ↗";
             font-size: 0.8em;
             vertical-align: super;
         }
-
-        .stat-box {
-            background: var(--accent-gradient);
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            margin: 1rem 0;
+        
+        /* Introduction Section */
+        .intro {
+            padding: var(--spacing-2xl) 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            border-bottom: 1px solid var(--border-color);
         }
-
-        .stat-box .number {
-            font-size: 2rem;
-            font-weight: bold;
-            display: block;
+        
+        /* Conclusion Section */
+        .conclusion {
+            padding: var(--spacing-3xl);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            margin: var(--spacing-3xl) 0;
         }
-
-        .stat-box .label {
-            font-size: 0.9rem;
-            opacity: 0.9;
+        
+        .conclusion h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xl);
         }
-
-        .timeline {
-            background: var(--card-bg);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        
+        /* References Section */
+        .references {
+            padding: var(--spacing-3xl) 0;
         }
-
-        .timeline .year {
-            font-size: 1.5rem;
-            font-weight: bold;
+        
+        .references h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-2xl);
+            font-size: 1.8rem;
+        }
+        
+        .reference-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .reference-item {
+            padding: var(--spacing-lg);
+            background: var(--surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+        
+        .reference-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+        
+        .reference-item h3 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
             color: var(--primary-color);
         }
-
-        .timeline .event {
-            flex: 1;
+        
+        .reference-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-secondary);
         }
-
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: var(--text-color);
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .subtitle {
-                font-size: 1rem;
-            }
-            
-            nav ul {
-                gap: 0.5rem;
-            }
-            
-            nav a {
-                font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
-            }
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--accent-gradient);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        
+        .reference-item a {
+            color: var(--primary-color);
             text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
+            font-size: 0.85rem;
+            word-break: break-word;
+            display: block;
+            margin-bottom: var(--spacing-xs);
         }
-
-        .back-to-top.visible {
-            opacity: 1;
-            pointer-events: auto;
+        
+        .reference-item a:hover {
+            text-decoration: underline;
         }
-
-        .back-to-top:hover {
-            transform: translateY(-5px);
+        
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            color: var(--primary-color);
+        }
+        
+        /* Content Typography */
+        .article-content h2 {
+            margin-top: var(--spacing-3xl);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .article-content h3 {
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        .article-content p {
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .article-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .article-cta {
+            text-align: center;
+            padding: var(--spacing-3xl);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            margin-top: var(--spacing-3xl);
+        }
+        
+        .article-cta h3 {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .article-cta p {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .back-nav {
+                position: static;
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .quick-nav {
+                position: static;
+                top: auto;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .timeline {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .reference-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .movie-section {
+                scroll-margin-top: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Cinema's Crystal Ball</h1>
-            <p class="subtitle">10 Sci-Fi Films That Nailed Tomorrow's Tech</p>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html"><span class="logo-text">SP</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#publications" class="nav-link">Publications</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <nav>
+    <!-- Back Navigation -->
+    <div class="back-nav">
+        <a href="../index.html#publications" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
         <div class="container">
+            <h1>Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> January 2025</span>
+                <span><i class="fas fa-user"></i> Shaun Prince</span>
+                <span><i class="fas fa-clock"></i> 18 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-content">
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h3>Quick Navigation</h3>
             <ul>
                 <li><a href="#her">Her (2013)</a></li>
                 <li><a href="#running-man">The Running Man</a></li>
@@ -366,12 +466,9 @@
                 <li><a href="#2001">2001: A Space Odyssey</a></li>
                 <li><a href="#star-trek">Star Trek</a></li>
                 <li><a href="#blade-runner">Blade Runner 2049</a></li>
-                <li><a href="#references">References</a></li>
             </ul>
         </div>
-    </nav>
 
-    <main class="container">
         <section class="intro">
             <p>Science fiction has long served as humanity's technological oracle, with filmmakers imagining futures that engineers later bring to life. The past five years have witnessed an extraordinary acceleration in realizing these cinematic prophecies, particularly in artificial intelligence. From ChatGPT's conversational abilities to deepfakes reshaping reality, we're living in the futures these films imagined.</p>
             
@@ -644,16 +741,14 @@
         </section>
 
         <section class="conclusion">
-            <div class="container">
-                <h2>Conclusion</h2>
-                <p>These ten films demonstrate science fiction's remarkable ability to anticipate technological development, often with uncanny accuracy regarding both capabilities and societal impact. The acceleration of AI development has compressed decades of fictional predictions into just a few years of real innovation. From ChatGPT matching Her's conversational AI to Neuralink realizing The Matrix's neural interfaces, we're living in multiple sci-fi futures simultaneously.</p>
-                
-                <p>The most insightful predictions captured not just what technologies would emerge but how they would transform human behavior. These films anticipated our emotional connections to AI, the erosion of truth through synthetic media, and the integration of artificial intelligence into healthcare. As we develop even more powerful technologies, science fiction continues serving as both inspiration and warning, reminding us that the future we build reflects the stories we tell ourselves about what's possible.</p>
-                
-                <div class="timeline">
-                    <div class="year">2025</div>
-                    <div class="event">We're living in the future these films imagined</div>
-                </div>
+            <h2>Conclusion</h2>
+            <p>These ten films demonstrate science fiction's remarkable ability to anticipate technological development, often with uncanny accuracy regarding both capabilities and societal impact. The acceleration of AI development has compressed decades of fictional predictions into just a few years of real innovation. From ChatGPT matching Her's conversational AI to Neuralink realizing The Matrix's neural interfaces, we're living in multiple sci-fi futures simultaneously.</p>
+            
+            <p>The most insightful predictions captured not just what technologies would emerge but how they would transform human behavior. These films anticipated our emotional connections to AI, the erosion of truth through synthetic media, and the integration of artificial intelligence into healthcare. As we develop even more powerful technologies, science fiction continues serving as both inspiration and warning, reminding us that the future we build reflects the stories we tell ourselves about what's possible.</p>
+            
+            <div class="timeline">
+                <div class="year">2025</div>
+                <div class="event">We're living in the future these films imagined</div>
             </div>
         </section>
 
@@ -664,76 +759,114 @@
                 <div class="reference-item">
                     <h3>Her & AI Companions</h3>
                     <p>Analysis of how "Her" predicted ChatGPT and AI relationships</p>
-                    <a href="https://slate.com/technology/2025/04/ai-news-her-review-2025-joaquin-phoenix-scarlett-johansson.html" target="_blank">Slate: "Her" Predicted Life in 2025</a><br>
+                    <a href="https://slate.com/technology/2025/04/ai-news-her-review-2025-joaquin-phoenix-scarlett-johansson.html" target="_blank">Slate: "Her" Predicted Life in 2025</a>
                     <a href="https://variety.com/2025/film/news/her-predicted-the-future-ai-relationships-chatgpt-sex-1236320709/" target="_blank">Variety: How "Her" Predicted AI Relationships</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>Medical AI & Diagnostics</h3>
                     <p>Real-world AI medical systems matching sci-fi predictions</p>
-                    <a href="https://news.harvard.edu/gazette/story/2024/09/new-ai-tool-can-diagnose-cancer-guide-treatment-predict-patient-survival/" target="_blank">Harvard: AI Cancer Diagnosis Tool</a><br>
-                    <a href="https://www.nature.com/articles/s41591-024-03408-6" target="_blank">Nature: AI in Mammography Screening</a><br>
+                    <a href="https://news.harvard.edu/gazette/story/2024/09/new-ai-tool-can-diagnose-cancer-guide-treatment-predict-patient-survival/" target="_blank">Harvard: AI Cancer Diagnosis Tool</a>
+                    <a href="https://www.nature.com/articles/s41591-024-03408-6" target="_blank">Nature: AI in Mammography Screening</a>
                     <a href="https://www.axios.com/2023/12/08/carepod-forward-doctors-office-telehealth-telemedicine" target="_blank">Axios: AI-Powered CarePods</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>Brain-Computer Interfaces</h3>
                     <p>From The Matrix to Neuralink's reality</p>
-                    <a href="https://www.rsna.org/news/2025/january/role-of-ai-in-medical-imaging" target="_blank">RSNA: AI's Role in Medical Imaging</a><br>
+                    <a href="https://www.rsna.org/news/2025/january/role-of-ai-in-medical-imaging" target="_blank">RSNA: AI's Role in Medical Imaging</a>
                     <a href="https://www.aamc.org/news/it-cancer-artificial-intelligence-helps-doctors-get-clearer-picture" target="_blank">AAMC: AI in Cancer Detection</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>Virtual Influencers & Deepfakes</h3>
                     <p>Digital beings and synthetic media predictions</p>
-                    <a href="https://en.wikipedia.org/wiki/Simone_(2002_film)" target="_blank">Wikipedia: S1m0ne Film Details</a><br>
+                    <a href="https://en.wikipedia.org/wiki/Simone_(2002_film)" target="_blank">Wikipedia: S1m0ne Film Details</a>
                     <a href="https://en.wikipedia.org/wiki/The_Running_Man_(1987_film)" target="_blank">Wikipedia: The Running Man</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>Healthcare Robots</h3>
                     <p>From Baymax to real hospital companions</p>
-                    <a href="https://the-take.com/read/does-technology-like-that-seen-in-big-hero-6-actually-exist" target="_blank">The Take: Big Hero 6 Tech in Reality</a><br>
+                    <a href="https://the-take.com/read/does-technology-like-that-seen-in-big-hero-6-actually-exist" target="_blank">The Take: Big Hero 6 Tech in Reality</a>
                     <a href="https://disney.fandom.com/wiki/Baymax" target="_blank">Disney Wiki: Baymax Details</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>AR/VR Interfaces</h3>
                     <p>Gesture control from Minority Report to Vision Pro</p>
-                    <a href="https://www.laptopmag.com/gaming/vr/apple-vision-pro-2-rumors-release-date-price-design-and-features" target="_blank">Laptop Mag: Apple Vision Pro Details</a><br>
+                    <a href="https://www.laptopmag.com/gaming/vr/apple-vision-pro-2-rumors-release-date-price-design-and-features" target="_blank">Laptop Mag: Apple Vision Pro Details</a>
                     <a href="https://thoughtcatalog.com/evan-lambert/2024/05/7-futuristic-sci-fi-movies-that-actually-predicted-the-future/" target="_blank">Thought Catalog: Sci-Fi Predictions</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>AI History & Analysis</h3>
                     <p>How sci-fi influenced real AI development</p>
-                    <a href="https://www.space.com/best-ai-movies" target="_blank">Space.com: Best AI Movies</a><br>
-                    <a href="https://chriskanan.com/how-well-did-2001-a-space-odyssey-predict-advancements-in-ai/" target="_blank">Christopher Kanan: 2001's AI Predictions</a><br>
+                    <a href="https://www.space.com/best-ai-movies" target="_blank">Space.com: Best AI Movies</a>
+                    <a href="https://chriskanan.com/how-well-did-2001-a-space-odyssey-predict-advancements-in-ai/" target="_blank">Christopher Kanan: 2001's AI Predictions</a>
                     <a href="https://www.oliverwymanforum.com/subscribe/what-sci-fi-can-teach-us-about-ai.html" target="_blank">Oliver Wyman: Sci-Fi Lessons for AI</a>
                 </div>
 
                 <div class="reference-item">
                     <h3>General Sci-Fi Predictions</h3>
                     <p>Comprehensive analyses of predictive sci-fi</p>
-                    <a href="https://movieweb.com/sci-fi-movies-predicted-the-future/" target="_blank">MovieWeb: Sci-Fi That Predicted the Future</a><br>
-                    <a href="https://www.micron.com/about/blog/company/insights/future-shock-11-technologies-science-fiction-predicted" target="_blank">Micron: Technologies Sci-Fi Predicted</a><br>
+                    <a href="https://movieweb.com/sci-fi-movies-predicted-the-future/" target="_blank">MovieWeb: Sci-Fi That Predicted the Future</a>
+                    <a href="https://www.micron.com/about/blog/company/insights/future-shock-11-technologies-science-fiction-predicted" target="_blank">Micron: Technologies Sci-Fi Predicted</a>
                     <a href="https://cybernews.com/editorial/sci-fi-movies-that-predicted-the-future/" target="_blank">Cybernews: Predictive Sci-Fi Films</a>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer>
+        <!-- CTA Section -->
+        <div class="article-cta">
+            <h3>About This Article</h3>
+            <p>This comprehensive analysis explores how science fiction films have accurately predicted modern technology developments, particularly in artificial intelligence.</p>
+            <a href="../index.html#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Contact for Discussion
+            </a>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Sci-Fi Tech Predictions. Built for GitHub Pages. <a href="https://github.com/suparious/suparious.github.io" style="color: var(--link-color);">View on GitHub</a></p>
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Shaun Prince. All rights reserved.</p>
+                </div>
+                <div class="footer-center">
+                    <p>Technology Analysis</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="back-to-top">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <a href="#top" class="back-to-top" aria-label="Back to top">↑</a>
-
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Simple scroll to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for quick nav links
+        document.querySelectorAll('.quick-nav a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -744,16 +877,6 @@
                     });
                 }
             });
-        });
-
-        // Back to top button
-        const backToTop = document.querySelector('.back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
         });
     </script>
 </body>
