@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found | Shaun Prince</title>
+    <title>404 - Lost in the Digital Void | Shaun Prince</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Inherit Main Site CSS for consistent theming -->
-    <link rel="stylesheet" href="./assets/css/main.css">
-    <link rel="stylesheet" href="./assets/css/animations.css">
-    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
     
     <style>
-        /* 404 Page Specific Styles */
+        /* Epic 404 Styles */
         body {
             min-height: 100vh;
             display: flex;
@@ -23,253 +23,477 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
+            background: var(--background);
         }
         
-        .container {
-            text-align: center;
+        /* Matrix-style Digital Rain Background */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
             z-index: 1;
-            padding: 2rem;
+            opacity: 0.15;
         }
         
-        .error-code {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(6rem, 15vw, 12rem);
-            font-weight: 700;
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glitch 2s ease-in-out infinite;
+        .matrix-column {
+            position: absolute;
+            top: -100%;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--primary-color);
+            writing-mode: vertical-rl;
+            text-orientation: upright;
+            animation: matrix-fall linear infinite;
+            text-shadow: 0 0 5px currentColor;
+        }
+        
+        @keyframes matrix-fall {
+            to {
+                transform: translateY(200vh);
+            }
+        }
+        
+        /* Glitch Container */
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
             position: relative;
         }
         
+        /* Epic 404 Number */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(8rem, 20vw, 16rem);
+            font-weight: 900;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Gradient text with animation */
+        .error-code-text {
+            background: linear-gradient(270deg, #4f46e5, #7c3aed, #06b6d4, #22d3ee, #4f46e5);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 8s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Glitch effect layers */
         .error-code::before,
         .error-code::after {
             content: '404';
             position: absolute;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: inherit;
+            font-weight: inherit;
         }
         
         .error-code::before {
-            animation: glitch-1 0.5s ease-in-out infinite;
-            z-index: -1;
+            animation: glitch-1 2.5s infinite;
+            color: #ff00ff;
+            z-index: -2;
+            opacity: 0.7;
         }
         
         .error-code::after {
-            animation: glitch-2 0.5s ease-in-out infinite;
-            z-index: -2;
-        }
-        
-        @keyframes glitch {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
-            }
+            animation: glitch-2 2.5s infinite;
+            color: #00ffff;
+            z-index: -1;
+            opacity: 0.7;
         }
         
         @keyframes glitch-1 {
             0%, 100% {
                 clip: rect(132px, 350px, 101px, 30px);
-                transform: translate(-2px, -2px);
+                transform: translate(0);
             }
-            25% {
+            20% {
                 clip: rect(28px, 350px, 132px, 30px);
-                transform: translate(2px, 2px);
+                transform: translate(-5px, -2px);
             }
-            50% {
+            40% {
                 clip: rect(42px, 350px, 78px, 30px);
-                transform: translate(-2px, 2px);
+                transform: translate(5px, 2px);
             }
-            75% {
+            60% {
                 clip: rect(15px, 350px, 100px, 30px);
-                transform: translate(2px, -2px);
+                transform: translate(-3px, 1px);
+            }
+            80% {
+                clip: rect(65px, 350px, 119px, 30px);
+                transform: translate(3px, -1px);
             }
         }
         
         @keyframes glitch-2 {
             0%, 100% {
                 clip: rect(65px, 350px, 119px, 30px);
-                transform: translate(2px, 2px);
+                transform: translate(0);
             }
-            25% {
+            20% {
                 clip: rect(79px, 350px, 15px, 30px);
-                transform: translate(-2px, -2px);
+                transform: translate(3px, 1px);
             }
-            50% {
+            40% {
                 clip: rect(98px, 350px, 43px, 30px);
-                transform: translate(2px, -2px);
+                transform: translate(-3px, -1px);
             }
-            75% {
+            60% {
                 clip: rect(54px, 350px, 97px, 30px);
-                transform: translate(-2px, 2px);
+                transform: translate(5px, -2px);
+            }
+            80% {
+                clip: rect(31px, 350px, 132px, 30px);
+                transform: translate(-5px, 2px);
             }
         }
         
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
+            25% { transform: translateY(-10px) rotateX(2deg) rotateY(-2deg); }
+            50% { transform: translateY(5px) rotateX(-1deg) rotateY(1deg); }
+            75% { transform: translateY(-5px) rotateX(1deg) rotateY(2deg); }
+        }
+        
+        /* Title and description */
         h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             margin: 2rem 0 1rem;
             color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
         
-        p {
+        .error-message {
             font-size: 1.125rem;
             color: var(--text-secondary);
             margin-bottom: 2rem;
-            max-width: 500px;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
         }
         
-        .buttons {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Action buttons */
+        .error-buttons {
             display: flex;
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
-        }
-        
-        /* Override button styles for 404 page */
-        .error-buttons {
-            display: flex;
-            gap: var(--spacing-md);
-            justify-content: center;
-            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.7s both;
         }
         
         .error-buttons .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-md) var(--spacing-lg);
-            border-radius: var(--radius-lg);
-            font-weight: 600;
-            text-decoration: none;
-            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
         
-        .error-buttons .btn-primary {
-            background: var(--gradient-secondary);
-            color: white;
-            box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.4);
+        .error-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
         }
         
-        .error-buttons .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.5);
+        .error-buttons .btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
-        .error-buttons .btn-secondary {
-            background: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .error-buttons .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-        
-        .stars {
+        /* Floating geometric shapes */
+        .floating-shapes {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
             left: 0;
-            z-index: 0;
-            opacity: 0.5;
+            z-index: 2;
+            pointer-events: none;
         }
         
-        .star {
+        .shape {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--primary-light);
-            border-radius: 50%;
-            animation: twinkle 3s ease-in-out infinite;
+            opacity: 0.1;
+            animation: float-shape 20s infinite ease-in-out;
         }
         
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .shape-1 {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-secondary);
+            top: 10%;
+            left: 10%;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation-duration: 15s;
         }
         
-        .astronaut {
-            position: absolute;
-            bottom: 10%;
+        .shape-2 {
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-accent);
+            top: 70%;
             right: 10%;
-            font-size: 4rem;
-            animation: float 6s ease-in-out infinite;
+            border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+            animation-duration: 20s;
+            animation-delay: -5s;
         }
         
-        @keyframes float {
+        .shape-3 {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            bottom: 20%;
+            left: 30%;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-duration: 18s;
+            animation-delay: -10s;
+        }
+        
+        @keyframes float-shape {
             0%, 100% {
-                transform: translateY(0) rotate(-5deg);
+                transform: translateY(0) rotate(0deg) scale(1);
             }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
+            33% {
+                transform: translateY(-30px) rotate(120deg) scale(1.1);
+            }
+            66% {
+                transform: translateY(30px) rotate(240deg) scale(0.9);
             }
         }
         
+        /* Terminal-style suggestion box */
+        .terminal-suggestion {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            animation: fadeInUp 0.8s ease-out 0.9s both;
+        }
+        
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .terminal-prompt {
+            color: var(--primary-color);
+        }
+        
+        .terminal-suggestion code {
+            color: var(--text-primary);
+            display: block;
+            margin: 0.5rem 0;
+        }
+        
+        /* Particle effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particle-float 10s infinite linear;
+        }
+        
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+        
+        /* Mobile responsiveness */
         @media (max-width: 768px) {
-            .astronaut {
-                font-size: 3rem;
-                bottom: 5%;
-                right: 5%;
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+                letter-spacing: 0.1em;
+            }
+            
+            .terminal-suggestion {
+                margin: 2rem 1rem;
+                font-size: 0.875rem;
             }
         }
-        
     </style>
 </head>
 <body>
-    <div class="stars" id="stars"></div>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrixRain"></div>
     
-    <div class="container">
-        <div class="error-code">404</div>
-        <h1>Lost in Space</h1>
-        <p>Oops! The page you're looking for seems to have drifted into the digital void. Let's get you back on track.</p>
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+    
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="error-code">
+            <span class="error-code-text">404</span>
+        </div>
+        
+        <h1>Lost in the Digital Void</h1>
+        
+        <p class="error-message">
+            You've ventured into uncharted digital territory. The page you seek has either transcended to a higher plane of existence or never existed in this timeline.
+        </p>
+        
         <div class="error-buttons">
             <a href="/" class="btn btn-primary">
-                <i class="fas fa-home"></i> Back to Home
+                <i class="fas fa-home"></i> Return to Safety
+            </a>
+            <a href="/#projects" class="btn btn-secondary">
+                <i class="fas fa-code"></i> Explore Projects
             </a>
             <a href="/#contact" class="btn btn-secondary">
-                <i class="fas fa-envelope"></i> Contact Me
+                <i class="fas fa-envelope"></i> Report Issue
             </a>
+        </div>
+        
+        <div class="terminal-suggestion">
+            <div class="terminal-header">
+                <span class="terminal-prompt">$</span>
+                <span>Suggested navigation:</span>
+            </div>
+            <code>cd /home</code>
+            <code>ls -la /projects</code>
+            <code>grep -r "awesome" /portfolio</code>
         </div>
     </div>
     
-    <div class="astronaut">🚀</div>
-    
-    <!-- Inherit Main Site JavaScript for theme system -->
-    <script src="./assets/js/theme.js"></script>
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
     <script>
-        // Create random stars
-        const starsContainer = document.getElementById('stars');
-        const numberOfStars = 100;
+        // Create matrix rain effect
+        const matrixRain = document.getElementById('matrixRain');
+        const matrixChars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
         
-        for (let i = 0; i < numberOfStars; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            starsContainer.appendChild(star);
+        for (let i = 0; i < 30; i++) {
+            const column = document.createElement('div');
+            column.className = 'matrix-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            column.style.animationDelay = Math.random() * 5 + 's';
+            
+            let text = '';
+            for (let j = 0; j < 50; j++) {
+                text += matrixChars[Math.floor(Math.random() * matrixChars.length)] + '<br>';
+            }
+            column.innerHTML = text;
+            matrixRain.appendChild(column);
         }
+        
+        // Create particle effect
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Konami code easter egg
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.body.style.animation = 'rainbow 2s linear infinite';
+                    alert('🎮 Achievement Unlocked: Found the secret code in the void! 🎮');
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+        
+        // Add rainbow animation style
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

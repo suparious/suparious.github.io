@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>401 - Authentication Required | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        /* Biometric/authentication themed 401 styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--background);
+        }
+        
+        /* Fingerprint scanner effect */
+        .fingerprint-scanner {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            position: relative;
+            border-radius: 50%;
+            background: conic-gradient(
+                from 0deg,
+                var(--primary-color) 0deg,
+                transparent 60deg,
+                transparent 300deg,
+                var(--primary-color) 360deg
+            );
+            animation: rotate 2s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .fingerprint-scanner::before {
+            content: '';
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: var(--background);
+            border-radius: 50%;
+        }
+        
+        .fingerprint {
+            font-size: 5rem;
+            z-index: 1;
+            animation: pulse-scan 2s ease-in-out infinite;
+            color: var(--primary-color);
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse-scan {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: scale(1.1);
+                opacity: 1;
+            }
+        }
+        
+        /* Binary code rain */
+        .binary-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0.05;
+            z-index: 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .binary-column {
+            position: absolute;
+            top: -100%;
+            font-size: 20px;
+            color: var(--primary-color);
+            animation: binary-fall linear infinite;
+        }
+        
+        @keyframes binary-fall {
+            to { transform: translateY(200vh); }
+        }
+        
+        /* Error code */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+            position: relative;
+        }
+        
+        /* Authentication panel */
+        .auth-panel {
+            background: var(--surface);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-secondary);
+            animation: scan-line 3s linear infinite;
+        }
+        
+        @keyframes scan-line {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .auth-methods {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .auth-method {
+            padding: 1rem;
+            background: var(--background);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: not-allowed;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+        }
+        
+        .auth-method:hover {
+            opacity: 0.7;
+            transform: scale(1.05);
+        }
+        
+        .auth-method i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .auth-method span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        
+        /* Retina scanner animation */
+        .retina-scanner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 100px;
+            height: 100px;
+            opacity: 0.3;
+        }
+        
+        .eye {
+            width: 100px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            animation: blink-eye 5s infinite;
+        }
+        
+        .pupil {
+            width: 30px;
+            height: 30px;
+            background: var(--background);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: look-around 3s infinite;
+        }
+        
+        @keyframes blink-eye {
+            0%, 90%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+        
+        @keyframes look-around {
+            0%, 100% { transform: translate(-50%, -50%); }
+            25% { transform: translate(-30%, -50%); }
+            50% { transform: translate(-50%, -30%); }
+            75% { transform: translate(-70%, -50%); }
+        }
+        
+        /* Main container */
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Password field animation */
+        .password-field {
+            display: inline-block;
+            font-family: 'Courier New', monospace;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5em;
+            margin: 1rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .fingerprint-scanner {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .fingerprint-scanner::before {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .fingerprint {
+                font-size: 3rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .auth-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Binary Background -->
+    <div class="binary-bg" id="binaryBg"></div>
+    
+    <!-- Retina Scanner -->
+    <div class="retina-scanner">
+        <div class="eye">
+            <div class="pupil"></div>
+        </div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="fingerprint-scanner">
+            <div class="fingerprint">👤</div>
+        </div>
+        
+        <div class="error-code">401</div>
+        
+        <h1>Authentication Required</h1>
+        
+        <p class="error-message">
+            Please verify your identity to access this restricted area. Multiple authentication methods have been disabled for security.
+        </p>
+        
+        <div class="auth-panel">
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--primary-color);"></i>
+            </div>
+            
+            <div class="password-field">••••••••••••</div>
+            
+            <div class="auth-methods">
+                <div class="auth-method">
+                    <i class="fas fa-fingerprint"></i>
+                    <span>Biometric</span>
+                </div>
+                <div class="auth-method">
+                    <i class="fas fa-key"></i>
+                    <span>2FA Token</span>
+                </div>
+                <div class="auth-method">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>SMS Code</span>
+                </div>
+                <div class="auth-method">
+                    <i class="fas fa-id-card"></i>
+                    <span>Smart Card</span>
+                </div>
+                <div class="auth-method">
+                    <i class="fas fa-qrcode"></i>
+                    <span>QR Code</span>
+                </div>
+                <div class="auth-method">
+                    <i class="fas fa-face-smile"></i>
+                    <span>Face ID</span>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem;">
+                All authentication methods are currently offline
+            </p>
+        </div>
+        
+        <div class="error-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Return Home
+            </a>
+            <a href="/#contact" class="btn btn-secondary">
+                <i class="fas fa-user-shield"></i> Request Access
+            </a>
+            <a href="/login" class="btn btn-secondary">
+                <i class="fas fa-sign-in-alt"></i> Try Login
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Create binary rain
+        const binaryBg = document.getElementById('binaryBg');
+        const binaryChars = '01';
+        
+        for (let i = 0; i < 20; i++) {
+            const column = document.createElement('div');
+            column.className = 'binary-column';
+            column.style.left = Math.random() * 100 + '%';
+            column.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            column.style.animationDelay = Math.random() * 5 + 's';
+            
+            let text = '';
+            for (let j = 0; j < 100; j++) {
+                text += binaryChars[Math.floor(Math.random() * binaryChars.length)] + ' ';
+                if (j % 8 === 7) text += '<br>';
+            }
+            column.innerHTML = text;
+            binaryBg.appendChild(column);
+        }
+        
+        // Animate password field
+        const passwordField = document.querySelector('.password-field');
+        const chars = '••••••••••••';
+        let currentLength = 0;
+        
+        setInterval(() => {
+            currentLength = (currentLength + 1) % (chars.length + 1);
+            passwordField.textContent = chars.substring(0, currentLength);
+        }, 200);
+        
+        // Random auth method highlighting
+        const authMethods = document.querySelectorAll('.auth-method');
+        setInterval(() => {
+            authMethods.forEach(method => method.style.opacity = '0.5');
+            const random = Math.floor(Math.random() * authMethods.length);
+            authMethods[random].style.opacity = '0.8';
+        }, 2000);
+    </script>
+</body>
+</html>

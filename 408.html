@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>408 - Request Timeout | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        /* Time/clock themed 408 styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--background);
+        }
+        
+        /* Analog clock */
+        .clock-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+        
+        .clock {
+            width: 200px;
+            height: 200px;
+            border: 8px solid var(--border-color);
+            border-radius: 50%;
+            position: relative;
+            background: var(--surface);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .clock-center {
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom center;
+            border-radius: 4px;
+        }
+        
+        .hour-hand {
+            width: 6px;
+            height: 50px;
+            background: var(--text-primary);
+            transform: translateX(-50%) rotate(30deg);
+            animation: tick-slow 60s steps(12) infinite;
+        }
+        
+        .minute-hand {
+            width: 4px;
+            height: 70px;
+            background: var(--primary-color);
+            transform: translateX(-50%) rotate(180deg);
+            animation: tick-fast 4s steps(60) infinite;
+        }
+        
+        .second-hand {
+            width: 2px;
+            height: 80px;
+            background: #ff4444;
+            transform: translateX(-50%) rotate(0deg);
+            animation: tick-second 2s steps(60) infinite;
+        }
+        
+        @keyframes tick-slow {
+            from { transform: translateX(-50%) rotate(30deg); }
+            to { transform: translateX(-50%) rotate(390deg); }
+        }
+        
+        @keyframes tick-fast {
+            from { transform: translateX(-50%) rotate(180deg); }
+            to { transform: translateX(-50%) rotate(540deg); }
+        }
+        
+        @keyframes tick-second {
+            from { transform: translateX(-50%) rotate(0deg); }
+            to { transform: translateX(-50%) rotate(360deg); }
+        }
+        
+        /* Clock numbers */
+        .clock-number {
+            position: absolute;
+            font-weight: bold;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .clock-number.twelve {
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .clock-number.three {
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .clock-number.six {
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .clock-number.nine {
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Error code with dissolving effect */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+            position: relative;
+            animation: fade-in-out 4s ease-in-out infinite;
+        }
+        
+        @keyframes fade-in-out {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        /* Hourglass animation */
+        .hourglass {
+            font-size: 4rem;
+            display: inline-block;
+            animation: flip 3s ease-in-out infinite;
+            margin: 1rem 0;
+        }
+        
+        @keyframes flip {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(180deg); }
+        }
+        
+        /* Sand particles falling */
+        .sand-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .sand-particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--text-muted);
+            opacity: 0.3;
+            animation: sand-fall 3s linear infinite;
+        }
+        
+        @keyframes sand-fall {
+            from {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        
+        /* Timeout status panel */
+        .timeout-panel {
+            background: var(--surface);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .timeout-timer {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .timeout-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--background);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .timeout-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            animation: timeout-drain 30s linear infinite;
+        }
+        
+        @keyframes timeout-drain {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+        
+        /* Time zones display */
+        .time-zones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .time-zone {
+            background: var(--background);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            text-align: center;
+        }
+        
+        .time-zone-name {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .time-zone-time {
+            font-family: 'Space Grotesk', monospace;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+        }
+        
+        /* Melting clock effect */
+        .melting-clock {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            font-size: 3rem;
+            opacity: 0.3;
+            transform: skewY(10deg) scaleY(1.2);
+            animation: melt 5s ease-in-out infinite;
+        }
+        
+        @keyframes melt {
+            0%, 100% { transform: skewY(10deg) scaleY(1.2); }
+            50% { transform: skewY(-10deg) scaleY(0.8); }
+        }
+        
+        /* Main container */
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Digital clock background */
+        .digital-clocks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            opacity: 0.02;
+            z-index: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .digital-clock-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .clock-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .clock {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .timeout-timer {
+                font-size: 1.5rem;
+            }
+            
+            .time-zones {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sand Particles -->
+    <div class="sand-container" id="sandContainer"></div>
+    
+    <!-- Digital Clocks Background -->
+    <div class="digital-clocks" id="digitalClocks"></div>
+    
+    <!-- Melting Clock (Dali reference) -->
+    <div class="melting-clock">🕐</div>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="clock-container">
+            <div class="clock">
+                <div class="clock-number twelve">12</div>
+                <div class="clock-number three">3</div>
+                <div class="clock-number six">6</div>
+                <div class="clock-number nine">9</div>
+                <div class="hand hour-hand"></div>
+                <div class="hand minute-hand"></div>
+                <div class="hand second-hand"></div>
+                <div class="clock-center"></div>
+            </div>
+        </div>
+        
+        <div class="error-code">408</div>
+        
+        <h1>Request Timeout</h1>
+        
+        <div class="hourglass">⏳</div>
+        
+        <p class="error-message">
+            Time waits for no one, and neither does this server. Your request took too long to complete and has expired into the digital void.
+        </p>
+        
+        <div class="timeout-panel">
+            <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Connection Status</h3>
+            
+            <div class="timeout-timer" id="timeoutTimer">00:00:00</div>
+            
+            <div class="timeout-bar">
+                <div class="timeout-progress"></div>
+            </div>
+            
+            <div class="time-zones">
+                <div class="time-zone">
+                    <div class="time-zone-name">Tokyo</div>
+                    <div class="time-zone-time" id="tokyo">00:00</div>
+                </div>
+                <div class="time-zone">
+                    <div class="time-zone-name">London</div>
+                    <div class="time-zone-time" id="london">00:00</div>
+                </div>
+                <div class="time-zone">
+                    <div class="time-zone-name">New York</div>
+                    <div class="time-zone-time" id="newyork">00:00</div>
+                </div>
+                <div class="time-zone">
+                    <div class="time-zone-name">Server</div>
+                    <div class="time-zone-time" id="server">00:00</div>
+                </div>
+            </div>
+            
+            <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem;">
+                Maximum request duration exceeded. Please try again with a faster connection.
+            </p>
+        </div>
+        
+        <div class="error-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Start Over
+            </a>
+            <a href="javascript:location.reload()" class="btn btn-secondary">
+                <i class="fas fa-clock"></i> Reset Timer
+            </a>
+            <a href="/#contact" class="btn btn-secondary">
+                <i class="fas fa-hourglass-half"></i> Need More Time?
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Create sand particles
+        const sandContainer = document.getElementById('sandContainer');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'sand-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 3 + 's';
+            particle.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            sandContainer.appendChild(particle);
+        }
+        
+        // Digital clocks background
+        const digitalClocks = document.getElementById('digitalClocks');
+        for (let i = 0; i < 12; i++) {
+            const clock = document.createElement('div');
+            clock.className = 'digital-clock-item';
+            digitalClocks.appendChild(clock);
+        }
+        
+        // Update all clocks
+        function updateClocks() {
+            const now = new Date();
+            
+            // Update timeout timer (counting up)
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('timeoutTimer').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            // Update time zones
+            const tokyo = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Tokyo"}));
+            const london = new Date(now.toLocaleString("en-US", {timeZone: "Europe/London"}));
+            const newyork = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
+            
+            document.getElementById('tokyo').textContent = 
+                `${String(tokyo.getHours()).padStart(2, '0')}:${String(tokyo.getMinutes()).padStart(2, '0')}`;
+            document.getElementById('london').textContent = 
+                `${String(london.getHours()).padStart(2, '0')}:${String(london.getMinutes()).padStart(2, '0')}`;
+            document.getElementById('newyork').textContent = 
+                `${String(newyork.getHours()).padStart(2, '0')}:${String(newyork.getMinutes()).padStart(2, '0')}`;
+            document.getElementById('server').textContent = `${hours}:${minutes}`;
+            
+            // Update background digital clocks
+            document.querySelectorAll('.digital-clock-item').forEach(clock => {
+                clock.textContent = `${hours}:${minutes}:${seconds}`;
+            });
+        }
+        
+        // Update clocks every second
+        setInterval(updateClocks, 1000);
+        updateClocks();
+        
+        // Random timeout messages
+        const messages = [
+            "Time flies when you're having fun... but crawls when you're waiting.",
+            "In the grand scheme of things, what's a timeout between friends?",
+            "Patience is a virtue, but server timeout is a constant.",
+            "Time is relative, but timeouts are absolute.",
+            "The server counted to infinity... twice... and gave up."
+        ];
+        
+        setInterval(() => {
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            console.log(`[TIMEOUT] ${message}`);
+        }, 10000);
+        
+        // Easter egg: Speed up time
+        let timeSpeed = 1;
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 't' && e.ctrlKey) {
+                timeSpeed = timeSpeed === 1 ? 10 : 1;
+                document.querySelectorAll('.hand').forEach(hand => {
+                    const currentDuration = parseFloat(getComputedStyle(hand).animationDuration);
+                    hand.style.animationDuration = (currentDuration / timeSpeed) + 's';
+                });
+                alert(timeSpeed === 10 ? '⏩ Time acceleration activated!' : '⏸️ Normal time restored');
+            }
+        });
+    </script>
+</body>
+</html>

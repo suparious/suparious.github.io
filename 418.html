@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>418 - I'm a Teapot | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        /* Whimsical teapot themed 418 styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--background);
+        }
+        
+        /* Animated teapot */
+        .teapot-container {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            animation: teapot-dance 3s ease-in-out infinite;
+        }
+        
+        @keyframes teapot-dance {
+            0%, 100% { 
+                transform: rotate(-5deg) translateY(0);
+            }
+            25% {
+                transform: rotate(5deg) translateY(-10px);
+            }
+            50% {
+                transform: rotate(-3deg) translateY(5px);
+            }
+            75% {
+                transform: rotate(3deg) translateY(-5px);
+            }
+        }
+        
+        /* Steam animation */
+        .steam {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+        }
+        
+        .steam-cloud {
+            position: absolute;
+            color: var(--text-muted);
+            opacity: 0;
+            animation: steam-rise 3s infinite;
+            font-size: 2rem;
+        }
+        
+        .steam-cloud:nth-child(1) {
+            animation-delay: 0s;
+            left: 40%;
+        }
+        
+        .steam-cloud:nth-child(2) {
+            animation-delay: 1s;
+            left: 50%;
+        }
+        
+        .steam-cloud:nth-child(3) {
+            animation-delay: 2s;
+            left: 60%;
+        }
+        
+        @keyframes steam-rise {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.5);
+            }
+            50% {
+                opacity: 0.6;
+                transform: translateY(-50px) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(1.5);
+            }
+        }
+        
+        /* Error code with rainbow effect */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: linear-gradient(90deg, 
+                #ff0000, #ff7f00, #ffff00, #00ff00, 
+                #0000ff, #4b0082, #8f00ff, #ff0000);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbow-slide 5s linear infinite;
+            margin: 1rem 0;
+        }
+        
+        @keyframes rainbow-slide {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        
+        /* Tea facts panel */
+        .tea-facts {
+            background: var(--surface);
+            border: 2px dashed var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .tea-fact {
+            padding: 1rem;
+            background: var(--background);
+            border-radius: var(--radius-md);
+            margin: 1rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .tea-fact-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+        }
+        
+        /* Floating tea elements */
+        .tea-elements {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .tea-element {
+            position: absolute;
+            font-size: 2rem;
+            animation: float-element 15s infinite linear;
+            opacity: 0.3;
+        }
+        
+        @keyframes float-element {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+            }
+        }
+        
+        /* Tea brewing progress */
+        .brewing-progress {
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+        }
+        
+        .brewing-bar {
+            height: 40px;
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid var(--border-color);
+        }
+        
+        .brewing-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B4513, #D2691E, #CD853F);
+            animation: brew 5s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brewing-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: bubbles 1s linear infinite;
+        }
+        
+        @keyframes brew {
+            0%, 100% { width: 0%; }
+            50% { width: 100%; }
+        }
+        
+        @keyframes bubbles {
+            from { transform: translateX(0); }
+            to { transform: translateX(20px); }
+        }
+        
+        .brewing-label {
+            text-align: center;
+            margin-top: 0.5rem;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        /* RFC 2324 reference */
+        .rfc-reference {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            z-index: 10;
+        }
+        
+        .rfc-reference a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .rfc-reference a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Easter egg button */
+        .secret-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            animation: spin 10s linear infinite;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+            z-index: 100;
+        }
+        
+        .secret-button:hover {
+            opacity: 1;
+            animation-duration: 1s;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Main container */
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-style: italic;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        /* Tea party mode */
+        .tea-party {
+            animation: party 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes party {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(1deg); }
+            50% { transform: scale(1) rotate(-1deg); }
+            75% { transform: scale(1.05) rotate(1deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .teapot-container {
+                font-size: 5rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .tea-facts {
+                margin: 1rem;
+                padding: 1rem;
+            }
+            
+            .rfc-reference {
+                bottom: 10px;
+                right: 10px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Tea Elements -->
+    <div class="tea-elements" id="teaElements"></div>
+    
+    <!-- Secret Button -->
+    <button class="secret-button" onclick="activateTeaParty()">☕</button>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="teapot-container">
+            <div class="steam">
+                <span class="steam-cloud">☁️</span>
+                <span class="steam-cloud">☁️</span>
+                <span class="steam-cloud">☁️</span>
+            </div>
+            <span>🫖</span>
+        </div>
+        
+        <div class="error-code">418</div>
+        
+        <h1>I'm a Teapot</h1>
+        
+        <p class="error-message">
+            "Any attempt to brew coffee with a teapot should result in the error code 418 I'm a teapot. 
+            The resulting entity body MAY be short and stout."
+        </p>
+        
+        <div class="brewing-progress">
+            <div class="brewing-bar">
+                <div class="brewing-fill"></div>
+            </div>
+            <div class="brewing-label">Brewing Tea... Please Wait</div>
+        </div>
+        
+        <div class="tea-facts">
+            <h3 style="margin-bottom: 1rem; color: var(--primary-color);">Fun Teapot Facts</h3>
+            
+            <div class="tea-fact">
+                <span class="tea-fact-icon">🌿</span>
+                This error code was defined in RFC 2324, Hyper Text Coffee Pot Control Protocol (HTCPCP), as an April Fools' joke in 1998.
+            </div>
+            
+            <div class="tea-fact">
+                <span class="tea-fact-icon">☕</span>
+                The HTTP 418 code is actually implemented by some websites and APIs as an easter egg.
+            </div>
+            
+            <div class="tea-fact">
+                <span class="tea-fact-icon">🎯</span>
+                Google's teapot.dev serves an actual 418 status code with an ASCII teapot!
+            </div>
+            
+            <div class="tea-fact">
+                <span class="tea-fact-icon">🚀</span>
+                You've discovered this website's secret teapot! You're clearly a person of culture.
+            </div>
+        </div>
+        
+        <div class="error-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Return to Coffee
+            </a>
+            <a href="#" onclick="pourTea(); return false;" class="btn btn-secondary">
+                <i class="fas fa-mug-hot"></i> Pour Some Tea
+            </a>
+            <a href="https://www.rfc-editor.org/rfc/rfc2324" target="_blank" class="btn btn-secondary">
+                <i class="fas fa-book"></i> Read RFC 2324
+            </a>
+        </div>
+    </div>
+    
+    <!-- RFC Reference -->
+    <div class="rfc-reference">
+        <strong>RFC 2324</strong> - HTCPCP/1.0<br>
+        <a href="https://www.rfc-editor.org/rfc/rfc2324" target="_blank">
+            Hyper Text Coffee Pot Control Protocol
+        </a><br>
+        1 April 1998
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Create floating tea elements
+        const teaElements = document.getElementById('teaElements');
+        const teaEmojis = ['☕', '🍵', '🫖', '🌿', '🍃', '🧋'];
+        
+        for (let i = 0; i < 15; i++) {
+            const element = document.createElement('div');
+            element.className = 'tea-element';
+            element.textContent = teaEmojis[Math.floor(Math.random() * teaEmojis.length)];
+            element.style.left = Math.random() * 100 + '%';
+            element.style.animationDelay = Math.random() * 15 + 's';
+            element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            teaElements.appendChild(element);
+        }
+        
+        // Pour tea function
+        function pourTea() {
+            const teapot = document.querySelector('.teapot-container');
+            teapot.style.animation = 'none';
+            setTimeout(() => {
+                teapot.style.animation = 'teapot-dance 3s ease-in-out infinite';
+            }, 10);
+            
+            // Create tea drop
+            const drop = document.createElement('div');
+            drop.textContent = '💧';
+            drop.style.position = 'fixed';
+            drop.style.fontSize = '2rem';
+            drop.style.left = '50%';
+            drop.style.top = '40%';
+            drop.style.transform = 'translateX(-50%)';
+            drop.style.animation = 'fall 1s ease-in forwards';
+            drop.style.zIndex = '1000';
+            document.body.appendChild(drop);
+            
+            setTimeout(() => drop.remove(), 1000);
+            
+            // Show message
+            const messages = [
+                "Earl Grey, hot! ☕",
+                "Green tea for wisdom! 🍵",
+                "Oolong for the soul! 🫖",
+                "Chai time! ☕",
+                "Matcha made in heaven! 🍵",
+                "Brewing happiness! 🌿"
+            ];
+            
+            alert(messages[Math.floor(Math.random() * messages.length)]);
+        }
+        
+        // Tea party mode
+        function activateTeaParty() {
+            document.body.classList.toggle('tea-party');
+            
+            // Rain tea
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const tea = document.createElement('div');
+                    tea.textContent = '☕';
+                    tea.style.position = 'fixed';
+                    tea.style.fontSize = Math.random() * 2 + 1 + 'rem';
+                    tea.style.left = Math.random() * 100 + '%';
+                    tea.style.top = '-50px';
+                    tea.style.zIndex = '10000';
+                    tea.style.animation = 'fall 2s linear forwards';
+                    document.body.appendChild(tea);
+                    setTimeout(() => tea.remove(), 2000);
+                }, i * 100);
+            }
+            
+            alert("🎉 TEA PARTY MODE ACTIVATED! 🫖\n\nYou've discovered the ultimate easter egg!");
+        }
+        
+        // Add falling animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateX(-50%) translateY(100vh);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Console easter egg
+        console.log(`
+%c☕ 418 I'm a Teapot ☕
+
+%cYou've discovered the teapot!
+According to RFC 2324, this server is a teapot
+and cannot brew coffee.
+
+Would you like some tea instead?
+
+    ( (
+     ) )
+  ........
+  |      |]
+  \\      /
+   '----'
+
+`, 'color: #8B4513; font-size: 20px; font-weight: bold;', 'color: #D2691E; font-size: 14px;');
+    </script>
+</body>
+</html>

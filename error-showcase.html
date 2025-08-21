@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Page Showcase | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        body {
+            min-height: 100vh;
+            padding: 80px 20px 40px;
+            background: var(--background);
+        }
+        
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .showcase-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .showcase-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+        
+        .error-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .error-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+        }
+        
+        .error-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.2);
+            border-color: var(--primary-color);
+        }
+        
+        .error-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .error-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .error-name {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .error-description {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .special-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .back-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .back-home:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Theme-specific colors */
+        .error-card[data-theme="danger"] .error-icon { color: #ff4444; }
+        .error-card[data-theme="warning"] .error-icon { color: #ffc107; }
+        .error-card[data-theme="info"] .error-icon { color: var(--primary-color); }
+        .error-card[data-theme="success"] .error-icon { color: #44ff44; }
+        .error-card[data-theme="special"] .error-icon { 
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8f00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-container">
+        <a href="/" class="back-home">
+            <i class="fas fa-arrow-left"></i> Back to Main Site
+        </a>
+        
+        <div class="showcase-header">
+            <h1 class="showcase-title">Error Page Showcase</h1>
+            <p class="showcase-subtitle">A collection of epic error pages for testing and demonstration</p>
+        </div>
+        
+        <div class="error-grid">
+            <a href="/401.html" class="error-card" data-theme="info">
+                <span class="error-icon">👤</span>
+                <div class="error-code">401</div>
+                <div class="error-name">Unauthorized</div>
+                <div class="error-description">
+                    Biometric authentication theme with fingerprint scanner, binary rain, and multiple auth methods
+                </div>
+            </a>
+            
+            <a href="/403.html" class="error-card" data-theme="danger">
+                <span class="error-icon">🔒</span>
+                <div class="error-code">403</div>
+                <div class="error-name">Forbidden</div>
+                <div class="error-description">
+                    Security scanner effect with animated lock, terminal output, and red warning theme
+                </div>
+            </a>
+            
+            <a href="/404.html" class="error-card" data-theme="info">
+                <span class="special-badge">Enhanced</span>
+                <span class="error-icon">🚀</span>
+                <div class="error-code">404</div>
+                <div class="error-name">Not Found</div>
+                <div class="error-description">
+                    Matrix rain, glitch effects, floating shapes, particles, and Konami code Easter egg
+                </div>
+            </a>
+            
+            <a href="/408.html" class="error-card" data-theme="warning">
+                <span class="error-icon">⏰</span>
+                <div class="error-code">408</div>
+                <div class="error-name">Request Timeout</div>
+                <div class="error-description">
+                    Analog clock, melting time effect, sand particles, and world timezone display
+                </div>
+            </a>
+            
+            <a href="/418.html" class="error-card" data-theme="special">
+                <span class="special-badge">Easter Egg</span>
+                <span class="error-icon">🫖</span>
+                <div class="error-code">418</div>
+                <div class="error-name">I'm a Teapot</div>
+                <div class="error-description">
+                    RFC 2324 tribute with animated teapot, steam effects, tea party mode, and rainbow text
+                </div>
+            </a>
+            
+            <a href="/429.html" class="error-card" data-theme="danger">
+                <span class="error-icon">🚦</span>
+                <div class="error-code">429</div>
+                <div class="error-name">Too Many Requests</div>
+                <div class="error-description">
+                    Traffic light system, speedometer gauge, request queue visualization, and rate limit stats
+                </div>
+            </a>
+            
+            <a href="/500.html" class="error-card" data-theme="danger">
+                <span class="error-icon">🔥</span>
+                <div class="error-code">500</div>
+                <div class="error-name">Internal Server Error</div>
+                <div class="error-description">
+                    Smoking server icon, system crash theme, stack trace display, and circuit board pattern
+                </div>
+            </a>
+            
+            <a href="/503.html" class="error-card" data-theme="warning">
+                <span class="error-icon">🏗️</span>
+                <div class="error-code">503</div>
+                <div class="error-name">Service Unavailable</div>
+                <div class="error-description">
+                    Construction theme with animated crane, progress bar, countdown timer, and rotating gears
+                </div>
+            </a>
+        </div>
+        
+        <div style="text-align: center; margin-top: 4rem; padding: 2rem; background: var(--surface); border-radius: var(--radius-lg);">
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Configuration Notes</h2>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                To use these error pages on GitHub Pages, create a custom 404.html in your repository root. 
+                For other error codes, you'll need a web server (nginx/Apache) with proper error_page directives.
+                All pages respect the site's light/dark theme and are fully responsive.
+            </p>
+        </div>
+    </div>
+    
+    <script src="/assets/js/theme.js"></script>
+</body>
+</html>
