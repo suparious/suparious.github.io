@@ -94,21 +94,35 @@ suparious.github.io/
 ├── robots.txt             # SEO crawler instructions
 ├── sitemap.xml            # SEO sitemap
 ├── CNAME                  # Custom domain configuration
+├── README.md              # This documentation file
+├── ROADMAP.md             # Development roadmap and version history
+├── LICENSE                # MIT License
 ├── assets/
 │   ├── css/
-│   │   ├── main.css       # Core styles and theme variables
-│   │   ├── animations.css # Animation library
-│   │   └── responsive.css # Mobile optimizations
+│   │   ├── main.css       # Core styles and theme variables (inherited by all articles)
+│   │   ├── animations.css # Animation library (inherited by all articles)
+│   │   └── responsive.css # Mobile optimizations (inherited by all articles)
 │   └── js/
-│       ├── main.js        # Core functionality
-│       ├── theme.js       # Dark/light mode system
+│       ├── main.js        # Core functionality (inherited by all articles)
+│       ├── theme.js       # Dark/light mode system (inherited by all articles)
 │       └── animations.js  # Scroll and hover animations
-├── publications/          # Article subdirectories
+├── publications/          # Article subdirectories (each inherits parent styles/scripts)
+│   ├── corporate-marketing-failures/     # Example of properly configured article
+│   │   └── index.html                   # Inherits ../assets/css/* and ../assets/js/*
+│   ├── nixon-carter-economic-analysis/
+│   │   └── index.html
 │   ├── debian-audio-guide/
+│   │   └── index.html
 │   ├── self-hosting-ai-stack/
+│   │   └── index.html
 │   ├── scifi-tech-predictions/
+│   │   └── index.html
+│   ├── shell-scripts/
+│   │   └── index.html
 │   ├── 2012-chevy-volt-highway-guide/
+│   │   └── index.html
 │   └── automotive-ac-repair-guide/
+│       └── index.html
 └── backup/               # Backup of previous version
 ```
 
@@ -144,10 +158,79 @@ Edit CSS variables in `/assets/css/main.css`:
 
 ### Adding New Publications
 
-1. Create a new directory in the root
-2. Add your article content
-3. Update the publications section in `index.html`
-4. Add to `sitemap.xml` for SEO
+1. **Create a new directory** in the root (e.g., `/article-name/`)
+2. **Create `index.html`** in the new directory with this structure:
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <!-- Standard meta tags -->
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Article Title - Shaun Prince</title>
+       
+       <!-- SEO Meta Tags -->
+       <meta name="description" content="Article description">
+       <meta name="keywords" content="relevant, keywords">
+       <meta name="author" content="Shaun Prince">
+       
+       <!-- IMPORTANT: Inherit parent site styles and themes -->
+       <link rel="stylesheet" href="../assets/css/main.css">
+       <link rel="stylesheet" href="../assets/css/animations.css">
+       <link rel="stylesheet" href="../assets/css/responsive.css">
+       
+       <!-- Use Google Fonts and Font Awesome from CDN -->
+       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+       
+       <!-- Article-specific styles (if needed) -->
+       <style>
+           /* Custom styles for this article */
+       </style>
+   </head>
+   <body>
+       <!-- Use the standard navbar from main site -->
+       <nav id="navbar" class="navbar">...</nav>
+       
+       <!-- Article content -->
+       <article class="article-content">...</article>
+       
+       <!-- Footer -->
+       <footer class="footer">...</footer>
+       
+       <!-- IMPORTANT: Inherit parent site JavaScript -->
+       <script src="../assets/js/main.js"></script>
+       <script src="../assets/js/theme.js"></script>
+   </body>
+   </html>
+   ```
+3. **Update the publications section** in `index.html`
+4. **Add to `sitemap.xml`** for SEO
+5. **Test theme switching** to ensure dark/light modes work correctly
+
+### Article Best Practices
+
+#### CSS and Theme Inheritance
+- **Always inherit parent styles**: Link to `../assets/css/main.css`, `animations.css`, and `responsive.css`
+- **Use CSS variables**: Leverage the parent site's CSS variables for consistent theming
+- **Test dark mode**: Ensure your article looks good in both light and dark themes
+- **Avoid hardcoded colors**: Use `var(--primary-color)`, `var(--text-primary)`, etc.
+
+#### JavaScript Integration
+- **Include parent scripts**: Always include `../assets/js/main.js` and `../assets/js/theme.js`
+- **Theme toggle**: The theme switcher should work automatically if scripts are included
+- **Mobile menu**: The hamburger menu requires the parent scripts to function
+
+#### Navigation Structure
+- **Back to Portfolio link**: Include a prominent link back to the main site
+- **Standard navbar**: Copy the navbar structure from existing articles
+- **Consistent footer**: Use the same footer structure across all articles
+
+#### Content Guidelines
+- **SEO optimization**: Include proper meta tags and Open Graph tags
+- **Responsive design**: Test on mobile, tablet, and desktop
+- **Accessibility**: Use semantic HTML and proper heading hierarchy
+- **Performance**: Optimize images and minimize custom CSS/JS
 
 ## 🐛 Browser Support
 

@@ -1,5 +1,27 @@
 # Shaun Prince - Portfolio Website Roadmap
 
+## 🎉 Version 2.1 - Article System Enhancement (Completed August 2025)
+
+### ✅ Recent Updates (August 2025)
+
+#### Article System Standardization
+- [x] **Unified Theme Inheritance** - All articles now inherit parent site CSS and JS
+- [x] **Consistent Dark/Light Mode** - Theme switching works across all publications
+- [x] **Standardized Structure** - All articles follow same HTML structure
+- [x] **Improved Navigation** - Consistent navbar and back-to-portfolio links
+- [x] **Documentation Updates** - Clear guidelines for future article creation
+- [x] **404 Page Integration** - 404 error page now uses parent theme system
+
+#### Updated Articles
+- [x] Corporate Marketing Failures Analysis
+- [x] Nixon-Carter Economic Analysis  
+- [x] Debian Audio Configuration Guide
+- [x] Self-Hosting AI Stack Tutorial
+- [x] Sci-Fi Tech Predictions
+- [x] Shell Scripts Collection
+- [x] 2012 Chevy Volt Highway Guide
+- [x] Automotive AC Repair Guide
+
 ## 🎉 Version 2.0 - Modern Redesign (Completed December 2024)
 
 ### ✅ Completed Features
@@ -208,6 +230,39 @@
 - GitHub Pages with custom domain
 - Formspree for contact handling
 
+### Article Creation Guide
+
+#### Required Structure
+Every article must:
+1. Be in its own directory at the root level
+2. Have an `index.html` file
+3. Inherit parent CSS files (`../assets/css/main.css`, etc.)
+4. Inherit parent JS files (`../assets/js/main.js`, `theme.js`)
+5. Use CSS variables for theming consistency
+6. Include standard navbar and footer
+
+#### CSS Variables for Articles
+```css
+/* Use these variables instead of hardcoded colors */
+var(--primary-color)     /* Brand primary color */
+var(--secondary-color)    /* Brand secondary color */
+var(--text-primary)      /* Main text color */
+var(--text-secondary)    /* Muted text color */
+var(--background)         /* Page background */
+var(--surface)           /* Card/surface background */
+var(--gradient-primary)   /* Primary gradient */
+var(--gradient-secondary) /* Secondary gradient */
+```
+
+#### Testing Checklist
+- [ ] Dark mode toggle works correctly
+- [ ] Mobile menu functions properly
+- [ ] All colors use CSS variables
+- [ ] Back to portfolio link works
+- [ ] Responsive on all screen sizes
+- [ ] SEO meta tags included
+- [ ] Added to sitemap.xml
+
 ### Technology Stack
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
 - **Libraries**: Particles.js, Typed.js, AOS
@@ -221,6 +276,13 @@
 ---
 
 ## 🏆 Achievements
+
+### Version 2.1 (August 2025)
+- Standardized article system
+- Unified theme inheritance
+- Improved documentation
+- All articles updated to new structure
+- Enhanced maintainability
 
 ### Version 2.0 (December 2024)
 - Complete modern redesign
@@ -238,6 +300,6 @@
 
 ---
 
-*Last Updated: December 20, 2024*  
-*Version: 2.0.0*  
+*Last Updated: August 20, 2025*  
+*Version: 2.1.0*  
 *Status: **Actively Maintained***

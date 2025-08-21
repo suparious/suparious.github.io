@@ -5,33 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found | Shaun Prince</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Inherit Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    
     <style>
-        :root {
-            --primary-color: #4f46e5;
-            --primary-light: #6366f1;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --background: #ffffff;
-        }
-        
-        [data-theme="dark"] {
-            --primary-color: #6366f1;
-            --primary-light: #818cf8;
-            --text-primary: #f1f5f9;
-            --text-secondary: #cbd5e1;
-            --background: #0a0a0f;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        /* 404 Page Specific Styles */
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--background);
-            color: var(--text-primary);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -152,35 +137,43 @@
             flex-wrap: wrap;
         }
         
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        /* Override button styles for 404 page */
+        .error-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
-        .btn-primary {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        .error-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-base);
+        }
+        
+        .error-buttons .btn-primary {
+            background: var(--gradient-secondary);
             color: white;
             box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.4);
         }
         
-        .btn-primary:hover {
+        .error-buttons .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.5);
         }
         
-        .btn-secondary {
+        .error-buttons .btn-secondary {
             background: transparent;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
         }
         
-        .btn-secondary:hover {
+        .error-buttons .btn-secondary:hover {
             background: var(--primary-color);
             color: white;
         }
@@ -240,15 +233,6 @@
             }
         }
         
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary-color: #6366f1;
-                --primary-light: #818cf8;
-                --text-primary: #f1f5f9;
-                --text-secondary: #cbd5e1;
-                --background: #0a0a0f;
-            }
-        }
     </style>
 </head>
 <body>
@@ -258,18 +242,20 @@
         <div class="error-code">404</div>
         <h1>Lost in Space</h1>
         <p>Oops! The page you're looking for seems to have drifted into the digital void. Let's get you back on track.</p>
-        <div class="buttons">
+        <div class="error-buttons">
             <a href="/" class="btn btn-primary">
-                <span>🏠</span> Back to Home
+                <i class="fas fa-home"></i> Back to Home
             </a>
             <a href="/#contact" class="btn btn-secondary">
-                <span>📧</span> Contact Me
+                <i class="fas fa-envelope"></i> Contact Me
             </a>
         </div>
     </div>
     
     <div class="astronaut">🚀</div>
     
+    <!-- Inherit Main Site JavaScript for theme system -->
+    <script src="./assets/js/theme.js"></script>
     <script>
         // Create random stars
         const starsContainer = document.getElementById('stars');
@@ -283,12 +269,6 @@
             star.style.animationDelay = Math.random() * 3 + 's';
             star.style.animationDuration = (Math.random() * 3 + 2) + 's';
             starsContainer.appendChild(star);
-        }
-        
-        // Check for theme preference
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (prefersDark) {
-            document.documentElement.setAttribute('data-theme', 'dark');
         }
     </script>
 </body>
