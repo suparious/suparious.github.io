@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>500 - Server Error | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        /* System crash themed 500 styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--background);
+        }
+        
+        /* Blue screen of death inspired background */
+        .crash-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(79, 70, 229, 0.1) 0%, 
+                rgba(124, 58, 237, 0.1) 100%);
+            z-index: 0;
+        }
+        
+        /* Flickering effect */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            92% { opacity: 1; }
+            93% { opacity: 0.4; }
+            94% { opacity: 1; }
+            95% { opacity: 0.2; }
+            96% { opacity: 1; }
+        }
+        
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            position: relative;
+            animation: flicker 10s infinite;
+        }
+        
+        /* Smoking server icon */
+        .server-icon {
+            font-size: 6rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-color);
+        }
+        
+        .smoke {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            opacity: 0;
+            filter: blur(10px);
+            animation: smoke 3s infinite;
+        }
+        
+        .smoke::before,
+        .smoke::after {
+            content: '☁';
+            position: absolute;
+            font-size: 2rem;
+            color: var(--text-muted);
+        }
+        
+        .smoke::before {
+            animation: smoke-left 3s infinite;
+        }
+        
+        .smoke::after {
+            animation: smoke-right 3s infinite;
+        }
+        
+        @keyframes smoke {
+            0% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-100px);
+            }
+        }
+        
+        @keyframes smoke-left {
+            0%, 100% { transform: translateX(-10px) rotate(-15deg); }
+            50% { transform: translateX(-20px) rotate(15deg); }
+        }
+        
+        @keyframes smoke-right {
+            0%, 100% { transform: translateX(10px) rotate(15deg); }
+            50% { transform: translateX(20px) rotate(-15deg); }
+        }
+        
+        /* Error code with tech glitch */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+        
+        /* Error stack trace */
+        .stack-trace {
+            background: var(--surface);
+            border-left: 4px solid var(--primary-color);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            max-height: 200px;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .stack-trace::before {
+            content: 'STACK TRACE';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--surface);
+            padding: 0 10px;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
+        
+        .stack-line {
+            margin: 0.25rem 0;
+            opacity: 0.8;
+        }
+        
+        .stack-line:nth-child(odd) {
+            opacity: 0.6;
+        }
+        
+        /* Status indicator */
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .status-item {
+            background: var(--surface);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+        
+        .status-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-value {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .status-value.critical {
+            color: #ff4444;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Circuit board pattern */
+        .circuit-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10h30v30h30v30h-30v-30h-30z' stroke='%234f46e5' fill='none'/%3E%3Ccircle cx='40' cy='40' r='3' fill='%234f46e5'/%3E%3Ccircle cx='70' cy='70' r='3' fill='%234f46e5'/%3E%3Ccircle cx='10' cy='70' r='3' fill='%234f46e5'/%3E%3Ccircle cx='70' cy='10' r='3' fill='%234f46e5'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .server-icon {
+                font-size: 4rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .stack-trace {
+                font-size: 0.75rem;
+                padding: 1rem;
+            }
+            
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Circuit Pattern Background -->
+    <div class="circuit-pattern"></div>
+    
+    <!-- Crash Background -->
+    <div class="crash-bg"></div>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="server-icon">
+            <i class="fas fa-server"></i>
+            <div class="smoke"></div>
+        </div>
+        
+        <div class="error-code">500</div>
+        
+        <h1>Internal Server Error</h1>
+        
+        <p class="error-message">
+            Something went catastrophically wrong. Our servers are having a moment. We've dispatched our best engineers to investigate.
+        </p>
+        
+        <div class="status-grid">
+            <div class="status-item">
+                <div class="status-label">Server Status</div>
+                <div class="status-value critical">CRITICAL</div>
+            </div>
+            <div class="status-item">
+                <div class="status-label">Response Time</div>
+                <div class="status-value">∞ ms</div>
+            </div>
+            <div class="status-item">
+                <div class="status-label">Error Code</div>
+                <div class="status-value">0xDEADBEEF</div>
+            </div>
+        </div>
+        
+        <div class="stack-trace">
+            <div class="stack-line">at ServerHandler.processRequest (/app/server.js:342:15)</div>
+            <div class="stack-line">at async Pipeline.execute (/app/lib/pipeline.js:127:9)</div>
+            <div class="stack-line">at async Middleware.chain (/app/middleware/index.js:84:5)</div>
+            <div class="stack-line">at process._tickCallback (internal/process/next_tick.js:68:7)</div>
+            <div class="stack-line">at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)</div>
+            <div class="stack-line">at startup (internal/bootstrap/node.js:283:19)</div>
+            <div class="stack-line">at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)</div>
+        </div>
+        
+        <div class="error-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Go Home
+            </a>
+            <a href="javascript:location.reload()" class="btn btn-secondary">
+                <i class="fas fa-redo"></i> Try Again
+            </a>
+            <a href="/#contact" class="btn btn-secondary">
+                <i class="fas fa-bug"></i> Report Bug
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Simulate system diagnostics
+        let errorCode = '0xDEADBEEF';
+        setInterval(() => {
+            const codes = ['0xDEADBEEF', '0xCAFEBABE', '0xBADC0DE', '0xFEEDFACE', '0x8BADF00D'];
+            errorCode = codes[Math.floor(Math.random() * codes.length)];
+            document.querySelector('.status-value:last-child').textContent = errorCode;
+        }, 3000);
+        
+        // Add random server status changes
+        const statuses = ['CRITICAL', 'FAILING', 'ERROR', 'UNSTABLE'];
+        setInterval(() => {
+            const status = statuses[Math.floor(Math.random() * statuses.length)];
+            document.querySelector('.status-value.critical').textContent = status;
+        }, 5000);
+    </script>
+</body>
+</html>

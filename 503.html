@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>503 - Service Unavailable | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        /* Maintenance/construction themed 503 styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--background);
+        }
+        
+        /* Construction stripes background */
+        .construction-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 20px,
+                rgba(255, 193, 7, 0.05) 20px,
+                rgba(255, 193, 7, 0.05) 40px
+            );
+            z-index: 0;
+        }
+        
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        /* Animated construction crane */
+        .crane-container {
+            height: 150px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .crane {
+            font-size: 5rem;
+            color: #ffc107;
+            animation: crane-swing 4s ease-in-out infinite;
+            display: inline-block;
+        }
+        
+        @keyframes crane-swing {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        /* Animated gears */
+        .gears {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--text-muted);
+            opacity: 0.3;
+        }
+        
+        .gear {
+            display: inline-block;
+            animation: rotate 3s linear infinite;
+            margin: 0 5px;
+        }
+        
+        .gear:nth-child(2) {
+            animation-direction: reverse;
+            animation-duration: 2s;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Error code with construction theme */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffc107, #ff9800);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+            position: relative;
+        }
+        
+        /* Progress bar */
+        .progress-container {
+            max-width: 500px;
+            margin: 2rem auto;
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            padding: 4px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            height: 30px;
+            background: linear-gradient(90deg, #ffc107, #ff9800);
+            border-radius: var(--radius-full);
+            position: relative;
+            overflow: hidden;
+            animation: progress-fill 3s ease-in-out infinite;
+        }
+        
+        @keyframes progress-fill {
+            0% { width: 0%; }
+            50% { width: 75%; }
+            100% { width: 0%; }
+        }
+        
+        .progress-stripes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.1) 10px,
+                rgba(255, 255, 255, 0.1) 20px
+            );
+            animation: progress-stripes 1s linear infinite;
+        }
+        
+        @keyframes progress-stripes {
+            from { transform: translateX(0); }
+            to { transform: translateX(20px); }
+        }
+        
+        /* Maintenance schedule */
+        .maintenance-info {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            border: 2px dashed var(--border-color);
+        }
+        
+        .maintenance-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #ffc107;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .countdown-item {
+            background: var(--background);
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            min-width: 60px;
+        }
+        
+        .countdown-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .countdown-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+        
+        /* Animated tools */
+        .tools {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2rem;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        
+        .tool {
+            font-size: 2rem;
+            color: var(--text-muted);
+            animation: tool-bounce 2s ease-in-out infinite;
+        }
+        
+        .tool:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .tool:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        @keyframes tool-bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(10deg); }
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .crane {
+                font-size: 3rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+            }
+            
+            .tools {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Construction Background -->
+    <div class="construction-bg"></div>
+    
+    <!-- Animated Gears -->
+    <div class="gears">
+        <span class="gear">⚙️</span>
+        <span class="gear">⚙️</span>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="crane-container">
+            <div class="crane">🏗️</div>
+        </div>
+        
+        <div class="error-code">503</div>
+        
+        <h1>Service Under Maintenance</h1>
+        
+        <p class="error-message">
+            We're currently upgrading our systems to serve you better. This shouldn't take long - we're just adding some awesome new features!
+        </p>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-stripes"></div>
+            </div>
+        </div>
+        
+        <div class="maintenance-info">
+            <div class="maintenance-header">
+                <i class="fas fa-wrench"></i>
+                <span>Estimated Completion Time</span>
+                <i class="fas fa-hammer"></i>
+            </div>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-value" id="hours">02</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="minutes">30</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-value" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="error-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Go Home
+            </a>
+            <a href="javascript:location.reload()" class="btn btn-secondary">
+                <i class="fas fa-sync"></i> Check Again
+            </a>
+            <a href="/#contact" class="btn btn-secondary">
+                <i class="fas fa-bell"></i> Get Notified
+            </a>
+        </div>
+    </div>
+    
+    <!-- Animated Tools -->
+    <div class="tools">
+        <span class="tool">🔨</span>
+        <span class="tool">🔧</span>
+        <span class="tool">🪛</span>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Countdown timer
+        let totalSeconds = 9000; // 2.5 hours in seconds
+        
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                // Reset when reaches 0
+                totalSeconds = 9000;
+            }
+        }
+        
+        setInterval(updateCountdown, 1000);
+        
+        // Random maintenance messages
+        const messages = [
+            "Installing flux capacitors...",
+            "Optimizing quantum algorithms...",
+            "Reticulating splines...",
+            "Calibrating hyperspace drives...",
+            "Upgrading to Web 3.14159...",
+            "Teaching AI to be more awesome...",
+            "Debugging the space-time continuum..."
+        ];
+        
+        setInterval(() => {
+            const message = messages[Math.floor(Math.random() * messages.length)];
+            console.log(`[MAINTENANCE] ${message}`);
+        }, 5000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Access Denied | Shaun Prince</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS for consistent theming -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/animations.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    
+    <style>
+        /* Security-themed 403 styles */
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background: var(--background);
+        }
+        
+        /* Security scanner effect */
+        .scanner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 0, 0, 0.8), 
+                rgba(255, 0, 0, 0.4), 
+                transparent);
+            animation: scan 4s infinite linear;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+        @keyframes scan {
+            0% { top: -3px; }
+            100% { top: 100%; }
+        }
+        
+        /* Lock icon animation */
+        .lock-container {
+            font-size: 8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            animation: pulse-lock 2s infinite;
+        }
+        
+        .lock-icon {
+            background: linear-gradient(135deg, #ff4444, #cc0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 20px rgba(255, 0, 0, 0.5));
+        }
+        
+        @keyframes pulse-lock {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Error code with cyber effect */
+        .error-code {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 900;
+            background: linear-gradient(270deg, #ff4444, #ff6666, #ff0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+            margin: 1rem 0;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Access denied terminal */
+        .terminal {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #ff0000;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            font-family: 'Courier New', monospace;
+            color: #ff6666;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .terminal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+            animation: terminal-scan 3s infinite;
+        }
+        
+        @keyframes terminal-scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .terminal-text {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Warning grid background */
+        .warning-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(255, 0, 0, 0.03) 50px,
+                    rgba(255, 0, 0, 0.03) 51px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent,
+                    transparent 50px,
+                    rgba(255, 0, 0, 0.03) 50px,
+                    rgba(255, 0, 0, 0.03) 51px
+                );
+            z-index: 0;
+        }
+        
+        .error-container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin: 1rem 0;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+        
+        .error-message {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .lock-container {
+                font-size: 5rem;
+            }
+            
+            .error-code {
+                font-size: 4rem;
+            }
+            
+            .terminal {
+                margin: 1rem;
+                padding: 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Warning Grid Background -->
+    <div class="warning-grid"></div>
+    
+    <!-- Scanner Effect -->
+    <div class="scanner">
+        <div class="scan-line"></div>
+    </div>
+    
+    <!-- Main Content -->
+    <div class="error-container">
+        <div class="lock-container">
+            <i class="fas fa-lock lock-icon"></i>
+        </div>
+        
+        <div class="error-code">403</div>
+        
+        <h1>Access Denied</h1>
+        
+        <p class="error-message">
+            Your clearance level is insufficient to access this resource. This area requires special authorization.
+        </p>
+        
+        <div class="terminal">
+            <div class="terminal-text">
+                <div>[SYSTEM] Authentication failed</div>
+                <div>[ERROR] Permission denied for requested resource</div>
+                <div>[INFO] Your IP has been logged: [REDACTED]</div>
+                <div>[WARNING] Further attempts may result in temporary ban</div>
+                <div>&gt; <span class="blink">_</span></div>
+            </div>
+        </div>
+        
+        <div class="error-buttons">
+            <a href="/" class="btn btn-primary">
+                <i class="fas fa-home"></i> Return Home
+            </a>
+            <a href="/#contact" class="btn btn-secondary">
+                <i class="fas fa-key"></i> Request Access
+            </a>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="/assets/js/theme.js"></script>
+    <script>
+        // Add random glitch effect
+        setInterval(() => {
+            const terminal = document.querySelector('.terminal');
+            terminal.style.animation = 'glitch 0.3s';
+            setTimeout(() => {
+                terminal.style.animation = '';
+            }, 300);
+        }, 5000);
+        
+        // Add glitch keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes glitch {
+                0%, 100% { transform: translate(0); }
+                33% { transform: translate(-2px, 2px); }
+                66% { transform: translate(2px, -2px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
