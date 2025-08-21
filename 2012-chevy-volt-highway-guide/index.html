@@ -3,111 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Understanding Your 2012 Chevrolet Volt's Highway Engine Operation</title>
+    <title>Understanding Your 2012 Chevrolet Volt's Highway Engine Operation - Shaun Prince</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Comprehensive guide explaining the 2012 Chevrolet Volt's gasoline engine operation, addressing concerns about engine RPM during highway driving and proper maintenance strategies.">
+    <meta name="keywords" content="2012 Chevy Volt, highway driving, engine operation, RPM concerns, hybrid vehicle, maintenance guide, battery degradation, compressor failure">
+    <meta name="author" content="Shaun Prince">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Understanding Your 2012 Chevrolet Volt's Highway Engine Operation">
+    <meta property="og:description" content="Complete technical guide for Chevy Volt owners about engine operation, troubleshooting, and maintenance during highway driving.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://suparious.com/2012-chevy-volt-highway-guide/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <!-- Article-specific styles -->
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+        /* Article Layout */
+        .article-hero {
+            background: var(--gradient-mesh), var(--background);
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+        
+        .article-hero h1 {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .article-content {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f4f4f4;
+            padding: var(--spacing-3xl) var(--spacing-lg);
         }
-        article {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            font-size: 1.8em;
-        }
-        .metadata {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ecf0f1;
-        }
-        blockquote {
-            background: #f9f9f9;
-            border-left: 4px solid #3498db;
-            margin: 20px 0;
-            padding: 15px 20px;
-            font-style: italic;
-        }
-        ul, ol {
-            margin: 15px 0;
-            padding-left: 30px;
-        }
-        li {
-            margin: 8px 0;
-        }
-        strong {
-            color: #2c3e50;
-            font-weight: 600;
-        }
+        
+        /* Key Points Box */
         .key-points {
-            background: #e8f5e9;
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
+            background: var(--gradient-mesh), var(--surface);
+            border: 2px solid var(--primary-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-2xl) 0;
         }
+        
+        .key-points h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Warning Box */
         .warning {
             background: #fff3cd;
             border: 2px solid #ffc107;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-2xl) 0;
         }
+        
+        .warning h3 {
+            color: #856404;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* References Section */
         .references {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #ecf0f1;
+            margin-top: var(--spacing-3xl);
+            padding-top: var(--spacing-2xl);
+            border-top: 2px solid var(--border-color);
         }
+        
         .references h2 {
-            color: #7f8c8d;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
         }
+        
         .reference-item {
-            margin: 10px 0;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 5px;
+            margin: var(--spacing-md) 0;
+            padding: var(--spacing-md);
+            background: var(--surface);
+            border-radius: var(--radius-md);
             font-size: 0.9em;
         }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #3498db;
-            text-decoration: none;
+        
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
         }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+        
         .back-link:hover {
-            text-decoration: underline;
+            transform: translateX(-5px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            color: var(--primary-color);
+        }
+        
+        /* Content Typography */
+        .article-content h2 {
+            margin-top: var(--spacing-3xl);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .article-content h3 {
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-md);
+            color: var(--text-primary);
+        }
+        
+        .article-content p {
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .article-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: var(--spacing-lg) 0;
+            padding-left: var(--spacing-xl);
+        }
+        
+        .article-content li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.8;
+        }
+        
+        /* CTA Section */
+        .article-cta {
+            text-align: center;
+            padding: var(--spacing-3xl);
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            margin-top: var(--spacing-3xl);
+        }
+        
+        .article-cta h3 {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .article-cta p {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .back-nav {
+                position: static;
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
         }
     </style>
 </head>
 <body>
-    <article>
-        <a href="../" class="back-link">← Back to Shaun Prince's Portfolio</a>
-        
-        <h1>Understanding Your 2012 Chevrolet Volt's Highway Engine Operation</h1>
-        
-        <div class="metadata">
-            <p>Research Report • Published: July 2025<br>
-            Prepared for: Chevrolet Volt Owners<br>
-            Author: Research compiled via Claude AI Assistant</p>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html"><span class="logo-text">SP</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#publications" class="nav-link">Publications</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+    </nav>
 
+    <!-- Back Navigation -->
+    <div class="back-nav">
+        <a href="../index.html#publications" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="container">
+            <h1>Understanding Your 2012 Chevrolet Volt's Highway Engine Operation</h1>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> July 2025</span>
+                <span><i class="fas fa-user"></i> Shaun Prince</span>
+                <span><i class="fas fa-clock"></i> 15 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-content">
         <p>The 2012 Chevrolet Volt's gasoline engine operates fundamentally differently from conventional vehicles, which often causes concern among owners who hear unexpected engine sounds during highway driving. This comprehensive report explains the Volt's unique powertrain behavior and addresses specific concerns about engine RPM when driving at various highway speeds.</p>
 
         <h2>How the Volt's Engine Really Works on Highways</h2>
@@ -117,7 +267,8 @@
         <p>The engine's control system prioritizes efficiency over conventional driving expectations. It operates along a predetermined efficiency curve, typically maintaining between 1,200 and 4,000 RPM, with a "sweet spot" around 2,200 RPM where it achieves maximum fuel efficiency. This means when you're driving 35 mph on a highway, your engine might be running at 2,000 RPM, while at 65 mph it could be at the same speed or even lower, depending on power requirements.</p>
 
         <div class="key-points">
-            <p><strong>Critical Point:</strong> The Volt can engage a mechanical clutch between 35-65 mph that allows some direct engine power to reach the wheels, improving efficiency by 10-15%. This "power-split" mode is why your engine behavior might seem inconsistent at similar speeds on different days - the system constantly optimizes based on conditions.</p>
+            <h3>Critical Point</h3>
+            <p>The Volt can engage a mechanical clutch between 35-65 mph that allows some direct engine power to reach the wheels, improving efficiency by 10-15%. This "power-split" mode is why your engine behavior might seem inconsistent at similar speeds on different days - the system constantly optimizes based on conditions.</p>
         </div>
 
         <h2>The Truth About Slow Highway Driving and Engine Damage</h2>
@@ -190,7 +341,8 @@
         <p>Remember that your Volt's seemingly strange engine behavior often reflects sophisticated efficiency optimization rather than problems. The engine's job is generating electricity efficiently, not providing familiar automotive sounds. By following proper maintenance schedules and driving strategies, 2012 Volt owners routinely achieve 100,000+ miles without significant engine issues, even with extensive highway use.</p>
 
         <div class="key-points">
-            <p><strong>Key Insight:</strong> Your Volt's engine operates based on electrical demand and efficiency algorithms, not vehicle speed. Slow highway driving poses no inherent risk to the engine. Focus instead on maintaining proper coolant levels, addressing any unusual symptoms promptly, and using driving modes strategically to minimize overall engine stress during your highway commutes.</p>
+            <h3>Key Insight</h3>
+            <p>Your Volt's engine operates based on electrical demand and efficiency algorithms, not vehicle speed. Slow highway driving poses no inherent risk to the engine. Focus instead on maintaining proper coolant levels, addressing any unusual symptoms promptly, and using driving modes strategically to minimize overall engine stress during your highway commutes.</p>
         </div>
 
         <div class="references">
@@ -236,6 +388,54 @@
                 <strong>GM Authority</strong> - "2013 Chevy Volt And The New EV Hold Mode" - Driving mode functionality explanation. Available at: gmauthority.com/blog/2012/04/2013-chevy-volt-and-the-new-ev-hold-mode-feature-spotlight/
             </div>
         </div>
+
+        <!-- CTA Section -->
+        <div class="article-cta">
+            <h3>About This Research</h3>
+            <p>This technical guide was compiled from extensive research of Chevrolet Volt owner forums, technical documentation, and service bulletins to provide comprehensive guidance for Volt owners concerned about highway engine operation.</p>
+            <a href="../index.html#contact" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Contact for Consultation
+            </a>
+        </div>
     </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Shaun Prince. All rights reserved.</p>
+                </div>
+                <div class="footer-center">
+                    <p>Technical Research & Analysis</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="back-to-top">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script>
+        // Simple scroll to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>

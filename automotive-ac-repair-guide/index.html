@@ -3,23 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Automotive A/C Repair Manual - R134a & R12a Systems</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Professional Automotive A/C Repair Manual - R134a & R12a Systems - Shaun Prince</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Comprehensive professional automotive air conditioning repair manual covering R134a and R12a refrigerant systems, tools, procedures, and troubleshooting guides.">
+    <meta name="keywords" content="automotive AC repair, R134a, R12a, refrigerant, manifold gauge, vacuum pump, EPA 609, troubleshooting, compressor, leak detection">
+    <meta name="author" content="Shaun Prince">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Professional Automotive A/C Repair Manual - Complete Reference Guide">
+    <meta property="og:description" content="Complete technical manual for automotive AC repair professionals covering tools, procedures, specifications, and troubleshooting.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://suparious.com/automotive-ac-repair-guide/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main Site CSS -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    
+    <!-- Article-specific styles -->
     <style>
-        /* Custom styles for this manual */
-        .manual-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        /* Article Layout */
+        .article-hero {
+            background: var(--gradient-mesh), var(--background);
+            padding: 120px 0 60px;
+            text-align: center;
         }
         
+        .article-hero h1 {
+            max-width: 900px;
+            margin: 0 auto var(--spacing-lg);
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .article-hero h2 {
+            color: var(--text-secondary);
+            font-weight: 400;
+            font-size: 1.25rem;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: var(--spacing-xl);
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .article-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+        }
+        
+        /* Table of Contents */
         .table-of-contents {
-            background-color: #f0f8ff;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 3rem;
+            background: var(--gradient-mesh), var(--surface);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-3xl);
+        }
+        
+        .table-of-contents h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
         }
         
         .toc-list {
@@ -28,58 +95,87 @@
         }
         
         .toc-list li {
-            margin: 0.5rem 0;
+            margin: var(--spacing-sm) 0;
         }
         
         .toc-list a {
-            color: var(--primary-color);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
+            transition: color var(--transition-fast);
         }
         
         .toc-list a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
         
+        /* Manual Section */
         .manual-section {
-            margin-bottom: 4rem;
-            padding-top: 2rem;
-            border-top: 2px solid #e0e0e0;
+            margin-bottom: var(--spacing-3xl);
+            padding-top: var(--spacing-2xl);
+            border-top: 2px solid var(--border-color);
         }
         
         .manual-section:first-of-type {
             border-top: none;
         }
         
+        .manual-section h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .manual-section h3 {
+            color: var(--text-primary);
+            margin-top: var(--spacing-2xl);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .manual-section h4 {
+            color: var(--text-primary);
+            margin-top: var(--spacing-xl);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Data Tables */
         .data-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: var(--spacing-xl) 0;
+            box-shadow: 0 2px 5px var(--shadow-color);
+            overflow: hidden;
+            border-radius: var(--radius-md);
         }
         
         .data-table th {
-            background-color: var(--primary-color);
+            background: var(--gradient-secondary);
             color: white;
-            padding: 0.75rem;
+            padding: var(--spacing-md);
             text-align: left;
+            font-weight: 600;
         }
         
         .data-table td {
-            padding: 0.75rem;
-            border-bottom: 1px solid #e0e0e0;
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
         }
         
         .data-table tr:nth-child(even) {
-            background-color: #f8f8f8;
+            background-color: var(--surface);
         }
         
+        .data-table tr:hover {
+            background-color: var(--surface-hover);
+        }
+        
+        /* Warning Box */
         .warning-box {
-            background-color: #fff3cd;
+            background: #fff3cd;
             border: 2px solid #ffc107;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
         }
         
         .warning-box::before {
@@ -87,44 +183,68 @@
             font-size: 1.2rem;
         }
         
+        .warning-box strong {
+            color: #856404;
+        }
+        
+        /* Info Box */
         .info-box {
-            background-color: #d1ecf1;
+            background: #d1ecf1;
             border: 2px solid #0c5460;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
         }
         
+        .info-box strong {
+            color: #0c5460;
+        }
+        
+        /* Subsection */
         .subsection {
-            margin-left: 2rem;
-            margin-top: 2rem;
+            margin-left: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
         }
         
+        /* Equipment Card */
         .equipment-card {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 1rem 0;
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-lg) 0;
+            transition: all var(--transition-base);
+        }
+        
+        .equipment-card:hover {
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transform: translateY(-2px);
         }
         
         .equipment-card h4 {
             color: var(--primary-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: var(--spacing-sm);
         }
         
+        /* Quick Reference */
         .quick-ref {
-            background-color: #e8f5e9;
-            border-left: 4px solid #4caf50;
-            padding: 1rem;
-            margin: 1rem 0;
+            background: var(--gradient-mesh), var(--surface);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            margin: var(--spacing-lg) 0;
         }
         
+        .quick-ref h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* References Section */
         .references-section {
-            background-color: #f5f5f5;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 3rem;
+            background: var(--surface);
+            padding: var(--spacing-2xl);
+            border-radius: var(--radius-lg);
+            margin-top: var(--spacing-3xl);
         }
         
         .reference-list {
@@ -133,70 +253,176 @@
         }
         
         .reference-list li {
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-            background-color: white;
-            border-radius: 4px;
+            margin: var(--spacing-sm) 0;
+            padding: var(--spacing-sm);
+            background: var(--background);
+            border-radius: var(--radius-sm);
         }
         
         .reference-list a {
             color: var(--primary-color);
             text-decoration: none;
+            transition: color var(--transition-fast);
         }
         
         .reference-list a:hover {
             text-decoration: underline;
         }
         
-        .back-to-top {
+        /* Back Navigation */
+        .back-nav {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: var(--surface);
+            border-radius: var(--radius-full);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+        
+        .back-link:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+            color: var(--primary-color);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top-fixed {
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            background-color: var(--primary-color);
+            background: var(--gradient-secondary);
             color: white;
-            padding: 1rem;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            display: none;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-base);
         }
         
-        .back-to-top:hover {
-            background-color: #1a7ae0;
+        .back-to-top-fixed.visible {
+            opacity: 1;
+            visibility: visible;
         }
         
+        .back-to-top-fixed:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+        
+        /* Print Styles */
         @media print {
-            .back-to-top, header, footer {
+            .back-to-top-fixed,
+            .back-nav,
+            nav,
+            footer {
                 display: none !important;
             }
             
-            .manual-container {
-                box-shadow: none;
+            .article-content {
+                max-width: 100%;
+                padding: 0;
+            }
+            
+            .manual-section {
+                page-break-inside: avoid;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .back-nav {
+                position: static;
+                margin-bottom: var(--spacing-lg);
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .data-table {
+                font-size: 0.875rem;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: var(--spacing-sm);
+            }
+            
+            .subsection {
+                margin-left: 0;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="#tools">Tools & Equipment</a></li>
-                <li><a href="#procedures">Procedures</a></li>
-                <li><a href="#specs">Specifications</a></li>
-                <li><a href="#troubleshooting">Troubleshooting</a></li>
-                <li><a href="#references">References</a></li>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html"><span class="logo-text">SP</span></a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="../index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="../index.html#publications" class="nav-link">Publications</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-    <main class="manual-container">
-        <h1 style="text-align: center; color: var(--primary-color); margin-bottom: 2rem;">
-            Professional Automotive Air Conditioning<br>
-            Repair and Maintenance Reference Manual
-        </h1>
-        <h2 style="text-align: center; margin-bottom: 3rem;">R134a and R12a Refrigerant Systems</h2>
+    <!-- Back Navigation -->
+    <div class="back-nav">
+        <a href="../index.html#publications" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+    </div>
 
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="container">
+            <h1>Professional Automotive Air Conditioning<br>Repair and Maintenance Reference Manual</h1>
+            <h2>R134a and R12a Refrigerant Systems</h2>
+            <div class="article-meta">
+                <span><i class="fas fa-calendar"></i> August 2025</span>
+                <span><i class="fas fa-user"></i> Shaun Prince</span>
+                <span><i class="fas fa-clock"></i> 45 min read</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <article class="article-content">
         <div class="table-of-contents">
             <h2>Table of Contents</h2>
             <ol class="toc-list">
@@ -1103,14 +1329,35 @@
                 <li><a href="https://careeremployer.com/test-prep/practice-tests/ase-a7-practice-test/" target="_blank">ASE A7 Practice Test - Career Employer</a></li>
             </ul>
         </section>
-    </main>
+    </article>
 
-    <footer>
-        <p>&copy; 2025 Automotive A/C Repair Manual. Professional Reference Guide.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p>&copy; 2025 Shaun Prince. All rights reserved.</p>
+                </div>
+                <div class="footer-center">
+                    <p>Professional Reference Guide</p>
+                </div>
+                <div class="footer-right">
+                    <a href="#" class="back-to-top">
+                        <i class="fas fa-arrow-up"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <a href="#" class="back-to-top" id="backToTop">↑</a>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top-fixed" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/theme.js"></script>
     <script>
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1131,9 +1378,9 @@
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'block';
+                backToTopButton.classList.add('visible');
             } else {
-                backToTopButton.style.display = 'none';
+                backToTopButton.classList.remove('visible');
             }
         });
 
@@ -1145,10 +1392,14 @@
             });
         });
 
-        // Print-friendly version
-        function printManual() {
-            window.print();
-        }
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
 
         // Add fade-in animation to sections as they come into view
         const observerOptions = {
