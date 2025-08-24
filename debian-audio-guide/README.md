@@ -20,7 +20,7 @@ This guide covers:
 
 ## Publication Date
 
-July 2025
+August 2025
 
 ## Author
 
