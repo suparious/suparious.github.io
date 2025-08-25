@@ -20,7 +20,9 @@ For audio professionals, these improvements translate to a more stable, performa
 
 ### PipeWire takes center stage as the default audio server
 
-PipeWire 1.4.2 now serves as the default audio server for GNOME 48 and most other desktop environments in Debian 13. This isn't just an incremental update - it's a complete reimagining of Linux audio architecture. The system provides **dynamic buffer size switching**, allowing applications to request different latency requirements without affecting other audio streams.
+PipeWire 1.4.2 now serves as the default audio server for GNOME 48 and most other desktop environments in Debian 13. However, **PipeWire is not mandatory for professional audio production**. Many users successfully use traditional JACK setups without PipeWire, which some consider more stable and predictable for critical audio work. PipeWire's advantage lies in seamless desktop integration and automatic device switching, but it's not a requirement.
+
+For those choosing PipeWire, the system provides **dynamic buffer size switching**, allowing applications to request different latency requirements without affecting other audio streams.
 
 Installation is straightforward with the `pipewire-audio` metapackage, which includes `wireplumber` for session management, `pipewire-pulse` for PulseAudio compatibility, `pipewire-alsa` for ALSA integration, and `libspa-0.2-bluetooth` for Bluetooth support. The beauty of PipeWire lies in its ability to act as a **drop-in replacement** for both PulseAudio and JACK, meaning existing applications continue to work without modification.
 
@@ -93,15 +95,21 @@ The real-time kernel provides **deterministic latency** through fully preemptibl
 
 ### Configuring system limits for audio performance
 
-Real-time audio requires specific system resource limits. Configure `/etc/security/limits.d/99-audio.conf` with:
+Real-time audio requires specific system resource limits. If you install `jackd2`, it automatically creates `/etc/security/limits.d/audio.conf` with the necessary settings. To enable or reconfigure:
+
+```bash
+sudo dpkg-reconfigure -p high jackd2
+```
+
+Answer "yes" when asked to enable realtime privileges. This will set up:
 
 ```bash
 @audio - rtprio 95
 @audio - memlock unlimited
-@audio - nice -10
+# @audio - nice -19  (commented by default)
 ```
 
-These settings allow audio applications to run with real-time priority and lock memory to prevent swapping. Users must be added to the audio group with `sudo usermod -a -G audio username`. PAM configuration should already include `pam_limits.so` in `/etc/pam.d/common-session` to activate these limits.
+For manual configuration or if using PipeWire without JACK, create `/etc/security/limits.d/99-audio.conf` with the above settings. Users must be added to the audio group with `sudo usermod -a -G audio $USER`. PAM configuration should already include `pam_limits.so` in `/etc/pam.d/common-session` to activate these limits.
 
 Boot parameters can further optimize real-time performance. Add the following to your GRUB configuration:
 ```bash
@@ -143,15 +151,32 @@ For audio editing, **Audacity 3.7.3** (`audacity`) provides comprehensive editin
 
 Running Windows DAWs through Wine/Bottles remains possible but comes with trade-offs. Expect significantly higher latency (50-100ms or more) and 2-3x higher CPU usage compared to native operation. This approach is best suited for mixing and arranging rather than real-time recording.
 
-### Configuring PipeWire for DAW integration
+### Configuring your audio system: PipeWire vs JACK
 
-Modern DAWs benefit from PipeWire's flexible architecture. The system automatically provides JACK compatibility for applications like Ardour, while simultaneously handling system audio and other applications. Visual routing tools have evolved significantly:
+**Option 1: Traditional JACK Setup (proven stability)**
+
+For users preferring the traditional approach:
+```bash
+sudo apt install jackd2 qjackctl
+sudo dpkg-reconfigure -p high jackd2  # Enable realtime privileges
+```
+
+This provides the classic JACK workflow that many professionals prefer, with QjackCtl for graphical control and routing.
+
+**Option 2: Modern PipeWire Stack (desktop integration)**
+
+For those choosing PipeWire's flexibility:
+```bash
+sudo apt install pipewire pipewire-jack pipewire-pulse wireplumber
+```
+
+Modern DAWs work with both setups. PipeWire automatically provides JACK compatibility for applications like Ardour, while simultaneously handling system audio. Visual routing tools include:
 
 - **qpwgraph** - Modern Qt-based patchbay for PipeWire
-- **Helvum** - GTK alternative with clean, intuitive interface
-- **QjackCtl** - Still functional but largely superseded by PipeWire-native tools
+- **Helvum** - GTK alternative with clean interface
+- **QjackCtl** - Works with both JACK and PipeWire
 
-These tools allow complex routing scenarios previously requiring extensive JACK configuration, now achievable through graphical interfaces.
+Both approaches are valid for professional audio production. Choose based on your workflow preferences and stability requirements.
 
 ## Plugin ecosystem and compatibility
 

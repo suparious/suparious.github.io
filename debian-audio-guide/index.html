@@ -416,7 +416,7 @@
         <h3>Understanding Debian 13's revolutionary kernel changes</h3>
         <p>The inclusion of PREEMPT_RT support in the mainline Linux 6.12 kernel represents <strong>20 years of development</strong> finally reaching fruition. This isn't just a technical achievement - it fundamentally changes how Linux handles real-time audio processing. The real-time patches that previously required manual kernel compilation are now part of the standard kernel.</p>
         
-        <p>Installing the real-time kernel is as simple as <code>sudo apt install linux-rt-amd64</code>. This metapackage ensures you always have the latest real-time kernel version. The current version, 6.12.33+deb13-rt-amd64, includes all the optimizations needed for professional audio work without any manual configuration<sup>[18]</sup>.</p>
+        <p>Installing the real-time kernel is as simple as <code>sudo apt install linux-image-rt-amd64</code>. This metapackage ensures you always have the latest real-time kernel version. The current version includes all the optimizations needed for professional audio work without any manual configuration.</p>
         
         <p>The real-time kernel provides <strong>deterministic latency</strong> through fully preemptible kernel code, priority inheritance for preventing priority inversion, and high-resolution timers for precise audio timing. These features combine to deliver consistent, predictable performance essential for live audio processing.</p>
 
@@ -476,9 +476,9 @@
         <h2 id="setup">Comprehensive setup guide for audio production</h2>
         
         <h3>Initial system configuration essentials</h3>
-        <p>Begin your Debian 13 audio journey with a fresh installation, fully updated with <code>sudo apt update && sudo apt upgrade</code>. Install the <code>realtime-privileges-generic-setup</code> package and add your user to both <code>audio</code> and <code>realtime</code> groups. This foundation ensures proper permissions for real-time audio processing.</p>
+        <p>Begin your Debian 13 audio journey with a fresh installation, fully updated with <code>sudo apt update && sudo apt upgrade</code>. For realtime privileges, install <code>jackd2</code> which automatically configures the necessary limits when you run <code>sudo dpkg-reconfigure -p high jackd2</code> and answer "yes" to enable realtime privileges. Add your user to the <code>audio</code> group with <code>sudo usermod -a -G audio $USER</code>. This foundation ensures proper permissions for real-time audio processing.</p>
         
-        <p>The real-time kernel installation follows with <code>sudo apt install linux-rt-amd64</code>. Configure GRUB with <code>threadirqs preempt=full cpufreq.default_governor=performance</code> for optimal audio performance. These kernel parameters ensure consistent low-latency operation without manual intervention during sessions.</p>
+        <p>The real-time kernel installation follows with <code>sudo apt install linux-image-rt-amd64</code>. Configure GRUB with <code>threadirqs cpufreq.default_governor=performance</code> for optimal audio performance. These kernel parameters ensure consistent low-latency operation without manual intervention during sessions.</p>
         
         <p>Audio system packages come next. Install <code>pipewire pipewire-jack pipewire-pulse wireplumber</code> for the core audio stack. Add <code>qjackctl pavucontrol alsa-utils</code> for system management tools. The <code>pro-audio lv2-plugins</code> packages provide a comprehensive collection of native Linux audio plugins to get started.</p>
 
