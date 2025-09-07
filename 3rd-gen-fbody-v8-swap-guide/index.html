@@ -176,6 +176,7 @@
             border-radius: var(--radius-lg);
             padding: var(--spacing-lg);
             margin: var(--spacing-lg) 0;
+            color: #856404 !important; /* Force dark text in both modes */
         }
         
         .warning-box::before {
@@ -184,7 +185,12 @@
         }
         
         .warning-box strong {
-            color: #856404;
+            color: #856404 !important;
+        }
+        
+        .warning-box ul li,
+        .warning-box p {
+            color: #856404 !important;
         }
         
         /* Info Box */
@@ -194,10 +200,16 @@
             border-radius: var(--radius-lg);
             padding: var(--spacing-lg);
             margin: var(--spacing-lg) 0;
+            color: #0c5460 !important; /* Force dark text in both modes */
         }
         
         .info-box strong {
-            color: #0c5460;
+            color: #0c5460 !important;
+        }
+        
+        .info-box ul li,
+        .info-box p {
+            color: #0c5460 !important;
         }
         
         /* Success Box */
@@ -207,10 +219,16 @@
             border-radius: var(--radius-lg);
             padding: var(--spacing-lg);
             margin: var(--spacing-lg) 0;
+            color: #155724 !important; /* Force dark text in both modes */
         }
         
         .success-box strong {
-            color: #155724;
+            color: #155724 !important;
+        }
+        
+        .success-box ul li,
+        .success-box p {
+            color: #155724 !important;
         }
         
         /* Subsection */
@@ -269,7 +287,15 @@
         .cost-range {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary-color) !important;
+        }
+        
+        .cost-card p {
+            color: var(--text-primary);
+        }
+        
+        .cost-card ul li {
+            color: var(--text-primary);
         }
         
         /* References Section */
