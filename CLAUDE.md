@@ -85,58 +85,21 @@
 
 ---
 
-## 📚 PLATFORM INTEGRATION (ChromaDB Knowledge Base)
+## 📚 PLATFORM INTEGRATION
 
-**When working in this repository**, you cannot directly access the parent srt-hq-k8s repository files. Use ChromaDB to query platform capabilities and integration patterns.
+**Related Repositories**:
+- **solidrust.github.io**: `/Users/shaun/repos/solidrust.github.io/` - SolidRusT main site (AI chat example)
+- **srt-inference-proxy**: `/Users/shaun/repos/srt-inference-proxy/` - Artemis proxy (if AI features added)
 
-**Collection**: `srt-hq-k8s-platform-guide` (43 docs, updated 2025-11-10)
-
-**Why This Matters for suparious.com**:
-- **Documentation Reference**: Part of SolidRusT Networks infrastructure ecosystem
-- **Portfolio Completeness**: Showcases platform architecture work
-- **Future Integration**: May integrate with platform services (e.g., AI chat similar to solidrust.net)
-- **Maintenance Context**: Understanding parent infrastructure for potential migrations
-
-**Query When You Need**:
-- Platform architecture overview (for portfolio content)
-- Infrastructure ecosystem understanding
-- Potential future AI chat integration patterns (like solidrust.net)
-- Artemis proxy integration (if AI features added)
-- vLLM service access patterns (if AI features added)
-
-**Example Queries**:
-```
-"What is the srt-hq-k8s platform architecture?"
-"How is the Artemis proxy configured?"
-"What external sites use the vLLM service?"
-"How does solidrust.net integrate with the platform?"
-```
+**Potential Future Integration**:
+- **Artemis Proxy**: `https://artemis.hq.solidrust.net/v1/chat/completions` for AI chat
+- **Pattern**: See solidrust.net for working AI chat integration
 
 **When NOT to Query**:
 - ❌ HTML/CSS/JavaScript development (use project README)
 - ❌ Static site design patterns (standard web development)
 - ❌ GitHub Pages configuration (see GitHub docs)
 - ❌ Content writing and article creation (use AI_STYLE_GUIDE.md)
-
-**ChromaDB Tools Available**:
-```javascript
-// List all collections
-mcp__chroma__chroma_list_collections()
-
-// Query for platform context
-mcp__chroma__chroma_query_documents({
-  collection_name: "srt-hq-k8s-platform-guide",
-  query_texts: ["How is the Artemis proxy configured?"],
-  n_results: 5
-})
-
-// Get infrastructure ecosystem overview
-mcp__chroma__chroma_query_documents({
-  collection_name: "srt-hq-k8s-platform-guide",
-  query_texts: ["What external sites exist in the infrastructure?"],
-  n_results: 3
-})
-```
 
 ---
 
@@ -616,7 +579,7 @@ curl -I https://suparious.com
 - Added as infrastructure submodule to srt-hq-k8s
 - Created comprehensive CLAUDE.md for AI agent context
 - Integrated into SolidRusT Networks documentation ecosystem
-- Added ChromaDB platform integration section
+- Added Platform Integration section
 
 **2024-12-XX** - Version 2.0.0 Release
 - Complete redesign with modern glassmorphism UI
