@@ -591,7 +591,22 @@ curl -I https://suparious.com
 
 ---
 
-**Last Updated**: 2025-11-11
+## 🎫 ISSUE TRACKING
+
+**Platform**: GitHub
+**Issues**: https://github.com/suparious/suparious.github.io/issues
+
+Backlog, bugs, and enhancements are tracked as GitHub issues.
+This CLAUDE.md contains domain knowledge and patterns, not task tracking.
+
+**To check current work**: Review open issues
+**To add new work**: Create an issue with acceptance criteria
+
+**Note**: ROADMAP.md contains historical documentation of completed work (v2.0, v2.1) and future enhancement ideas. Active work items have been migrated to GitHub issues.
+
+---
+
+**Last Updated**: 2026-01-17
 **Status**: Production - Active Portfolio Site
 **Maintained By**: Shaun Prince
-**Used With**: Claude Code (Sonnet 4.5)
+**Used With**: Claude Code
