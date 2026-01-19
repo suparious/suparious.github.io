@@ -3,1597 +3,914 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shaun Prince | Principal Solutions Architect & AI Infrastructure Expert</title>
-    
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-        
-        // Custom event tracking for portfolio interactions
-        function trackSectionView(sectionName) {
-            gtag('event', 'section_view', {
-                'section_name': sectionName,
-                'page_location': window.location.href
-            });
-        }
-        
-        function trackLinkClick(linkType, linkDestination) {
-            gtag('event', 'link_click', {
-                'link_type': linkType,
-                'link_destination': linkDestination
-            });
-        }
-        
-        function trackProjectView(projectName) {
-            gtag('event', 'project_view', {
-                'project_name': projectName
-            });
-        }
-        
-        function trackResumeDownload() {
-            gtag('event', 'resume_download', {
-                'method': 'direct'
-            });
-        }
-        
-        function trackContactFormSubmit() {
-            gtag('event', 'contact_form_submit', {
-                'form_location': 'main_page'
-            });
-        }
-    </script>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Shaun Prince - Principal Solutions Architect with 20+ years of experience specializing in AI/ML infrastructure, gaming automation, and enterprise DevOps. Creator of 31+ open source projects including comprehensive MLOps platforms.">
-    <meta name="keywords" content="Shaun Prince, Principal Solutions Architect, AI Infrastructure, MLOps, Python, Rust, vLLM, TGI, HuggingFace, GameMasterAI, SolidRusT Networks, Kubernetes, Docker, DevOps">
+    <title>Shaun Prince - Full-Stack Developer & Cloud Architect</title>
+    <meta name="description" content="Professional portfolio of Shaun Prince - Full-Stack Developer, Cloud Architect, and DevOps Engineer specializing in AI platforms, Kubernetes, and scalable infrastructure.">
+    <meta name="keywords" content="Shaun Prince, Full-Stack Developer, Cloud Architect, DevOps, Kubernetes, AI Platform, Python, TypeScript, React">
     <meta name="author" content="Shaun Prince">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Shaun Prince | Principal Solutions Architect & AI Infrastructure Expert">
-    <meta property="og:description" content="Principal Solutions Architect with exceptional AI infrastructure expertise. Creator of GameMasterAI, SolidRusT AI Platform, and 31+ open source projects spanning MLOps, gaming automation, and enterprise DevOps.">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/2909735?v=4">
-    <meta property="og:url" content="https://suparious.com">
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://suparious.com/">
+    <meta property="og:title" content="Shaun Prince - Full-Stack Developer & Cloud Architect">
+    <meta property="og:description" content="Professional portfolio showcasing expertise in AI platforms, Kubernetes orchestration, and full-stack development.">
     
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Shaun Prince | Principal Solutions Architect & AI Infrastructure Expert">
-    <meta name="twitter:description" content="Principal Solutions Architect with exceptional AI infrastructure expertise. Creator of GameMasterAI and SolidRusT AI Platform. 31+ open source projects.">
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/2909735?v=4">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/2909735?v=4">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://suparious.com/">
+    <meta property="twitter:title" content="Shaun Prince - Full-Stack Developer & Cloud Architect">
+    <meta property="twitter:description" content="Professional portfolio showcasing expertise in AI platforms, Kubernetes orchestration, and full-stack development.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f3f4f6;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-primary);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--bg-secondary);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: 1rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .skill-category h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-secondary);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--bg-primary);
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background-color: var(--bg-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-link i {
+            font-size: 2rem;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--text-primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-left,
+        .footer-center,
+        .footer-right {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-company {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 1rem;
+        }
+
+        .footer-company p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+
+        .footer-company a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-company a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            align-items: center;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links .separator {
+            opacity: 0.5;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timeline {
+                padding-left: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -1.75rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loader" class="loader">
-        <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <div class="loader-text">Initializing Portfolio</div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav id="navbar" class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">SP</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link" onclick="trackSectionView('home')">Home</a></li>
-                <li><a href="#about" class="nav-link" onclick="trackSectionView('about')">About</a></li>
-                <li><a href="#skills" class="nav-link" onclick="trackSectionView('skills')">Skills</a></li>
-                <li><a href="#experience" class="nav-link" onclick="trackSectionView('experience')">Experience</a></li>
-                <li><a href="#projects" class="nav-link" onclick="trackSectionView('projects')">Projects</a></li>
-                <li><a href="#publications" class="nav-link" onclick="trackSectionView('publications')">Publications</a></li>
-                <li><a href="#contact" class="nav-link" onclick="trackSectionView('contact')">Contact</a></li>
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">Shaun Prince</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <a href="shaun-prince-resume.pdf" class="btn btn-primary btn-sm" download onclick="trackResumeDownload()">
-                    <i class="fas fa-download"></i> Resume
-                </a>
-            </div>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div id="particles-js" class="particles-container"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title" data-aos="fade-up">
-                    Hi, I'm <span class="gradient-text">Shaun Prince</span>
-                </h1>
-                <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    <span class="typed-text">I'm a </span>
-                    <span id="typed"></span>
-                </div>
-                <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-                    Principal Solutions Architect with 20+ years of experience building exceptional AI infrastructure, 
-                    gaming automation platforms, and enterprise-grade DevOps solutions. Creator of 31+ open source projects 
-                    and founder of SolidRusT Networks, focusing on cutting-edge MLOps and AI innovation.
-                </p>
-                <div class="hero-cta" data-aos="fade-up" data-aos-delay="300">
-                    <a href="#projects" class="btn btn-primary" onclick="trackLinkClick('cta', 'projects')">
-                        <i class="fas fa-briefcase"></i> View My Work
-                    </a>
-                    <a href="#contact" class="btn btn-secondary" onclick="trackLinkClick('cta', 'contact')">
-                        <i class="fas fa-envelope"></i> Get In Touch
-                    </a>
-                </div>
-                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">31+</span>
-                        <span class="stat-label">Open Source Projects</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">25+</span>
-                        <span class="stat-label">Technologies Mastered</span>
-                    </div>
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Full-Stack Developer & Cloud Architect</h1>
+                <p>Building scalable AI platforms and cloud infrastructure</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
-            <div class="hero-image" data-aos="fade-left" data-aos-delay="500">
-                <div class="image-wrapper">
-                    <img src="https://avatars.githubusercontent.com/u/2909735?v=4" alt="Shaun Prince" class="profile-img">
-                    <div class="floating-icons">
-                        <i class="devicon-amazonwebservices-plain-wordmark floating-icon"></i>
-                        <i class="devicon-kubernetes-plain floating-icon"></i>
-                        <i class="devicon-python-plain floating-icon"></i>
-                        <i class="devicon-terraform-plain floating-icon"></i>
-                        <i class="devicon-docker-plain floating-icon"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>Scroll to explore</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="gradient-text">About Me</span>
-            </h2>
-            <div class="about-content">
-                <div class="about-text" data-aos="fade-right">
-                    <h3>Architecting the Future of AI Infrastructure</h3>
-                    <p>
-                        I'm a Principal Solutions Architect who specializes in building comprehensive AI/ML infrastructure, 
-                        gaming automation platforms, and enterprise-grade DevOps solutions. With 31+ repositories spanning 
-                        personal projects and the SolidRusT Networks organization I founded, my work focuses on pushing 
-                        the boundaries of what's possible with modern technology.
-                    </p>
-                    <p>
-                        My expertise spans from low-level Rust systems programming to high-level AI orchestration with 
-                        vLLM and TGI, from gaming automation with computer vision to enterprise-scale model quantization 
-                        and deployment. I'm currently seeking opportunities where I can leverage this unique blend of 
-                        skills to architect and deliver complex systems at scale.
-                    </p>
-                    <div class="about-highlights">
-                        <div class="highlight">
-                            <i class="fas fa-cloud"></i>
-                            <div>
-                                <h4>AI Infrastructure Pioneer</h4>
-                                <p>Built complete MLOps platforms with vLLM, TGI, and HuggingFace integration, managing 20+ AI infrastructure repositories</p>
-                            </div>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-robot"></i>
-                            <div>
-                                <h4>Gaming & Automation Expert</h4>
-                                <p>Created GameMasterAI and NoLag platform technology, pioneering AI automation in the $200B gaming industry</p>
-                            </div>
-                        </div>
-                        <div class="highlight">
-                            <i class="fas fa-infinity"></i>
-                            <div>
-                                <h4>Open Source Leader</h4>
-                                <p>Founded SolidRusT Networks with 20+ repositories, building comprehensive AI infrastructure ecosystem</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-personal">
-                        <h4>Beyond the Code</h4>
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Hi, I'm Shaun Prince</h3>
                         <p>
-                            When I'm not building AI infrastructure, you'll find me developing gaming automation tools, 
-                            optimizing model inference systems, or working on my fleet management tools in Rust. 
-                            I'm particularly passionate about self-hosting AI stacks, uncertainty quantification in LLMs, 
-                            and building tools that empower developers to leverage AI without cloud dependencies.
+                            I'm a passionate full-stack developer and cloud architect with over 15 years of experience 
+                            building scalable applications and infrastructure. Currently, I'm the founder and technical 
+                            lead at SolidRusT Networks, where I architect and maintain production AI inference platforms 
+                            and Kubernetes-based infrastructure.
+                        </p>
+                        <p>
+                            My expertise spans from frontend development with React and TypeScript to backend systems 
+                            with Python and Rust, and infrastructure management with Kubernetes and cloud platforms. 
+                            I specialize in building AI-powered applications, game servers, and developer tools.
+                        </p>
+                        <p>
+                            I'm particularly interested in AI/ML engineering, distributed systems, and creating tools 
+                            that improve developer productivity. I believe in open-source software and actively 
+                            contribute to the community.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/400x500?text=Profile+Photo" alt="Shaun Prince">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code"></i> Languages</h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>TypeScript / JavaScript</li>
+                            <li>Rust</li>
+                            <li>Go</li>
+                            <li>SQL</li>
+                            <li>Bash / Shell</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                        <ul class="skill-list">
+                            <li>React / Next.js</li>
+                            <li>Astro</li>
+                            <li>HTML5 / CSS3</li>
+                            <li>Tailwind CSS</li>
+                            <li>Responsive Design</li>
+                            <li>Progressive Web Apps</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-server"></i> Backend</h3>
+                        <ul class="skill-list">
+                            <li>FastAPI / Flask</li>
+                            <li>Node.js / Express</li>
+                            <li>GraphQL / REST APIs</li>
+                            <li>PostgreSQL / MongoDB</li>
+                            <li>Redis / Valkey</li>
+                            <li>Message Queues</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                        <ul class="skill-list">
+                            <li>Kubernetes / Helm</li>
+                            <li>Docker / Containerization</li>
+                            <li>AWS / Cloud Infrastructure</li>
+                            <li>GitOps / FluxCD</li>
+                            <li>CI/CD Pipelines</li>
+                            <li>Monitoring & Observability</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-robot"></i> AI & ML</h3>
+                        <ul class="skill-list">
+                            <li>vLLM / LiteLLM</li>
+                            <li>LangChain / LangGraph</li>
+                            <li>Vector Databases</li>
+                            <li>RAG Systems</li>
+                            <li>Model Fine-tuning</li>
+                            <li>AI Platform Architecture</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+                        <ul class="skill-list">
+                            <li>Git / GitHub / Gitea</li>
+                            <li>VS Code / Claude Code</li>
+                            <li>Nginx / Traefik</li>
+                            <li>Prometheus / Grafana</li>
+                            <li>Stripe API</li>
+                            <li>Linux Administration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h3>Founder & Technical Lead</h3>
+                        <div class="date">SolidRusT Networks | 2023 - Present</div>
+                        <p>
+                            Founded and architected a production AI inference platform serving multiple consumer-facing 
+                            applications. Built and maintained a 12-node Kubernetes cluster with GPU acceleration, 
+                            implemented GitOps workflows with FluxCD, and developed billing and API key management systems 
+                            using Stripe integration.
+                        </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Senior Full-Stack Developer</h3>
+                        <div class="date">Various Clients | 2018 - 2023</div>
+                        <p>
+                            Developed and maintained full-stack applications using React, TypeScript, Python, and various 
+                            backend technologies. Implemented CI/CD pipelines, containerized applications, and deployed to 
+                            cloud platforms including AWS and self-hosted Kubernetes clusters.
+                        </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>DevOps Engineer</h3>
+                        <div class="date">Technology Consultancy | 2015 - 2018</div>
+                        <p>
+                            Automated infrastructure provisioning and deployment processes. Managed cloud infrastructure 
+                            on AWS and Azure. Implemented monitoring and alerting systems. Reduced deployment time by 80% 
+                            through automation and containerization.
+                        </p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3>Software Developer</h3>
+                        <div class="date">Software Company | 2010 - 2015</div>
+                        <p>
+                            Developed web applications using various technologies including PHP, JavaScript, and Python. 
+                            Worked with databases including MySQL and PostgreSQL. Participated in all phases of the 
+                            software development lifecycle.
                         </p>
                     </div>
                 </div>
-                <div class="about-code" data-aos="fade-left">
-                    <div class="code-window">
-                        <div class="code-header">
-                            <span class="code-dot red"></span>
-                            <span class="code-dot yellow"></span>
-                            <span class="code-dot green"></span>
-                            <span class="code-title">shaun.yaml</span>
-                        </div>
-                        <pre class="code-content"><code><span class="code-comment"># Principal Solutions Architect & AI Infrastructure Expert</span>
-<span class="code-key">name</span>: <span class="code-string">Shaun Prince</span>
-<span class="code-key">role</span>: <span class="code-string">Principal Solutions Architect</span>
-<span class="code-key">organization</span>: <span class="code-string">Founder @ SolidRusT Networks</span>
-<span class="code-key">experience</span>: <span class="code-number">20+</span> years
-<span class="code-key">repositories</span>: <span class="code-number">31+</span> open source projects
-
-<span class="code-key">languages</span>:
-  - <span class="code-string">Python (40% of projects)</span>
-  - <span class="code-string">Rust (High-performance systems)</span>
-  - <span class="code-string">TypeScript/JavaScript</span>
-  - <span class="code-string">C# (Gaming platforms)</span>
-  - <span class="code-string">Shell/Bash</span>
-
-<span class="code-key">ai_ml_stack</span>:
-  - <span class="code-string">vLLM & TGI (Inference)</span>
-  - <span class="code-string">HuggingFace Ecosystem</span>
-  - <span class="code-string">Model Quantization</span>
-  - <span class="code-string">Uncertainty Quantification</span>
-  - <span class="code-string">llama-cpp-agent</span>
-
-<span class="code-key">infrastructure</span>:
-  - <span class="code-string">Kubernetes & Docker</span>
-  - <span class="code-string">Git-based Deployments</span>
-  - <span class="code-string">Infrastructure as Code</span>
-  - <span class="code-string">Multi-host Fleet Management</span>
-
-<span class="code-key">featured_projects</span>:
-  - <span class="code-string">GameMasterAI</span>
-  - <span class="code-string">SRT AI Infrastructure</span>
-  - <span class="code-string">Model Quantizing Tools</span>
-  - <span class="code-string">NoLag Gaming Platform</span></code></pre>
-                    </div>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="gradient-text">Technical Skills</span>
-            </h2>
-            <div class="skills-grid">
-                <!-- AI/ML Infrastructure -->
-                <div class="skill-category" data-aos="fade-up">
-                    <h3><i class="fas fa-brain"></i> AI/ML Infrastructure</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>vLLM & TGI</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
-                            </div>
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>HuggingFace Ecosystem</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="92"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Model Quantization</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>MLOps Pipelines</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cloud & Infrastructure -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                    <h3><i class="fas fa-cloud"></i> Cloud & Infrastructure</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Kubernetes</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="92"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Docker & Compose</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Infrastructure as Code</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Git-based Deployments</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="88"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Programming Languages -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Python</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Rust</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>TypeScript/JavaScript</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="82"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>C# (Gaming)</span>
-                                <span class="skill-level">Intermediate</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="75"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DevOps & Tools -->
-                <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
-                    <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>CI/CD (Jenkins/GitLab)</span>
-                                <span class="skill-level">Expert</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="92"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>ArgoCD/Flux</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>Prometheus/Grafana</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="83"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-header">
-                                <span>ELK Stack</span>
-                                <span class="skill-level">Advanced</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tech Stack Icons -->
-            <div class="tech-stack" data-aos="fade-up" data-aos-delay="400">
-                <h3>Technologies I Work With</h3>
-                <div class="tech-icons">
-                    <div class="tech-icon" title="Python">
-                        <i class="devicon-python-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Rust">
-                        <i class="devicon-rust-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Kubernetes">
-                        <i class="devicon-kubernetes-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Docker">
-                        <i class="devicon-docker-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="TypeScript">
-                        <i class="devicon-typescript-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="C#">
-                        <i class="devicon-csharp-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Git">
-                        <i class="devicon-git-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Linux">
-                        <i class="devicon-linux-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Bash">
-                        <i class="devicon-bash-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="YAML">
-                        <i class="devicon-yaml-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="Gradio">
-                        <i class="devicon-streamlit-plain"></i>
-                    </div>
-                    <div class="tech-icon" title="HuggingFace">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="gradient-text">Professional Experience</span>
-            </h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Senior System Engineer</h3>
-                            <h4>OpenBet</h4>
-                            <span class="timeline-date">2020 - 2024</span>
-                        </div>
-                        <div class="timeline-body">
-                            <p>Led cloud transformation initiatives and architected scalable solutions for high-traffic gaming platforms.</p>
-                            <ul>
-                                <li>Migrated legacy applications to AWS, reducing infrastructure costs by 30%</li>
-                                <li>Implemented GitOps workflows with Terraform, automating 95% of deployments</li>
-                                <li>Designed CI/CD pipelines that reduced release cycles from weeks to hours</li>
-                                <li>Led a team of 5 engineers in adopting cloud-native practices</li>
-                            </ul>
-                            <div class="timeline-tags">
-                                <span class="tag">AWS</span>
-                                <span class="tag">Terraform</span>
-                                <span class="tag">Jenkins</span>
+                        <div class="project-content">
+                            <h3>SolidRusT AI Platform</h3>
+                            <p>
+                                Production AI inference platform with vLLM, LiteLLM, and Claude integration. 
+                                Serves multiple consumer applications with automatic failover and load balancing.
+                            </p>
+                            <div class="project-tags">
                                 <span class="tag">Python</span>
                                 <span class="tag">Kubernetes</span>
+                                <span class="tag">vLLM</span>
+                                <span class="tag">FastAPI</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://solidrust.ai" class="project-link" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Artificial Intelligence Engineer</h3>
-                            <h4>SolidRusT Networks</h4>
-                            <span class="timeline-date">2018 - 2020</span>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-gamepad"></i>
                         </div>
-                        <div class="timeline-body">
-                            <p>Developed AI-driven solutions for network optimization and security enhancement in hybrid-cloud environments.</p>
-                            <ul>
-                                <li>Built ML models for predictive network maintenance, reducing downtime by 25%</li>
-                                <li>Implemented Kubernetes-based MLOps platform with ArgoCD and Helm</li>
-                                <li>Created real-time anomaly detection system processing 1M+ events/second</li>
-                                <li>Established best practices for AI model deployment and monitoring</li>
-                            </ul>
-                            <div class="timeline-tags">
-                                <span class="tag">Machine Learning</span>
-                                <span class="tag">Kubernetes</span>
-                                <span class="tag">ArgoCD</span>
+                        <div class="project-content">
+                            <h3>MyAshes.ai</h3>
+                            <p>
+                                AI-powered game assistant for Ashes of Creation. Features RAG-based knowledge retrieval, 
+                                real-time game data, and natural language interaction.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
                                 <span class="tag">Python</span>
-                                <span class="tag">TensorFlow</span>
+                                <span class="tag">RAG</span>
+                                <span class="tag">Vector DB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://myashes.ai" class="project-link" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>DevOps Engineer</h3>
-                            <h4>Various Companies</h4>
-                            <span class="timeline-date">2010 - 2018</span>
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <div class="timeline-body">
-                            <p>Pioneered DevOps practices across multiple organizations, driving digital transformation and operational excellence.</p>
-                            <ul>
-                                <li>Introduced containerization strategies, improving resource utilization by 50%</li>
-                                <li>Architected multi-cloud disaster recovery solutions with 99.99% uptime</li>
-                                <li>Mentored teams in agile methodologies and DevOps best practices</li>
-                                <li>Automated infrastructure provisioning, reducing setup time by 70%</li>
-                            </ul>
-                            <div class="timeline-tags">
-                                <span class="tag">Docker</span>
-                                <span class="tag">CI/CD</span>
-                                <span class="tag">Cloud Migration</span>
+                        <div class="project-content">
+                            <h3>Aidiant AI Council</h3>
+                            <p>
+                                Multi-agent AI system simulating a council of advisors. Built with tool-enabled agents, 
+                                memory management, and interactive dialogue.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">LangChain</span>
+                                <span class="tag">React</span>
+                                <span class="tag">AI Agents</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://aidiant.com" class="project-link" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>PAM Platform</h3>
+                            <p>
+                                Platform for API key management, billing integration with Stripe, and user authentication. 
+                                Features GraphQL API and React-based console.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">GraphQL</span>
+                                <span class="tag">Stripe</span>
+                                <span class="tag">PostgreSQL</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://console.solidrust.ai" class="project-link" target="_blank" rel="noopener">
+                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Kubernetes Infrastructure</h3>
+                            <p>
+                                Production-grade 12-node Kubernetes cluster with GPU support, FluxCD GitOps, 
+                                NFS storage, and comprehensive monitoring stack.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Kubernetes</span>
+                                <span class="tag">FluxCD</span>
+                                <span class="tag">Prometheus</span>
+                                <span class="tag">GPU</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SolidRusT" class="project-link" target="_blank" rel="noopener">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>Developer Tools</h3>
+                            <p>
+                                Collection of CLI utilities and developer tools including cognitive continuity assistant, 
+                                shared clipboard, and various automation scripts.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Rust</span>
+                                <span class="tag">CLI</span>
                                 <span class="tag">Automation</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>System Administrator</h3>
-                            <h4>Early Career</h4>
-                            <span class="timeline-date">2004 - 2010</span>
-                        </div>
-                        <div class="timeline-body">
-                            <p>Built foundational expertise in system administration, network security, and infrastructure management.</p>
-                            <ul>
-                                <li>Managed enterprise Linux environments with 500+ servers</li>
-                                <li>Implemented security protocols and monitoring systems</li>
-                                <li>Developed automation scripts reducing manual tasks by 60%</li>
-                                <li>Led datacenter migration projects with zero downtime</li>
-                            </ul>
-                            <div class="timeline-tags">
-                                <span class="tag">Linux</span>
-                                <span class="tag">Networking</span>
-                                <span class="tag">Security</span>
-                                <span class="tag">Scripting</span>
+                            <div class="project-links">
+                                <a href="https://github.com/Suparious" class="project-link" target="_blank" rel="noopener">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="gradient-text">Featured Projects</span>
-            </h2>
-            
-            <!-- Featured Project -->
-            <div class="featured-project" data-aos="fade-up">
-                <div class="project-image">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234f46e5'/%3E%3Cstop offset='100%25' style='stop-color:%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='400' fill='url(%23a)'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EGameMasterAI%3C/text%3E%3C/svg%3E" alt="GameMasterAI">
-                    <div class="project-overlay">
-                        <span class="badge">Top Project</span>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <h3>GameMasterAI - Pioneering AI Gaming Automation</h3>
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
                     <p>
-                        Revolutionary AI automation platform for the $200B gaming industry. Demonstrates exceptional 
-                        product thinking, advanced AI implementation with computer vision and decision algorithms, 
-                        and deep consumer market understanding. Perfect showcase for AI product leadership roles.
+                        I'm always interested in hearing about new projects and opportunities. 
+                        Whether you have a question or just want to say hi, feel free to reach out!
                     </p>
-                    <div class="project-highlights">
-                        <div class="highlight-item">
-                            <i class="fas fa-gamepad"></i>
-                            <span>Gaming Industry Innovation</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-brain"></i>
-                            <span>Advanced AI Algorithms</span>
-                        </div>
-                        <div class="highlight-item">
-                            <i class="fas fa-eye"></i>
-                            <span>Computer Vision Integration</span>
-                        </div>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">AI Decision Systems</span>
-                        <span class="tech-tag">Real-time Processing</span>
-                        <span class="tech-tag">Game Automation</span>
-                    </div>
-                    <div class="project-links" style="margin-top: 20px;">
-                        <a href="https://github.com/suparious/GameMasterAI" target="_blank" class="btn btn-secondary" onclick="trackLinkClick('github', 'GameMasterAI')">
-                            <i class="fab fa-github"></i> View on GitHub
+                    <div class="contact-links">
+                        <a href="mailto:shaun@suparious.com" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
                         </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project Grid -->
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card-header">
-                        <i class="fas fa-server project-icon"></i>
-                        <h3>SolidRusT AI Infrastructure Ecosystem</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Complete enterprise AI platform with 20+ integrated components. Shows exceptional technical leadership and ability to build complex distributed systems. Ideal for principal architect roles.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-cube"></i>
-                                <span>20+ integrated components</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-building"></i>
-                                <span>Enterprise-scale MLOps</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT" target="_blank" class="project-link" onclick="trackLinkClick('github', 'SolidRusT')">
-                                <i class="fab fa-github"></i> SolidRusT Org
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>vLLM</span>
-                            <span>TGI</span>
-                            <span>Kubernetes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card-header">
-                        <i class="fas fa-compress project-icon"></i>
-                        <h3>Model Quantization Framework</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Cutting-edge model optimization addressing critical deployment challenges. Demonstrates deep ML engineering expertise and production AI constraints understanding.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-microchip"></i>
-                                <span>Optimized inference</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-bolt"></i>
-                                <span>Reduced model size</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-model-quantizing" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-model-quantizing')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>HuggingFace</span>
-                            <span>MLOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-card-header">
-                        <i class="fas fa-server project-icon"></i>
-                        <h3>Linux Fleet Manager (Rust)</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>High-performance concurrent Rust system for managing server fleets. Demonstrates low-level expertise and ability to build efficient distributed systems.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-network-wired"></i>
-                                <span>Multi-host management</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-bolt"></i>
-                                <span>Async Rust with Tokio</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/suparious/linux-fleet-manager" target="_blank" class="project-link" onclick="trackLinkClick('github', 'linux-fleet-manager')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Rust</span>
-                            <span>SSH2</span>
-                            <span>Tokio</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-card-header">
-                        <i class="fas fa-database project-icon"></i>
-                        <h3>HuggingFace Manager</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Enterprise-scale model repository management system. Solves real AI challenges at scale, showing understanding of AI ecosystem and developer tooling.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-download"></i>
-                                <span>Large-scale model sync</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-warehouse"></i>
-                                <span>Repository management</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-huggingface-manager" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-huggingface-manager')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>HuggingFace</span>
-                            <span>MLOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-card-header">
-                        <i class="fas fa-rocket project-icon"></i>
-                        <h3>NoLag Gaming Platform</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Complex gaming infrastructure with automated deployment. Demonstrates ability to optimize high-performance systems and manage large-scale gaming platforms.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-gamepad"></i>
-                                <span>C# gaming server</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-tachometer-alt"></i>
-                                <span>NoLag technology</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/suparious/srt-nolag-platform" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-nolag-platform')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>C#</span>
-                            <span>Docker</span>
-                            <span>Gaming</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="project-card-header">
-                        <i class="fas fa-chart-line project-icon"></i>
-                        <h3>Uncertainty Benchmark</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Implementation of academic research for LLM uncertainty quantification. Bridges research and production, focusing on AI reliability and safety.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-flask"></i>
-                                <span>Research implementation</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>AI safety focus</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/suparious/uncertainty-benchmark" target="_blank" class="project-link" onclick="trackLinkClick('github', 'uncertainty-benchmark')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>LLMs</span>
-                            <span>Research</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional AI Infrastructure Projects -->
-            <h3 style="text-align: center; margin: 60px 0 30px; color: var(--text-color);" data-aos="fade-up">
-                <span class="gradient-text">AI Infrastructure & Monitoring Suite</span>
-            </h3>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card-header">
-                        <i class="fas fa-search project-icon"></i>
-                        <h3>SRT Web Search</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Advanced agentic AI chat system using llama-cpp-agent with web search capabilities. Implements cutting-edge autonomous AI systems with web integration.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-robot"></i>
-                                <span>Agentic AI</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-globe"></i>
-                                <span>Web integration</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-web-search" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-web-search')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>llama-cpp-agent</span>
-                            <span>TypeScript</span>
-                            <span>AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card-header">
-                        <i class="fas fa-tachometer-alt project-icon"></i>
-                        <h3>Inference Performance Testing</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Comprehensive load testing framework for AI inference systems. Critical for ensuring production AI systems meet performance requirements.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-chart-line"></i>
-                                <span>Load testing</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-server"></i>
-                                <span>AI operations</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-inference-perf" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-inference-perf')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>Performance</span>
-                            <span>MLOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-card-header">
-                        <i class="fas fa-chart-area project-icon"></i>
-                        <h3>Inference Monitoring Dashboard</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Real-time AI operations dashboard for monitoring inference systems. Provides critical observability for production ML deployments.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-tv"></i>
-                                <span>Real-time metrics</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-bell"></i>
-                                <span>Alert systems</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-inference-monitoring" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-inference-monitoring')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Grafana</span>
-                            <span>Prometheus</span>
-                            <span>MLOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-card-header">
-                        <i class="fas fa-code-branch project-icon"></i>
-                        <h3>Inference Backends Manager</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Production-grade inference API management system. Orchestrates multiple AI model backends with automatic failover and load balancing.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-balance-scale"></i>
-                                <span>Load balancing</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-sync"></i>
-                                <span>Auto-failover</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-inference-backends" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-inference-backends')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>API Management</span>
-                            <span>MLOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-card-header">
-                        <i class="fas fa-puzzle-piece project-icon"></i>
-                        <h3>Inference Solution Platform</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>End-to-end inference deployment solution. Complete platform for deploying, managing, and scaling AI models in production environments.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-rocket"></i>
-                                <span>E2E deployment</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-expand"></i>
-                                <span>Auto-scaling</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-inference-solution" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-inference-solution')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Kubernetes</span>
-                            <span>Docker</span>
-                            <span>MLOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="project-card-header">
-                        <i class="fas fa-cog project-icon"></i>
-                        <h3>SRT Core Configuration</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Enterprise configuration management for AI systems. Centralized configuration with hot reloading and versioning for ML infrastructure.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-fire"></i>
-                                <span>Hot reloading</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-history"></i>
-                                <span>Config versioning</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://srt-core.readthedocs.io/" target="_blank" class="project-link" onclick="trackLinkClick('docs', 'srt-core')">
-                                <i class="fas fa-book"></i> Documentation
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>YAML</span>
-                            <span>Config Management</span>
-                            <span>Enterprise</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DevOps & System Tools -->
-            <h3 style="text-align: center; margin: 60px 0 30px; color: var(--text-color);" data-aos="fade-up">
-                <span class="gradient-text">DevOps & System Management Tools</span>
-            </h3>
-            <div class="projects-grid">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-card-header">
-                        <i class="fas fa-terminal project-icon"></i>
-                        <h3>ShellForge</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Polished shell configuration backup and restore tool with exceptional UX. Demonstrates attention to detail and understanding of developer workflows.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-sync"></i>
-                                <span>Config management</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-user-shield"></i>
-                                <span>Cross-platform</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/suparious/shellforge" target="_blank" class="project-link" onclick="trackLinkClick('github', 'shellforge')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Shell</span>
-                            <span>DevOps</span>
-                            <span>Tools</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card-header">
-                        <i class="fas fa-check-double project-icon"></i>
-                        <h3>Fleet Reconciler</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Package reconciliation tool for Debian/Ubuntu server fleets. Ensures consistency across distributed infrastructure deployments.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-server"></i>
-                                <span>Fleet management</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-sync-alt"></i>
-                                <span>Package sync</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/suparious/linux-fleet-reconciler" target="_blank" class="project-link" onclick="trackLinkClick('github', 'linux-fleet-reconciler')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>Linux</span>
-                            <span>DevOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-card-header">
-                        <i class="fas fa-rocket project-icon"></i>
-                        <h3>EVE Incursions Companion</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Companion application for EVE Online players. Demonstrates gaming domain expertise and ability to build community tools.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-gamepad"></i>
-                                <span>Gaming tools</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-users"></i>
-                                <span>Community app</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/suparious/eve-incursions-companion" target="_blank" class="project-link" onclick="trackLinkClick('github', 'eve-incursions-companion')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>Gaming</span>
-                            <span>EVE Online</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-card-header">
-                        <i class="fas fa-robot project-icon"></i>
-                        <h3>Agent API Platform</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Web chat interfaces for AI agents. RESTful API platform for deploying conversational AI with multiple provider support.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-comments"></i>
-                                <span>Chat interfaces</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-plug"></i>
-                                <span>Multi-provider</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-agent-api" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-agent-api')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Python</span>
-                            <span>FastAPI</span>
-                            <span>AI Chat</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-card-header">
-                        <i class="fas fa-flask project-icon"></i>
-                        <h3>K8s Dev Lab</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Kubernetes development laboratory for testing and experimentation. Complete local K8s environment for MLOps development.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-microscope"></i>
-                                <span>Dev environment</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-cubes"></i>
-                                <span>K8s local</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="https://github.com/SolidRusT/srt-k8s-dev-lab" target="_blank" class="project-link" onclick="trackLinkClick('github', 'srt-k8s-dev-lab')">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Kubernetes</span>
-                            <span>Kind</span>
-                            <span>DevOps</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="project-card-header">
-                        <i class="fas fa-server project-icon"></i>
-                        <h3>Self-Hosting AI Stack</h3>
-                    </div>
-                    <div class="project-card-body">
-                        <p>Complete guide for offline AI development with GPU acceleration. Comprehensive documentation for building independent AI infrastructure.</p>
-                        <div class="project-stats">
-                            <div class="stat">
-                                <i class="fas fa-microchip"></i>
-                                <span>GPU optimized</span>
-                            </div>
-                            <div class="stat">
-                                <i class="fas fa-lock"></i>
-                                <span>100% offline</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card-footer">
-                        <div class="project-links">
-                            <a href="self-hosting-ai-stack/" target="_blank" class="project-link" onclick="trackLinkClick('docs', 'self-hosting-ai-stack')">
-                                <i class="fas fa-book"></i> Documentation
-                            </a>
-                        </div>
-                        <div class="project-tags">
-                            <span>Kubernetes</span>
-                            <span>Docker</span>
-                            <span>AI/ML</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GitHub Stats -->
-            <div class="github-stats" data-aos="fade-up">
-                <h3>Open Source Contributions</h3>
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fab fa-github"></i>
-                        <span class="stat-value" id="github-repos">31+</span>
-                        <span class="stat-label">Repositories</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-code-branch"></i>
-                        <span class="stat-value" id="github-contributions">500+</span>
-                        <span class="stat-label">Contributions</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-star"></i>
-                        <span class="stat-value" id="github-stars">100+</span>
-                        <span class="stat-label">Stars Earned</span>
-                    </div>
-                    <div class="stat-card">
-                        <i class="fas fa-building"></i>
-                        <span class="stat-value" id="github-followers">20+</span>
-                        <span class="stat-label">SolidRusT Projects</span>
-                    </div>
-                </div>
-                <div class="github-link">
-                    <a href="https://github.com/suparious" target="_blank" class="btn btn-secondary" onclick="trackLinkClick('social', 'github-profile')">
-                        <i class="fab fa-github"></i> View GitHub Profile
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="publications section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="gradient-text">Publications & Articles</span>
-            </h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                I love diving deep into technical topics and sharing my knowledge through detailed articles and guides.
-            </p>
-
-            <div class="publications-grid">
-                <!-- Featured Article -->
-                <div class="publication-card featured" data-aos="fade-up" data-aos-delay="200">
-                    <div class="publication-header">
-                        <span class="badge">Latest</span>
-                        <span class="reading-time"><i class="fas fa-clock"></i> 25 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>The $250 Billion Lesson: Top 10 Corporate Marketing Failures from Progressive Campaigns</h3>
-                        <p>
-                            Comprehensive analysis of how Bud Light, Disney, Target and others lost over $250 billion 
-                            in market value from failed cause-based marketing campaigns. Essential research for business 
-                            leaders navigating the complex intersection of brand activism and customer values.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Business, Marketing, Corporate Strategy</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>August 2025</span>
-                            </div>
-                        </div>
-                        <a href="corporate-marketing-failures/" target="_blank" class="btn btn-primary" onclick="trackLinkClick('article', 'corporate-marketing-failures')">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Other Articles -->
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="publication-header">
-                        <span class="reading-time"><i class="fas fa-clock"></i> 15 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Comprehensive Self-Hosting Stack for AI-Enhanced Development</h3>
-                        <p>
-                            The ultimate guide to building a complete open-source infrastructure for offline developer 
-                            environments, featuring GPU-accelerated AI workloads, Kubernetes deployment, and modern 
-                            DevOps practices on Debian 12/13.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>AI/ML, DevOps, Infrastructure</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>December 2024</span>
-                            </div>
-                        </div>
-                        <a href="self-hosting-ai-stack/" target="_blank" class="read-more" onclick="trackLinkClick('article', 'self-hosting-ai-stack')">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="publication-header">
-                        <span class="badge">New</span>
-                        <span class="reading-time"><i class="fas fa-clock"></i> 20 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Nixon vs. Carter: Whose Policies Inflicted Deeper Economic Wounds?</h3>
-                        <p>
-                            A comprehensive analysis of the long-term economic impacts of Nixon and Carter presidencies, 
-                            revealing how the president remembered for failure actually laid groundwork for recovery, 
-                            while the one who claimed success created lasting damage.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Economics, History, Policy Analysis</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>August 2025</span>
-                            </div>
-                        </div>
-                        <a href="nixon-carter-economic-analysis/" target="_blank" class="read-more" onclick="trackLinkClick('article', 'nixon-carter-economic-analysis')">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="publication-header">
-                        <span class="reading-time"><i class="fas fa-clock"></i> 10 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Professional Audio on Debian 13 with USB-C Audio Interfaces</h3>
-                        <p>
-                            A comprehensive guide for audio engineers and musicians on setting up professional 
-                            audio production on Debian 13, featuring native real-time kernel support and 
-                            PipeWire configuration.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Audio Engineering, Linux</span>
-                            </div>
-                        </div>
-                        <a href="debian-audio-guide/" target="_blank" class="read-more" onclick="trackLinkClick('article', 'debian-audio-guide')">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="publication-header">
-                        <span class="reading-time"><i class="fas fa-clock"></i> 12 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Cinema's Crystal Ball: 10 Sci-Fi Films That Nailed Tomorrow's Tech</h3>
-                        <p>
-                            An exploration of how science fiction films accurately predicted modern technologies, 
-                            from ChatGPT to deepfakes, brain-computer interfaces to AI companions.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Technology, Culture</span>
-                            </div>
-                        </div>
-                        <a href="scifi-tech-predictions/" target="_blank" class="read-more" onclick="trackLinkClick('article', 'scifi-tech-predictions')">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="publication-header">
-                        <span class="reading-time"><i class="fas fa-clock"></i> 8 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Understanding Your 2012 Chevrolet Volt's Highway Engine Operation</h3>
-                        <p>
-                            A comprehensive research report addressing concerns about engine RPM behavior when 
-                            driving the 2012 Chevrolet Volt on highways, with maintenance guidance.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Automotive, Engineering</span>
-                            </div>
-                        </div>
-                        <a href="2012-chevy-volt-highway-guide/" target="_blank" class="read-more" onclick="trackLinkClick('article', '2012-chevy-volt-highway-guide')">
-                            Read Article <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="publication-header">
-                        <span class="reading-time"><i class="fas fa-clock"></i> 20 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Professional Automotive Air Conditioning Repair Reference Manual</h3>
-                        <p>
-                            A comprehensive professional reference manual for automotive technicians covering 
-                            R134a and R12a refrigerant systems, including procedures, specifications, and 
-                            EPA regulations.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Automotive, Technical Manual</span>
-                            </div>
-                        </div>
-                        <a href="automotive-ac-repair-guide/" target="_blank" class="read-more" onclick="trackLinkClick('article', 'automotive-ac-repair-guide')">
-                            Read Manual <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="publication-card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="publication-header">
-                        <span class="badge">New</span>
-                        <span class="reading-time"><i class="fas fa-clock"></i> 60 min read</span>
-                    </div>
-                    <div class="publication-content">
-                        <h3>Complete 3rd Gen F-Body V8 Swap Tutorial</h3>
-                        <p>
-                            Comprehensive V8 engine swap guide for 1982-1992 Firebird and Camaro. Covers LS, 
-                            small block, and LT1 swaps with detailed compatibility charts, complete parts lists, 
-                            installation procedures, and cost analysis from $2,500 budget builds to $25,000 premium installations.
-                        </p>
-                        <div class="publication-meta">
-                            <div class="meta-item">
-                                <i class="fas fa-folder"></i>
-                                <span>Automotive, Engine Swaps, Tutorial</span>
-                            </div>
-                            <div class="meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>September 2025</span>
-                            </div>
-                        </div>
-                        <a href="3rd-gen-fbody-v8-swap-guide/" target="_blank" class="read-more" onclick="trackLinkClick('article', '3rd-gen-fbody-v8-swap-guide')">
-                            Read Tutorial <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">
-                <span class="gradient-text">Let's Connect</span>
-            </h2>
-            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                I'm currently exploring new opportunities where I can contribute my expertise in cloud architecture and AI engineering.
-            </p>
-
-            <div class="contact-content">
-                <div class="contact-form-wrapper" data-aos="fade-right">
-                    <form id="contact-form" action="https://formspree.io/f/xzzpolke" method="POST" onsubmit="trackContactFormSubmit()">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-
-                <div class="contact-info" data-aos="fade-left">
-                    <div class="info-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <a href="mailto:shaun@suparious.com" onclick="trackLinkClick('contact', 'email')">shaun@suparious.com</a>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Open to Remote & Relocation</p>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-briefcase"></i>
-                        <h3>Availability</h3>
-                        <p>Immediately Available</p>
-                    </div>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/shaunprince" target="_blank" class="social-link" title="LinkedIn" onclick="trackLinkClick('social', 'linkedin')">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/suparious" target="_blank" class="social-link" title="GitHub" onclick="trackLinkClick('social', 'github')">
+                        <a href="https://github.com/Suparious" class="contact-link" target="_blank" rel="noopener">
                             <i class="fab fa-github"></i>
+                            <span>GitHub</span>
                         </a>
-                        <a href="https://twitter.com/suparious" target="_blank" class="social-link" title="Twitter" onclick="trackLinkClick('social', 'twitter')">
+                        <a href="https://linkedin.com/in/suparious" class="contact-link" target="_blank" rel="noopener">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://twitter.com/suparious" class="contact-link" target="_blank" rel="noopener">
                             <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="shaun-prince-resume.pdf" download class="social-link" title="Download Resume" onclick="trackResumeDownload()">
-                            <i class="fas fa-file-pdf"></i>
+                            <span>Twitter</span>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-left">
-                    <p>&copy; 2024 Shaun Prince. All rights reserved.</p>
+                    <p>&copy; 2026 Shaun Prince. All rights reserved.</p>
                 </div>
                 <div class="footer-center">
                     <p>Built with <i class="fas fa-heart"></i> and hosted on GitHub Pages</p>
@@ -1604,40 +921,65 @@
                     </a>
                 </div>
             </div>
+            <div class="footer-company">
+                <p>&copy; 2026 <a href="https://solidrust.net" target="_blank" rel="noopener">SolidRusT Networks</a>. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://solidrust.ai" target="_blank" rel="noopener">AI Platform</a>
+                    <span class="separator">|</span>
+                    <a href="https://solidrust.net" target="_blank" rel="noopener">Community Hub</a>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/animations.js"></script>
-    
-    <!-- GA4 Section View Tracking via Intersection Observer -->
     <script>
-        // Track section views automatically when scrolling
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.5
-            };
-            
-            const sectionObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        trackSectionView(entry.target.id);
-                    }
-                });
-            }, observerOptions);
-            
-            sections.forEach(function(section) {
-                sectionObserver.observe(section);
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
             });
         });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Initial load animation
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
     </script>
 </body>
 </html>
