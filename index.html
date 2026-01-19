@@ -24,587 +24,128 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//api.github.com">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     
-    <!-- Performance: Preload critical fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    
     <!-- Fonts with display=swap for FOUT optimization -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome - defer loading with media query trick -->
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <style>
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-primary: #1f2937;
-            --text-secondary: #6b7280;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f3f4f6;
-            --border-color: #e5e7eb;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background-color: var(--bg-primary);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--bg-primary);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.75rem 2rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: white;
-            color: var(--primary-color);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border-color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: white;
-            color: var(--primary-color);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 5rem 0;
-        }
-
-        section:nth-child(even) {
-            background-color: var(--bg-secondary);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 700;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .about-image img {
-            max-width: 100%;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-lg);
-            /* Aspect ratio placeholder for CLS prevention */
-            aspect-ratio: 4 / 5;
-            object-fit: cover;
-            background-color: var(--bg-secondary);
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background-color: var(--bg-primary);
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: var(--shadow-md);
-        }
-
-        .skill-category h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 0.5rem 0;
-            color: var(--text-secondary);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: var(--primary-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            padding-left: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 0;
-            width: 1rem;
-            height: 1rem;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            border: 3px solid var(--bg-primary);
-        }
-
-        .timeline-item h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item .date {
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-item p {
-            color: var(--text-secondary);
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background-color: var(--bg-primary);
-            border-radius: 0.5rem;
-            box-shadow: var(--shadow-md);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .project-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            background-color: var(--bg-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .project-link {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .project-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Section */
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-content p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .contact-link:hover {
-            color: var(--primary-color);
-        }
-
-        .contact-link i {
-            font-size: 2rem;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--text-primary);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-left,
-        .footer-center,
-        .footer-right {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer-company {
-            padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            margin-top: 1rem;
-        }
-
-        .footer-company p {
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-        }
-
-        .footer-company a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer-company a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            align-items: center;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-links .separator {
-            opacity: 0.5;
-        }
-
-        .back-to-top {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 2.5rem;
-            height: 2.5rem;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .back-to-top:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--bg-primary);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: var(--shadow-md);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .timeline {
-                padding-left: 1rem;
-            }
-
-            .timeline-item {
-                padding-left: 1.5rem;
-            }
-
-            .timeline-item::before {
-                left: -1.75rem;
-            }
-        }
-        
-        /* Performance: Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
-        }
-    </style>
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/github-integration.css">
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo">Shaun Prince</a>
-            <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Loading...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">Shaun Prince</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#github" class="nav-link">GitHub</a></li>
+                <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-        </nav>
-    </header>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="hero">
-            <div class="container">
-                <h1>Full-Stack Developer & Cloud Architect</h1>
-                <p>Building scalable AI platforms and cloud infrastructure</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            <div id="particles-js" class="particles-container"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Shaun Prince</span>
+                    </h1>
+                    <h2 class="hero-subtitle">
+                        <span class="typed-text">I'm a </span><span id="typed"></span>
+                    </h2>
+                    <p class="hero-description">
+                        Building scalable AI platforms and cloud infrastructure. 
+                        Founder of SolidRusT Networks, specializing in production ML systems, 
+                        Kubernetes orchestration, and full-stack development.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-folder-open"></i> View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i> Get In Touch
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="github-repos">31+</span>
+                            <span class="stat-label">Open Source Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">K8s Nodes</span>
+                        </div>
+                    </div>
                 </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="https://avatars.githubusercontent.com/u/2909735?v=4" 
+                             alt="Shaun Prince" 
+                             class="profile-img"
+                             width="400" 
+                             height="400"
+                             loading="eager">
+                        <div class="floating-icons">
+                            <i class="fab fa-python floating-icon"></i>
+                            <i class="fab fa-rust floating-icon"></i>
+                            <i class="fab fa-react floating-icon"></i>
+                            <i class="fas fa-brain floating-icon"></i>
+                            <i class="fas fa-dharmachakra floating-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
-        <section id="about">
+        <!-- About Section -->
+        <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">About Me</h2>
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
                 <div class="about-content">
                     <div class="about-text">
                         <h3>Hi, I'm Shaun Prince</h3>
@@ -614,404 +155,683 @@
                             lead at SolidRusT Networks, where I architect and maintain production AI inference platforms 
                             and Kubernetes-based infrastructure.
                         </p>
-                        <p>
-                            My expertise spans from frontend development with React and TypeScript to backend systems 
-                            with Python and Rust, and infrastructure management with Kubernetes and cloud platforms. 
-                            I specialize in building AI-powered applications, game servers, and developer tools.
-                        </p>
-                        <p>
-                            I'm particularly interested in AI/ML engineering, distributed systems, and creating tools 
-                            that improve developer productivity. I believe in open-source software and actively 
-                            contribute to the community.
-                        </p>
+                        <div class="about-highlights">
+                            <div class="highlight">
+                                <i class="fas fa-brain"></i>
+                                <div>
+                                    <h4>AI Infrastructure</h4>
+                                    <p>Building production ML systems with vLLM, RAG, and multi-agent architectures</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-dharmachakra"></i>
+                                <div>
+                                    <h4>Kubernetes Expert</h4>
+                                    <p>12-node cluster with GPU support, FluxCD GitOps, and comprehensive monitoring</p>
+                                </div>
+                            </div>
+                            <div class="highlight">
+                                <i class="fas fa-code"></i>
+                                <div>
+                                    <h4>Full-Stack Development</h4>
+                                    <p>React, TypeScript, Python, Rust - from frontend to systems programming</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="about-image">
-                        <img src="https://avatars.githubusercontent.com/u/8500462?v=4" 
-                             alt="Shaun Prince" 
-                             width="400" 
-                             height="500"
-                             loading="lazy"
-                             decoding="async">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">shaun.json</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code><span class="code-comment">// About me in code</span>
+{
+  <span class="code-key">"name"</span>: <span class="code-string">"Shaun Prince"</span>,
+  <span class="code-key">"role"</span>: <span class="code-string">"Cloud Architect & AI Engineer"</span>,
+  <span class="code-key">"location"</span>: <span class="code-string">"Canada"</span>,
+  <span class="code-key">"company"</span>: <span class="code-string">"SolidRusT Networks"</span>,
+  <span class="code-key">"experience_years"</span>: <span class="code-number">15</span>,
+  <span class="code-key">"specializations"</span>: [
+    <span class="code-string">"AI/ML Infrastructure"</span>,
+    <span class="code-string">"Kubernetes"</span>,
+    <span class="code-string">"Full-Stack Development"</span>,
+    <span class="code-string">"DevOps & GitOps"</span>
+  ],
+  <span class="code-key">"current_focus"</span>: <span class="code-string">"Production AI Platforms"</span>
+}</code></pre>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills">
+        <!-- Skills Section -->
+        <section id="skills" class="section">
             <div class="container">
-                <h2 class="section-title">Skills & Expertise</h2>
+                <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
                 <div class="skills-grid">
-                    <div class="skill-category">
+                    <div class="skill-category" data-aos="fade-up">
                         <h3><i class="fas fa-code"></i> Languages</h3>
-                        <ul class="skill-list">
-                            <li>Python</li>
-                            <li>TypeScript / JavaScript</li>
-                            <li>Rust</li>
-                            <li>Go</li>
-                            <li>SQL</li>
-                            <li>Bash / Shell</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Python</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>TypeScript / JavaScript</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Rust</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Go</span>
+                                <span class="skill-level">Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="60"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
-                        <ul class="skill-list">
-                            <li>React / Next.js</li>
-                            <li>Astro</li>
-                            <li>HTML5 / CSS3</li>
-                            <li>Tailwind CSS</li>
-                            <li>Responsive Design</li>
-                            <li>Progressive Web Apps</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-server"></i> Backend</h3>
-                        <ul class="skill-list">
-                            <li>FastAPI / Flask</li>
-                            <li>Node.js / Express</li>
-                            <li>GraphQL / REST APIs</li>
-                            <li>PostgreSQL / MongoDB</li>
-                            <li>Redis / Valkey</li>
-                            <li>Message Queues</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
                         <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
-                        <ul class="skill-list">
-                            <li>Kubernetes / Helm</li>
-                            <li>Docker / Containerization</li>
-                            <li>AWS / Cloud Infrastructure</li>
-                            <li>GitOps / FluxCD</li>
-                            <li>CI/CD Pipelines</li>
-                            <li>Monitoring & Observability</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Kubernetes</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Docker</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>FluxCD / GitOps</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>AWS / Cloud</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-category">
+
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
                         <h3><i class="fas fa-robot"></i> AI & ML</h3>
-                        <ul class="skill-list">
-                            <li>vLLM / LiteLLM</li>
-                            <li>LangChain / LangGraph</li>
-                            <li>Vector Databases</li>
-                            <li>RAG Systems</li>
-                            <li>Model Fine-tuning</li>
-                            <li>AI Platform Architecture</li>
-                        </ul>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>vLLM / LiteLLM</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>RAG Systems</span>
+                                <span class="skill-level">Expert</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>LangChain / Agents</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Vector Databases</span>
+                                <span class="skill-level">Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="skill-category">
-                        <h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
-                        <ul class="skill-list">
-                            <li>Git / GitHub / Gitea</li>
-                            <li>VS Code / Claude Code</li>
-                            <li>Nginx / Traefik</li>
-                            <li>Prometheus / Grafana</li>
-                            <li>Stripe API</li>
-                            <li>Linux Administration</li>
-                        </ul>
+                </div>
+
+                <div class="tech-stack" data-aos="fade-up">
+                    <h3>Technologies I Work With</h3>
+                    <div class="tech-icons">
+                        <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
+                        <div class="tech-icon" title="Rust"><i class="fab fa-rust"></i></div>
+                        <div class="tech-icon" title="JavaScript"><i class="fab fa-js-square"></i></div>
+                        <div class="tech-icon" title="React"><i class="fab fa-react"></i></div>
+                        <div class="tech-icon" title="Node.js"><i class="fab fa-node-js"></i></div>
+                        <div class="tech-icon" title="Docker"><i class="fab fa-docker"></i></div>
+                        <div class="tech-icon" title="Linux"><i class="fab fa-linux"></i></div>
+                        <div class="tech-icon" title="Git"><i class="fab fa-git-alt"></i></div>
+                        <div class="tech-icon" title="AWS"><i class="fab fa-aws"></i></div>
+                        <div class="tech-icon" title="GitHub"><i class="fab fa-github"></i></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="experience">
+        <!-- Experience Section -->
+        <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title">Experience</h2>
+                <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
                 <div class="timeline">
-                    <div class="timeline-item">
-                        <h3>Founder & Technical Lead</h3>
-                        <div class="date">SolidRusT Networks | 2023 - Present</div>
-                        <p>
-                            Founded and architected a production AI inference platform serving multiple consumer-facing 
-                            applications. Built and maintained a 12-node Kubernetes cluster with GPU acceleration, 
-                            implemented GitOps workflows with FluxCD, and developed billing and API key management systems 
-                            using Stripe integration.
-                        </p>
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Founder & Technical Lead</h3>
+                                <h4>SolidRusT Networks</h4>
+                                <span class="timeline-date">2023 - Present</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Founded and architected a production AI inference platform serving multiple consumer-facing applications.</p>
+                                <ul>
+                                    <li>Built 12-node Kubernetes cluster with 5 GPU workers</li>
+                                    <li>Implemented GitOps workflows with FluxCD</li>
+                                    <li>Developed PAM platform for API key management and billing</li>
+                                    <li>Created multi-agent AI systems and RAG pipelines</li>
+                                </ul>
+                                <div class="timeline-tags">
+                                    <span class="tag">Kubernetes</span>
+                                    <span class="tag">vLLM</span>
+                                    <span class="tag">Python</span>
+                                    <span class="tag">FluxCD</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h3>Senior Full-Stack Developer</h3>
-                        <div class="date">Various Clients | 2018 - 2023</div>
-                        <p>
-                            Developed and maintained full-stack applications using React, TypeScript, Python, and various 
-                            backend technologies. Implemented CI/CD pipelines, containerized applications, and deployed to 
-                            cloud platforms including AWS and self-hosted Kubernetes clusters.
-                        </p>
+
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>Senior Full-Stack Developer</h3>
+                                <h4>Various Clients</h4>
+                                <span class="timeline-date">2018 - 2023</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Delivered full-stack applications and cloud infrastructure for diverse clients.</p>
+                                <ul>
+                                    <li>React/TypeScript frontends with Node.js/Python backends</li>
+                                    <li>Containerized applications with CI/CD pipelines</li>
+                                    <li>AWS and self-hosted Kubernetes deployments</li>
+                                </ul>
+                                <div class="timeline-tags">
+                                    <span class="tag">React</span>
+                                    <span class="tag">TypeScript</span>
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Docker</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <h3>DevOps Engineer</h3>
-                        <div class="date">Technology Consultancy | 2015 - 2018</div>
-                        <p>
-                            Automated infrastructure provisioning and deployment processes. Managed cloud infrastructure 
-                            on AWS and Azure. Implemented monitoring and alerting systems. Reduced deployment time by 80% 
-                            through automation and containerization.
-                        </p>
-                    </div>
-                    <div class="timeline-item">
-                        <h3>Software Developer</h3>
-                        <div class="date">Software Company | 2010 - 2015</div>
-                        <p>
-                            Developed web applications using various technologies including PHP, JavaScript, and Python. 
-                            Worked with databases including MySQL and PostgreSQL. Participated in all phases of the 
-                            software development lifecycle.
-                        </p>
+
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <h3>DevOps Engineer</h3>
+                                <h4>Technology Consultancy</h4>
+                                <span class="timeline-date">2015 - 2018</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Automated infrastructure and deployment processes for enterprise clients.</p>
+                                <ul>
+                                    <li>Reduced deployment time by 80% through automation</li>
+                                    <li>Implemented monitoring and alerting systems</li>
+                                    <li>Managed AWS and Azure cloud infrastructure</li>
+                                </ul>
+                                <div class="timeline-tags">
+                                    <span class="tag">AWS</span>
+                                    <span class="tag">Azure</span>
+                                    <span class="tag">Terraform</span>
+                                    <span class="tag">Ansible</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects">
+        <!-- Projects Section -->
+        <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                
                 <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="project-content">
+                    <div class="project-card" data-aos="fade-up">
+                        <div class="project-card-header">
+                            <i class="fas fa-brain project-icon"></i>
                             <h3>SolidRusT AI Platform</h3>
-                            <p>
-                                Production AI inference platform with vLLM, LiteLLM, and Claude integration. 
-                                Serves multiple consumer applications with automatic failover and load balancing.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Kubernetes</span>
-                                <span class="tag">vLLM</span>
-                                <span class="tag">FastAPI</span>
+                        </div>
+                        <div class="project-card-body">
+                            <p>Production AI inference platform with vLLM, LiteLLM, and Claude integration. Serves multiple consumer applications with automatic failover.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Kubernetes</span>
+                                <span class="tech-tag">vLLM</span>
+                                <span class="tech-tag">FastAPI</span>
                             </div>
-                            <div class="project-links">
-                                <a href="https://solidrust.ai" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
-                                </a>
-                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://solidrust.ai" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
                         </div>
                     </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>MyAshes.ai</h3>
-                            <p>
-                                AI-powered game assistant for Ashes of Creation. Features RAG-based knowledge retrieval, 
-                                real-time game data, and natural language interaction.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">Python</span>
-                                <span class="tag">RAG</span>
-                                <span class="tag">Vector DB</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://myashes.ai" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="project-content">
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-card-header">
+                            <i class="fas fa-users project-icon"></i>
                             <h3>Aidiant AI Council</h3>
-                            <p>
-                                Multi-agent AI system simulating a council of advisors. Built with tool-enabled agents, 
-                                memory management, and interactive dialogue.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">TypeScript</span>
-                                <span class="tag">LangChain</span>
-                                <span class="tag">React</span>
-                                <span class="tag">AI Agents</span>
+                        </div>
+                        <div class="project-card-body">
+                            <p>Multi-agent AI system with 234 council members across 11 categories. Features RAG, tool-enabled agents, and democratic deliberation.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">TypeScript</span>
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">RAG</span>
+                                <span class="tech-tag">Agents</span>
                             </div>
-                            <div class="project-links">
-                                <a href="https://aidiant.com" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
-                                </a>
-                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://aidiant.com" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
                         </div>
                     </div>
 
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-cogs"></i>
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-card-header">
+                            <i class="fas fa-gamepad project-icon"></i>
+                            <h3>MyAshes.ai</h3>
                         </div>
-                        <div class="project-content">
+                        <div class="project-card-body">
+                            <p>AI-powered game assistant for Ashes of Creation. Features RAG-based knowledge retrieval and natural language interaction.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">RAG</span>
+                                <span class="tech-tag">Vector DB</span>
+                            </div>
+                        </div>
+                        <div class="project-card-footer">
+                            <a href="https://myashes.ai" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-card-header">
+                            <i class="fas fa-cogs project-icon"></i>
                             <h3>PAM Platform</h3>
-                            <p>
-                                Platform for API key management, billing integration with Stripe, and user authentication. 
-                                Features GraphQL API and React-based console.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">GraphQL</span>
-                                <span class="tag">Stripe</span>
-                                <span class="tag">PostgreSQL</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://console.solidrust.ai" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
-                                </a>
+                        </div>
+                        <div class="project-card-body">
+                            <p>API key management, Stripe billing integration, and user authentication. GraphQL API with React console.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">GraphQL</span>
+                                <span class="tech-tag">Stripe</span>
+                                <span class="tech-tag">PostgreSQL</span>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Kubernetes Infrastructure</h3>
-                            <p>
-                                Production-grade 12-node Kubernetes cluster with GPU support, FluxCD GitOps, 
-                                NFS storage, and comprehensive monitoring stack.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Kubernetes</span>
-                                <span class="tag">FluxCD</span>
-                                <span class="tag">Prometheus</span>
-                                <span class="tag">GPU</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/SolidRusT" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>Developer Tools</h3>
-                            <p>
-                                Collection of CLI utilities and developer tools including cognitive continuity assistant, 
-                                shared clipboard, and various automation scripts.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Rust</span>
-                                <span class="tag">CLI</span>
-                                <span class="tag">Automation</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Suparious" class="project-link" target="_blank" rel="noopener">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
+                        <div class="project-card-footer">
+                            <a href="https://console.solidrust.ai" class="project-link" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact">
+        <!-- GitHub Activity Section -->
+        <section id="github" class="section github-section">
             <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
+                <h2 class="section-title">GitHub <span class="gradient-text">Activity</span></h2>
+                <p class="section-subtitle">Real-time updates from my open source contributions</p>
+                
+                <!-- GitHub Stats -->
+                <div class="github-stats-grid" data-aos="fade-up">
+                    <div class="github-stat-card">
+                        <i class="fas fa-book"></i>
+                        <span class="github-stat-value" id="github-repos">31+</span>
+                        <span class="github-stat-label">Public Repos</span>
+                    </div>
+                    <div class="github-stat-card">
+                        <i class="fas fa-star"></i>
+                        <span class="github-stat-value" id="total-stars">50+</span>
+                        <span class="github-stat-label">Total Stars</span>
+                    </div>
+                    <div class="github-stat-card">
+                        <i class="fas fa-code-branch"></i>
+                        <span class="github-stat-value" id="total-forks">20+</span>
+                        <span class="github-stat-label">Total Forks</span>
+                    </div>
+                    <div class="github-stat-card">
+                        <i class="fas fa-users"></i>
+                        <span class="github-stat-value" id="github-followers">50+</span>
+                        <span class="github-stat-label">Followers</span>
+                    </div>
+                </div>
+
+                <div class="github-section-content">
+                    <div class="github-main">
+                        <h3><i class="fas fa-folder-open"></i> Latest Repositories</h3>
+                        <div id="latest-repos">
+                            <!-- Populated by JavaScript -->
+                            <div class="repo-card">
+                                <div class="repo-header">
+                                    <i class="fas fa-book-bookmark"></i>
+                                    <span class="repo-name">Loading...</span>
+                                </div>
+                                <p class="repo-description">Fetching latest repositories from GitHub...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="github-sidebar">
+                        <div class="github-sidebar-card" data-aos="fade-left">
+                            <h3><i class="fas fa-chart-line"></i> Recent Activity</h3>
+                            <div id="github-activity">
+                                <!-- Populated by JavaScript -->
+                                <div class="activity-item">
+                                    <div class="activity-icon"><i class="fas fa-code"></i></div>
+                                    <div class="activity-content">
+                                        <p class="activity-description">Loading activity...</p>
+                                        <span class="activity-time">Just now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="github-sidebar-card" data-aos="fade-left" data-aos-delay="100">
+                            <h3><i class="fas fa-chart-pie"></i> Language Usage</h3>
+                            <div id="language-chart">
+                                <!-- Populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contribution Calendar -->
+                <div class="github-sidebar-card" style="margin-top: var(--spacing-xl);" data-aos="fade-up">
+                    <h3><i class="fas fa-calendar-alt"></i> Contribution Calendar</h3>
+                    <div id="contribution-calendar">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: var(--spacing-xl);">
+                    <a href="https://github.com/Suparious" class="btn btn-secondary" target="_blank" rel="noopener">
+                        <i class="fab fa-github"></i> View Full Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies Section -->
+        <section id="case-studies" class="section">
+            <div class="container">
+                <h2 class="section-title">Case <span class="gradient-text">Studies</span></h2>
+                <p class="section-subtitle">Deep dives into my most impactful projects</p>
+                
+                <div class="case-studies-grid">
+                    <div class="case-study-card" data-aos="fade-up">
+                        <div class="case-study-header">
+                            <i class="fas fa-brain case-study-icon"></i>
+                            <h3 class="case-study-title">SolidRusT AI Platform</h3>
+                            <p class="case-study-subtitle">Production AI Inference at Scale</p>
+                        </div>
+                        <div class="case-study-body">
+                            <div class="case-study-section">
+                                <h4>Problem</h4>
+                                <p>Building a cost-effective, high-availability AI inference platform for multiple consumer applications.</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4>Solution</h4>
+                                <p>Kubernetes-based platform with vLLM, automatic failover to Claude, and unified API gateway.</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4>Results</h4>
+                                <div class="case-study-metrics">
+                                    <div class="metric">
+                                        <span class="metric-value">99.9%</span>
+                                        <span class="metric-label">Uptime</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">90%</span>
+                                        <span class="metric-label">Cost Reduction</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">5</span>
+                                        <span class="metric-label">Apps Served</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="case-study-section">
+                                <h4>Tech Stack</h4>
+                                <div class="case-study-tech">
+                                    <span class="tag">Kubernetes</span>
+                                    <span class="tag">vLLM</span>
+                                    <span class="tag">FluxCD</span>
+                                    <span class="tag">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-footer">
+                            <a href="case-studies/solidrust-ai-platform/" class="case-study-link">
+                                Read Full Case Study <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="case-study-header">
+                            <i class="fas fa-server case-study-icon"></i>
+                            <h3 class="case-study-title">Kubernetes Infrastructure</h3>
+                            <p class="case-study-subtitle">Production-Grade GPU Cluster</p>
+                        </div>
+                        <div class="case-study-body">
+                            <div class="case-study-section">
+                                <h4>Problem</h4>
+                                <p>Need for reliable, GPU-enabled infrastructure to run AI workloads with zero-downtime deployments.</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4>Solution</h4>
+                                <p>12-node cluster with FluxCD GitOps, comprehensive monitoring, and NVMe-backed NFS storage.</p>
+                            </div>
+                            <div class="case-study-section">
+                                <h4>Results</h4>
+                                <div class="case-study-metrics">
+                                    <div class="metric">
+                                        <span class="metric-value">12</span>
+                                        <span class="metric-label">Nodes</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">63</span>
+                                        <span class="metric-label">Deployments</span>
+                                    </div>
+                                    <div class="metric">
+                                        <span class="metric-value">60GB</span>
+                                        <span class="metric-label">GPU VRAM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="case-study-section">
+                                <h4>Tech Stack</h4>
+                                <div class="case-study-tech">
+                                    <span class="tag">K8s</span>
+                                    <span class="tag">FluxCD</span>
+                                    <span class="tag">Prometheus</span>
+                                    <span class="tag">NVIDIA</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="case-study-footer">
+                            <a href="case-studies/kubernetes-infrastructure/" class="case-study-link">
+                                Read Full Case Study <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="section">
+            <div class="container">
+                <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
+                <p class="section-subtitle">Feedback from colleagues and collaborators</p>
+                
+                <div class="testimonials-container" data-aos="fade-up">
+                    <div class="testimonials-slider">
+                        <div class="testimonials-track">
+                            <!-- Testimonials populated by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="testimonials-nav">
+                        <button class="testimonial-btn testimonial-prev" aria-label="Previous testimonial">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="testimonials-dots">
+                            <!-- Dots populated by JavaScript -->
+                        </div>
+                        <button class="testimonial-btn testimonial-next" aria-label="Next testimonial">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                <p class="section-subtitle">I'm always interested in hearing about new projects and opportunities</p>
+                
                 <div class="contact-content">
-                    <p>
-                        I'm always interested in hearing about new projects and opportunities. 
-                        Whether you have a question or just want to say hi, feel free to reach out!
-                    </p>
-                    <div class="contact-links">
-                        <a href="mailto:shaun@suparious.com" class="contact-link">
+                    <div class="contact-form-wrapper" data-aos="fade-right">
+                        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                    <div class="contact-info" data-aos="fade-left">
+                        <div class="info-card">
                             <i class="fas fa-envelope"></i>
-                            <span>Email</span>
-                        </a>
-                        <a href="https://github.com/Suparious" class="contact-link" target="_blank" rel="noopener">
-                            <i class="fab fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://linkedin.com/in/suparious" class="contact-link" target="_blank" rel="noopener">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://twitter.com/suparious" class="contact-link" target="_blank" rel="noopener">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
+                            <h3>Email</h3>
+                            <a href="mailto:shaun@suparious.com">shaun@suparious.com</a>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Location</h3>
+                            <p>Canada</p>
+                        </div>
+                        <div class="info-card">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Company</h3>
+                            <a href="https://solidrust.net" target="_blank" rel="noopener">SolidRusT Networks</a>
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com/Suparious" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/suparious" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://twitter.com/suparious" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <p>&copy; 2026 Shaun Prince. All rights reserved.</p>
-                </div>
-                <div class="footer-center">
-                    <p>Built with <i class="fas fa-heart"></i> and hosted on GitHub Pages</p>
-                </div>
-                <div class="footer-right">
-                    <a href="#home" class="back-to-top">
-                        <i class="fas fa-arrow-up"></i>
-                    </a>
-                </div>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Shaun Prince. All rights reserved.</p>
             </div>
-            <div class="footer-company">
-                <p>&copy; 2026 <a href="https://solidrust.net" target="_blank" rel="noopener">SolidRusT Networks</a>. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="https://solidrust.ai" target="_blank" rel="noopener">AI Platform</a>
-                    <span class="separator">|</span>
-                    <a href="https://solidrust.net" target="_blank" rel="noopener">Community Hub</a>
-                </div>
+            <div class="footer-center">
+                <p>Built with <i class="fas fa-heart"></i> and deployed on GitHub Pages</p>
+            </div>
+            <div class="footer-right">
+                <a href="#home" class="back-to-top" aria-label="Back to top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    document.querySelector('.nav-links').classList.remove('active');
-                }
-            });
-        });
-
-        // Optimized scroll animation using requestAnimationFrame
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    requestAnimationFrame(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    });
-                    // Unobserve after animation to improve performance
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections except hero (it should be immediately visible)
-        document.querySelectorAll('section:not(.hero)').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(section);
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/github-integration.js"></script>
+    <script src="assets/js/testimonials.js"></script>
 </body>
 </html>
