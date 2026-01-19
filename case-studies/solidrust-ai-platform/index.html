@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: SolidRusT AI Platform - Shaun Prince</title>
+    <meta name="description" content="How I built a production AI inference platform serving multiple consumer applications with 99.9% uptime using Kubernetes, vLLM, and GitOps.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Case Study: SolidRusT AI Platform">
+    <meta property="og:description" content="Building a production AI inference platform with Kubernetes, vLLM, and GitOps.">
+    <meta property="og:url" content="https://suparious.com/case-studies/solidrust-ai-platform/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/github-integration.css">
+    
+    <style>
+        /* Case Study Specific Styles */
+        .case-study-hero {
+            background: var(--gradient-mesh), var(--background);
+            padding: calc(80px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+            text-align: center;
+        }
+        
+        .case-study-hero .badge {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl);
+        }
+        
+        .case-study-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            text-align: center;
+        }
+        
+        .meta-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .meta-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .case-study-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+        }
+        
+        .case-study-content h2 {
+            font-size: 1.75rem;
+            margin: var(--spacing-3xl) 0 var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .case-study-content h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .case-study-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-content ul {
+            margin-bottom: var(--spacing-lg);
+            padding-left: var(--spacing-xl);
+        }
+        
+        .case-study-content li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .result-card {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+        
+        .architecture-box {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            overflow-x: auto;
+        }
+        
+        .architecture-box pre {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .tech-stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .tech-badge {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .quote-box {
+            background: var(--surface);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        
+        .quote-box p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: var(--spacing-2xl);
+            transition: all var(--transition-fast);
+        }
+        
+        .back-link:hover {
+            gap: var(--spacing-md);
+        }
+        
+        .back-link i {
+            transition: transform var(--transition-fast);
+        }
+        
+        .back-link:hover i {
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="../../" class="nav-logo">
+                <span class="logo-text">Shaun Prince</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../../#about" class="nav-link">About</a></li>
+                <li><a href="../../#skills" class="nav-link">Skills</a></li>
+                <li><a href="../../#experience" class="nav-link">Experience</a></li>
+                <li><a href="../../#projects" class="nav-link">Projects</a></li>
+                <li><a href="../../#case-studies" class="nav-link">Case Studies</a></li>
+                <li><a href="../../#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="case-study-hero">
+            <div class="container">
+                <span class="badge">Case Study</span>
+                <h1>SolidRusT AI Platform</h1>
+                <p>Building a production AI inference platform serving multiple consumer applications with 99.9% uptime using Kubernetes, vLLM, and GitOps.</p>
+                
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">18 Months</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Role</div>
+                        <div class="meta-value">Founder & Lead Architect</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Team Size</div>
+                        <div class="meta-value">Solo + AI Assistants</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <article class="case-study-content">
+            <h2>The Challenge</h2>
+            <p>
+                As AI capabilities rapidly evolved, I recognized the need for a robust, self-hosted inference platform 
+                that could serve multiple consumer-facing applications. The challenge was building infrastructure that 
+                could handle variable workloads, provide low-latency responses, and maintain high availability - 
+                all while keeping costs manageable compared to cloud AI services.
+            </p>
+            <p>Key challenges included:</p>
+            <ul>
+                <li>Managing GPU resources efficiently across multiple models</li>
+                <li>Providing automatic failover when local inference was unavailable</li>
+                <li>Implementing proper API key management and billing integration</li>
+                <li>Maintaining infrastructure as code with zero-downtime deployments</li>
+                <li>Serving multiple frontend applications through a unified API gateway</li>
+            </ul>
+
+            <h2>The Solution</h2>
+            <p>
+                I designed and implemented a comprehensive AI platform built on Kubernetes, featuring a 12-node 
+                cluster with 5 GPU-equipped worker nodes. The architecture follows GitOps principles with FluxCD 
+                for continuous deployment and Kustomize for environment management.
+            </p>
+
+            <div class="architecture-box">
+                <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                     Public Internet                              │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  Artemis Gateway (AWS EC2)                       │
+│                  - TLS Termination                               │
+│                  - Rate Limiting                                 │
+│                  - API Key Validation                            │
+└─────────────────────────┬───────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────────────┐
+│               Kubernetes Cluster (12 nodes)                      │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────────┐  │
+│  │   LiteLLM   │  │    vLLM     │  │    Data Layer API       │  │
+│  │   Proxy     │──│  Inference  │  │  (RAG, Embeddings)      │  │
+│  │  (Failover) │  │  (GPU Pods) │  │                         │  │
+│  └─────────────┘  └─────────────┘  └─────────────────────────┘  │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────────────────────────────────────────────────────────┐│
+│  │                    PAM Platform                              ││
+│  │           (API Keys, Billing, User Auth)                     ││
+│  └─────────────────────────────────────────────────────────────┘│
+└─────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <h3>Key Components</h3>
+            <ul>
+                <li><strong>vLLM Inference:</strong> High-performance serving with PagedAttention, running Qwen3-4B on RTX 3060 GPUs</li>
+                <li><strong>LiteLLM Proxy:</strong> Unified API interface with automatic failover to Claude Haiku during GPU maintenance</li>
+                <li><strong>Artemis Gateway:</strong> Public-facing nginx proxy handling TLS, rate limiting, and request routing</li>
+                <li><strong>PAM Platform:</strong> Custom-built API key management with Stripe billing integration</li>
+                <li><strong>Data Layer:</strong> RAG capabilities with vector search (bge-m3 embeddings) and knowledge graph</li>
+            </ul>
+
+            <h2>Technology Stack</h2>
+            <div class="tech-stack-grid">
+                <span class="tech-badge">Kubernetes</span>
+                <span class="tech-badge">FluxCD</span>
+                <span class="tech-badge">vLLM</span>
+                <span class="tech-badge">LiteLLM</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">PostgreSQL</span>
+                <span class="tech-badge">Valkey</span>
+                <span class="tech-badge">Nginx</span>
+                <span class="tech-badge">Prometheus</span>
+                <span class="tech-badge">Grafana</span>
+                <span class="tech-badge">Stripe API</span>
+            </div>
+
+            <h2>Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">99.9%</div>
+                    <div class="result-label">Uptime Achieved</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">&lt;200ms</div>
+                    <div class="result-label">Avg Response Time</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">5</div>
+                    <div class="result-label">Consumer Apps Served</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">90%</div>
+                    <div class="result-label">Cost Reduction vs Cloud</div>
+                </div>
+            </div>
+
+            <h2>Key Learnings</h2>
+            <p>
+                Building this platform provided invaluable experience in production ML infrastructure. 
+                The most important lessons learned:
+            </p>
+            <ul>
+                <li><strong>Failover is essential:</strong> GPU workloads can fail unpredictably. Having Claude Haiku as a fallback ensures continuous service.</li>
+                <li><strong>GitOps simplifies everything:</strong> FluxCD's reconciliation loop catches drift and ensures consistency across environments.</li>
+                <li><strong>Observability first:</strong> Prometheus metrics and Grafana dashboards made debugging and optimization possible.</li>
+                <li><strong>API gateways add complexity but are worth it:</strong> Centralized rate limiting, auth, and routing simplifies client integration.</li>
+            </ul>
+
+            <div class="quote-box">
+                <p>"The platform now handles inference for five consumer applications including AI chat interfaces, 
+                game assistants, and multi-agent deliberation systems - all from the same underlying infrastructure."</p>
+            </div>
+
+            <a href="../../#case-studies" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Case Studies
+            </a>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Shaun Prince</p>
+            </div>
+            <div class="footer-center">
+                <p>Built with <i class="fas fa-heart"></i> and deployed on GitHub Pages</p>
+            </div>
+            <div class="footer-right">
+                <a href="#" class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>
