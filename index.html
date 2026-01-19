@@ -20,13 +20,24 @@
     <meta property="twitter:title" content="Shaun Prince - Full-Stack Developer & Cloud Architect">
     <meta property="twitter:description" content="Professional portfolio showcasing expertise in AI platforms, Kubernetes orchestration, and full-stack development.">
     
-    <!-- Fonts -->
+    <!-- Performance: DNS Prefetch & Preconnect for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- Performance: Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- Fonts with display=swap for FOUT optimization -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome - defer loading with media query trick -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <style>
         :root {
@@ -211,6 +222,10 @@
             max-width: 100%;
             border-radius: 1rem;
             box-shadow: var(--shadow-lg);
+            /* Aspect ratio placeholder for CLS prevention */
+            aspect-ratio: 4 / 5;
+            object-fit: cover;
+            background-color: var(--bg-secondary);
         }
 
         /* Skills Section */
@@ -544,6 +559,18 @@
                 left: -1.75rem;
             }
         }
+        
+        /* Performance: Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -599,7 +626,12 @@
                         </p>
                     </div>
                     <div class="about-image">
-                        <img src="https://via.placeholder.com/400x500?text=Profile+Photo" alt="Shaun Prince">
+                        <img src="https://avatars.githubusercontent.com/u/8500462?v=4" 
+                             alt="Shaun Prince" 
+                             width="400" 
+                             height="500"
+                             loading="lazy"
+                             decoding="async">
                     </div>
                 </div>
             </div>
@@ -954,7 +986,7 @@
             });
         });
 
-        // Add animation on scroll
+        // Optimized scroll animation using requestAnimationFrame
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -963,23 +995,23 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    requestAnimationFrame(() => {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    });
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
+        // Observe all sections except hero (it should be immediately visible)
+        document.querySelectorAll('section:not(.hero)').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(20px)';
             section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(section);
         });
-
-        // Initial load animation
-        document.querySelector('.hero').style.opacity = '1';
-        document.querySelector('.hero').style.transform = 'translateY(0)';
     </script>
 </body>
 </html>
