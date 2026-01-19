@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Production Kubernetes Infrastructure - Shaun Prince</title>
+    <meta name="description" content="Designing and deploying a 12-node Kubernetes cluster with GPU support, FluxCD GitOps, and comprehensive monitoring.">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Case Study: Production Kubernetes Infrastructure">
+    <meta property="og:description" content="Building a production-grade Kubernetes cluster with GPU support and GitOps practices.">
+    <meta property="og:url" content="https://suparious.com/case-studies/kubernetes-infrastructure/">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/github-integration.css">
+    
+    <style>
+        /* Case Study Specific Styles */
+        .case-study-hero {
+            background: var(--gradient-mesh), var(--background);
+            padding: calc(80px + var(--spacing-3xl)) 0 var(--spacing-3xl);
+            text-align: center;
+        }
+        
+        .case-study-hero .badge {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl);
+        }
+        
+        .case-study-meta {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            text-align: center;
+        }
+        
+        .meta-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .meta-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .case-study-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-3xl) var(--spacing-lg);
+        }
+        
+        .case-study-content h2 {
+            font-size: 1.75rem;
+            margin: var(--spacing-3xl) 0 var(--spacing-lg);
+            color: var(--text-primary);
+        }
+        
+        .case-study-content h2:first-of-type {
+            margin-top: 0;
+        }
+        
+        .case-study-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .case-study-content ul {
+            margin-bottom: var(--spacing-lg);
+            padding-left: var(--spacing-xl);
+        }
+        
+        .case-study-content li {
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin: var(--spacing-xl) 0;
+        }
+        
+        .result-card {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            text-align: center;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: var(--font-heading);
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: var(--spacing-xs);
+        }
+        
+        .architecture-box {
+            background: var(--surface);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            overflow-x: auto;
+        }
+        
+        .architecture-box pre {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .tech-stack-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .tech-badge {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .quote-box {
+            background: var(--surface);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        
+        .quote-box p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: var(--spacing-2xl);
+            transition: all var(--transition-fast);
+        }
+        
+        .back-link:hover {
+            gap: var(--spacing-md);
+        }
+        
+        .back-link i {
+            transition: transform var(--transition-fast);
+        }
+        
+        .back-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        .node-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .node-table th,
+        .node-table td {
+            padding: var(--spacing-md);
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .node-table th {
+            background: var(--surface-hover);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        .node-table td {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="../../" class="nav-logo">
+                <span class="logo-text">Shaun Prince</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../../#about" class="nav-link">About</a></li>
+                <li><a href="../../#skills" class="nav-link">Skills</a></li>
+                <li><a href="../../#experience" class="nav-link">Experience</a></li>
+                <li><a href="../../#projects" class="nav-link">Projects</a></li>
+                <li><a href="../../#case-studies" class="nav-link">Case Studies</a></li>
+                <li><a href="../../#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="case-study-hero">
+            <div class="container">
+                <span class="badge">Case Study</span>
+                <h1>Production Kubernetes Infrastructure</h1>
+                <p>Designing and deploying a 12-node Kubernetes cluster with GPU support, FluxCD GitOps, and comprehensive monitoring for AI workloads.</p>
+                
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <div class="meta-label">Duration</div>
+                        <div class="meta-value">12 Months</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Role</div>
+                        <div class="meta-value">Infrastructure Architect</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Cluster Size</div>
+                        <div class="meta-value">12 Nodes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content -->
+        <article class="case-study-content">
+            <h2>The Challenge</h2>
+            <p>
+                Running AI inference workloads requires significant compute resources, particularly GPU access. 
+                Cloud GPU pricing can be prohibitive for sustained workloads, and latency requirements often 
+                favor on-premises deployment. The challenge was building a production-grade Kubernetes cluster 
+                that could support GPU workloads while maintaining enterprise-level reliability and observability.
+            </p>
+            <p>Specific requirements included:</p>
+            <ul>
+                <li>Support for multiple GPU-accelerated workloads with fair scheduling</li>
+                <li>High-availability control plane with automatic failover</li>
+                <li>GitOps-based deployment for reproducibility and audit trails</li>
+                <li>NVMe-backed storage with NFS for shared persistent volumes</li>
+                <li>Comprehensive monitoring, alerting, and log aggregation</li>
+                <li>Zero-downtime upgrades and maintenance windows</li>
+            </ul>
+
+            <h2>The Solution</h2>
+            <p>
+                I designed a hybrid cluster with dedicated control plane nodes, standard workers for general 
+                workloads, and GPU-equipped workers for AI inference. The entire deployment is managed through 
+                GitOps with FluxCD, ensuring all changes are tracked in Git and automatically reconciled.
+            </p>
+
+            <h3>Cluster Architecture</h3>
+            <table class="node-table">
+                <thead>
+                    <tr>
+                        <th>Node Type</th>
+                        <th>Count</th>
+                        <th>Specs</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Control Plane</td>
+                        <td>3</td>
+                        <td>16GB RAM, 4 vCPU</td>
+                        <td>etcd, API Server, Scheduler</td>
+                    </tr>
+                    <tr>
+                        <td>Workers (General)</td>
+                        <td>4</td>
+                        <td>32GB RAM, 8 vCPU</td>
+                        <td>Services, APIs, Databases</td>
+                    </tr>
+                    <tr>
+                        <td>Workers (GPU)</td>
+                        <td>5</td>
+                        <td>32GB RAM, RTX 3060 12GB</td>
+                        <td>AI Inference (vLLM)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="architecture-box">
+                <pre>
+┌─────────────────────────────────────────────────────────────────┐
+│                    Kubernetes Cluster                            │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│   Control Plane (HA)        Workers (General)                   │
+│   ┌─────┐ ┌─────┐ ┌─────┐   ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐   │
+│   │ CP1 │ │ CP2 │ │ CP3 │   │ W1  │ │ W2  │ │ W3  │ │ W4  │   │
+│   └──┬──┘ └──┬──┘ └──┬──┘   └──┬──┘ └──┬──┘ └──┬──┘ └──┬──┘   │
+│      │       │       │         │       │       │       │        │
+│      └───────┴───────┴─────────┴───────┴───────┴───────┘        │
+│                          │                                       │
+│   GPU Workers            │                                       │
+│   ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐ ┌─────┐                       │
+│   │GPU1 │ │GPU2 │ │GPU3 │ │GPU4 │ │GPU5 │                       │
+│   │3060 │ │3060 │ │3060 │ │3060 │ │3060 │                       │
+│   └──┬──┘ └──┬──┘ └──┬──┘ └──┬──┘ └──┬──┘                       │
+│      │       │       │       │       │                           │
+│      └───────┴───────┴───────┴───────┘                           │
+│                          │                                       │
+├──────────────────────────┼───────────────────────────────────────┤
+│                          ▼                                       │
+│   ┌─────────────────────────────────────────────────────────┐   │
+│   │               TrueNAS (NFS Storage)                      │   │
+│   │               NVMe-backed, 20TB usable                   │   │
+│   └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                </pre>
+            </div>
+
+            <h3>Key Implementation Details</h3>
+            <ul>
+                <li><strong>FluxCD GitOps:</strong> All manifests stored in Git, automatically reconciled every 5 minutes</li>
+                <li><strong>Kustomize Overlays:</strong> Base manifests with environment-specific overlays for dev/staging/prod</li>
+                <li><strong>NVIDIA GPU Operator:</strong> Automatic driver and toolkit installation on GPU nodes</li>
+                <li><strong>MetalLB:</strong> Bare-metal load balancer for service exposure</li>
+                <li><strong>Cert-Manager:</strong> Automatic TLS certificate provisioning with Let's Encrypt</li>
+                <li><strong>democratic-csi:</strong> NFS-based persistent volume provisioner for TrueNAS</li>
+            </ul>
+
+            <h2>Technology Stack</h2>
+            <div class="tech-stack-grid">
+                <span class="tech-badge">Kubernetes 1.29</span>
+                <span class="tech-badge">FluxCD v2</span>
+                <span class="tech-badge">Kustomize</span>
+                <span class="tech-badge">Helm</span>
+                <span class="tech-badge">Prometheus</span>
+                <span class="tech-badge">Grafana</span>
+                <span class="tech-badge">Loki</span>
+                <span class="tech-badge">MetalLB</span>
+                <span class="tech-badge">NVIDIA Operator</span>
+                <span class="tech-badge">Cert-Manager</span>
+                <span class="tech-badge">Traefik</span>
+                <span class="tech-badge">TrueNAS</span>
+            </div>
+
+            <h2>Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">12</div>
+                    <div class="result-label">Nodes in Production</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">63</div>
+                    <div class="result-label">Deployments Running</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">46</div>
+                    <div class="result-label">Namespaces</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">60GB</div>
+                    <div class="result-label">GPU VRAM Available</div>
+                </div>
+            </div>
+
+            <h2>Monitoring & Observability</h2>
+            <p>
+                A comprehensive monitoring stack ensures visibility into cluster health and application performance:
+            </p>
+            <ul>
+                <li><strong>Prometheus:</strong> Metrics collection with custom ServiceMonitors for all applications</li>
+                <li><strong>Grafana:</strong> Dashboards for cluster health, GPU utilization, and application metrics</li>
+                <li><strong>Loki:</strong> Log aggregation with Promtail agents on each node</li>
+                <li><strong>Alertmanager:</strong> Alert routing to Slack and email for critical issues</li>
+                <li><strong>Node Exporter:</strong> Host-level metrics for all cluster nodes</li>
+                <li><strong>DCGM Exporter:</strong> NVIDIA GPU metrics including utilization, memory, and temperature</li>
+            </ul>
+
+            <h2>Key Learnings</h2>
+            <ul>
+                <li><strong>Start with GitOps:</strong> Implementing FluxCD from day one saved countless hours in debugging and rollbacks</li>
+                <li><strong>GPU scheduling is complex:</strong> Proper node affinity and resource limits are crucial for fair GPU sharing</li>
+                <li><strong>Storage performance matters:</strong> NVMe-backed NFS made a significant difference in model loading times</li>
+                <li><strong>Monitoring is not optional:</strong> The investment in observability pays off every time there's an incident</li>
+            </ul>
+
+            <div class="quote-box">
+                <p>"This infrastructure now serves as the foundation for all SolidRusT Networks services, 
+                from AI inference to game servers, with consistent deployment patterns and centralized observability."</p>
+            </div>
+
+            <a href="../../#case-studies" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Case Studies
+            </a>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Shaun Prince</p>
+            </div>
+            <div class="footer-center">
+                <p>Built with <i class="fas fa-heart"></i> and deployed on GitHub Pages</p>
+            </div>
+            <div class="footer-right">
+                <a href="#" class="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>
