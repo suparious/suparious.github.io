@@ -1,0 +1,780 @@
+/* ========================
+   GitHub Integration Styles
+======================== */
+
+/* Latest Repositories Grid */
+#latest-repos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.repo-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+}
+
+.repo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border-color: var(--primary-color);
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.repo-header i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.repo-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.repo-name:hover {
+    color: var(--primary-light);
+    text-decoration: underline;
+}
+
+.repo-visibility {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    background: var(--surface-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    margin-left: auto;
+}
+
+.repo-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.repo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.repo-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.repo-meta i {
+    font-size: 0.8rem;
+}
+
+.repo-stars i { color: #f59e0b; }
+.repo-forks i { color: var(--primary-color); }
+.repo-updated i { color: var(--text-muted); }
+
+.language-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* GitHub Activity Feed */
+#github-activity {
+    margin-top: var(--spacing-xl);
+}
+
+.activity-item {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+.activity-item:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-color);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-secondary);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-description {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.activity-description strong {
+    color: var(--primary-color);
+}
+
+.activity-time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.no-activity {
+    text-align: center;
+    color: var(--text-muted);
+    padding: var(--spacing-xl);
+}
+
+/* Language Chart */
+#language-chart {
+    margin-top: var(--spacing-xl);
+}
+
+.language-bar-item {
+    margin-bottom: var(--spacing-md);
+}
+
+.language-bar-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+}
+
+.language-name {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.language-percent {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.language-bar {
+    height: 8px;
+    background: var(--border-color);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.language-bar-fill {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 1s ease;
+}
+
+/* Contribution Calendar */
+#contribution-calendar {
+    margin-top: var(--spacing-xl);
+}
+
+.calendar-grid {
+    display: flex;
+    gap: var(--spacing-xs);
+    overflow-x: auto;
+    padding: var(--spacing-sm) 0;
+}
+
+.calendar-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-right: var(--spacing-sm);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.calendar-weeks {
+    display: flex;
+    gap: 3px;
+}
+
+.calendar-week {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.calendar-day {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background: var(--border-color);
+    transition: transform var(--transition-fast);
+}
+
+.calendar-day:hover {
+    transform: scale(1.5);
+}
+
+.calendar-day.level-0 { background: var(--border-color); }
+.calendar-day.level-1 { background: rgba(79, 70, 229, 0.2); }
+.calendar-day.level-2 { background: rgba(79, 70, 229, 0.4); }
+.calendar-day.level-3 { background: rgba(79, 70, 229, 0.7); }
+.calendar-day.level-4 { background: var(--primary-color); }
+
+[data-theme="dark"] .calendar-day.level-0 { background: var(--surface-hover); }
+[data-theme="dark"] .calendar-day.level-1 { background: rgba(99, 102, 241, 0.25); }
+[data-theme="dark"] .calendar-day.level-2 { background: rgba(99, 102, 241, 0.5); }
+[data-theme="dark"] .calendar-day.level-3 { background: rgba(99, 102, 241, 0.75); }
+[data-theme="dark"] .calendar-day.level-4 { background: var(--primary-light); }
+
+.calendar-legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-top: var(--spacing-sm);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.calendar-legend .calendar-day {
+    width: 10px;
+    height: 10px;
+}
+
+/* GitHub Stats Cards */
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.github-stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.github-stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.github-stat-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.github-stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+}
+
+.github-stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-loaded {
+    animation: countUp 0.5s ease-out;
+}
+
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* GitHub Section Layout */
+.github-section {
+    background: var(--background-secondary);
+}
+
+.github-section-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-2xl);
+}
+
+.github-main {
+    min-width: 0;
+}
+
+.github-sidebar {
+    min-width: 0;
+}
+
+.github-sidebar-card {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+}
+
+.github-sidebar-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.github-sidebar-card h3 i {
+    color: var(--primary-color);
+}
+
+/* GitHub Error State */
+.github-error {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--text-muted);
+}
+
+.github-error i {
+    font-size: 2rem;
+    color: #f59e0b;
+    margin-bottom: var(--spacing-md);
+}
+
+/* ========================
+   Testimonials Section
+======================== */
+
+.testimonials-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.testimonials-slider {
+    overflow: hidden;
+}
+
+.testimonials-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-slide {
+    min-width: 100%;
+    padding: 0 var(--spacing-lg);
+}
+
+.testimonial-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    text-align: center;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.testimonial-quote {
+    font-size: 3rem;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: var(--spacing-lg);
+}
+
+.testimonial-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+.testimonial-avatar-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.testimonial-info {
+    text-align: left;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.testimonial-role {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.testimonial-company {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+/* Testimonials Navigation */
+.testimonials-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.testimonial-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.testimonial-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.testimonials-dots {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.testimonial-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.testimonial-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* ========================
+   Case Studies Section
+======================== */
+
+.case-studies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.case-study-card {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    display: flex;
+    flex-direction: column;
+}
+
+.case-study-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+.case-study-header {
+    background: var(--gradient-secondary);
+    padding: var(--spacing-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.case-study-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.case-study-icon {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+.case-study-title {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.case-study-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-top: var(--spacing-xs);
+    position: relative;
+    z-index: 1;
+}
+
+.case-study-body {
+    padding: var(--spacing-xl);
+    flex: 1;
+}
+
+.case-study-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.case-study-section:last-child {
+    margin-bottom: 0;
+}
+
+.case-study-section h4 {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.case-study-section p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.case-study-metrics {
+    display: flex;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.metric {
+    text-align: center;
+    flex: 1;
+    min-width: 80px;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.case-study-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.case-study-footer {
+    padding: var(--spacing-md) var(--spacing-xl);
+    background: var(--surface-hover);
+    border-top: 1px solid var(--border-color);
+}
+
+.case-study-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.case-study-link:hover {
+    color: var(--primary-light);
+}
+
+.case-study-link i {
+    transition: transform var(--transition-fast);
+}
+
+.case-study-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Case Study Full Page */
+.case-study-full {
+    padding: var(--spacing-3xl) 0;
+}
+
+.case-study-hero {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+
+.case-study-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.case-study-content h2 {
+    margin-top: var(--spacing-2xl);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+}
+
+.case-study-content p {
+    margin-bottom: var(--spacing-lg);
+}
+
+.case-study-image {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-xl) 0;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+/* Architecture Diagram */
+.architecture-diagram {
+    background: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.architecture-diagram pre {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    overflow-x: auto;
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .github-section-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .github-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+    
+    .github-sidebar-card {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    #latest-repos {
+        grid-template-columns: 1fr;
+    }
+    
+    .github-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .github-sidebar {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-studies-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-text {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .github-stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .case-study-metrics {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .testimonial-author {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .testimonial-info {
+        text-align: center;
+    }
+}
