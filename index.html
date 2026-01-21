@@ -58,77 +58,86 @@
     <!-- Main Styles -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/github-integration.css">
+    <!-- Accessibility Styles (WCAG 2.1 AA) -->
+    <link rel="stylesheet" href="assets/css/accessibility.css">
 </head>
 <body>
+    <!-- Skip Links for Keyboard Navigation (WCAG 2.4.1) -->
+    <div class="skip-links" role="navigation" aria-label="Skip links">
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        <a href="#navbar" class="skip-link">Skip to navigation</a>
+        <a href="#contact" class="skip-link">Skip to contact form</a>
+    </div>
+
     <!-- Loading Screen -->
-    <div id="loader" class="loader">
+    <div id="loader" class="loader" role="alert" aria-busy="true" aria-label="Loading page content">
         <div class="loader-content">
-            <div class="loader-spinner"></div>
+            <div class="loader-spinner" aria-hidden="true"></div>
             <p class="loader-text">Loading...</p>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="navbar">
+    <nav id="navbar" class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
+            <a href="#home" class="nav-logo" aria-label="Shaun Prince - Home">
                 <span class="logo-text">Shaun Prince</span>
             </a>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#github" class="nav-link">GitHub</a></li>
-                <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
-                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
+                <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
+                <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
+                <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#github" class="nav-link" role="menuitem">GitHub</a></li>
+                <li role="none"><a href="#case-studies" class="nav-link" role="menuitem">Case Studies</a></li>
+                <li role="none"><a href="#testimonials" class="nav-link" role="menuitem">Testimonials</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false" type="button">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
                 </button>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu" type="button">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content" role="main">
         <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div id="particles-js" class="particles-container"></div>
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div id="particles-js" class="particles-container" aria-hidden="true"></div>
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">
+                    <h1 id="hero-title" class="hero-title">
                         Hi, I'm <span class="gradient-text">Shaun Prince</span>
                     </h1>
                     <h2 class="hero-subtitle">
-                        <span class="typed-text">I'm a </span><span id="typed"></span>
+                        <span class="typed-text">I'm a </span><span id="typed" aria-label="Dynamic role titles"></span>
                     </h2>
                     <p class="hero-description">
                         Building scalable AI platforms and cloud infrastructure. 
                         Founder of SolidRusT Networks, specializing in production ML systems, 
                         Kubernetes orchestration, and full-stack development.
                     </p>
-                    <div class="hero-cta">
+                    <div class="hero-cta" role="group" aria-label="Call to action buttons">
                         <a href="#projects" class="btn btn-primary">
-                            <i class="fas fa-folder-open"></i> View My Work
+                            <i class="fas fa-folder-open" aria-hidden="true"></i> View My Work
                         </a>
                         <a href="#contact" class="btn btn-secondary">
-                            <i class="fas fa-envelope"></i> Get In Touch
+                            <i class="fas fa-envelope" aria-hidden="true"></i> Get In Touch
                         </a>
                     </div>
-                    <div class="hero-stats">
+                    <div class="hero-stats" role="group" aria-label="Career statistics">
                         <div class="stat">
                             <span class="stat-number">15+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number" id="github-repos">31+</span>
+                            <span class="stat-number" id="github-repos-hero">31+</span>
                             <span class="stat-label">Open Source Projects</span>
                         </div>
                         <div class="stat">
@@ -140,12 +149,12 @@
                 <div class="hero-image">
                     <div class="image-wrapper">
                         <img src="https://avatars.githubusercontent.com/u/2909735?v=4" 
-                             alt="Shaun Prince" 
+                             alt="Portrait photo of Shaun Prince" 
                              class="profile-img"
                              width="400" 
                              height="400"
                              loading="eager">
-                        <div class="floating-icons">
+                        <div class="floating-icons" aria-hidden="true">
                             <i class="fab fa-python floating-icon"></i>
                             <i class="fab fa-rust floating-icon"></i>
                             <i class="fab fa-react floating-icon"></i>
@@ -155,16 +164,16 @@
                     </div>
                 </div>
             </div>
-            <div class="scroll-indicator">
+            <div class="scroll-indicator" aria-hidden="true">
                 <span>Scroll Down</span>
                 <i class="fas fa-chevron-down"></i>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="section">
+        <section id="about" class="section" aria-labelledby="about-title">
             <div class="container">
-                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <h2 id="about-title" class="section-title">About <span class="gradient-text">Me</span></h2>
                 <div class="about-content">
                     <div class="about-text">
                         <h3>Hi, I'm Shaun Prince</h3>
@@ -174,23 +183,23 @@
                             lead at SolidRusT Networks, where I architect and maintain production AI inference platforms 
                             and Kubernetes-based infrastructure.
                         </p>
-                        <div class="about-highlights">
-                            <div class="highlight">
-                                <i class="fas fa-brain"></i>
+                        <div class="about-highlights" role="list" aria-label="Key expertise areas">
+                            <div class="highlight" role="listitem">
+                                <i class="fas fa-brain" aria-hidden="true"></i>
                                 <div>
                                     <h4>AI Infrastructure</h4>
                                     <p>Building production ML systems with vLLM, RAG, and multi-agent architectures</p>
                                 </div>
                             </div>
-                            <div class="highlight">
-                                <i class="fas fa-dharmachakra"></i>
+                            <div class="highlight" role="listitem">
+                                <i class="fas fa-dharmachakra" aria-hidden="true"></i>
                                 <div>
                                     <h4>Kubernetes Expert</h4>
                                     <p>12-node cluster with GPU support, FluxCD GitOps, and comprehensive monitoring</p>
                                 </div>
                             </div>
-                            <div class="highlight">
-                                <i class="fas fa-code"></i>
+                            <div class="highlight" role="listitem">
+                                <i class="fas fa-code" aria-hidden="true"></i>
                                 <div>
                                     <h4>Full-Stack Development</h4>
                                     <p>React, TypeScript, Python, Rust - from frontend to systems programming</p>
@@ -198,11 +207,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="code-window">
+                    <div class="code-window" role="img" aria-label="JSON representation of Shaun Prince's profile">
                         <div class="code-header">
-                            <span class="code-dot red"></span>
-                            <span class="code-dot yellow"></span>
-                            <span class="code-dot green"></span>
+                            <span class="code-dot red" aria-hidden="true"></span>
+                            <span class="code-dot yellow" aria-hidden="true"></span>
+                            <span class="code-dot green" aria-hidden="true"></span>
                             <span class="code-title">shaun.json</span>
                         </div>
                         <div class="code-content">
@@ -228,126 +237,126 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="section">
+        <section id="skills" class="section" aria-labelledby="skills-title">
             <div class="container">
-                <h2 class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
-                <div class="skills-grid">
-                    <div class="skill-category" data-aos="fade-up">
-                        <h3><i class="fas fa-code"></i> Languages</h3>
+                <h2 id="skills-title" class="section-title">Skills & <span class="gradient-text">Expertise</span></h2>
+                <div class="skills-grid" role="list" aria-label="Skills by category">
+                    <div class="skill-category" data-aos="fade-up" role="listitem">
+                        <h3><i class="fas fa-code" aria-hidden="true"></i> Languages</h3>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>Python</span>
+                                <span id="skill-python">Python</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
+                                <div class="skill-progress" data-progress="95" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-python"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>TypeScript / JavaScript</span>
+                                <span id="skill-ts">TypeScript / JavaScript</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
+                                <div class="skill-progress" data-progress="90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-ts"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>Rust</span>
+                                <span id="skill-rust">Rust</span>
                                 <span class="skill-level">Advanced</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="75"></div>
+                                <div class="skill-progress" data-progress="75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-rust"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>Go</span>
+                                <span id="skill-go">Go</span>
                                 <span class="skill-level">Intermediate</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="60"></div>
+                                <div class="skill-progress" data-progress="60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-go"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                        <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="100" role="listitem">
+                        <h3><i class="fas fa-cloud" aria-hidden="true"></i> Cloud & DevOps</h3>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>Kubernetes</span>
+                                <span id="skill-k8s">Kubernetes</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
+                                <div class="skill-progress" data-progress="95" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-k8s"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>Docker</span>
+                                <span id="skill-docker">Docker</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="95"></div>
+                                <div class="skill-progress" data-progress="95" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-docker"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>FluxCD / GitOps</span>
+                                <span id="skill-flux">FluxCD / GitOps</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
+                                <div class="skill-progress" data-progress="90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-flux"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>AWS / Cloud</span>
+                                <span id="skill-aws">AWS / Cloud</span>
                                 <span class="skill-level">Advanced</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
+                                <div class="skill-progress" data-progress="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-aws"></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                        <h3><i class="fas fa-robot"></i> AI & ML</h3>
+                    <div class="skill-category" data-aos="fade-up" data-aos-delay="200" role="listitem">
+                        <h3><i class="fas fa-robot" aria-hidden="true"></i> AI & ML</h3>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>vLLM / LiteLLM</span>
+                                <span id="skill-vllm">vLLM / LiteLLM</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
+                                <div class="skill-progress" data-progress="90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-vllm"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>RAG Systems</span>
+                                <span id="skill-rag">RAG Systems</span>
                                 <span class="skill-level">Expert</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="90"></div>
+                                <div class="skill-progress" data-progress="90" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-rag"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>LangChain / Agents</span>
+                                <span id="skill-langchain">LangChain / Agents</span>
                                 <span class="skill-level">Advanced</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="80"></div>
+                                <div class="skill-progress" data-progress="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-langchain"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-header">
-                                <span>Vector Databases</span>
+                                <span id="skill-vectordb">Vector Databases</span>
                                 <span class="skill-level">Advanced</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-progress="85"></div>
+                                <div class="skill-progress" data-progress="85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-labelledby="skill-vectordb"></div>
                             </div>
                         </div>
                     </div>
@@ -355,34 +364,34 @@
 
                 <div class="tech-stack" data-aos="fade-up">
                     <h3>Technologies I Work With</h3>
-                    <div class="tech-icons">
-                        <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
-                        <div class="tech-icon" title="Rust"><i class="fab fa-rust"></i></div>
-                        <div class="tech-icon" title="JavaScript"><i class="fab fa-js-square"></i></div>
-                        <div class="tech-icon" title="React"><i class="fab fa-react"></i></div>
-                        <div class="tech-icon" title="Node.js"><i class="fab fa-node-js"></i></div>
-                        <div class="tech-icon" title="Docker"><i class="fab fa-docker"></i></div>
-                        <div class="tech-icon" title="Linux"><i class="fab fa-linux"></i></div>
-                        <div class="tech-icon" title="Git"><i class="fab fa-git-alt"></i></div>
-                        <div class="tech-icon" title="AWS"><i class="fab fa-aws"></i></div>
-                        <div class="tech-icon" title="GitHub"><i class="fab fa-github"></i></div>
+                    <div class="tech-icons" role="list" aria-label="Technology icons">
+                        <div class="tech-icon" role="listitem" aria-label="Python"><i class="fab fa-python" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="Rust"><i class="fab fa-rust" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="JavaScript"><i class="fab fa-js-square" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="React"><i class="fab fa-react" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="Node.js"><i class="fab fa-node-js" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="Docker"><i class="fab fa-docker" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="Linux"><i class="fab fa-linux" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="Git"><i class="fab fa-git-alt" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="AWS"><i class="fab fa-aws" aria-hidden="true"></i></div>
+                        <div class="tech-icon" role="listitem" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="section">
+        <section id="experience" class="section" aria-labelledby="experience-title">
             <div class="container">
-                <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
-                <div class="timeline">
-                    <div class="timeline-item" data-aos="fade-up">
-                        <div class="timeline-marker"></div>
+                <h2 id="experience-title" class="section-title">Work <span class="gradient-text">Experience</span></h2>
+                <div class="timeline" role="list" aria-label="Work experience timeline">
+                    <div class="timeline-item" data-aos="fade-up" role="listitem">
+                        <div class="timeline-marker" aria-hidden="true"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <h3>Founder & Technical Lead</h3>
                                 <h4>SolidRusT Networks</h4>
-                                <span class="timeline-date">2023 - Present</span>
+                                <span class="timeline-date"><time datetime="2023">2023</time> - Present</span>
                             </div>
                             <div class="timeline-body">
                                 <p>Founded and architected a production AI inference platform serving multiple consumer-facing applications.</p>
@@ -392,23 +401,23 @@
                                     <li>Developed PAM platform for API key management and billing</li>
                                     <li>Created multi-agent AI systems and RAG pipelines</li>
                                 </ul>
-                                <div class="timeline-tags">
-                                    <span class="tag">Kubernetes</span>
-                                    <span class="tag">vLLM</span>
-                                    <span class="tag">Python</span>
-                                    <span class="tag">FluxCD</span>
+                                <div class="timeline-tags" role="list" aria-label="Technologies used">
+                                    <span class="tag" role="listitem">Kubernetes</span>
+                                    <span class="tag" role="listitem">vLLM</span>
+                                    <span class="tag" role="listitem">Python</span>
+                                    <span class="tag" role="listitem">FluxCD</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="timeline-marker"></div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100" role="listitem">
+                        <div class="timeline-marker" aria-hidden="true"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <h3>Senior Full-Stack Developer</h3>
                                 <h4>Various Clients</h4>
-                                <span class="timeline-date">2018 - 2023</span>
+                                <span class="timeline-date"><time datetime="2018">2018</time> - <time datetime="2023">2023</time></span>
                             </div>
                             <div class="timeline-body">
                                 <p>Delivered full-stack applications and cloud infrastructure for diverse clients.</p>
@@ -417,23 +426,23 @@
                                     <li>Containerized applications with CI/CD pipelines</li>
                                     <li>AWS and self-hosted Kubernetes deployments</li>
                                 </ul>
-                                <div class="timeline-tags">
-                                    <span class="tag">React</span>
-                                    <span class="tag">TypeScript</span>
-                                    <span class="tag">AWS</span>
-                                    <span class="tag">Docker</span>
+                                <div class="timeline-tags" role="list" aria-label="Technologies used">
+                                    <span class="tag" role="listitem">React</span>
+                                    <span class="tag" role="listitem">TypeScript</span>
+                                    <span class="tag" role="listitem">AWS</span>
+                                    <span class="tag" role="listitem">Docker</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="timeline-marker"></div>
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200" role="listitem">
+                        <div class="timeline-marker" aria-hidden="true"></div>
                         <div class="timeline-content">
                             <div class="timeline-header">
                                 <h3>DevOps Engineer</h3>
                                 <h4>Technology Consultancy</h4>
-                                <span class="timeline-date">2015 - 2018</span>
+                                <span class="timeline-date"><time datetime="2015">2015</time> - <time datetime="2018">2018</time></span>
                             </div>
                             <div class="timeline-body">
                                 <p>Automated infrastructure and deployment processes for enterprise clients.</p>
@@ -442,11 +451,11 @@
                                     <li>Implemented monitoring and alerting systems</li>
                                     <li>Managed AWS and Azure cloud infrastructure</li>
                                 </ul>
-                                <div class="timeline-tags">
-                                    <span class="tag">AWS</span>
-                                    <span class="tag">Azure</span>
-                                    <span class="tag">Terraform</span>
-                                    <span class="tag">Ansible</span>
+                                <div class="timeline-tags" role="list" aria-label="Technologies used">
+                                    <span class="tag" role="listitem">AWS</span>
+                                    <span class="tag" role="listitem">Azure</span>
+                                    <span class="tag" role="listitem">Terraform</span>
+                                    <span class="tag" role="listitem">Ansible</span>
                                 </div>
                             </div>
                         </div>
@@ -456,123 +465,123 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="section">
+        <section id="projects" class="section" aria-labelledby="projects-title">
             <div class="container">
-                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                <h2 id="projects-title" class="section-title">Featured <span class="gradient-text">Projects</span></h2>
                 
-                <div class="projects-grid">
-                    <div class="project-card" data-aos="fade-up">
+                <div class="projects-grid" role="list" aria-label="Featured projects">
+                    <article class="project-card" data-aos="fade-up" role="listitem">
                         <div class="project-card-header">
-                            <i class="fas fa-brain project-icon"></i>
+                            <i class="fas fa-brain project-icon" aria-hidden="true"></i>
                             <h3>SolidRusT AI Platform</h3>
                         </div>
                         <div class="project-card-body">
                             <p>Production AI inference platform with vLLM, LiteLLM, and Claude integration. Serves multiple consumer applications with automatic failover.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Kubernetes</span>
-                                <span class="tech-tag">vLLM</span>
-                                <span class="tech-tag">FastAPI</span>
+                            <div class="project-tech" role="list" aria-label="Technologies">
+                                <span class="tech-tag" role="listitem">Python</span>
+                                <span class="tech-tag" role="listitem">Kubernetes</span>
+                                <span class="tech-tag" role="listitem">vLLM</span>
+                                <span class="tech-tag" role="listitem">FastAPI</span>
                             </div>
                         </div>
                         <div class="project-card-footer">
-                            <a href="https://solidrust.ai" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            <a href="https://solidrust.ai" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo<span class="sr-only"> (opens in new tab)</span>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="100" role="listitem">
                         <div class="project-card-header">
-                            <i class="fas fa-users project-icon"></i>
+                            <i class="fas fa-users project-icon" aria-hidden="true"></i>
                             <h3>Aidiant AI Council</h3>
                         </div>
                         <div class="project-card-body">
                             <p>Multi-agent AI system with 234 council members across 11 categories. Features RAG, tool-enabled agents, and democratic deliberation.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">TypeScript</span>
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">RAG</span>
-                                <span class="tech-tag">Agents</span>
+                            <div class="project-tech" role="list" aria-label="Technologies">
+                                <span class="tech-tag" role="listitem">TypeScript</span>
+                                <span class="tech-tag" role="listitem">React</span>
+                                <span class="tech-tag" role="listitem">RAG</span>
+                                <span class="tech-tag" role="listitem">Agents</span>
                             </div>
                         </div>
                         <div class="project-card-footer">
-                            <a href="https://aidiant.com" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            <a href="https://aidiant.com" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo<span class="sr-only"> (opens in new tab)</span>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="200" role="listitem">
                         <div class="project-card-header">
-                            <i class="fas fa-gamepad project-icon"></i>
+                            <i class="fas fa-gamepad project-icon" aria-hidden="true"></i>
                             <h3>MyAshes.ai</h3>
                         </div>
                         <div class="project-card-body">
                             <p>AI-powered game assistant for Ashes of Creation. Features RAG-based knowledge retrieval and natural language interaction.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">React</span>
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">RAG</span>
-                                <span class="tech-tag">Vector DB</span>
+                            <div class="project-tech" role="list" aria-label="Technologies">
+                                <span class="tech-tag" role="listitem">React</span>
+                                <span class="tech-tag" role="listitem">Python</span>
+                                <span class="tech-tag" role="listitem">RAG</span>
+                                <span class="tech-tag" role="listitem">Vector DB</span>
                             </div>
                         </div>
                         <div class="project-card-footer">
-                            <a href="https://myashes.ai" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            <a href="https://myashes.ai" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo<span class="sr-only"> (opens in new tab)</span>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="300" role="listitem">
                         <div class="project-card-header">
-                            <i class="fas fa-cogs project-icon"></i>
+                            <i class="fas fa-cogs project-icon" aria-hidden="true"></i>
                             <h3>PAM Platform</h3>
                         </div>
                         <div class="project-card-body">
                             <p>API key management, Stripe billing integration, and user authentication. GraphQL API with React console.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">GraphQL</span>
-                                <span class="tech-tag">Stripe</span>
-                                <span class="tech-tag">PostgreSQL</span>
+                            <div class="project-tech" role="list" aria-label="Technologies">
+                                <span class="tech-tag" role="listitem">Python</span>
+                                <span class="tech-tag" role="listitem">GraphQL</span>
+                                <span class="tech-tag" role="listitem">Stripe</span>
+                                <span class="tech-tag" role="listitem">PostgreSQL</span>
                             </div>
                         </div>
                         <div class="project-card-footer">
-                            <a href="https://console.solidrust.ai" class="project-link" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            <a href="https://console.solidrust.ai" class="project-link" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo<span class="sr-only"> (opens in new tab)</span>
                             </a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- GitHub Activity Section -->
-        <section id="github" class="section github-section">
+        <section id="github" class="section github-section" aria-labelledby="github-title">
             <div class="container">
-                <h2 class="section-title">GitHub <span class="gradient-text">Activity</span></h2>
+                <h2 id="github-title" class="section-title">GitHub <span class="gradient-text">Activity</span></h2>
                 <p class="section-subtitle">Real-time updates from my open source contributions</p>
                 
                 <!-- GitHub Stats -->
-                <div class="github-stats-grid" data-aos="fade-up">
-                    <div class="github-stat-card">
-                        <i class="fas fa-book"></i>
+                <div class="github-stats-grid" data-aos="fade-up" role="list" aria-label="GitHub statistics">
+                    <div class="github-stat-card" role="listitem">
+                        <i class="fas fa-book" aria-hidden="true"></i>
                         <span class="github-stat-value" id="github-repos">31+</span>
                         <span class="github-stat-label">Public Repos</span>
                     </div>
-                    <div class="github-stat-card">
-                        <i class="fas fa-star"></i>
+                    <div class="github-stat-card" role="listitem">
+                        <i class="fas fa-star" aria-hidden="true"></i>
                         <span class="github-stat-value" id="total-stars">50+</span>
                         <span class="github-stat-label">Total Stars</span>
                     </div>
-                    <div class="github-stat-card">
-                        <i class="fas fa-code-branch"></i>
+                    <div class="github-stat-card" role="listitem">
+                        <i class="fas fa-code-branch" aria-hidden="true"></i>
                         <span class="github-stat-value" id="total-forks">20+</span>
                         <span class="github-stat-label">Total Forks</span>
                     </div>
-                    <div class="github-stat-card">
-                        <i class="fas fa-users"></i>
+                    <div class="github-stat-card" role="listitem">
+                        <i class="fas fa-users" aria-hidden="true"></i>
                         <span class="github-stat-value" id="github-followers">50+</span>
                         <span class="github-stat-label">Followers</span>
                     </div>
@@ -580,12 +589,12 @@
 
                 <div class="github-section-content">
                     <div class="github-main">
-                        <h3><i class="fas fa-folder-open"></i> Latest Repositories</h3>
-                        <div id="latest-repos">
+                        <h3><i class="fas fa-folder-open" aria-hidden="true"></i> Latest Repositories</h3>
+                        <div id="latest-repos" aria-live="polite" aria-label="Latest repositories list">
                             <!-- Populated by JavaScript -->
                             <div class="repo-card">
                                 <div class="repo-header">
-                                    <i class="fas fa-book-bookmark"></i>
+                                    <i class="fas fa-book-bookmark" aria-hidden="true"></i>
                                     <span class="repo-name">Loading...</span>
                                 </div>
                                 <p class="repo-description">Fetching latest repositories from GitHub...</p>
@@ -595,11 +604,11 @@
 
                     <div class="github-sidebar">
                         <div class="github-sidebar-card" data-aos="fade-left">
-                            <h3><i class="fas fa-chart-line"></i> Recent Activity</h3>
-                            <div id="github-activity">
+                            <h3><i class="fas fa-chart-line" aria-hidden="true"></i> Recent Activity</h3>
+                            <div id="github-activity" aria-live="polite" aria-label="Recent GitHub activity">
                                 <!-- Populated by JavaScript -->
                                 <div class="activity-item">
-                                    <div class="activity-icon"><i class="fas fa-code"></i></div>
+                                    <div class="activity-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
                                     <div class="activity-content">
                                         <p class="activity-description">Loading activity...</p>
                                         <span class="activity-time">Just now</span>
@@ -609,8 +618,8 @@
                         </div>
 
                         <div class="github-sidebar-card" data-aos="fade-left" data-aos-delay="100">
-                            <h3><i class="fas fa-chart-pie"></i> Language Usage</h3>
-                            <div id="language-chart">
+                            <h3><i class="fas fa-chart-pie" aria-hidden="true"></i> Language Usage</h3>
+                            <div id="language-chart" aria-label="Programming language usage chart">
                                 <!-- Populated by JavaScript -->
                             </div>
                         </div>
@@ -619,30 +628,30 @@
 
                 <!-- Contribution Calendar -->
                 <div class="github-sidebar-card" style="margin-top: var(--spacing-xl);" data-aos="fade-up">
-                    <h3><i class="fas fa-calendar-alt"></i> Contribution Calendar</h3>
-                    <div id="contribution-calendar">
+                    <h3><i class="fas fa-calendar-alt" aria-hidden="true"></i> Contribution Calendar</h3>
+                    <div id="contribution-calendar" aria-label="GitHub contribution calendar">
                         <!-- Populated by JavaScript -->
                     </div>
                 </div>
 
                 <div style="text-align: center; margin-top: var(--spacing-xl);">
-                    <a href="https://github.com/Suparious" class="btn btn-secondary" target="_blank" rel="noopener">
-                        <i class="fab fa-github"></i> View Full Profile
+                    <a href="https://github.com/Suparious" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github" aria-hidden="true"></i> View Full Profile<span class="sr-only"> (opens in new tab)</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Case Studies Section -->
-        <section id="case-studies" class="section">
+        <section id="case-studies" class="section" aria-labelledby="case-studies-title">
             <div class="container">
-                <h2 class="section-title">Case <span class="gradient-text">Studies</span></h2>
+                <h2 id="case-studies-title" class="section-title">Case <span class="gradient-text">Studies</span></h2>
                 <p class="section-subtitle">Deep dives into my most impactful projects</p>
                 
-                <div class="case-studies-grid">
-                    <div class="case-study-card" data-aos="fade-up">
+                <div class="case-studies-grid" role="list" aria-label="Case studies">
+                    <article class="case-study-card" data-aos="fade-up" role="listitem">
                         <div class="case-study-header">
-                            <i class="fas fa-brain case-study-icon"></i>
+                            <i class="fas fa-brain case-study-icon" aria-hidden="true"></i>
                             <h3 class="case-study-title">SolidRusT AI Platform</h3>
                             <p class="case-study-subtitle">Production AI Inference at Scale</p>
                         </div>
@@ -657,16 +666,16 @@
                             </div>
                             <div class="case-study-section">
                                 <h4>Results</h4>
-                                <div class="case-study-metrics">
-                                    <div class="metric">
+                                <div class="case-study-metrics" role="list" aria-label="Project metrics">
+                                    <div class="metric" role="listitem">
                                         <span class="metric-value">99.9%</span>
                                         <span class="metric-label">Uptime</span>
                                     </div>
-                                    <div class="metric">
+                                    <div class="metric" role="listitem">
                                         <span class="metric-value">90%</span>
                                         <span class="metric-label">Cost Reduction</span>
                                     </div>
-                                    <div class="metric">
+                                    <div class="metric" role="listitem">
                                         <span class="metric-value">5</span>
                                         <span class="metric-label">Apps Served</span>
                                     </div>
@@ -674,24 +683,24 @@
                             </div>
                             <div class="case-study-section">
                                 <h4>Tech Stack</h4>
-                                <div class="case-study-tech">
-                                    <span class="tag">Kubernetes</span>
-                                    <span class="tag">vLLM</span>
-                                    <span class="tag">FluxCD</span>
-                                    <span class="tag">Python</span>
+                                <div class="case-study-tech" role="list" aria-label="Technologies used">
+                                    <span class="tag" role="listitem">Kubernetes</span>
+                                    <span class="tag" role="listitem">vLLM</span>
+                                    <span class="tag" role="listitem">FluxCD</span>
+                                    <span class="tag" role="listitem">Python</span>
                                 </div>
                             </div>
                         </div>
                         <div class="case-study-footer">
                             <a href="case-studies/solidrust-ai-platform/" class="case-study-link">
-                                Read Full Case Study <i class="fas fa-arrow-right"></i>
+                                Read Full Case Study <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="case-study-card" data-aos="fade-up" data-aos-delay="100">
+                    <article class="case-study-card" data-aos="fade-up" data-aos-delay="100" role="listitem">
                         <div class="case-study-header">
-                            <i class="fas fa-server case-study-icon"></i>
+                            <i class="fas fa-server case-study-icon" aria-hidden="true"></i>
                             <h3 class="case-study-title">Kubernetes Infrastructure</h3>
                             <p class="case-study-subtitle">Production-Grade GPU Cluster</p>
                         </div>
@@ -706,16 +715,16 @@
                             </div>
                             <div class="case-study-section">
                                 <h4>Results</h4>
-                                <div class="case-study-metrics">
-                                    <div class="metric">
+                                <div class="case-study-metrics" role="list" aria-label="Project metrics">
+                                    <div class="metric" role="listitem">
                                         <span class="metric-value">12</span>
                                         <span class="metric-label">Nodes</span>
                                     </div>
-                                    <div class="metric">
+                                    <div class="metric" role="listitem">
                                         <span class="metric-value">63</span>
                                         <span class="metric-label">Deployments</span>
                                     </div>
-                                    <div class="metric">
+                                    <div class="metric" role="listitem">
                                         <span class="metric-value">60GB</span>
                                         <span class="metric-label">GPU VRAM</span>
                                     </div>
@@ -723,45 +732,45 @@
                             </div>
                             <div class="case-study-section">
                                 <h4>Tech Stack</h4>
-                                <div class="case-study-tech">
-                                    <span class="tag">K8s</span>
-                                    <span class="tag">FluxCD</span>
-                                    <span class="tag">Prometheus</span>
-                                    <span class="tag">NVIDIA</span>
+                                <div class="case-study-tech" role="list" aria-label="Technologies used">
+                                    <span class="tag" role="listitem">K8s</span>
+                                    <span class="tag" role="listitem">FluxCD</span>
+                                    <span class="tag" role="listitem">Prometheus</span>
+                                    <span class="tag" role="listitem">NVIDIA</span>
                                 </div>
                             </div>
                         </div>
                         <div class="case-study-footer">
                             <a href="case-studies/kubernetes-infrastructure/" class="case-study-link">
-                                Read Full Case Study <i class="fas fa-arrow-right"></i>
+                                Read Full Case Study <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Section -->
-        <section id="testimonials" class="section">
+        <section id="testimonials" class="section" aria-labelledby="testimonials-title">
             <div class="container">
-                <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
+                <h2 id="testimonials-title" class="section-title">What People <span class="gradient-text">Say</span></h2>
                 <p class="section-subtitle">Feedback from colleagues and collaborators</p>
                 
-                <div class="testimonials-container" data-aos="fade-up">
+                <div class="testimonials-container" data-aos="fade-up" role="region" aria-label="Testimonials carousel">
                     <div class="testimonials-slider">
-                        <div class="testimonials-track">
+                        <div class="testimonials-track" role="list">
                             <!-- Testimonials populated by JavaScript -->
                         </div>
                     </div>
-                    <div class="testimonials-nav">
-                        <button class="testimonial-btn testimonial-prev" aria-label="Previous testimonial">
-                            <i class="fas fa-chevron-left"></i>
+                    <div class="testimonials-nav" role="group" aria-label="Testimonial navigation">
+                        <button class="testimonial-btn testimonial-prev" aria-label="Previous testimonial" type="button">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
                         </button>
-                        <div class="testimonials-dots">
+                        <div class="testimonials-dots" role="tablist" aria-label="Testimonial slides">
                             <!-- Dots populated by JavaScript -->
                         </div>
-                        <button class="testimonial-btn testimonial-next" aria-label="Next testimonial">
-                            <i class="fas fa-chevron-right"></i>
+                        <button class="testimonial-btn testimonial-next" aria-label="Next testimonial" type="button">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
@@ -769,56 +778,56 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="section">
+        <section id="contact" class="section" aria-labelledby="contact-title">
             <div class="container">
-                <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+                <h2 id="contact-title" class="section-title">Get In <span class="gradient-text">Touch</span></h2>
                 <p class="section-subtitle">I'm always interested in hearing about new projects and opportunities</p>
                 
                 <div class="contact-content">
                     <div class="contact-form-wrapper" data-aos="fade-right">
-                        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" aria-label="Contact form">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required>
+                                <label for="name" class="required">Name</label>
+                                <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="email" class="required">Email</label>
+                                <input type="email" id="email" name="email" required aria-required="true" autocomplete="email">
                             </div>
                             <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <label for="message" class="required">Message</label>
+                                <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-block">
-                                <i class="fas fa-paper-plane"></i> Send Message
+                                <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
                             </button>
                         </form>
                     </div>
                     <div class="contact-info" data-aos="fade-left">
                         <div class="info-card">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope" aria-hidden="true"></i>
                             <h3>Email</h3>
                             <a href="mailto:shaun@suparious.com">shaun@suparious.com</a>
                         </div>
                         <div class="info-card">
-                            <i class="fas fa-map-marker-alt"></i>
+                            <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <h3>Location</h3>
                             <p>Canada</p>
                         </div>
                         <div class="info-card">
-                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
                             <h3>Company</h3>
-                            <a href="https://solidrust.net" target="_blank" rel="noopener">SolidRusT Networks</a>
+                            <a href="https://solidrust.net" target="_blank" rel="noopener noreferrer">SolidRusT Networks<span class="sr-only"> (opens in new tab)</span></a>
                         </div>
-                        <div class="social-links">
-                            <a href="https://github.com/Suparious" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
+                        <div class="social-links" role="list" aria-label="Social media links">
+                            <a href="https://github.com/Suparious" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)" role="listitem">
+                                <i class="fab fa-github" aria-hidden="true"></i>
                             </a>
-                            <a href="https://linkedin.com/in/suparious" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
+                            <a href="https://linkedin.com/in/suparious" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)" role="listitem">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                             </a>
-                            <a href="https://twitter.com/suparious" class="social-link" target="_blank" rel="noopener" aria-label="Twitter">
-                                <i class="fab fa-twitter"></i>
+                            <a href="https://twitter.com/suparious" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter profile (opens in new tab)" role="listitem">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -828,17 +837,17 @@
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="footer-content">
             <div class="footer-left">
-                <p>&copy; 2026 Shaun Prince. All rights reserved.</p>
+                <p>&copy; <time datetime="2026">2026</time> Shaun Prince. All rights reserved.</p>
             </div>
             <div class="footer-center">
-                <p>Built with <i class="fas fa-heart"></i> and deployed on GitHub Pages</p>
+                <p>Built with <i class="fas fa-heart" aria-label="love"></i> and deployed on GitHub Pages</p>
             </div>
             <div class="footer-right">
-                <a href="#home" class="back-to-top" aria-label="Back to top">
-                    <i class="fas fa-arrow-up"></i>
+                <a href="#home" class="back-to-top" aria-label="Back to top of page">
+                    <i class="fas fa-arrow-up" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -853,5 +862,7 @@
     <script src="assets/js/github-integration.js"></script>
     <script src="assets/js/testimonials.js"></script>
     <script src="assets/js/pwa-install.js"></script>
+    <!-- Accessibility Enhancements (WCAG 2.1 AA) -->
+    <script src="assets/js/accessibility.js"></script>
 </body>
 </html>
