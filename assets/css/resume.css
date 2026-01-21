@@ -1,0 +1,394 @@
+/* ========================
+   Interactive Resume Styles
+   Print-friendly & Accessible
+   ======================== */
+
+/* Resume Section Enhancement */
+.resume-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    align-items: center;
+    justify-content: space-between;
+}
+
+.resume-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.resume-filters label {
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-right: var(--spacing-xs);
+}
+
+.role-filter {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.role-filter:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.role-filter.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.role-filter:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Download Buttons */
+.resume-downloads {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--surface);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.download-btn:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.download-btn i {
+    font-size: 1rem;
+}
+
+/* Expandable Timeline Item */
+.timeline-item.expandable .timeline-content {
+    cursor: pointer;
+}
+
+.timeline-item .expand-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    margin-top: var(--spacing-sm);
+    transition: color 0.2s ease;
+}
+
+.timeline-item .expand-indicator i {
+    transition: transform 0.3s ease;
+}
+
+.timeline-item.expanded .expand-indicator i {
+    transform: rotate(180deg);
+}
+
+.timeline-item:hover .expand-indicator {
+    color: var(--accent-color);
+}
+
+/* Expanded Details */
+.timeline-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.timeline-item.expanded .timeline-details {
+    max-height: 1000px;
+    opacity: 1;
+    margin-top: var(--spacing-md);
+}
+
+.timeline-details-content {
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--border-color);
+}
+
+.detail-section {
+    margin-bottom: var(--spacing-md);
+}
+
+.detail-section h5 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.detail-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-section li {
+    position: relative;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.detail-section li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+}
+
+.tech-pill {
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    background: var(--surface-alt);
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Hidden items when filtered */
+.timeline-item.filtered-out {
+    display: none;
+}
+
+/* Resume page specific */
+.resume-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+}
+
+.resume-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.resume-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.resume-header .title {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.resume-contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.resume-contact a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.resume-contact a:hover {
+    color: var(--primary-color);
+}
+
+.resume-contact i {
+    margin-right: var(--spacing-xs);
+}
+
+/* Print Styles */
+@media print {
+    /* Reset for print */
+    *,
+    *::before,
+    *::after {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    body {
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+    
+    /* Hide non-essential elements */
+    .navbar,
+    .footer,
+    .chat-widget,
+    .resume-controls,
+    .scroll-indicator,
+    .hero,
+    .particles-container,
+    .expand-indicator,
+    .back-to-top,
+    .skip-links,
+    #loader {
+        display: none !important;
+    }
+    
+    /* Show main content only */
+    main {
+        padding: 0 !important;
+    }
+    
+    .section {
+        padding: 1rem 0 !important;
+        page-break-inside: avoid;
+    }
+    
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    /* Timeline adjustments */
+    .timeline {
+        padding-left: 0;
+    }
+    
+    .timeline-marker {
+        display: none;
+    }
+    
+    .timeline-item {
+        padding-left: 0;
+        margin-bottom: 1rem;
+        page-break-inside: avoid;
+    }
+    
+    .timeline-item::before {
+        display: none;
+    }
+    
+    .timeline-content {
+        border: 1px solid #ddd;
+        padding: 0.75rem;
+    }
+    
+    /* Expand all details for print */
+    .timeline-details {
+        max-height: none !important;
+        opacity: 1 !important;
+    }
+    
+    /* Skills section */
+    .skill-bar {
+        display: none;
+    }
+    
+    .skill-level {
+        font-weight: bold;
+    }
+    
+    /* Links */
+    a[href]::after {
+        content: none;
+    }
+    
+    /* Tags */
+    .tag,
+    .tech-tag,
+    .tech-pill {
+        border: 1px solid #999;
+        padding: 1px 6px;
+    }
+    
+    /* Page breaks */
+    h2, h3 {
+        page-break-after: avoid;
+    }
+    
+    .project-card,
+    .case-study-card {
+        page-break-inside: avoid;
+    }
+}
+
+/* Print button visible only on screen */
+@media screen {
+    .print-only {
+        display: none;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .resume-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .resume-filters {
+        justify-content: center;
+    }
+    
+    .resume-downloads {
+        justify-content: center;
+    }
+    
+    .role-filter {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .timeline-details {
+        transition: none;
+    }
+    
+    .expand-indicator i {
+        transition: none;
+    }
+}

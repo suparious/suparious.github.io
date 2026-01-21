@@ -1,0 +1,197 @@
+{
+  "personal": {
+    "name": "Shaun Prince",
+    "title": "Full-Stack Developer & Cloud Architect",
+    "email": "shaun@suparious.com",
+    "location": "Canada",
+    "website": "https://suparious.com",
+    "github": "https://github.com/Suparious",
+    "linkedin": "https://linkedin.com/in/suparious",
+    "summary": "Passionate full-stack developer and cloud architect with over 15 years of experience building scalable applications and infrastructure. Founder and technical lead at SolidRusT Networks, architecting production AI inference platforms and Kubernetes-based infrastructure."
+  },
+  "roles": [
+    {
+      "id": "cloud-architect",
+      "label": "Cloud Architect",
+      "description": "Kubernetes, AWS, Infrastructure as Code"
+    },
+    {
+      "id": "ai-engineer",
+      "label": "AI/ML Engineer",
+      "description": "vLLM, RAG Systems, LangChain"
+    },
+    {
+      "id": "full-stack",
+      "label": "Full-Stack Developer",
+      "description": "React, TypeScript, Python, Node.js"
+    },
+    {
+      "id": "devops",
+      "label": "DevOps Engineer",
+      "description": "CI/CD, GitOps, Monitoring"
+    }
+  ],
+  "experience": [
+    {
+      "id": "solidrust",
+      "title": "Founder & Technical Lead",
+      "company": "SolidRusT Networks",
+      "location": "Canada (Remote)",
+      "startDate": "2023-01",
+      "endDate": null,
+      "current": true,
+      "roles": ["cloud-architect", "ai-engineer", "full-stack", "devops"],
+      "summary": "Founded and architected a production AI inference platform serving multiple consumer-facing applications.",
+      "highlights": [
+        "Built 12-node Kubernetes cluster with 5 GPU workers (60GB VRAM total)",
+        "Implemented GitOps workflows with FluxCD for zero-downtime deployments",
+        "Developed PAM platform for API key management and Stripe billing integration",
+        "Created multi-agent AI systems and RAG pipelines with vLLM and LiteLLM",
+        "Designed and deployed production inference platform with 99.9% uptime",
+        "Built consumer applications: solidrust.net, aidiant.com, myashes.ai"
+      ],
+      "technologies": ["Kubernetes", "vLLM", "LiteLLM", "Python", "FastAPI", "FluxCD", "Prometheus", "Grafana", "PostgreSQL", "React", "TypeScript", "NGINX", "TrueNAS", "Stripe"]
+    },
+    {
+      "id": "freelance",
+      "title": "Senior Full-Stack Developer",
+      "company": "Various Clients",
+      "location": "Canada (Remote)",
+      "startDate": "2018-01",
+      "endDate": "2023-01",
+      "current": false,
+      "roles": ["full-stack", "devops"],
+      "summary": "Delivered full-stack applications and cloud infrastructure for diverse clients across multiple industries.",
+      "highlights": [
+        "Developed React/TypeScript frontends with Node.js and Python backends",
+        "Containerized applications with comprehensive CI/CD pipelines",
+        "Deployed to AWS and self-hosted Kubernetes environments",
+        "Implemented monitoring, logging, and alerting solutions",
+        "Reduced client infrastructure costs by 40% through optimization"
+      ],
+      "technologies": ["React", "TypeScript", "Node.js", "Python", "AWS", "Docker", "PostgreSQL", "MongoDB", "Redis", "GitHub Actions", "Jenkins"]
+    },
+    {
+      "id": "devops-consultancy",
+      "title": "DevOps Engineer",
+      "company": "Technology Consultancy",
+      "location": "Canada",
+      "startDate": "2015-01",
+      "endDate": "2018-01",
+      "current": false,
+      "roles": ["devops", "cloud-architect"],
+      "summary": "Automated infrastructure and deployment processes for enterprise clients.",
+      "highlights": [
+        "Reduced deployment time by 80% through automation and CI/CD implementation",
+        "Implemented comprehensive monitoring and alerting systems",
+        "Managed AWS and Azure cloud infrastructure for multiple clients",
+        "Developed Infrastructure as Code with Terraform and Ansible",
+        "Led migration of legacy applications to containerized environments"
+      ],
+      "technologies": ["AWS", "Azure", "Terraform", "Ansible", "Docker", "Jenkins", "Prometheus", "ELK Stack", "Linux", "Bash"]
+    },
+    {
+      "id": "software-dev",
+      "title": "Software Developer",
+      "company": "Various Companies",
+      "location": "Canada",
+      "startDate": "2010-01",
+      "endDate": "2015-01",
+      "current": false,
+      "roles": ["full-stack"],
+      "summary": "Built web applications and internal tools across multiple technology stacks.",
+      "highlights": [
+        "Developed full-stack web applications using PHP, Python, and JavaScript",
+        "Created RESTful APIs and database-driven applications",
+        "Implemented responsive designs and cross-browser compatibility",
+        "Collaborated with design and product teams in agile environments"
+      ],
+      "technologies": ["PHP", "Python", "JavaScript", "jQuery", "MySQL", "PostgreSQL", "Linux", "Apache", "Git"]
+    }
+  ],
+  "skills": {
+    "languages": [
+      {"name": "Python", "level": "Expert", "years": 12},
+      {"name": "TypeScript", "level": "Expert", "years": 6},
+      {"name": "JavaScript", "level": "Expert", "years": 15},
+      {"name": "Rust", "level": "Advanced", "years": 3},
+      {"name": "Go", "level": "Intermediate", "years": 2},
+      {"name": "Bash", "level": "Expert", "years": 15}
+    ],
+    "cloud": [
+      {"name": "Kubernetes", "level": "Expert", "years": 5},
+      {"name": "Docker", "level": "Expert", "years": 8},
+      {"name": "AWS", "level": "Advanced", "years": 7},
+      {"name": "FluxCD/GitOps", "level": "Expert", "years": 3},
+      {"name": "Terraform", "level": "Advanced", "years": 4}
+    ],
+    "ai": [
+      {"name": "vLLM/LiteLLM", "level": "Expert", "years": 2},
+      {"name": "RAG Systems", "level": "Expert", "years": 2},
+      {"name": "LangChain", "level": "Advanced", "years": 2},
+      {"name": "Vector Databases", "level": "Advanced", "years": 2}
+    ],
+    "frontend": [
+      {"name": "React", "level": "Expert", "years": 6},
+      {"name": "HTML/CSS", "level": "Expert", "years": 15},
+      {"name": "Tailwind CSS", "level": "Advanced", "years": 3}
+    ],
+    "backend": [
+      {"name": "FastAPI", "level": "Expert", "years": 3},
+      {"name": "Node.js", "level": "Expert", "years": 8},
+      {"name": "GraphQL", "level": "Advanced", "years": 3},
+      {"name": "PostgreSQL", "level": "Expert", "years": 10}
+    ]
+  },
+  "projects": [
+    {
+      "name": "SolidRusT AI Platform",
+      "description": "Production AI inference platform with vLLM, LiteLLM, and Claude integration",
+      "url": "https://solidrust.ai",
+      "highlights": ["99.9% uptime", "5 consumer apps served", "90% cost reduction vs cloud APIs"],
+      "technologies": ["Kubernetes", "vLLM", "Python", "FastAPI", "FluxCD"]
+    },
+    {
+      "name": "Aidiant AI Council",
+      "description": "Multi-agent AI system with 234 council members across 11 categories",
+      "url": "https://aidiant.com",
+      "highlights": ["RAG integration", "Tool-enabled agents", "Democratic deliberation"],
+      "technologies": ["TypeScript", "React", "RAG", "LangChain"]
+    },
+    {
+      "name": "MyAshes.ai",
+      "description": "AI-powered game assistant for Ashes of Creation",
+      "url": "https://myashes.ai",
+      "highlights": ["RAG-based knowledge retrieval", "Natural language interaction"],
+      "technologies": ["React", "Python", "RAG", "Vector DB"]
+    },
+    {
+      "name": "PAM Platform",
+      "description": "API key management, Stripe billing, and user authentication",
+      "url": "https://console.solidrust.ai",
+      "highlights": ["GraphQL API", "Stripe integration", "Rate limiting"],
+      "technologies": ["Python", "GraphQL", "Stripe", "PostgreSQL"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Self-Directed Learning",
+      "area": "Computer Science & Cloud Architecture",
+      "studyType": "Continuous",
+      "startDate": "2005",
+      "endDate": null,
+      "highlights": [
+        "Kubernetes certifications and advanced training",
+        "AWS Solutions Architect coursework",
+        "Machine Learning and AI specializations"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Kubernetes Administration",
+      "issuer": "Linux Foundation",
+      "date": "2022"
+    }
+  ]
+}
