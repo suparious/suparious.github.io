@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Shaun Prince - Technical Blog</title>
+    <description>Technical articles, guides, and insights on AI infrastructure, DevOps, cloud architecture, and more.</description>
+    <link>https://suparious.com/blog/</link>
+    <atom:link href="https://suparious.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Dec 2024 00:00:00 GMT</lastBuildDate>
+    <managingEditor>shaun@suparious.com (Shaun Prince)</managingEditor>
+    <webMaster>shaun@suparious.com (Shaun Prince)</webMaster>
+    <copyright>Copyright 2024 Shaun Prince. All rights reserved.</copyright>
+    <ttl>60</ttl>
+    <image>
+      <url>https://avatars.githubusercontent.com/u/2909735?v=4</url>
+      <title>Shaun Prince - Technical Blog</title>
+      <link>https://suparious.com/blog/</link>
+    </image>
+
+    <item>
+      <title>Self-Hosting AI Stack: A Complete Guide</title>
+      <link>https://suparious.com/self-hosting-ai-stack/</link>
+      <guid isPermaLink="true">https://suparious.com/self-hosting-ai-stack/</guid>
+      <description>A comprehensive guide to building your own self-hosted AI infrastructure with vLLM, LiteLLM, and Kubernetes.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>AI &amp; ML</category>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Complete Debian Audio Production Guide</title>
+      <link>https://suparious.com/debian-audio-guide/</link>
+      <guid isPermaLink="true">https://suparious.com/debian-audio-guide/</guid>
+      <description>Set up a professional audio production workstation on Debian Linux with real-time kernel and low-latency audio.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>Linux</category>
+      <pubDate>Wed, 20 Nov 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Corporate Marketing Failures: Analysis and Lessons</title>
+      <link>https://suparious.com/corporate-marketing-failures/</link>
+      <guid isPermaLink="true">https://suparious.com/corporate-marketing-failures/</guid>
+      <description>An in-depth analysis of corporate communication blunders and what businesses can learn from these mistakes.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>Business</category>
+      <pubDate>Tue, 15 Oct 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Nixon vs Carter: Economic Policy Comparison</title>
+      <link>https://suparious.com/nixon-carter-economic-analysis/</link>
+      <guid isPermaLink="true">https://suparious.com/nixon-carter-economic-analysis/</guid>
+      <description>A historical analysis comparing the economic policies of Nixon and Carter administrations.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>History</category>
+      <pubDate>Tue, 10 Sep 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Sci-Fi Technology Predictions That Came True</title>
+      <link>https://suparious.com/scifi-tech-predictions/</link>
+      <guid isPermaLink="true">https://suparious.com/scifi-tech-predictions/</guid>
+      <description>Exploring how science fiction writers predicted technologies we use today.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>Technology</category>
+      <pubDate>Sun, 25 Aug 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Essential Shell Scripts Collection</title>
+      <link>https://suparious.com/shell-scripts/</link>
+      <guid isPermaLink="true">https://suparious.com/shell-scripts/</guid>
+      <description>A curated collection of useful shell scripts for system administration and development.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>DevOps</category>
+      <pubDate>Mon, 15 Jul 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>2012 Chevy Volt Long-Distance Highway Guide</title>
+      <link>https://suparious.com/2012-chevy-volt-highway-guide/</link>
+      <guid isPermaLink="true">https://suparious.com/2012-chevy-volt-highway-guide/</guid>
+      <description>Tips and strategies for maximizing range on long highway trips with the 2012 Chevy Volt.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>Automotive</category>
+      <pubDate>Thu, 20 Jun 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>DIY Automotive AC Repair Guide</title>
+      <link>https://suparious.com/automotive-ac-repair-guide/</link>
+      <guid isPermaLink="true">https://suparious.com/automotive-ac-repair-guide/</guid>
+      <description>Complete guide to diagnosing and repairing automotive air conditioning systems.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>Automotive</category>
+      <pubDate>Fri, 10 May 2024 00:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>3rd Gen F-Body V8 Swap Complete Guide</title>
+      <link>https://suparious.com/3rd-gen-fbody-v8-swap-guide/</link>
+      <guid isPermaLink="true">https://suparious.com/3rd-gen-fbody-v8-swap-guide/</guid>
+      <description>Comprehensive guide to swapping a modern V8 into a 3rd generation Camaro or Firebird.</description>
+      <author>shaun@suparious.com (Shaun Prince)</author>
+      <category>Automotive</category>
+      <pubDate>Fri, 05 Apr 2024 00:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
