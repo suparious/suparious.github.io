@@ -12,9 +12,9 @@
         MODEL: 'vllm-primary',
         MAX_TOKENS: 512,
         TEMPERATURE: 0.7,
-        // Public demo key (Base64 encoded) - same pattern as other SolidRusT sites
+        // Public demo key (Base64 encoded) - suparious.com specific key
         // Security enforced by PAM validation, rate limiting, CORS whitelist
-        DEFAULT_API_KEY_ENCODED: 'c3J0X3Byb2RfZGQ4NjUzNTkyODVjMDg0MGM5MDAxODI2MDEwOGJkZDM2MTI2MWU1MWUyOWIxNzFjYjg5YmY0YzRkMWQwZDYzOQ==',
+        DEFAULT_API_KEY_ENCODED: 'c3J0X3Byb2RfMjgzZmFlMDMxMDI5YTVlMjJmMzc4ODU4MDBiYTJlZWZlODE3MjNlZjY1OTc4ZjUwYmMyYzY3MmU4MTAyMjkxMw==',
         STORAGE_KEY: 'suparious_chat_history',
         MAX_HISTORY: 20
     };
