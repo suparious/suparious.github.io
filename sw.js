@@ -1,5 +1,5 @@
 // Service Worker for PWA offline support
-const CACHE_NAME = 'shaun-portfolio-v3';
+const CACHE_NAME = 'shaun-portfolio-v4';
 const OFFLINE_URL = '/offline.html';
 
 const urlsToCache = [

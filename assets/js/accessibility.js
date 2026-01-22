@@ -222,14 +222,18 @@
         loader.setAttribute('role', 'alert');
         loader.setAttribute('aria-busy', 'true');
         loader.setAttribute('aria-label', 'Loading page content');
-        
+
         // Watch for loader hidden class
         const loaderObserver = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
-                if (mutation.target.classList.contains('hidden')) {
+                // Only react to class attribute changes, not aria-busy changes we make
+                if (mutation.attributeName === 'class' && mutation.target.classList.contains('hidden')) {
+                    // Disconnect immediately to prevent infinite loop
+                    loaderObserver.disconnect();
+
                     loader.setAttribute('aria-busy', 'false');
                     announceToScreenReader('Page content loaded');
-                    
+
                     // Focus main content for screen reader users
                     const mainContent = document.querySelector('main');
                     if (mainContent && isKeyboardUser) {
@@ -239,7 +243,7 @@
                 }
             });
         });
-        
+
         loaderObserver.observe(loader, { attributes: true });
     }
 
