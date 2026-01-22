@@ -8,16 +8,19 @@
 
     // Resume data (embedded for static site)
     let resumeData = null;
-    
+
     // State
     let activeRole = 'all';
     let expandedItems = new Set();
 
     // Initialize
     async function init() {
+        // Check if experience section exists
+        const experienceSection = document.getElementById('experience');
+        if (!experienceSection) return;
+
         await loadResumeData();
         enhanceTimeline();
-        createControls();
         bindEvents();
     }
 
@@ -33,86 +36,38 @@
         }
     }
 
-    // Create resume controls (filter + download buttons)
-    function createControls() {
-        const experienceSection = document.getElementById('experience');
-        if (!experienceSection) return;
-
-        const container = experienceSection.querySelector('.container');
-        const timeline = experienceSection.querySelector('.timeline');
-        if (!container || !timeline) return;
-
-        // Create controls wrapper
-        const controls = document.createElement('div');
-        controls.className = 'resume-controls';
-        controls.setAttribute('role', 'group');
-        controls.setAttribute('aria-label', 'Resume filters and downloads');
-
-        // Role filters
-        const filters = document.createElement('div');
-        filters.className = 'resume-filters';
-        filters.innerHTML = `
-            <label id="filter-label">Filter by role:</label>
-            <div role="group" aria-labelledby="filter-label">
-                <button class="role-filter active" data-role="all" aria-pressed="true">All Roles</button>
-                <button class="role-filter" data-role="cloud-architect" aria-pressed="false">Cloud Architect</button>
-                <button class="role-filter" data-role="ai-engineer" aria-pressed="false">AI/ML Engineer</button>
-                <button class="role-filter" data-role="full-stack" aria-pressed="false">Full-Stack</button>
-                <button class="role-filter" data-role="devops" aria-pressed="false">DevOps</button>
-            </div>
-        `;
-
-        // Download buttons
-        const downloads = document.createElement('div');
-        downloads.className = 'resume-downloads';
-        downloads.innerHTML = `
-            <button class="download-btn" id="download-pdf" aria-label="Download resume as PDF">
-                <i class="fas fa-file-pdf" aria-hidden="true"></i> PDF
-            </button>
-            <button class="download-btn" id="print-resume" aria-label="Print resume">
-                <i class="fas fa-print" aria-hidden="true"></i> Print
-            </button>
-        `;
-
-        controls.appendChild(filters);
-        controls.appendChild(downloads);
-
-        // Insert before timeline
-        container.insertBefore(controls, timeline);
-    }
-
     // Enhance timeline items with expandable details
     function enhanceTimeline() {
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
+
         timelineItems.forEach((item, index) => {
             // Add expandable class
             item.classList.add('expandable');
-            
-            // Add role data attributes based on content/position
-            const roles = getRolesForItem(index);
-            item.dataset.roles = roles.join(',');
-            
-            // Add expand indicator
+
+            // Add role data attributes if not already present from HTML
+            if (!item.dataset.roles) {
+                const roles = getRolesForItem(index);
+                item.dataset.roles = roles.join(',');
+            }
+
+            // Setup existing expand button in header (from HTML)
+            const expandBtn = item.querySelector('.timeline-expand-btn');
+            if (expandBtn) {
+                expandBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleExpand(item);
+                });
+            }
+
+            // Setup existing timeline-details (from HTML) - populate with resume data if available
+            const existingDetails = item.querySelector('.timeline-details');
+            if (existingDetails && resumeData?.experience?.[index]) {
+                populateDetails(existingDetails, index);
+            }
+
+            // Make content focusable and add aria attributes
             const content = item.querySelector('.timeline-content');
             if (content) {
-                const body = content.querySelector('.timeline-body');
-                if (body) {
-                    // Create expand indicator
-                    const indicator = document.createElement('div');
-                    indicator.className = 'expand-indicator';
-                    indicator.innerHTML = `
-                        <span>View details</span>
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
-                    `;
-                    body.appendChild(indicator);
-                    
-                    // Create expanded details section
-                    const details = createExpandedDetails(index);
-                    body.appendChild(details);
-                }
-                
-                // Make content focusable and add aria attributes
                 content.setAttribute('tabindex', '0');
                 content.setAttribute('role', 'button');
                 content.setAttribute('aria-expanded', 'false');
@@ -126,67 +81,52 @@
         // Map timeline items to roles based on the resume data structure
         const roleMap = [
             ['cloud-architect', 'ai-engineer', 'full-stack', 'devops'], // SolidRusT
-            ['full-stack', 'devops'], // Freelance
+            ['full-stack', 'devops', 'cloud-architect'], // Freelance
             ['devops', 'cloud-architect'] // DevOps Engineer
         ];
         return roleMap[index] || ['full-stack'];
     }
 
-    // Create expanded details content
-    function createExpandedDetails(index) {
-        const details = document.createElement('div');
-        details.className = 'timeline-details';
-        
-        // Get additional details from resume data or use defaults
+    // Populate existing timeline details with resume data
+    function populateDetails(detailsEl, index) {
         const experienceData = resumeData?.experience?.[index];
-        
-        if (experienceData) {
-            details.innerHTML = `
-                <div class="timeline-details-content">
-                    <div class="detail-section">
-                        <h5>Key Achievements</h5>
-                        <ul>
-                            ${experienceData.highlights.map(h => `<li>${h}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div class="detail-section">
-                        <h5>Technologies Used</h5>
-                        <div class="tech-pills">
-                            ${experienceData.technologies.map(t => `<span class="tech-pill">${t}</span>`).join('')}
-                        </div>
-                    </div>
+        if (!experienceData) return;
+
+        // Check if already has timeline-details-content (avoid duplicate population)
+        if (detailsEl.querySelector('.timeline-details-content')) return;
+
+        // Add additional details from resume data
+        const additionalContent = document.createElement('div');
+        additionalContent.className = 'timeline-details-content';
+        additionalContent.innerHTML = `
+            <div class="detail-section">
+                <h5>Technologies Used</h5>
+                <div class="tech-pills">
+                    ${experienceData.technologies.map(t => `<span class="tech-pill">${t}</span>`).join('')}
                 </div>
-            `;
-        } else {
-            // Default content based on existing DOM
-            details.innerHTML = `
-                <div class="timeline-details-content">
-                    <div class="detail-section">
-                        <h5>Additional Information</h5>
-                        <p>Click to expand for more details about this role.</p>
-                    </div>
-                </div>
-            `;
-        }
-        
-        return details;
+            </div>
+        `;
+
+        // Append additional content
+        detailsEl.appendChild(additionalContent);
     }
 
     // Bind event handlers
     function bindEvents() {
-        // Role filter buttons
-        document.querySelectorAll('.role-filter').forEach(btn => {
+        // Role filter buttons - use existing HTML class (resume-filter-btn)
+        document.querySelectorAll('.resume-filter-btn').forEach(btn => {
             btn.addEventListener('click', () => filterByRole(btn.dataset.role));
         });
 
-        // Timeline item expansion
+        // Timeline item expansion via content click
         document.querySelectorAll('.timeline-item .timeline-content').forEach(content => {
             content.addEventListener('click', (e) => {
-                // Don't expand if clicking a link
-                if (e.target.tagName === 'A') return;
+                // Don't expand if clicking a link or button
+                if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' ||
+                    e.target.closest('button')) return;
                 toggleExpand(content.closest('.timeline-item'));
             });
-            
+
             content.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -195,37 +135,31 @@
             });
         });
 
-        // Download buttons
+        // Download button - use existing HTML element
         const pdfBtn = document.getElementById('download-pdf');
-        const printBtn = document.getElementById('print-resume');
-        
         if (pdfBtn) {
             pdfBtn.addEventListener('click', downloadPDF);
-        }
-        
-        if (printBtn) {
-            printBtn.addEventListener('click', () => window.print());
         }
     }
 
     // Filter timeline by role
     function filterByRole(role) {
         activeRole = role;
-        
-        // Update button states
-        document.querySelectorAll('.role-filter').forEach(btn => {
+
+        // Update button states - use existing HTML class (resume-filter-btn)
+        document.querySelectorAll('.resume-filter-btn').forEach(btn => {
             const isActive = btn.dataset.role === role;
             btn.classList.toggle('active', isActive);
             btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
         });
-        
+
         // Filter timeline items
         document.querySelectorAll('.timeline-item').forEach(item => {
             const roles = item.dataset.roles?.split(',') || [];
             const shouldShow = role === 'all' || roles.includes(role);
             item.classList.toggle('filtered-out', !shouldShow);
         });
-        
+
         // Announce filter change to screen readers
         if (window.announceToScreenReader) {
             const count = document.querySelectorAll('.timeline-item:not(.filtered-out)').length;
@@ -236,21 +170,26 @@
     // Toggle timeline item expansion
     function toggleExpand(item) {
         if (!item) return;
-        
+
         const isExpanded = item.classList.contains('expanded');
         const content = item.querySelector('.timeline-content');
-        const indicator = item.querySelector('.expand-indicator span');
-        
+        const expandBtn = item.querySelector('.timeline-expand-btn');
+        const details = item.querySelector('.timeline-details');
+
         item.classList.toggle('expanded', !isExpanded);
-        
+
         if (content) {
             content.setAttribute('aria-expanded', !isExpanded ? 'true' : 'false');
         }
-        
-        if (indicator) {
-            indicator.textContent = isExpanded ? 'View details' : 'Hide details';
+
+        if (expandBtn) {
+            expandBtn.setAttribute('aria-expanded', !isExpanded ? 'true' : 'false');
         }
-        
+
+        if (details) {
+            details.setAttribute('aria-hidden', isExpanded ? 'true' : 'false');
+        }
+
         // Track expanded state
         const itemId = Array.from(item.parentElement.children).indexOf(item);
         if (isExpanded) {
@@ -265,15 +204,20 @@
         // Expand all items before printing
         document.querySelectorAll('.timeline-item').forEach(item => {
             item.classList.add('expanded');
+            const details = item.querySelector('.timeline-details');
+            if (details) details.setAttribute('aria-hidden', 'false');
         });
-        
+
         // Trigger print dialog (user can save as PDF)
         window.print();
-        
+
         // Restore expansion state after print dialog closes
         setTimeout(() => {
             document.querySelectorAll('.timeline-item').forEach((item, index) => {
-                item.classList.toggle('expanded', expandedItems.has(index));
+                const shouldExpand = expandedItems.has(index);
+                item.classList.toggle('expanded', shouldExpand);
+                const details = item.querySelector('.timeline-details');
+                if (details) details.setAttribute('aria-hidden', shouldExpand ? 'false' : 'true');
             });
         }, 1000);
     }
@@ -281,26 +225,26 @@
     // Generate text resume for download
     function generateTextResume() {
         if (!resumeData) return '';
-        
+
         let text = '';
         const p = resumeData.personal;
-        
+
         // Header
         text += `${p.name}\n`;
         text += `${p.title}\n`;
         text += `${'='.repeat(50)}\n\n`;
-        
+
         // Contact
         text += `Email: ${p.email}\n`;
         text += `Location: ${p.location}\n`;
         text += `Website: ${p.website}\n`;
         text += `GitHub: ${p.github}\n`;
         text += `LinkedIn: ${p.linkedin}\n\n`;
-        
+
         // Summary
         text += `SUMMARY\n${'-'.repeat(20)}\n`;
         text += `${p.summary}\n\n`;
-        
+
         // Experience
         text += `EXPERIENCE\n${'-'.repeat(20)}\n`;
         resumeData.experience.forEach(exp => {
@@ -315,7 +259,7 @@
             });
             text += `\nTechnologies: ${exp.technologies.join(', ')}\n`;
         });
-        
+
         // Skills
         text += `\nSKILLS\n${'-'.repeat(20)}\n`;
         Object.entries(resumeData.skills).forEach(([category, skills]) => {
@@ -324,7 +268,7 @@
                 text += `  - ${s.name} (${s.level}, ${s.years} years)\n`;
             });
         });
-        
+
         return text;
     }
 

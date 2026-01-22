@@ -29,7 +29,7 @@
     margin-right: var(--spacing-xs);
 }
 
-.role-filter {
+.resume-filter-btn {
     padding: var(--spacing-xs) var(--spacing-md);
     border-radius: var(--radius-full);
     border: 1px solid var(--border-color);
@@ -40,18 +40,18 @@
     transition: all 0.2s ease;
 }
 
-.role-filter:hover {
+.resume-filter-btn:hover {
     border-color: var(--primary-color);
     color: var(--primary-color);
 }
 
-.role-filter.active {
+.resume-filter-btn.active {
     background: var(--primary-color);
     border-color: var(--primary-color);
     color: white;
 }
 
-.role-filter:focus-visible {
+.resume-filter-btn:focus-visible {
     outline: 3px solid var(--accent-color);
     outline-offset: 2px;
 }
@@ -62,7 +62,7 @@
     gap: var(--spacing-sm);
 }
 
-.download-btn {
+.resume-download-btn {
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-xs);
@@ -78,18 +78,18 @@
     text-decoration: none;
 }
 
-.download-btn:hover {
+.resume-download-btn:hover {
     background: var(--primary-color);
     border-color: var(--primary-color);
     color: white;
 }
 
-.download-btn:focus-visible {
+.resume-download-btn:focus-visible {
     outline: 3px solid var(--accent-color);
     outline-offset: 2px;
 }
 
-.download-btn i {
+.resume-download-btn i {
     font-size: 1rem;
 }
 
@@ -367,16 +367,16 @@
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .resume-filters {
         justify-content: center;
     }
-    
-    .resume-downloads {
+
+    .resume-actions {
         justify-content: center;
     }
-    
-    .role-filter {
+
+    .resume-filter-btn {
         flex: 1;
         text-align: center;
     }
