@@ -19,7 +19,8 @@ class GitHubIntegration {
                 this.loadUserProfile(),
                 this.loadLatestRepos(),
                 this.loadRecentActivity(),
-                this.loadContributionStats()
+                this.loadContributionStats(),
+                this.loadLatestCommit()
             ]);
         } catch (error) {
             console.error('GitHub Integration: Error initializing', error);
@@ -411,6 +412,42 @@ class GitHubIntegration {
         `;
         
         container.innerHTML = calendarHtml;
+    }
+
+    // ========================
+    // Latest Commit Hash for Footer
+    // ========================
+
+    async loadLatestCommit() {
+        try {
+            const repoName = 'suparious.github.io';
+            const data = await this.fetchWithCache(
+                `${this.apiBase}/repos/${this.username}/${repoName}/commits?per_page=1`,
+                'latest-commit'
+            );
+
+            if (data && data.length > 0) {
+                const commit = data[0];
+                const shortHash = commit.sha.substring(0, 7);
+
+                const hashEl = document.getElementById('commit-hash');
+                const linkEl = document.getElementById('commit-link');
+
+                if (hashEl) {
+                    hashEl.textContent = shortHash;
+                }
+                if (linkEl) {
+                    linkEl.href = commit.html_url;
+                    linkEl.title = `${commit.commit.message.split('\n')[0]} - ${this.formatDate(commit.commit.author.date)}`;
+                }
+            }
+        } catch (error) {
+            console.warn('Error loading latest commit:', error);
+            const hashEl = document.getElementById('commit-hash');
+            if (hashEl) {
+                hashEl.textContent = 'latest';
+            }
+        }
     }
 
     // ========================

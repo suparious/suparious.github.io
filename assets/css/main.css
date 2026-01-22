@@ -1328,6 +1328,28 @@ a:hover {
     50% { transform: scale(1.2); }
 }
 
+.footer-version {
+    font-size: 0.75rem;
+    margin-top: var(--spacing-xs);
+    opacity: 0.7;
+}
+
+.footer-version a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+
+.footer-version a:hover {
+    color: var(--primary-color);
+}
+
+.footer-version i {
+    color: var(--primary-color);
+    animation: none;
+    font-size: 0.75rem;
+}
+
 .footer-right {
     text-align: right;
 }
