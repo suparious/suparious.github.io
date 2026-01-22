@@ -14,7 +14,8 @@
         TEMPERATURE: 0.7,
         // Public demo key (Base64 encoded) - suparious.com specific key
         // Security enforced by PAM validation, rate limiting, CORS whitelist
-        DEFAULT_API_KEY_ENCODED: 'c3J0X3Byb2RfZDM0MWQxZjYyZjIwODQ3ODNjZWVjYmVmZWVkM2QyNDFkZmQ2ODZiZWJkZWU4N2EzZmVmYzhmZmM0N2Q1NDNhNQ==',
+        // NOTE: Requires CORS_ORIGIN on PAM to include https://suparious.com
+        DEFAULT_API_KEY_ENCODED: 'c3J0X3Byb2RfY2ZmNDNkMjcyY2I1MDY0Y2I0ZTNiYjk3YjIzMWJmNDYwNDg5N2I1ZWEyMzMzYWY3NzRiOWQwZmU3MmMxNTNhMw==',
         STORAGE_KEY: 'suparious_chat_history',
         MAX_HISTORY: 20
     };
