@@ -213,11 +213,13 @@ suparious.github.io/
 │   ├── css/
 │   │   ├── main.css           # Core styles, theme variables
 │   │   ├── animations.css     # Animation library
-│   │   └── responsive.css     # Mobile optimizations
+│   │   ├── responsive.css     # Mobile optimizations
+│   │   └── chat.css           # AI chat widget styles
 │   └── js/
 │       ├── main.js            # Core functionality
 │       ├── theme.js           # Dark/light mode system
-│       └── animations.js      # Scroll and hover effects
+│       ├── animations.js      # Scroll and hover effects
+│       └── chat.js            # AI chat assistant widget
 ├── publications/              # Technical articles (root-level subdirectories)
 │   ├── corporate-marketing-failures/
 │   │   └── index.html
@@ -379,6 +381,90 @@ vim assets/css/responsive.css
 
 **Issue**: Custom domain not working
 **Solution**: Verify CNAME file contains `suparious.com`, check DNS settings
+
+**Issue**: AI Chat returning 401 errors
+**Solution**: The PAM API key needs to be rotated. See [AI Chat API Key Management](#ai-chat-api-key-management) below.
+
+---
+
+## 🤖 AI CHAT API KEY MANAGEMENT
+
+The AI chat widget (`assets/js/chat.js`) uses a PAM-validated API key to connect to the SolidRusT AI platform.
+
+### Configuration
+- **API Endpoint**: `https://api.solidrust.ai/v1/chat/completions`
+- **Model**: `vllm-primary` (maps to current production model)
+- **Auth Header**: `X-API-Key`
+- **Key Storage**: Base64 encoded in `chat.js` → `CONFIG.DEFAULT_API_KEY_ENCODED`
+- **PAM Account**: `demo-suparious@suparious.com` / `demo123!`
+- **Stripe Customer**: `cus_Tq7olARUK3O94m`
+
+### Rotating the API Key
+
+When the chat returns 401 errors, rotate the key via PAM GraphQL:
+
+```bash
+# 1. Login to get access token
+cat > /tmp/pam-login.json << 'EOF'
+{"query":"mutation { login(input: { email: \"demo-suparious@suparious.com\", password: \"demo123!\" }) { accessToken player { id } } }"}
+EOF
+TOKEN=$(curl -s -X POST 'https://console.solidrust.ai/graphql' \
+  -H 'Content-Type: application/json' \
+  -d @/tmp/pam-login.json | jq -r '.data.login.accessToken')
+
+# 2. List current keys to get the key ID
+cat > /tmp/pam-list.json << 'EOF'
+{"query":"query { myApiKeys { id name lastFour } }"}
+EOF
+curl -s -X POST 'https://console.solidrust.ai/graphql' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $TOKEN" \
+  -d @/tmp/pam-list.json | jq .
+
+# 3. Revoke old key (replace KEY_ID with actual ID from step 2)
+cat > /tmp/pam-revoke.json << 'EOF'
+{"query":"mutation { revokeApiKey(keyId: \"KEY_ID\") }"}
+EOF
+curl -s -X POST 'https://console.solidrust.ai/graphql' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $TOKEN" \
+  -d @/tmp/pam-revoke.json
+
+# 4. Create new key
+cat > /tmp/pam-create.json << 'EOF'
+{"query":"mutation { createApiKey(input: { name: \"Suparious Demo Key\", scopes: [\"inference\", \"embeddings\"], rateLimit: 100 }) { apiKey { id lastFour } secretKey } }"}
+EOF
+curl -s -X POST 'https://console.solidrust.ai/graphql' \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $TOKEN" \
+  -d @/tmp/pam-create.json | jq .
+
+# 5. Base64 encode the new secretKey and update chat.js
+echo -n "srt_prod_xxx..." | base64
+```
+
+### Validating the Key
+
+```bash
+curl "https://console.solidrust.ai/v1/keys/validate?key=YOUR_KEY" | jq .
+# Should return: {"valid": true, "customer_id": "cus_Tq7olARUK3O94m", ...}
+```
+
+### Testing Chat Completion
+
+```bash
+cat > /tmp/chat-test.json << 'EOF'
+{"model":"vllm-primary","messages":[{"role":"user","content":"Hello"}],"max_tokens":50}
+EOF
+curl -s -X POST 'https://api.solidrust.ai/v1/chat/completions' \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-Key: YOUR_KEY' \
+  -d @/tmp/chat-test.json | jq .
+```
+
+### Related Issues
+- [srt-pam-platform#31](https://github.com/SolidRusT/srt-pam-platform/issues/31) - rotateApiKey mutation not in production
+- [srt-pam-platform#32](https://github.com/SolidRusT/srt-pam-platform/issues/32) - GitHub/Gitea migration incomplete
 
 ---
 
@@ -606,7 +692,7 @@ This CLAUDE.md contains domain knowledge and patterns, not task tracking.
 
 ---
 
-**Last Updated**: 2026-01-17
+**Last Updated**: 2026-01-22
 **Status**: Production - Active Portfolio Site
 **Maintained By**: Shaun Prince
 **Used With**: Claude Code
