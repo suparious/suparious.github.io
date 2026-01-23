@@ -310,8 +310,11 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
             { role: 'user', content: userMessage }
         ];
         
+        // Use explicit CORS mode and handle errors properly
         const response = await fetch(CONFIG.API_URL, {
             method: 'POST',
+            mode: 'cors',
+            cache: 'no-store',
             headers: {
                 'Content-Type': 'application/json',
                 'X-API-Key': apiKey
@@ -325,8 +328,22 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
         });
         
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(errorData.message || `API error: ${response.status}`);
+            // Try to get error details from response
+            let errorMessage = `API error: ${response.status}`;
+            try {
+                const errorData = await response.json();
+                if (errorData.error) {
+                    errorMessage = errorData.error.message || errorData.error;
+                } else if (errorData.message) {
+                    errorMessage = errorData.message;
+                } else if (errorData.detail) {
+                    errorMessage = errorData.detail;
+                }
+            } catch {
+                // Response wasn't JSON, use status text
+                errorMessage = `API error: ${response.status} ${response.statusText}`;
+            }
+            throw new Error(errorMessage);
         }
         
         const data = await response.json();
