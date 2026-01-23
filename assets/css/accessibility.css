@@ -268,9 +268,8 @@ a:hover {
 .hamburger {
     min-width: 44px;
     min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* Note: display property controlled by main.css responsive styles */
+    /* Only add touch target sizing here */
 }
 
 .back-to-top {
