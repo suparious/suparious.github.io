@@ -2,7 +2,8 @@
 const CACHE_NAME = 'shaun-portfolio-v5';
 const OFFLINE_URL = '/offline.html';
 
-// API domains that should NEVER be cached (always network-only)
+// API domains that should NEVER be intercepted by the service worker
+// These requests go directly to the network without any caching
 const API_DOMAINS = [
     'api.solidrust.ai',
     'console.solidrust.ai',
@@ -33,16 +34,6 @@ const cdnResources = [
     'https://unpkg.com/aos@2.3.1/dist/aos.css',
     'https://unpkg.com/aos@2.3.1/dist/aos.js'
 ];
-
-// Check if a URL is an API endpoint that should bypass cache
-function isApiRequest(url) {
-    try {
-        const urlObj = new URL(url);
-        return API_DOMAINS.some(domain => urlObj.hostname === domain || urlObj.hostname.endsWith('.' + domain));
-    } catch {
-        return false;
-    }
-}
 
 // Install Service Worker
 self.addEventListener('install', event => {
@@ -81,7 +72,6 @@ self.addEventListener('activate', event => {
 });
 
 // Fetch strategy: Network first, falling back to cache, then offline page
-// IMPORTANT: API requests always bypass cache entirely
 self.addEventListener('fetch', event => {
     // Skip non-GET requests
     if (event.request.method !== 'GET') {
@@ -93,9 +83,10 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    // CRITICAL: API requests should NEVER be cached - always go to network
-    if (isApiRequest(event.request.url)) {
-        // Don't intercept API requests at all - let them go directly to network
+    // IMPORTANT: Skip API domains entirely - let them go directly to network
+    // This prevents CORS issues and ensures API requests are never cached
+    const url = new URL(event.request.url);
+    if (API_DOMAINS.some(domain => url.hostname === domain)) {
         return;
     }
 
