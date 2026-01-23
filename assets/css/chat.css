@@ -77,19 +77,19 @@
 
 /* Chat Window */
 .chat-window {
-    position: absolute;
-    bottom: 80px;
-    right: 0;
+    position: absolute !important;
+    bottom: 80px !important;
+    right: 0 !important;
     width: 380px;
     max-width: calc(100vw - 40px);
-    height: 500px;
+    height: 500px !important;
     max-height: calc(100vh - 150px);
-    background: var(--surface);
-    border-radius: var(--radius-lg);
+    background: var(--surface, #ffffff);
+    border-radius: var(--radius-lg, 0.75rem);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px) scale(0.95);
@@ -104,8 +104,10 @@
 
 /* Chat Header */
 .chat-header {
-    background: var(--gradient-primary);
-    padding: var(--spacing-md) var(--spacing-lg);
+    flex-shrink: 0 !important;
+    order: 0 !important;
+    background: var(--gradient-primary, linear-gradient(135deg, #667eea 0%, #764ba2 100%));
+    padding: var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -188,13 +190,15 @@
 
 /* Chat Messages Container */
 .chat-messages {
-    flex: 1;
-    overflow-y: auto;
-    padding: var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    flex: 1 1 auto !important;
+    min-height: 200px !important;
+    overflow-y: auto !important;
+    padding: var(--spacing-md, 1rem);
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--spacing-sm, 0.5rem);
     scroll-behavior: smooth;
+    background: var(--surface, #ffffff);
 }
 
 /* Individual Message */
@@ -371,9 +375,11 @@
 
 /* Chat Input Area */
 .chat-input-area {
-    padding: var(--spacing-md);
-    border-top: 1px solid var(--border-color);
-    background: var(--surface);
+    flex-shrink: 0 !important;
+    order: 10 !important;
+    padding: var(--spacing-md, 1rem);
+    border-top: 1px solid var(--border-color, #e2e8f0);
+    background: var(--surface, #ffffff);
 }
 
 .chat-input-container {
