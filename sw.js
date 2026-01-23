@@ -1,6 +1,13 @@
 // Service Worker for PWA offline support
-const CACHE_NAME = 'shaun-portfolio-v4';
+const CACHE_NAME = 'shaun-portfolio-v5';
 const OFFLINE_URL = '/offline.html';
+
+// API domains that should NEVER be cached (always network-only)
+const API_DOMAINS = [
+    'api.solidrust.ai',
+    'console.solidrust.ai',
+    'artemis.hq.solidrust.net'
+];
 
 const urlsToCache = [
     '/',
@@ -26,6 +33,16 @@ const cdnResources = [
     'https://unpkg.com/aos@2.3.1/dist/aos.css',
     'https://unpkg.com/aos@2.3.1/dist/aos.js'
 ];
+
+// Check if a URL is an API endpoint that should bypass cache
+function isApiRequest(url) {
+    try {
+        const urlObj = new URL(url);
+        return API_DOMAINS.some(domain => urlObj.hostname === domain || urlObj.hostname.endsWith('.' + domain));
+    } catch {
+        return false;
+    }
+}
 
 // Install Service Worker
 self.addEventListener('install', event => {
@@ -64,6 +81,7 @@ self.addEventListener('activate', event => {
 });
 
 // Fetch strategy: Network first, falling back to cache, then offline page
+// IMPORTANT: API requests always bypass cache entirely
 self.addEventListener('fetch', event => {
     // Skip non-GET requests
     if (event.request.method !== 'GET') {
@@ -72,6 +90,12 @@ self.addEventListener('fetch', event => {
 
     // Skip chrome-extension and other non-http(s) requests
     if (!event.request.url.startsWith('http')) {
+        return;
+    }
+
+    // CRITICAL: API requests should NEVER be cached - always go to network
+    if (isApiRequest(event.request.url)) {
+        // Don't intercept API requests at all - let them go directly to network
         return;
     }
 
