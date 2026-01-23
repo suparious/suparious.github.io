@@ -1,5 +1,5 @@
 // Service Worker for PWA offline support
-const CACHE_NAME = 'shaun-portfolio-v5';
+const CACHE_NAME = 'shaun-portfolio-v6';
 const OFFLINE_URL = '/offline.html';
 
 // API domains that should NEVER be intercepted by the service worker
@@ -15,13 +15,25 @@ const urlsToCache = [
     '/index.html',
     '/offline.html',
     '/manifest.json',
+    // CSS files
     '/assets/css/main.css',
+    '/assets/css/z-index.css',
+    '/assets/css/dynamic.css',
     '/assets/css/github-integration.css',
+    '/assets/css/accessibility.css',
+    '/assets/css/chat.css',
+    '/assets/css/resume.css',
+    // JS files
     '/assets/js/main.js',
     '/assets/js/theme.js',
+    '/assets/js/animations.js',
     '/assets/js/github-integration.js',
     '/assets/js/testimonials.js',
     '/assets/js/pwa-install.js',
+    '/assets/js/accessibility.js',
+    '/assets/js/chat.js',
+    '/assets/js/resume.js',
+    // Other assets
     '/shaun-prince-resume.pdf',
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
