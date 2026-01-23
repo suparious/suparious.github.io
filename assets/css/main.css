@@ -62,7 +62,44 @@
     --radius-full: 9999px;
 }
 
-/* Dark Mode */
+/* System Preference Dark Mode - applies when user hasn't explicitly set theme */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --primary-color: #6366f1;
+        --primary-dark: #4f46e5;
+        --primary-light: #818cf8;
+        --secondary-color: #a78bfa;
+        --accent-color: #22d3ee;
+
+        --background: #0a0a0f;
+        --background-secondary: #111118;
+        --surface: #1a1a24;
+        --surface-alt: #25252f;
+        --surface-hover: #25252f;
+
+        --text-primary: #f1f5f9;
+        --text-secondary: #cbd5e1;
+        --text-muted: #64748b;
+
+        --border-color: #334155;
+        --shadow-color: rgba(0, 0, 0, 0.5);
+        --error-color: #f87171;
+        --success-color: #34d399;
+
+        --gradient-mesh: radial-gradient(at 40% 20%, hsla(248, 84%, 63%, 0.15) 0px, transparent 50%),
+                          radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.1) 0px, transparent 50%),
+                          radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.1) 0px, transparent 50%),
+                          radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.1) 0px, transparent 50%),
+                          radial-gradient(at 0% 100%, hsla(269, 100%, 77%, 0.1) 0px, transparent 50%),
+                          radial-gradient(at 80% 100%, hsla(314, 100%, 76%, 0.1) 0px, transparent 50%);
+    }
+
+    :root:not([data-theme="light"]) .navbar {
+        background: rgba(10, 10, 15, 0.8);
+    }
+}
+
+/* Dark Mode - explicit user preference */
 [data-theme="dark"] {
     --primary-color: #6366f1;
     --primary-dark: #4f46e5;

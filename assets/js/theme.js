@@ -120,37 +120,20 @@ class ThemeManager {
     }
     
     showThemeToast() {
-        // Create toast notification
+        // Create toast notification (styles from dynamic.css)
         const toast = document.createElement('div');
         toast.className = 'theme-toast';
         toast.innerHTML = `
             <i class="fas fa-${this.currentTheme === 'dark' ? 'moon' : 'sun'}"></i>
             <span>${this.currentTheme === 'dark' ? 'Dark' : 'Light'} mode activated</span>
         `;
-        
-        // Add styles
-        Object.assign(toast.style, {
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            background: 'var(--surface)',
-            color: 'var(--text-primary)',
-            padding: '12px 20px',
-            borderRadius: '8px',
-            boxShadow: '0 4px 12px var(--shadow-color)',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            zIndex: '10000',
-            animation: 'slideInUp 0.3s ease'
-        });
-        
+
         // Append to body
         document.body.appendChild(toast);
-        
+
         // Remove after 2 seconds
         setTimeout(() => {
-            toast.style.animation = 'slideOutDown 0.3s ease';
+            toast.classList.add('hiding');
             setTimeout(() => {
                 toast.remove();
             }, 300);
@@ -273,51 +256,9 @@ class CSSVariablesManager {
 }
 
 // ========================
-// Theme Transition Styles
-// ========================
-
-const themeTransitionStyles = `
-    .theme-transition,
-    .theme-transition *,
-    .theme-transition *::before,
-    .theme-transition *::after {
-        transition: background-color 300ms ease,
-                    color 300ms ease,
-                    border-color 300ms ease,
-                    box-shadow 300ms ease !important;
-    }
-    
-    @keyframes slideInUp {
-        from {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutDown {
-        from {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-    }
-`;
-
-// Inject transition styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = themeTransitionStyles;
-document.head.appendChild(styleSheet);
-
-// ========================
 // Initialize Theme Manager
 // ========================
+// Note: Theme transition styles are now in assets/css/dynamic.css
 
 let themeManager;
 let themeAwareFeatures;

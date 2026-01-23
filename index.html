@@ -58,6 +58,10 @@
     
     <!-- Main Styles -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <!-- Z-Index System (centralized stacking) -->
+    <link rel="stylesheet" href="assets/css/z-index.css">
+    <!-- Dynamic Styles (extracted from JS) -->
+    <link rel="stylesheet" href="assets/css/dynamic.css">
     <link rel="stylesheet" href="assets/css/github-integration.css">
     <!-- Accessibility Styles (WCAG 2.1 AA) -->
     <link rel="stylesheet" href="assets/css/accessibility.css">
@@ -924,16 +928,20 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- Critical: External libraries (must load before main.js) -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Critical: Theme and main scripts (no defer - needed for initial render) -->
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/github-integration.js"></script>
-    <script src="assets/js/testimonials.js"></script>
-    <script src="assets/js/pwa-install.js"></script>
-    <script src="assets/js/accessibility.js"></script>
-    <script src="assets/js/chat.js"></script>
-    <script src="assets/js/resume.js"></script>
+    <!-- Non-critical: Deferred scripts (load after page parse) -->
+    <script src="assets/js/animations.js" defer></script>
+    <script src="assets/js/github-integration.js" defer></script>
+    <script src="assets/js/testimonials.js" defer></script>
+    <script src="assets/js/pwa-install.js" defer></script>
+    <script src="assets/js/accessibility.js" defer></script>
+    <script src="assets/js/chat.js" defer></script>
+    <script src="assets/js/resume.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,78 @@
+/* ========================
+   Z-Index System
+   Centralized z-index hierarchy for consistent stacking
+   ======================== */
+
+:root {
+    /* Z-Index Hierarchy - Lowest to Highest */
+    --z-particles: 0;
+    --z-content: 1;
+    --z-navbar: 300;
+    --z-mobile-menu: 350;
+    --z-chat: 400;
+    --z-chat-window: 450;
+    --z-loader: 500;
+    --z-pwa-banner: 600;
+    --z-skip-links: 700;
+    --z-toast: 700;
+}
+
+/* Apply z-index values using CSS variables */
+
+/* Particles background */
+.particles-container {
+    z-index: var(--z-particles);
+}
+
+/* Main content */
+.hero-content {
+    z-index: var(--z-content);
+}
+
+/* Navigation */
+.navbar {
+    z-index: var(--z-navbar);
+}
+
+/* Mobile menu (higher than navbar for overlay) */
+.nav-menu.active {
+    z-index: var(--z-mobile-menu);
+}
+
+/* Chat widget */
+.chat-widget {
+    z-index: var(--z-chat);
+}
+
+.chat-window {
+    z-index: var(--z-chat-window);
+}
+
+/* Loading screen */
+.loader {
+    z-index: var(--z-loader);
+}
+
+/* PWA install banner */
+.pwa-install-banner {
+    z-index: var(--z-pwa-banner);
+}
+
+/* Skip links (highest for accessibility) */
+.skip-links {
+    z-index: var(--z-skip-links);
+}
+
+.skip-link {
+    z-index: var(--z-skip-links);
+}
+
+/* Toast notifications */
+.theme-toast {
+    z-index: var(--z-toast);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+    z-index: var(--z-pwa-banner);
+}

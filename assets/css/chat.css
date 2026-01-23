@@ -475,7 +475,68 @@
   background: #94a3b8;
 }
 
-/* Dark Mode - Using data-theme attribute */
+/* System Preference Dark Mode - applies when user hasn't explicitly set light theme */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .chat-window {
+        background: #1e293b;
+    }
+
+    :root:not([data-theme="light"]) .chat-messages {
+        background: #0f172a;
+    }
+
+    :root:not([data-theme="light"]) .chat-message.assistant .message-content {
+        background: #334155;
+        color: #f1f5f9;
+        border-color: #475569;
+    }
+
+    :root:not([data-theme="light"]) .chat-message.assistant .message-avatar {
+        background: #334155;
+    }
+
+    :root:not([data-theme="light"]) .chat-suggestions {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    :root:not([data-theme="light"]) .suggestion-btn {
+        background: #334155;
+        border-color: #475569;
+        color: #e2e8f0;
+    }
+
+    :root:not([data-theme="light"]) .chat-input-area {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    :root:not([data-theme="light"]) .chat-input {
+        background: #334155;
+        border-color: #475569;
+        color: #f1f5f9;
+    }
+
+    :root:not([data-theme="light"]) .chat-input::placeholder {
+        color: #64748b;
+    }
+
+    :root:not([data-theme="light"]) .chat-api-notice {
+        background: #0f172a;
+        border-color: #334155;
+    }
+
+    :root:not([data-theme="light"]) .typing-indicator {
+        background: #334155;
+        border-color: #475569;
+    }
+
+    :root:not([data-theme="light"]) .typing-indicator span {
+        background: #64748b;
+    }
+}
+
+/* Dark Mode - Using data-theme attribute (explicit user preference) */
 [data-theme="dark"] .chat-window {
   background: #1e293b;
 }

@@ -118,17 +118,9 @@ class AnimationController {
     }
     
     setupProgressBar() {
+        // Scroll progress bar - styles are in assets/css/dynamic.css
         const progressBar = document.createElement('div');
         progressBar.className = 'scroll-progress';
-        progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: var(--gradient-secondary);
-            z-index: 10000;
-            transition: width 0.1s ease;
-        `;
         document.body.appendChild(progressBar);
         
         window.addEventListener('scroll', this.throttle(() => {
@@ -420,78 +412,9 @@ class AnimationController {
 }
 
 // ========================
-// CSS Animation Classes
-// ========================
-
-const animationStyles = `
-    .animate-fade-in {
-        animation: fadeIn 0.6s ease forwards;
-    }
-    
-    .animate-slide-in-up {
-        animation: slideInUp 0.6s ease forwards;
-    }
-    
-    .animate-slide-in-down {
-        animation: slideInDown 0.6s ease forwards;
-    }
-    
-    .animate-slide-in-left {
-        animation: slideInLeft 0.6s ease forwards;
-    }
-    
-    .animate-slide-in-right {
-        animation: slideInRight 0.6s ease forwards;
-    }
-    
-    .animate-scale {
-        animation: zoomIn 0.6s ease forwards;
-    }
-    
-    [data-reveal] {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-    }
-    
-    [data-reveal].revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .split-char {
-        opacity: 0;
-        animation: splitFadeIn 0.6s ease forwards;
-    }
-    
-    @keyframes splitFadeIn {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-    }
-    
-    [data-3d-card], [data-magnetic], [data-tilt] {
-        transition: transform 0.3s ease;
-    }
-    
-    .paused {
-        animation-play-state: paused !important;
-    }
-`;
-
-// Inject animation styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = animationStyles;
-document.head.appendChild(styleSheet);
-
-// ========================
 // Initialize Animation Controller
 // ========================
+// Note: Animation styles are now in assets/css/dynamic.css
 
 let animationController;
 
