@@ -266,25 +266,29 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
     async function sendMessage() {
         const text = elements.input.value.trim();
         if (!text || isLoading) return;
-        
+
+        console.log('[Chat] sendMessage called with:', text);
+
         // Add user message
         addMessage('user', text);
         elements.input.value = '';
         handleInputChange();
-        
+
         // Hide suggestions after first message
         elements.suggestions.style.display = 'none';
-        
+
         // Show typing indicator
         isLoading = true;
         elements.send.disabled = true;
         showTypingIndicator();
-        
+
         try {
             const response = await callAPI(text);
+            console.log('[Chat] API response received:', response);
             removeTypingIndicator();
             addMessage('assistant', response);
         } catch (error) {
+            console.error('[Chat] API error:', error);
             removeTypingIndicator();
             showError(error.message);
         } finally {
@@ -352,33 +356,43 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
 
     // Add message to chat
     function addMessage(role, content) {
+        console.log('[Chat] addMessage called:', role, content?.substring(0, 50) + '...');
+
         // Store in history
         chatHistory.push({ role, content, timestamp: Date.now() });
-        
+
         // Trim history if too long
         if (chatHistory.length > CONFIG.MAX_HISTORY) {
             chatHistory = chatHistory.slice(-CONFIG.MAX_HISTORY);
         }
-        
+
         saveChatHistory();
-        
+
         // Create message element
         const messageEl = document.createElement('div');
         messageEl.className = `chat-message ${role}`;
-        
+
         const avatarIcon = role === 'user' ? 'fa-user' : 'fa-robot';
         const processedContent = processMessageContent(content);
-        
+
         messageEl.innerHTML = `
             <div class="message-avatar">
                 <i class="fas ${avatarIcon}" aria-hidden="true"></i>
             </div>
             <div class="message-content">${processedContent}</div>
         `;
-        
-        elements.messages.appendChild(messageEl);
+
+        // Use fresh DOM query instead of cached reference
+        const messagesContainer = document.querySelector('.chat-messages');
+        if (messagesContainer) {
+            messagesContainer.appendChild(messageEl);
+            console.log('[Chat] Message appended to DOM:', role, messageEl);
+            console.log('[Chat] messagesContainer.children count:', messagesContainer.children.length);
+        } else {
+            console.error('[Chat] Messages container not found!');
+        }
         scrollToBottom();
-        
+
         // Announce to screen readers
         if (window.announceToScreenReader) {
             const roleLabel = role === 'user' ? 'You said' : 'Assistant said';
@@ -419,7 +433,10 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
                 <span></span>
             </div>
         `;
-        elements.messages.appendChild(indicator);
+        const messagesContainer = document.querySelector('.chat-messages');
+        if (messagesContainer) {
+            messagesContainer.appendChild(indicator);
+        }
         scrollToBottom();
     }
 
@@ -439,9 +456,12 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
             <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
             <span>${message}</span>
         `;
-        elements.messages.appendChild(errorEl);
+        const messagesContainer = document.querySelector('.chat-messages');
+        if (messagesContainer) {
+            messagesContainer.appendChild(errorEl);
+        }
         scrollToBottom();
-        
+
         // Remove error after 5 seconds
         setTimeout(() => {
             errorEl.remove();
@@ -450,7 +470,10 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
 
     // Scroll messages to bottom
     function scrollToBottom() {
-        elements.messages.scrollTop = elements.messages.scrollHeight;
+        const messagesContainer = document.querySelector('.chat-messages');
+        if (messagesContainer) {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
     }
 
     // Save chat history to localStorage
@@ -469,19 +492,22 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
             if (saved) {
                 chatHistory = JSON.parse(saved);
                 // Render saved messages
-                chatHistory.forEach(msg => {
-                    const messageEl = document.createElement('div');
-                    messageEl.className = `chat-message ${msg.role}`;
-                    const avatarIcon = msg.role === 'user' ? 'fa-user' : 'fa-robot';
-                    const processedContent = processMessageContent(msg.content);
-                    messageEl.innerHTML = `
-                        <div class="message-avatar">
-                            <i class="fas ${avatarIcon}" aria-hidden="true"></i>
-                        </div>
-                        <div class="message-content">${processedContent}</div>
-                    `;
-                    elements.messages.appendChild(messageEl);
-                });
+                const messagesContainer = document.querySelector('.chat-messages');
+                if (messagesContainer) {
+                    chatHistory.forEach(msg => {
+                        const messageEl = document.createElement('div');
+                        messageEl.className = `chat-message ${msg.role}`;
+                        const avatarIcon = msg.role === 'user' ? 'fa-user' : 'fa-robot';
+                        const processedContent = processMessageContent(msg.content);
+                        messageEl.innerHTML = `
+                            <div class="message-avatar">
+                                <i class="fas ${avatarIcon}" aria-hidden="true"></i>
+                            </div>
+                            <div class="message-content">${processedContent}</div>
+                        `;
+                        messagesContainer.appendChild(messageEl);
+                    });
+                }
             }
         } catch (e) {
             chatHistory = [];
@@ -503,7 +529,10 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
         clearHistory: () => {
             chatHistory = [];
             localStorage.removeItem(CONFIG.STORAGE_KEY);
-            elements.messages.innerHTML = '';
+            const messagesContainer = document.querySelector('.chat-messages');
+            if (messagesContainer) {
+                messagesContainer.innerHTML = '';
+            }
             elements.suggestions.style.display = 'flex';
             addMessage('assistant', "Chat history cleared. How can I help you?");
         }
