@@ -108,8 +108,8 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
                 <span class="chat-badge hidden" aria-live="polite">1</span>
             </button>
             
-            <div class="chat-window" role="dialog" aria-label="Chat with Shaun's AI Assistant" aria-hidden="true">
-                <div class="chat-header">
+            <div class="chat-window" role="dialog" aria-label="Chat with Shaun's AI Assistant" aria-hidden="true" style="display:flex !important; flex-direction:column !important;">
+                <div class="chat-header" style="order:1 !important; flex-shrink:0 !important;">
                     <div class="chat-header-info">
                         <div class="chat-avatar">
                             <i class="fas fa-robot" aria-hidden="true"></i>
@@ -126,20 +126,20 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
                         <i class="fas fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
-                
-                <div class="chat-messages" aria-live="polite" aria-atomic="false">
+
+                <div class="chat-messages" aria-live="polite" aria-atomic="false" style="order:2 !important; flex:1 1 auto !important; min-height:100px !important; overflow-y:auto !important;">
                     <!-- Messages inserted here -->
                 </div>
-                
-                <div class="chat-suggestions" role="group" aria-label="Quick questions">
+
+                <div class="chat-suggestions" role="group" aria-label="Quick questions" style="order:3 !important; flex-shrink:0 !important;">
                     ${SUGGESTIONS.map(s => `<button class="suggestion-btn" type="button">${s}</button>`).join('')}
                 </div>
-                
-                <div class="chat-input-area">
+
+                <div class="chat-input-area" style="order:4 !important; flex-shrink:0 !important;">
                     <div class="chat-input-container">
-                        <textarea 
-                            class="chat-input" 
-                            placeholder="Ask about my experience, projects, or skills..." 
+                        <textarea
+                            class="chat-input"
+                            placeholder="Ask about my experience, projects, or skills..."
                             aria-label="Type your message"
                             rows="1"
                         ></textarea>
@@ -148,8 +148,8 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
                         </button>
                     </div>
                 </div>
-                
-                <div class="chat-api-notice">
+
+                <div class="chat-api-notice" style="order:5 !important; flex-shrink:0 !important;">
                     Powered by <a href="https://solidrust.ai" target="_blank" rel="noopener">SolidRusT AI</a>
                 </div>
             </div>
