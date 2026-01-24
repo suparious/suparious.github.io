@@ -211,8 +211,9 @@ a:hover {
 /* ========================
    ARIA Live Regions
 ======================== */
-[aria-live="polite"],
-[aria-live="assertive"] {
+/* Screen-reader-only live regions - but NOT chat messages which need to be visible */
+[aria-live="polite"]:not(.chat-messages),
+[aria-live="assertive"]:not(.chat-messages) {
     position: absolute;
     left: -10000px;
     width: 1px;

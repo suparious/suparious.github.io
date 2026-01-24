@@ -127,7 +127,7 @@ When suggesting sections, format as clickable links like: [View Projects](#proje
                     </button>
                 </div>
 
-                <div class="chat-messages" aria-live="polite" aria-atomic="false" style="order:2 !important; flex:1 1 auto !important; min-height:200px !important; height:250px !important; overflow-y:auto !important; border:3px solid red !important;">
+                <div class="chat-messages" aria-live="polite" aria-atomic="false" style="order:2 !important; flex:1 1 auto !important; min-height:100px !important; overflow-y:auto !important;">
                     <!-- Messages inserted here -->
                 </div>
 

@@ -1,5 +1,5 @@
 // Service Worker for PWA offline support
-const CACHE_NAME = 'shaun-portfolio-v10';
+const CACHE_NAME = 'shaun-portfolio-v11';
 const OFFLINE_URL = '/offline.html';
 
 // API domains that should NEVER be intercepted by the service worker
