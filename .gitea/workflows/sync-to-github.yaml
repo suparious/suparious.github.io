@@ -23,5 +23,5 @@ jobs:
 
       - name: Push to GitHub
         run: |
-          git remote add github git@github.com:SolidRusT/suparious.github.io.git || git remote set-url github git@github.com:SolidRusT/suparious.github.io.git
+          git remote add github git@github.com:Suparious/suparious.github.io.git || git remote set-url github git@github.com:Suparious/suparious.github.io.git
           GIT_SSH_COMMAND="ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" git push github HEAD:main --force
