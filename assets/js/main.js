@@ -247,11 +247,11 @@ function initTyped() {
         new Typed('#typed', {
             strings: [
                 'Principal Solutions Architect',
-                'AI Infrastructure Expert',
-                'Open Source Leader',
-                'Rust Systems Developer',
-                'Gaming Automation Pioneer',
-                'MLOps Platform Builder'
+                'AI Platform Engineer',
+                'Cloud Infrastructure Leader',
+                'Startup Founder (2x acquired)',
+                'MLOps Platform Builder',
+                'Kubernetes & Terraform Expert'
             ],
             typeSpeed: 50,
             backSpeed: 30,
