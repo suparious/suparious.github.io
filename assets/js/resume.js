@@ -36,21 +36,70 @@
         }
     }
 
-    // Enhance timeline items with expandable details
-    function enhanceTimeline() {
-        const timelineItems = document.querySelectorAll('.timeline-item');
+    // Format date string to readable format
+    function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const [year, month] = dateStr.split('-');
+        if (!month) return year;
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        return `${months[parseInt(month) - 1]} ${year}`;
+    }
 
-        timelineItems.forEach((item, index) => {
-            // Add expandable class
-            item.classList.add('expandable');
+    // Build timeline from resume.json data
+    function buildTimeline() {
+        const timeline = document.querySelector('.timeline');
+        if (!timeline || !resumeData?.experience?.length) return;
 
-            // Add role data attributes if not already present from HTML
-            if (!item.dataset.roles) {
-                const roles = getRolesForItem(index);
-                item.dataset.roles = roles.join(',');
-            }
+        // Clear hardcoded HTML entries
+        timeline.innerHTML = '';
 
-            // Setup existing expand button in header (from HTML)
+        resumeData.experience.forEach((exp, index) => {
+            const endDate = exp.current ? 'Present' : formatDate(exp.endDate);
+            const startDate = formatDate(exp.startDate);
+            const roles = exp.roles?.join(',') || 'full-stack';
+            const delay = index < 3 ? index * 100 : 0;
+
+            const item = document.createElement('div');
+            item.className = 'timeline-item expandable';
+            item.dataset.roles = roles;
+            item.dataset.aos = 'fade-up';
+            if (delay) item.dataset.aosDelay = delay;
+            item.setAttribute('role', 'listitem');
+
+            const highlights = exp.highlights?.length
+                ? `<ul>${exp.highlights.map(h => `<li>${h}</li>`).join('')}</ul>`
+                : '';
+
+            const tags = exp.technologies?.length
+                ? `<div class="timeline-tags" role="list" aria-label="Technologies used">${exp.technologies.slice(0,4).map(t => `<span class="tag" role="listitem">${t}</span>`).join('')}</div>`
+                : '';
+
+            item.innerHTML = `
+                <div class="timeline-marker" aria-hidden="true"></div>
+                <div class="timeline-content" tabindex="0" role="button" aria-expanded="false" aria-label="Expand to view more details">
+                    <div class="timeline-header">
+                        <h3>${exp.title || exp.company}</h3>
+                        ${exp.title ? `<h4>${exp.company}</h4>` : ''}
+                        <span class="timeline-date"><time datetime="${exp.startDate}">${startDate}</time> - ${endDate}</span>
+                        <button class="timeline-expand-btn" aria-expanded="false" aria-label="Show more details">
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="timeline-body">
+                        <p>${exp.summary || ''}</p>
+                        ${highlights}
+                        ${tags}
+                    </div>
+                    <div class="timeline-details" aria-hidden="true">
+                        ${exp.highlights?.length ? `<h5>Key Highlights</h5><ul>${exp.highlights.map(h => `<li>${h}</li>`).join('')}</ul>` : ''}
+                        ${exp.technologies?.length ? `<h5>Technologies</h5><div class="tech-pills">${exp.technologies.map(t => `<span class="tech-pill">${t}</span>`).join('')}</div>` : ''}
+                    </div>
+                </div>
+            `;
+
+            timeline.appendChild(item);
+
+            // Bind expand button
             const expandBtn = item.querySelector('.timeline-expand-btn');
             if (expandBtn) {
                 expandBtn.addEventListener('click', (e) => {
@@ -59,13 +108,40 @@
                 });
             }
 
-            // Setup existing timeline-details (from HTML) - populate with resume data if available
-            const existingDetails = item.querySelector('.timeline-details');
-            if (existingDetails && resumeData?.experience?.[index]) {
-                populateDetails(existingDetails, index);
+            // Bind content click
+            const content = item.querySelector('.timeline-content');
+            if (content) {
+                content.addEventListener('click', (e) => {
+                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+                    toggleExpand(item);
+                });
+                content.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleExpand(item);
+                    }
+                });
             }
+        });
+    }
 
-            // Make content focusable and add aria attributes
+    // Enhance timeline items with expandable details (legacy fallback)
+    function enhanceTimeline() {
+        if (resumeData?.experience?.length) {
+            buildTimeline();
+            return;
+        }
+        // Fallback: enhance existing HTML items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach((item) => {
+            item.classList.add('expandable');
+            const expandBtn = item.querySelector('.timeline-expand-btn');
+            if (expandBtn) {
+                expandBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    toggleExpand(item);
+                });
+            }
             const content = item.querySelector('.timeline-content');
             if (content) {
                 content.setAttribute('tabindex', '0');
