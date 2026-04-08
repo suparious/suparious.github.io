@@ -392,7 +392,12 @@
         <!-- Experience Section -->
         <section id="experience" class="section" aria-labelledby="experience-title">
             <div class="container">
-                <h2 id="experience-title" class="section-title">Work <span class="gradient-text">Experience</span></h2>
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+                  <h2 id="experience-title" class="section-title" style="margin-bottom:0">Work <span class="gradient-text">Experience</span></h2>
+                  <button class="resume-download-btn" id="download-pdf-top" aria-label="Download resume as PDF" onclick="window.print()">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i> Download PDF
+                  </button>
+                </div>
                 
                 <!-- Resume Controls -->
                 <div class="resume-controls" role="toolbar" aria-label="Resume filters and actions">
