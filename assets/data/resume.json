@@ -1,13 +1,14 @@
 {
   "personal": {
     "name": "Shaun Prince",
-    "title": "Principal Cloud Solutions Architect",
+    "title": "Principal Cloud & AI Platform Architect",
     "email": "shaun@suparious.com",
-    "location": "Canada",
+    "location": "Vancouver, Canada",
     "website": "https://suparious.com",
     "github": "https://github.com/Suparious",
-    "linkedin": "https://linkedin.com/in/shaunprince",
-    "summary": "Principal Cloud Solutions Architect with 28+ years spanning Linux infrastructure, cloud architecture, ML platforms, and open-source AI. Ph.D. in Computer Science with OSCP, co-founder of TriNimbus through its acquisition by Rackspace, and publisher of 510 Hugging Face models through SolidRusT with 3,770,000+ all-time downloads."
+    "linkedin": "https://linkedin.com/in/shaundprince",
+    "huggingface": "https://huggingface.co/solidrust",
+    "summary": "Principal Cloud & AI Platform Architect with 28+ years building and operating production systems — from bare metal Linux to GPU-accelerated AI inference. Co-founded TriNimbus (acquired by Rackspace). Founder of SolidRusT Networks, running a production AI inference platform on self-hosted Kubernetes with 550+ models on Hugging Face and 3.7M+ downloads. Ph.D. in Computer Science (applied agile methodologies), OSCP certified. Bilingual English/French."
   },
   "roles": [
     {
@@ -18,7 +19,7 @@
     {
       "id": "ai-engineer",
       "label": "AI/ML Engineer",
-      "description": "vLLM, RAG Systems, LangChain"
+      "description": "vLLM, RAG Systems, Multi-Agent Orchestration"
     },
     {
       "id": "full-stack",
@@ -33,10 +34,50 @@
   ],
   "experience": [
     {
+      "id": "solidrust-networks",
+      "title": "Founder & Principal AI Platform Architect",
+      "company": "SolidRusT Networks",
+      "location": "Vancouver, BC",
+      "startDate": "2005-02",
+      "endDate": "",
+      "current": true,
+      "roles": [
+        "cloud-architect",
+        "ai-engineer",
+        "full-stack",
+        "devops"
+      ],
+      "summary": "Building a production AI inference platform on self-hosted Kubernetes, serving multiple consumer applications with LLM inference, semantic search, knowledge graphs, and multi-agent orchestration.",
+      "highlights": [
+        "12-node Kubernetes cluster (Talos Linux) with 5 GPU nodes running NVIDIA RTX 3060s",
+        "vLLM inference engine with LiteLLM multi-provider routing, Milvus vector search, Neo4j knowledge graphs",
+        "550+ models published on Hugging Face with 3.7M+ all-time downloads",
+        "5 consumer products built on the platform: SolidRust.AI, Aidiant, MyAshes, AmiNex, Sentry game master",
+        "GitOps with FluxCD, production monitoring via Prometheus + Grafana, custom API gateway and billing platform"
+      ],
+      "technologies": [
+        "Kubernetes",
+        "Talos Linux",
+        "vLLM",
+        "LiteLLM",
+        "Python",
+        "TypeScript",
+        "FluxCD",
+        "Milvus",
+        "Neo4j",
+        "PostgreSQL",
+        "FastAPI",
+        "Prometheus",
+        "Grafana",
+        "NVIDIA GPU",
+        "Stripe"
+      ]
+    },
+    {
       "id": "openbet",
       "title": "Principal Cloud Solutions Architect",
       "company": "OpenBet",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2023-06",
       "endDate": "2026-04",
       "current": false,
@@ -44,11 +85,12 @@
         "cloud-architect",
         "devops"
       ],
-      "summary": "Architected cloud platform components including Kafka on Amazon MSK, Cognito and API Gateway authentication, and Java/Spring Boot services on EKS.",
+      "summary": "Owned all AWS infrastructure as the principal cloud architect, reporting directly to the Head of Engineering. Designed, prototyped, and implemented cloud platform components autonomously, with every PoC built as a production artifact from day one.",
       "highlights": [
-        "Kafka on Amazon MSK",
-        "Cognito + API Gateway authentication",
-        "Java/Spring Boot on EKS",
+        "Architected Kafka on Amazon MSK — researched, prototyped with CI/CD pipeline, delivered production-ready for DevOps team handoff",
+        "Built Cognito + API Gateway authentication for player account management platform",
+        "Designed Java/Spring Boot service deployments on EKS with CloudFront distribution",
+        "Established pattern of dogfooding own CI/CD pipelines, structuring sandbox as working reference for receiving teams",
         "Left in April 2026 due to company restructuring"
       ],
       "technologies": [
@@ -56,16 +98,20 @@
         "Amazon MSK",
         "Amazon Cognito",
         "Amazon API Gateway",
+        "EKS",
         "Java",
         "Spring Boot",
-        "EKS"
+        "CloudFront",
+        "Terraform",
+        "Jenkins",
+        "Python"
       ]
     },
     {
       "id": "xerris-accolite",
       "title": "Senior Cloud Architect",
-      "company": "Xerris/Accolite",
-      "location": "",
+      "company": "Xerris / Accolite Digital",
+      "location": "Vancouver, BC",
       "startDate": "2022-07",
       "endDate": "2023-05",
       "current": false,
@@ -73,15 +119,25 @@
         "cloud-architect",
         "devops"
       ],
-      "summary": "Senior Cloud Architect at Xerris/Accolite.",
-      "highlights": [],
-      "technologies": []
+      "summary": "Senior Cloud Architect at an AWS Advanced Partner and Microsoft Gold Partner, delivering digital transformation through microservices, cloud migration, and DevOps.",
+      "highlights": [
+        "AWS Advanced Partner, Microsoft Gold Partner, Google Cloud Expert",
+        "Digital transformation engagements: microservices, cloud migration, DevOps"
+      ],
+      "technologies": [
+        "AWS",
+        "Azure",
+        "GCP",
+        "Terraform",
+        "Kubernetes",
+        "Docker"
+      ]
     },
     {
       "id": "reef",
       "title": "Product Owner, ML Platform",
       "company": "REEF",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2021-04",
       "endDate": "2022-05",
       "current": false,
@@ -89,23 +145,30 @@
         "ai-engineer",
         "cloud-architect"
       ],
-      "summary": "Product Owner for an ML platform using Sagemaker, Airflow, and EKS.",
+      "summary": "Product Owner for the ML platform, managing the full MLOps lifecycle with Sagemaker, Airflow, Spark, and MLflow on AWS EKS.",
       "highlights": [
-        "Sagemaker",
-        "Airflow",
-        "EKS"
+        "Owned ML platform: Apache Airflow & Spark, MLflow, AWS Sagemaker",
+        "AWS EKS cluster management with Terraform, Helm, ArgoCD",
+        "CI/CD pipeline with Vault, Spring Config, Sonarqube, Dependency Track"
       ],
       "technologies": [
         "Sagemaker",
         "Airflow",
-        "EKS"
+        "Spark",
+        "MLflow",
+        "EKS",
+        "Terraform",
+        "Helm",
+        "ArgoCD",
+        "Jenkins",
+        "Docker"
       ]
     },
     {
       "id": "cognizant-softvision-levi-strauss",
-      "title": "",
-      "company": "Cognizant Softvision \u2192 Levi Strauss & Co.",
-      "location": "",
+      "title": "Senior DevOps Engineer, Project Lead",
+      "company": "Cognizant Softvision → Levi Strauss & Co.",
+      "location": "Vancouver, BC",
       "startDate": "2020-03",
       "endDate": "2021-04",
       "current": false,
@@ -113,38 +176,58 @@
         "ai-engineer",
         "cloud-architect"
       ],
-      "summary": "ML platform work for Levi Strauss & Co. using PyTorch, TensorFlow, and Sagemaker.",
+      "summary": "Led Data Science, Analytics, and AI infrastructure for Levi Strauss & Co. Built ML/deep learning pipelines on AWS with GPU compute.",
       "highlights": [
-        "PyTorch",
-        "TensorFlow",
-        "Sagemaker"
+        "AWS Sagemaker, Glue, Redis, Athena, RedShift, Aurora",
+        "Deep learning with EMR and NVIDIA GPU (PyTorch, TensorFlow, LightGBM)",
+        "AWS Batch/Fargate for ML workloads"
       ],
       "technologies": [
         "PyTorch",
         "TensorFlow",
-        "Sagemaker"
+        "LightGBM",
+        "Sagemaker",
+        "AWS Glue",
+        "RedShift",
+        "Aurora",
+        "NVIDIA GPU",
+        "Python"
       ]
     },
     {
       "id": "tugo-insurance",
       "title": "Principal Architect",
       "company": "TuGo Insurance",
-      "location": "",
+      "location": "Richmond, BC",
       "startDate": "2019-09",
       "endDate": "2019-12",
       "current": false,
       "roles": [
         "cloud-architect"
       ],
-      "summary": "Principal Architect at TuGo Insurance.",
-      "highlights": [],
-      "technologies": []
+      "summary": "Principal Architect for Java/Tomcat/JBoss/Oracle microservice migration to AWS with full CI/CD and monitoring.",
+      "highlights": [
+        "Java microservice architecture on AWS (ECS Fargate and EC2)",
+        "CI/CD with Docker, Terraform, Ansible, Jenkins, Gradle, SpringBoot",
+        "Monitoring with NewRelic, SumoLogic, Prometheus/Grafana on Kubernetes"
+      ],
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "AWS ECS",
+        "Terraform",
+        "Ansible",
+        "Jenkins",
+        "Kubernetes",
+        "Prometheus",
+        "Grafana"
+      ]
     },
     {
       "id": "lendesk",
-      "title": "",
+      "title": "Senior DevOps Engineer",
       "company": "Lendesk",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2019-02",
       "endDate": "2019-08",
       "current": false,
@@ -152,23 +235,28 @@
         "cloud-architect",
         "devops"
       ],
-      "summary": "IaC, Terraform, K8s.",
+      "summary": "Infrastructure as Code on AWS for a Ruby-based fintech stack with React frontend.",
       "highlights": [
-        "Infrastructure as Code",
-        "Terraform",
-        "Kubernetes"
+        "IaC on AWS with Python, Golang, TypeScript, Bash",
+        "React.js frontend on CloudFront/S3",
+        "Terraform, Kubernetes, CodeShip CI"
       ],
       "technologies": [
-        "Infrastructure as Code",
+        "AWS",
         "Terraform",
-        "Kubernetes"
+        "Kubernetes",
+        "Python",
+        "Golang",
+        "TypeScript",
+        "React",
+        "CloudFront"
       ]
     },
     {
       "id": "cloudreach",
-      "title": "Core Ops Engineering Lead",
+      "title": "Core Operations Engineering Lead",
       "company": "Cloudreach",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2018-06",
       "endDate": "2019-01",
       "current": false,
@@ -176,15 +264,28 @@
         "cloud-architect",
         "devops"
       ],
-      "summary": "Core Ops Engineering Lead at Cloudreach.",
-      "highlights": [],
-      "technologies": []
+      "summary": "Led team automating operational processes for multi-cloud customer environments across AWS, GCP, and Azure.",
+      "highlights": [
+        "Automated customer onboarding/offboarding across AWS, GCP, Azure",
+        "Python, Chef, GitHub, CircleCI, Splunk, DataDog, PagerDuty",
+        "Acquired Relus Cloud Operations during tenure"
+      ],
+      "technologies": [
+        "AWS",
+        "GCP",
+        "Azure",
+        "Python",
+        "Chef",
+        "CircleCI",
+        "Splunk",
+        "DataDog"
+      ]
     },
     {
       "id": "onica-trinimbus",
-      "title": "Lead DevOps / Solutions Architect",
-      "company": "Onica (formerly TriNimbus)",
-      "location": "",
+      "title": "Co-Founder / Lead Solutions Architect",
+      "company": "TriNimbus (acquired by Rackspace → Onica)",
+      "location": "Vancouver, BC",
       "startDate": "2015-07",
       "endDate": "2018-05",
       "current": false,
@@ -192,17 +293,30 @@
         "cloud-architect",
         "devops"
       ],
-      "summary": "Led DevOps and solutions architecture engagements for BC Hydro, YVR Airport, and PointClickCare.",
+      "summary": "Co-founded TriNimbus, grew it to Canada's top AWS Premier Consulting Partner. Acquired by Rackspace in 2018 and rebranded as Onica. Led DevOps consulting and solutions architecture for enterprise clients.",
       "highlights": [
-        "TriNimbus was acquired by Rackspace and became Onica"
+        "Co-founded and grew to AWS Premier Consulting Partner status",
+        "Acquired by Rackspace (2018), rebranded as Onica",
+        "Enterprise clients: BC Hydro, Vancouver Airport Authority (YVR), PointClickCare, Safe Software",
+        "CI/CD pipelines, DevOps consulting with Ansible, Jenkins, Terraform, Kubernetes"
       ],
-      "technologies": []
+      "technologies": [
+        "AWS",
+        "Terraform",
+        "Ansible",
+        "Jenkins",
+        "Kubernetes",
+        "Docker",
+        "CloudFormation",
+        "Python",
+        "Bash"
+      ]
     },
     {
       "id": "vivonet-infor",
       "title": "Senior Infrastructure Developer",
-      "company": "Vivonet/Infor",
-      "location": "",
+      "company": "Vivonet / Infor",
+      "location": "Vancouver, BC",
       "startDate": "2013-12",
       "endDate": "2015-07",
       "current": false,
@@ -211,15 +325,28 @@
         "devops",
         "full-stack"
       ],
-      "summary": "Senior Infrastructure Developer at Vivonet/Infor.",
-      "highlights": [],
-      "technologies": []
+      "summary": "Migrated Vivonet SaaS platform to AWS from on-premise Citrix XenServer, Cloudera, and VMware infrastructure.",
+      "highlights": [
+        "AWS migration from Citrix XenServer, VMware ESX",
+        "Cloudera CDH/EDH (HDFS, HBase, Hive, Impala)",
+        "CI/CD with Puppet and Jenkins, monitoring with Nagios and NewRelic"
+      ],
+      "technologies": [
+        "AWS",
+        "Citrix XenServer",
+        "VMware",
+        "Cloudera",
+        "PostgreSQL",
+        "Oracle",
+        "Puppet",
+        "Jenkins"
+      ]
     },
     {
       "id": "absolute-software",
       "title": "Senior Infrastructure Architect",
       "company": "Absolute Software",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2012-03",
       "endDate": "2013-10",
       "current": false,
@@ -233,9 +360,9 @@
     },
     {
       "id": "bclc",
-      "title": "",
+      "title": "Infrastructure Developer",
       "company": "BCLC",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2009-08",
       "endDate": "2012-02",
       "current": false,
@@ -243,15 +370,17 @@
         "full-stack",
         "devops"
       ],
-      "summary": "Platform launch work at BCLC.",
-      "highlights": [],
+      "summary": "Built playnow.com — the first legal online casino in Canada.",
+      "highlights": [
+        "First legal online casino platform in Canada (playnow.com)"
+      ],
       "technologies": []
     },
     {
       "id": "commwave",
-      "title": "",
+      "title": "Systems Engineer",
       "company": "CommWave",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "2006-03",
       "endDate": "2009-04",
       "current": false,
@@ -259,15 +388,17 @@
         "devops",
         "cloud-architect"
       ],
-      "summary": "Supported Lululemon, Tim Hortons, ICBC, 7-Eleven, Telus, and MoneyMart.",
-      "highlights": [],
+      "summary": "Supported enterprise infrastructure for major Canadian brands.",
+      "highlights": [
+        "Clients: Lululemon, Tim Hortons, ICBC, 7-Eleven, Telus, MoneyMart"
+      ],
       "technologies": []
     },
     {
       "id": "shaw-communications",
-      "title": "",
+      "title": "Technical Lead, Wireless Broadband",
       "company": "Shaw Communications",
-      "location": "",
+      "location": "Calgary, AB",
       "startDate": "2003-06",
       "endDate": "2006-03",
       "current": false,
@@ -276,24 +407,29 @@
         "devops"
       ],
       "summary": "Led the first wireless broadband launch in Canada.",
-      "highlights": [],
+      "highlights": [
+        "Led Canada's first wireless broadband launch",
+        "Shaw Extreme-I project, Shaw IP Phone project",
+        "Small Business Technical Support Team Lead"
+      ],
       "technologies": []
     },
     {
       "id": "radial-engineering",
-      "title": "Linux Systems Admin",
+      "title": "Linux Systems Administrator",
       "company": "Radial Engineering",
-      "location": "",
+      "location": "Vancouver, BC",
       "startDate": "1999-08",
       "endDate": "2002-01",
       "current": false,
       "roles": [
         "devops"
       ],
-      "summary": "Linux Systems Admin at Radial Engineering.",
+      "summary": "Linux Systems Administrator at Radial Engineering.",
       "highlights": [],
       "technologies": [
-        "Linux"
+        "Linux",
+        "Red Hat"
       ]
     },
     {
@@ -307,7 +443,7 @@
       "roles": [
         "full-stack"
       ],
-      "summary": "Programmer Analyst at Your City Live.",
+      "summary": "Programmer Analyst — first professional role in tech.",
       "highlights": [],
       "technologies": []
     }
@@ -343,23 +479,28 @@
         "name": "Bash",
         "level": "Expert",
         "years": 15
+      },
+      {
+        "name": "Java",
+        "level": "Advanced",
+        "years": 5
       }
     ],
     "cloud": [
       {
         "name": "Kubernetes",
         "level": "Expert",
-        "years": 5
+        "years": 7
       },
       {
         "name": "Docker",
         "level": "Expert",
-        "years": 8
+        "years": 10
       },
       {
         "name": "AWS",
-        "level": "Advanced",
-        "years": 7
+        "level": "Expert",
+        "years": 12
       },
       {
         "name": "FluxCD/GitOps",
@@ -368,8 +509,13 @@
       },
       {
         "name": "Terraform",
-        "level": "Advanced",
-        "years": 4
+        "level": "Expert",
+        "years": 8
+      },
+      {
+        "name": "Talos Linux",
+        "level": "Expert",
+        "years": 2
       }
     ],
     "ai": [
@@ -384,49 +530,34 @@
         "years": 2
       },
       {
-        "name": "LangChain",
-        "level": "Advanced",
+        "name": "Multi-Agent Orchestration",
+        "level": "Expert",
         "years": 2
       },
       {
-        "name": "Vector Databases",
+        "name": "Vector Databases (Milvus)",
         "level": "Advanced",
         "years": 2
       },
       {
         "name": "Sagemaker",
-        "level": "",
-        "years": null
-      },
-      {
-        "name": "Airflow",
-        "level": "",
-        "years": null
+        "level": "Advanced",
+        "years": 3
       },
       {
         "name": "PyTorch",
-        "level": "",
-        "years": null
+        "level": "Advanced",
+        "years": 3
       },
       {
         "name": "TensorFlow",
-        "level": "",
-        "years": null
+        "level": "Advanced",
+        "years": 3
       },
       {
-        "name": "AWQ",
-        "level": "",
-        "years": null
-      },
-      {
-        "name": "EXLlama",
-        "level": "",
-        "years": null
-      },
-      {
-        "name": "AI agent orchestration",
-        "level": "",
-        "years": null
+        "name": "Model Quantization (AWQ/EXL2)",
+        "level": "Expert",
+        "years": 2
       }
     ],
     "frontend": [
@@ -438,7 +569,7 @@
       {
         "name": "HTML/CSS",
         "level": "Expert",
-        "years": 15
+        "years": 20
       },
       {
         "name": "Tailwind CSS",
@@ -465,72 +596,81 @@
       {
         "name": "PostgreSQL",
         "level": "Expert",
-        "years": 10
+        "years": 15
       },
       {
         "name": "Kafka",
-        "level": "",
-        "years": null
+        "level": "Advanced",
+        "years": 2
+      },
+      {
+        "name": "Neo4j",
+        "level": "Advanced",
+        "years": 2
       }
     ]
   },
   "projects": [
     {
       "name": "SolidRusT AI Platform",
-      "description": "Production AI inference platform with vLLM, LiteLLM, and Claude integration",
+      "description": "Production AI inference platform with vLLM, LiteLLM, and multi-agent orchestration on self-hosted Kubernetes",
       "url": "https://solidrust.ai",
       "highlights": [
-        "99.9% uptime",
+        "12-node K8s cluster with 5 GPU nodes",
         "5 consumer apps served",
-        "90% cost reduction vs cloud APIs"
+        "550+ models on Hugging Face, 3.7M+ downloads"
       ],
       "technologies": [
         "Kubernetes",
         "vLLM",
         "Python",
         "FastAPI",
-        "FluxCD"
+        "FluxCD",
+        "Milvus",
+        "Neo4j"
       ]
     },
     {
       "name": "Aidiant AI Council",
-      "description": "Multi-agent AI system with 234 council members across 11 categories",
+      "description": "Multi-agent AI deliberation system with 234 council members across 11 categories",
       "url": "https://aidiant.com",
       "highlights": [
-        "RAG integration",
+        "RAG integration with semantic search",
         "Tool-enabled agents",
-        "Democratic deliberation"
+        "Democratic deliberation across AI perspectives"
       ],
       "technologies": [
         "TypeScript",
         "React",
         "RAG",
-        "LangChain"
+        "vLLM"
       ]
     },
     {
-      "name": "MyAshes.ai",
-      "description": "AI-powered game assistant for Ashes of Creation",
+      "name": "MyAshes",
+      "description": "AI companion platform with bilateral relationship tracking and tiered subscription model",
       "url": "https://myashes.ai",
       "highlights": [
-        "RAG-based knowledge retrieval",
-        "Natural language interaction"
+        "Bilateral e-meter relationship system",
+        "Tiered model routing (Haiku/Sonnet/Opus + self-hosted)",
+        "Psychology-informed engagement design"
       ],
       "technologies": [
+        "TypeScript",
         "React",
-        "Python",
-        "RAG",
-        "Vector DB"
+        "Neo4j",
+        "vLLM",
+        "Anthropic API"
       ]
     },
     {
       "name": "PAM Platform",
-      "description": "API key management, Stripe billing, and user authentication",
+      "description": "API key management, Stripe billing, and user authentication for the SolidRusT ecosystem",
       "url": "https://console.solidrust.ai",
       "highlights": [
         "GraphQL API",
         "Stripe integration",
-        "Rate limiting"
+        "Rate limiting and usage metering"
       ],
       "technologies": [
         "Python",
@@ -543,28 +683,55 @@
   "education": [
     {
       "institution": "Lovely Professional University",
-      "area": "Computer Science",
+      "area": "Computer Science — Applied Agile Methodologies in IT Project Management",
       "studyType": "Ph.D.",
       "startDate": "2009",
       "endDate": "2013",
-      "highlights": []
+      "highlights": [
+        "Research focused on bridging technical architecture and non-technical project leadership",
+        "Framework for business stakeholders to work effectively with autonomous technical practitioners"
+      ]
+    },
+    {
+      "institution": "Offensive Security",
+      "area": "Network Security",
+      "studyType": "OSCP Certification",
+      "startDate": "2011",
+      "endDate": "2012",
+      "highlights": [
+        "Penetration Testing with Backtrack"
+      ]
     }
   ],
   "certifications": [
     {
       "name": "Offensive Security Certified Professional (OSCP)",
       "issuer": "Offensive Security",
-      "date": ""
+      "date": "2012"
     },
     {
-      "name": "AWS Certified Solutions Architect",
+      "name": "AWS Certified Solutions Architect — Associate",
       "issuer": "Amazon Web Services",
-      "date": ""
+      "date": "2015"
     },
     {
       "name": "Certified Kubernetes Administrator (CKA)",
       "issuer": "CNCF",
       "date": ""
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native"
+    },
+    {
+      "language": "French",
+      "fluency": "Native"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Limited working"
     }
   ]
 }

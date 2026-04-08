@@ -246,12 +246,12 @@ function initTyped() {
     if (typeof Typed !== 'undefined' && document.getElementById('typed')) {
         new Typed('#typed', {
             strings: [
-                'Principal Solutions Architect',
-                'AI Infrastructure Expert',
-                'Open Source Leader',
-                'Rust Systems Developer',
-                'Gaming Automation Pioneer',
-                'MLOps Platform Builder'
+                'Principal Cloud & AI Platform Architect',
+                'AI Infrastructure Builder',
+                'Kubernetes Platform Engineer',
+                'Open Source Contributor — 550+ Models on HF',
+                'Production AI Systems Architect',
+                'Founder, SolidRusT Networks'
             ],
             typeSpeed: 50,
             backSpeed: 30,
