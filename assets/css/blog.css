@@ -65,7 +65,7 @@
 .filter-group input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1);
 }
 
 /* Search Input */

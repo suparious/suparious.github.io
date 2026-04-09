@@ -98,7 +98,7 @@ select:focus-visible {
 .form-group input:focus-visible,
 .form-group textarea:focus-visible {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2);
     outline: none;
 }
 

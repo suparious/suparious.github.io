@@ -176,9 +176,9 @@ class ThemeAwareFeatures {
         if (typeof pJSDom !== 'undefined' && pJSDom.length > 0) {
             const particles = pJSDom[0].pJS;
             if (particles) {
-                const colors = theme === 'dark' 
-                    ? ['#6366f1', '#a78bfa', '#22d3ee']
-                    : ['#4f46e5', '#7c3aed', '#06b6d4'];
+                const colors = theme === 'dark'
+                    ? ['#22c55e', '#eab308', '#ef4444']
+                    : ['#16a34a', '#ca8a04', '#dc2626'];
                 
                 particles.particles.color.value = colors;
                 particles.particles.line_linked.color = colors[0];

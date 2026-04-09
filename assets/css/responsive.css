@@ -576,11 +576,11 @@
 /* Dark Mode Preference */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-        --primary-color: #6366f1;
-        --primary-dark: #4f46e5;
-        --primary-light: #818cf8;
-        --secondary-color: #a78bfa;
-        --accent-color: #22d3ee;
+        --primary-color: #22c55e;
+        --primary-dark: #16a34a;
+        --primary-light: #4ade80;
+        --secondary-color: #eab308;
+        --accent-color: #ef4444;
         
         --background: #0a0a0f;
         --background-secondary: #111118;
