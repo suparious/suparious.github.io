@@ -94,22 +94,8 @@
     }
 }
 
-/* Small Devices (768px and down) */
-@media (max-width: 768px) {
-    /* Typography */
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    h2 {
-        font-size: 2rem;
-    }
-    
-    h3 {
-        font-size: 1.5rem;
-    }
-    
-    /* Navigation */
+/* Navigation collapse - trigger earlier for 8 nav items */
+@media (max-width: 1024px) {
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -124,37 +110,54 @@
         border-top: 1px solid var(--border-color);
         z-index: 999;
     }
-    
+
     .nav-menu.active {
         left: 0;
     }
-    
+
     .nav-link {
         display: block;
         padding: var(--spacing-md) 0;
+        font-size: 1rem;
     }
-    
+
     .nav-actions {
         margin-right: var(--spacing-md);
     }
-    
+
     .hamburger {
         display: flex;
         flex-direction: column;
         cursor: pointer;
         z-index: 1000;
     }
-    
+
     .hamburger.active span:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
     }
-    
+
     .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .hamburger.active span:nth-child(3) {
         transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Small Devices (768px and down) */
+@media (max-width: 768px) {
+    /* Typography */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
     }
     
     /* Hero Section */
@@ -500,49 +503,49 @@
         display: none !important;
     }
     
-    /* Reset colors for print */
-    * {
+    /* Reset colors for print — skip when resume overlay is active */
+    body:not(.printing-resume) * {
         color: black !important;
         background: white !important;
         box-shadow: none !important;
         text-shadow: none !important;
     }
-    
+
     /* Ensure content is visible */
-    body {
+    body:not(.printing-resume) {
         font-size: 12pt;
         line-height: 1.5;
     }
-    
-    h1 {
+
+    body:not(.printing-resume) h1 {
         font-size: 24pt;
     }
-    
-    h2 {
+
+    body:not(.printing-resume) h2 {
         font-size: 18pt;
     }
-    
-    h3 {
+
+    body:not(.printing-resume) h3 {
         font-size: 14pt;
     }
-    
+
     /* Break pages appropriately */
     .section {
         page-break-inside: avoid;
         page-break-after: auto;
     }
-    
+
     .timeline-item,
     .project-card,
     .publication-card {
         page-break-inside: avoid;
     }
-    
-    /* Show URLs for links */
-    a[href^="http"]:after {
+
+    /* Show URLs for links — skip inside resume overlay */
+    body:not(.printing-resume) a[href^="http"]:after {
         content: " (" attr(href) ")";
     }
-    
+
     /* Ensure images fit on page */
     img {
         max-width: 100% !important;

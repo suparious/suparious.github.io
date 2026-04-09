@@ -281,15 +281,16 @@
 .github-stat-card {
     background: var(--surface);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     padding: var(--spacing-xl);
     text-align: center;
     transition: all var(--transition-base);
 }
 
 .github-stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--shadow-color);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px var(--shadow-color);
+    border-color: var(--primary-light);
 }
 
 .github-stat-card i {
@@ -529,16 +530,18 @@
 
 .case-study-card {
     background: var(--surface);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-xl);
     overflow: hidden;
     transition: all var(--transition-base);
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border-color);
 }
 
 .case-study-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
     box-shadow: 0 20px 40px var(--shadow-color);
+    border-color: var(--primary-light);
 }
 
 .case-study-header {

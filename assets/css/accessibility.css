@@ -406,14 +406,15 @@ a:hover {
         display: none !important;
     }
 
-    a[href]::after {
+    /* Show link URLs in print — skip inside resume overlay */
+    body:not(.printing-resume) a[href]::after {
         content: " (" attr(href) ")";
         font-size: 0.8em;
         color: #666;
     }
 
-    a[href^="#"]::after,
-    a[href^="javascript:"]::after {
+    body:not(.printing-resume) a[href^="#"]::after,
+    body:not(.printing-resume) a[href^="javascript:"]::after {
         content: "";
     }
 }
