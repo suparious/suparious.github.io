@@ -285,19 +285,26 @@
         const p = resumeData.personal;
 
         // Build a clean resume overlay
+        // Remove any existing overlay
+        const existing = document.getElementById('resume-print-overlay');
+        if (existing) existing.remove();
+
         const overlay = document.createElement('div');
         overlay.id = 'resume-print-overlay';
         overlay.innerHTML = buildPrintResume(p);
         document.body.appendChild(overlay);
         document.body.classList.add('printing-resume');
 
-        window.print();
+        // Wait for DOM to paint before triggering print
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                window.print();
 
-        // Clean up after print dialog
-        setTimeout(() => {
-            document.body.classList.remove('printing-resume');
-            overlay.remove();
-        }, 1000);
+                // Clean up after print dialog closes
+                document.body.classList.remove('printing-resume');
+                overlay.remove();
+            });
+        });
     }
 
     function buildPrintResume(p) {
