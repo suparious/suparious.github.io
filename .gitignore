@@ -1,2 +1,5 @@
 # Claude Code local settings (workstation-specific)
 .claude/settings.local.json
+
+# Job search — private, not published to site
+job-search/
