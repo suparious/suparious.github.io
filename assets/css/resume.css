@@ -244,113 +244,211 @@
     margin-right: var(--spacing-xs);
 }
 
-/* Print Styles */
+/* ========================
+   Print Resume Overlay
+   Clean 2-3 page PDF layout
+   ======================== */
+
+/* Hide overlay on screen */
+#resume-print-overlay {
+    display: none;
+}
+
 @media print {
-    /* Reset for print */
-    *,
-    *::before,
-    *::after {
-        background: white !important;
-        color: black !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-    }
-    
-    body {
-        font-size: 11pt;
-        line-height: 1.4;
-    }
-    
-    /* Hide non-essential elements */
-    .navbar,
-    .footer,
-    .chat-widget,
-    .resume-controls,
-    .scroll-indicator,
-    .hero,
-    .particles-container,
-    .expand-indicator,
-    .back-to-top,
-    .skip-links,
-    #loader {
+    /* When printing resume, hide EVERYTHING except the overlay */
+    body.printing-resume > *:not(#resume-print-overlay) {
         display: none !important;
     }
-    
-    /* Show main content only */
-    main {
-        padding: 0 !important;
+
+    body.printing-resume #resume-print-overlay {
+        display: block !important;
     }
-    
-    .section {
-        padding: 1rem 0 !important;
-        page-break-inside: avoid;
+
+    /* Reset */
+    body.printing-resume {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        font-size: 9.5pt;
+        line-height: 1.35;
+        color: #111 !important;
+        background: white !important;
     }
-    
-    .container {
-        max-width: 100% !important;
-        padding: 0 !important;
+
+    .print-resume {
+        max-width: 100%;
+        padding: 0.3in 0.5in;
+        color: #111;
+        background: white;
     }
-    
-    /* Timeline adjustments */
-    .timeline {
-        padding-left: 0;
+
+    /* Header */
+    .print-header {
+        text-align: center;
+        margin-bottom: 10pt;
+        padding-bottom: 8pt;
+        border-bottom: 2pt solid #333;
     }
-    
-    .timeline-marker {
-        display: none;
+
+    .print-header h1 {
+        font-size: 22pt;
+        font-weight: 700;
+        margin: 0 0 2pt 0;
+        color: #111 !important;
     }
-    
-    .timeline-item {
-        padding-left: 0;
-        margin-bottom: 1rem;
-        page-break-inside: avoid;
+
+    .print-title {
+        font-size: 12pt;
+        color: #444 !important;
+        margin-bottom: 4pt;
     }
-    
-    .timeline-item::before {
-        display: none;
+
+    .print-contact {
+        font-size: 8.5pt;
+        color: #555 !important;
     }
-    
-    .timeline-content {
-        border: 1px solid #ddd;
-        padding: 0.75rem;
+
+    .print-contact a {
+        color: #333 !important;
+        text-decoration: none;
     }
-    
-    /* Expand all details for print */
-    .timeline-details {
-        max-height: none !important;
-        opacity: 1 !important;
+
+    /* Sections */
+    .print-section {
+        margin-bottom: 8pt;
     }
-    
-    /* Skills section */
-    .skill-bar {
-        display: none;
-    }
-    
-    .skill-level {
-        font-weight: bold;
-    }
-    
-    /* Links */
-    a[href]::after {
-        content: none;
-    }
-    
-    /* Tags */
-    .tag,
-    .tech-tag,
-    .tech-pill {
-        border: 1px solid #999;
-        padding: 1px 6px;
-    }
-    
-    /* Page breaks */
-    h2, h3 {
+
+    .print-section h2 {
+        font-size: 11pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5pt;
+        border-bottom: 1pt solid #999;
+        padding-bottom: 2pt;
+        margin: 0 0 6pt 0;
+        color: #111 !important;
         page-break-after: avoid;
     }
-    
-    .project-card,
-    .case-study-card {
+
+    .print-section > p {
+        margin: 0 0 6pt 0;
+        font-size: 9pt;
+        color: #222 !important;
+    }
+
+    /* Experience entries */
+    .print-exp-entry {
+        margin-bottom: 8pt;
         page-break-inside: avoid;
+    }
+
+    .print-exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1pt;
+    }
+
+    .print-exp-header strong {
+        font-size: 10pt;
+        color: #111 !important;
+    }
+
+    .print-exp-date {
+        font-size: 8.5pt;
+        color: #555 !important;
+        white-space: nowrap;
+    }
+
+    .print-exp-company {
+        font-size: 9pt;
+        color: #444 !important;
+        margin-bottom: 2pt;
+    }
+
+    .print-exp-summary {
+        margin: 2pt 0;
+        font-size: 9pt;
+        color: #222 !important;
+    }
+
+    .print-exp-highlights {
+        margin: 2pt 0 2pt 14pt;
+        padding: 0;
+        font-size: 8.5pt;
+        color: #222 !important;
+    }
+
+    .print-exp-highlights li {
+        margin-bottom: 1pt;
+    }
+
+    .print-exp-tech {
+        font-size: 8pt;
+        color: #555 !important;
+        margin-top: 2pt;
+    }
+
+    /* Skills */
+    .print-skill-row {
+        font-size: 9pt;
+        margin-bottom: 2pt;
+        color: #222 !important;
+    }
+
+    .print-skill-row strong {
+        color: #111 !important;
+    }
+
+    /* Education / Certs / Languages — inline layout */
+    .print-section-inline {
+        display: flex;
+        gap: 20pt;
+        flex-wrap: wrap;
+    }
+
+    .print-section-inline > div {
+        flex: 1;
+        min-width: 150pt;
+    }
+
+    .print-section-inline h2 {
+        font-size: 10pt;
+    }
+
+    .print-edu-entry {
+        font-size: 9pt;
+        margin-bottom: 3pt;
+        color: #222 !important;
+    }
+
+    .print-section-inline p {
+        font-size: 8.5pt;
+        margin: 0;
+        color: #222 !important;
+    }
+
+    /* Page break control */
+    .print-resume h2 {
+        page-break-after: avoid;
+    }
+
+    .print-exp-entry {
+        page-break-inside: avoid;
+    }
+
+    /* Fallback: if not using overlay, hide nav/hero/footer */
+    body:not(.printing-resume) .navbar,
+    body:not(.printing-resume) .footer,
+    body:not(.printing-resume) .chat-widget,
+    body:not(.printing-resume) .hero,
+    body:not(.printing-resume) .particles-container,
+    body:not(.printing-resume) .back-to-top,
+    body:not(.printing-resume) .skip-links,
+    body:not(.printing-resume) #loader,
+    body:not(.printing-resume) .scroll-indicator,
+    body:not(.printing-resume) .resume-controls {
+        display: none !important;
     }
 }
 

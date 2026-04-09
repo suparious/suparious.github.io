@@ -275,27 +275,121 @@
         }
     }
 
-    // Download as PDF (using browser print)
+    // Download as PDF (using browser print with dedicated resume layout)
     function downloadPDF() {
-        // Expand all items before printing
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            item.classList.add('expanded');
-            const details = item.querySelector('.timeline-details');
-            if (details) details.setAttribute('aria-hidden', 'false');
-        });
+        if (!resumeData) {
+            window.print();
+            return;
+        }
 
-        // Trigger print dialog (user can save as PDF)
+        const p = resumeData.personal;
+
+        // Build a clean resume overlay
+        const overlay = document.createElement('div');
+        overlay.id = 'resume-print-overlay';
+        overlay.innerHTML = buildPrintResume(p);
+        document.body.appendChild(overlay);
+        document.body.classList.add('printing-resume');
+
         window.print();
 
-        // Restore expansion state after print dialog closes
+        // Clean up after print dialog
         setTimeout(() => {
-            document.querySelectorAll('.timeline-item').forEach((item, index) => {
-                const shouldExpand = expandedItems.has(index);
-                item.classList.toggle('expanded', shouldExpand);
-                const details = item.querySelector('.timeline-details');
-                if (details) details.setAttribute('aria-hidden', shouldExpand ? 'false' : 'true');
-            });
+            document.body.classList.remove('printing-resume');
+            overlay.remove();
         }, 1000);
+    }
+
+    function buildPrintResume(p) {
+        const experience = resumeData.experience || [];
+        const skills = resumeData.skills || {};
+        const education = resumeData.education || [];
+        const certs = resumeData.certifications || [];
+        const languages = resumeData.languages || [];
+
+        // Build experience entries — compact format
+        const expHtml = experience.map(exp => {
+            const endDate = exp.current ? 'Present' : formatDate(exp.endDate);
+            const startDate = formatDate(exp.startDate);
+            const location = exp.location ? ` — ${exp.location}` : '';
+            const highlights = (exp.highlights || [])
+                .filter(h => !h.startsWith('Left in'))
+                .map(h => `<li>${h}</li>`).join('');
+            const tech = (exp.technologies || []).join(', ');
+
+            return `
+                <div class="print-exp-entry">
+                    <div class="print-exp-header">
+                        <strong>${exp.title || exp.company}</strong>
+                        <span class="print-exp-date">${startDate} — ${endDate}</span>
+                    </div>
+                    ${exp.title ? `<div class="print-exp-company">${exp.company}${location}</div>` : ''}
+                    ${exp.summary ? `<p class="print-exp-summary">${exp.summary}</p>` : ''}
+                    ${highlights ? `<ul class="print-exp-highlights">${highlights}</ul>` : ''}
+                    ${tech ? `<div class="print-exp-tech"><em>Technologies:</em> ${tech}</div>` : ''}
+                </div>`;
+        }).join('');
+
+        // Build skills — grouped inline
+        const skillHtml = Object.entries(skills).map(([category, items]) => {
+            const label = category.charAt(0).toUpperCase() + category.slice(1);
+            const list = items.map(s => {
+                const level = s.level ? ` (${s.level})` : '';
+                return `${s.name}${level}`;
+            }).join(', ');
+            return `<div class="print-skill-row"><strong>${label}:</strong> ${list}</div>`;
+        }).join('');
+
+        // Build education
+        const eduHtml = education.map(e =>
+            `<div class="print-edu-entry"><strong>${e.studyType} — ${e.area}</strong>, ${e.institution} (${e.startDate}–${e.endDate})</div>`
+        ).join('');
+
+        // Build certifications
+        const certHtml = certs.map(c =>
+            `${c.name} — ${c.issuer}${c.date ? ` (${c.date})` : ''}`
+        ).join(' | ');
+
+        // Build languages
+        const langHtml = languages.map(l => `${l.language} (${l.fluency})`).join(', ');
+
+        return `
+            <div class="print-resume">
+                <header class="print-header">
+                    <h1>${p.name}</h1>
+                    <div class="print-title">${p.title}</div>
+                    <div class="print-contact">
+                        ${p.location} | ${p.email} | <a href="${p.website}">${p.website.replace('https://','')}</a> | <a href="${p.linkedin}">${p.linkedin.replace('https://','')}</a> | <a href="${p.github}">${p.github.replace('https://','')}</a>${p.huggingface ? ` | <a href="${p.huggingface}">${p.huggingface.replace('https://','')}</a>` : ''}
+                    </div>
+                </header>
+
+                <section class="print-section">
+                    <h2>Summary</h2>
+                    <p>${p.summary}</p>
+                </section>
+
+                <section class="print-section">
+                    <h2>Experience</h2>
+                    ${expHtml}
+                </section>
+
+                <section class="print-section">
+                    <h2>Skills</h2>
+                    ${skillHtml}
+                </section>
+
+                <section class="print-section print-section-inline">
+                    <div>
+                        <h2>Education</h2>
+                        ${eduHtml}
+                    </div>
+                    <div>
+                        <h2>Certifications</h2>
+                        <p>${certHtml}</p>
+                    </div>
+                    ${langHtml ? `<div><h2>Languages</h2><p>${langHtml}</p></div>` : ''}
+                </section>
+            </div>`;
     }
 
     // Generate text resume for download
