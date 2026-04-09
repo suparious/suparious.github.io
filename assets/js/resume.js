@@ -284,6 +284,10 @@
 
         const p = resumeData.personal;
 
+        // Remove any existing overlay from a previous attempt
+        const existing = document.getElementById('resume-print-overlay');
+        if (existing) existing.remove();
+
         // Build a clean resume overlay
         const overlay = document.createElement('div');
         overlay.id = 'resume-print-overlay';
@@ -291,13 +295,24 @@
         document.body.appendChild(overlay);
         document.body.classList.add('printing-resume');
 
-        window.print();
+        // Force a layout reflow so the browser paints the overlay and class
+        // before the print dialog opens
+        void overlay.offsetHeight;
 
-        // Clean up after print dialog
-        setTimeout(() => {
+        // Use beforeprint/afterprint events for reliable cleanup
+        function cleanup() {
+            window.removeEventListener('afterprint', cleanup);
             document.body.classList.remove('printing-resume');
             overlay.remove();
-        }, 1000);
+        }
+        window.addEventListener('afterprint', cleanup);
+
+        // Double rAF to ensure paint is flushed before print
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                window.print();
+            });
+        });
     }
 
     function buildPrintResume(p) {

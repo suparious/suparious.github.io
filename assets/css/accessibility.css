@@ -401,8 +401,11 @@ a:hover {
    Print Accessibility
 ======================== */
 @media print {
-    .skip-links,
-    [aria-hidden="true"] {
+    .skip-links {
+        display: none !important;
+    }
+
+    body:not(.printing-resume) [aria-hidden="true"] {
         display: none !important;
     }
 
