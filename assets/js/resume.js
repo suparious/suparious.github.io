@@ -20,6 +20,7 @@
         if (!experienceSection) return;
 
         await loadResumeData();
+        buildCertifications();
         enhanceTimeline();
         bindEvents();
     }
@@ -34,6 +35,30 @@
         } catch (error) {
             console.log('Resume data not loaded, using DOM content');
         }
+    }
+
+    // Build certifications grid from resume.json
+    function buildCertifications() {
+        const grid = document.getElementById('certifications-grid');
+        if (!grid || !resumeData?.certifications?.length) return;
+
+        grid.innerHTML = '';
+        resumeData.certifications.forEach(cert => {
+            const icon = cert.icon || 'fas fa-certificate';
+            const dateStr = cert.date ? ` (${cert.date})` : '';
+            const card = document.createElement('div');
+            card.className = 'cert-card';
+            card.setAttribute('role', 'listitem');
+            card.innerHTML = `
+                <div class="cert-icon" aria-hidden="true"><i class="${icon}"></i></div>
+                <div class="cert-info">
+                    <h4>${cert.name}</h4>
+                    <div class="cert-issuer">${cert.issuer}</div>
+                    ${cert.date ? `<div class="cert-date">${cert.date}</div>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+        });
     }
 
     // Format date string to readable format
@@ -283,7 +308,7 @@
         }
 
         const p = resumeData.personal;
-
+        
         // Remove any existing overlay from a previous attempt
         const existing = document.getElementById('resume-print-overlay');
         if (existing) existing.remove();
@@ -294,7 +319,7 @@
         overlay.innerHTML = buildPrintResume(p);
         document.body.appendChild(overlay);
         document.body.classList.add('printing-resume');
-
+        
         // Force a layout reflow so the browser paints the overlay and class
         // before the print dialog opens
         void overlay.offsetHeight;

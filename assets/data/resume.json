@@ -707,17 +707,64 @@
     {
       "name": "Offensive Security Certified Professional (OSCP)",
       "issuer": "Offensive Security",
-      "date": "2012"
+      "date": "2011",
+      "icon": "fas fa-shield-alt"
     },
     {
       "name": "AWS Certified Solutions Architect — Associate",
       "issuer": "Amazon Web Services",
-      "date": "2015"
+      "date": "2015",
+      "credentialId": "AWS-ASA-9478",
+      "icon": "fab fa-aws"
+    },
+    {
+      "name": "AWS Certified SysOps Administrator — Associate",
+      "issuer": "Amazon Web Services",
+      "date": "2015",
+      "credentialId": "AWS-ASOA-1590",
+      "icon": "fab fa-aws"
+    },
+    {
+      "name": "AWS Partner: Accreditation (Technical)",
+      "issuer": "Amazon Web Services",
+      "date": "2022",
+      "icon": "fab fa-aws"
+    },
+    {
+      "name": "AWS Partner: Cloud Economics Accreditation",
+      "issuer": "Amazon Web Services",
+      "date": "2022",
+      "icon": "fab fa-aws"
+    },
+    {
+      "name": "AWS Cloud Quest: Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "",
+      "icon": "fab fa-aws"
     },
     {
       "name": "Certified Kubernetes Administrator (CKA)",
       "issuer": "CNCF",
-      "date": ""
+      "date": "",
+      "icon": "fas fa-dharmachakra"
+    },
+    {
+      "name": "DevOps Foundations",
+      "issuer": "LinkedIn Learning",
+      "date": "2020",
+      "icon": "fab fa-linkedin"
+    },
+    {
+      "name": "DevSecOps: Automated Security Testing",
+      "issuer": "LinkedIn Learning",
+      "date": "2020",
+      "icon": "fas fa-lock"
+    },
+    {
+      "name": "Brainbench Certified Internet Professional (BCIP)",
+      "issuer": "Brainbench",
+      "date": "2003",
+      "icon": "fas fa-certificate"
     }
   ],
   "languages": [

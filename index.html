@@ -22,6 +22,7 @@
     <link rel="manifest" href="/manifest.json">
     
     <!-- Favicons and App Icons -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
@@ -389,6 +390,16 @@
                         <div class="tech-icon" role="listitem" aria-label="AWS"><i class="fab fa-aws" aria-hidden="true"></i></div>
                         <div class="tech-icon" role="listitem" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section" aria-labelledby="certifications-title">
+            <div class="container">
+                <h2 id="certifications-title" class="section-title">Certifications & <span class="gradient-text">Credentials</span></h2>
+                <div id="certifications-grid" class="certifications-grid" role="list" aria-label="Professional certifications">
+                    <!-- Populated dynamically from resume.json by resume.js -->
                 </div>
             </div>
         </section>
@@ -858,7 +869,7 @@
                 
                 <div class="contact-content">
                     <div class="contact-form-wrapper" data-aos="fade-right">
-                        <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST" aria-label="Contact form">
+                        <form id="contact-form" action="https://formspree.io/f/xzzpolke" method="POST" aria-label="Contact form">
                             <div class="form-group">
                                 <label for="name" class="required">Name</label>
                                 <input type="text" id="name" name="name" required aria-required="true" autocomplete="name">
@@ -946,6 +957,7 @@
     <script src="assets/js/pwa-install.js" defer></script>
     <script src="assets/js/accessibility.js" defer></script>
     <script src="assets/js/chat.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.3/jspdf.umd.min.js" defer></script>
     <script src="assets/js/resume.js" defer></script>
 </body>
 </html>

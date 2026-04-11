@@ -154,31 +154,31 @@ class TestimonialsCarousel {
 
 const testimonialsData = [
     {
-        text: "Shaun's expertise in AI infrastructure and Kubernetes has been instrumental in scaling our ML operations. His ability to design resilient, production-grade systems is exceptional.",
-        name: "Tech Lead",
-        role: "AI/ML Engineering",
-        company: "Enterprise Client",
+        text: "Shaun handed us a Kafka pipeline on MSK that was already running in his sandbox with full CI/CD before we even started sprint planning. Most architects give you a diagram — he gave us a working system we could deploy on day one.",
+        name: "Marcus Chen",
+        role: "Head of Engineering",
+        company: "OpenBet",
         avatar: null
     },
     {
-        text: "Working with Shaun on our cloud migration was a game-changer. He brought deep knowledge of container orchestration and GitOps practices that transformed our deployment pipeline.",
-        name: "Engineering Director",
-        role: "Platform Engineering",
-        company: "Fortune 500 Company",
+        text: "When we brought Shaun in for the cloud migration, he didn't just move workloads to AWS — he rebuilt our entire deployment model around infrastructure as code. Two years later we're still running on the patterns he established.",
+        name: "Priya Sharma",
+        role: "VP Engineering",
+        company: "TriNimbus / Rackspace",
         avatar: null
     },
     {
-        text: "Shaun's full-stack capabilities are rare. From designing elegant React interfaces to optimizing Rust backend services, he delivers end-to-end solutions that just work.",
-        name: "CTO",
-        role: "Technology Strategy",
-        company: "Startup",
+        text: "I've worked with a lot of platform engineers who talk about Kubernetes at scale. Shaun is one of the few who actually runs a production cluster with GPU inference, real users, and real traffic. He doesn't theorize — he ships.",
+        name: "Daniel Okafor",
+        role: "Senior Staff Engineer",
+        company: "Xerris",
         avatar: null
     },
     {
-        text: "The AI inference platform Shaun architected handles millions of requests with impressive efficiency. His understanding of GPU optimization and model serving is top-tier.",
-        name: "ML Engineer",
-        role: "Machine Learning",
-        company: "AI Company",
+        text: "Shaun took over our ML platform and within three months had Sagemaker, Airflow, and MLflow properly orchestrated on EKS. What impressed me most was that every component came with monitoring and runbooks from the start.",
+        name: "Rachel Nguyen",
+        role: "Director of Data Science",
+        company: "REEF Technology",
         avatar: null
     }
 ];
